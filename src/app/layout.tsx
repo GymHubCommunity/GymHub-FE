@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'GymHub',
-  description: 'GymHub2',
+  description: 'GymHub',
 };
 
 function RootLayout({ children }: { children: ReactNode }) {
