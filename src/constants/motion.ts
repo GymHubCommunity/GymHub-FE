@@ -28,11 +28,11 @@ export const defaultFadeInVariants: Variants = {
   },
 };
 
-export const defaultFadeInUpVariants = {
+export const defaultFadeInUpVariants: Variants = {
   initial: {
-    y: 50,
+    y: 20,
     opacity: 0,
-    transition: { duration: 0.8, ease: defaultEasing },
+    transition: { duration: 0.45, ease: defaultEasing },
     willChange: 'opacity, transform',
   },
   animate: {
@@ -42,18 +42,60 @@ export const defaultFadeInUpVariants = {
     willChange: 'opacity, transform',
   },
   exit: {
-    y: 130,
+    y: 20,
     opacity: 0,
+    transition: { duration: 0.45, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+};
+
+export const defaultFadeInScaleVariants: Variants = {
+  initial: {
+    scale: 0.85,
+    opacity: 0,
+    transition: { duration: 0.8, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 1.6, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+  exit: {
+    scale: 0.85,
+    opacity: 0,
+    transition: { duration: 0.8, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+};
+
+export const defaultFadeInLeftVariants: Variants = {
+  initial: {
+    x: -22,
+    opacity: 0,
+    transition: { duration: 0.7, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.9, ease: defaultEasing },
+    willChange: 'opacity, transform',
+  },
+  exit: {
+    x: 0,
+    opacity: 1,
     transition: { duration: 0.9, ease: defaultEasing },
     willChange: 'opacity, transform',
   },
 };
 
-export const defaultFadeInLeftVariants = {
+export const defaultFadeInRightVariants: Variants = {
   initial: {
-    x: -90,
+    x: 22,
     opacity: 0,
-    transition: { duration: 0.9, ease: defaultEasing },
+    transition: { duration: 0.7, ease: defaultEasing },
     willChange: 'opacity, transform',
   },
   animate: {
