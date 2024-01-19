@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'GymHub',
 };
 
-function RootLayout({ children }: { children: ReactNode }) {
+function RootLayout({ children }: { children: Readonly<ReactNode> } ) {
   return (
     <html lang="ko">
       <body>
