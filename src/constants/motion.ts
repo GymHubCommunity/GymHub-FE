@@ -1,16 +1,16 @@
 import { Variants } from 'framer-motion';
 
-export const defaultEasing = [0.6, -0.05, 0.01, 0.99];
+const defaultEasing = [0.6, -0.05, 0.01, 0.99];
 
-export const staggerOne: Variants = {
+const staggerOne: Variants = {
   animate: { transition: { staggerChildren: 0.1 } },
 };
 
-export const staggerHalf: Variants = {
+const staggerHalf: Variants = {
   animate: { transition: { staggerChildren: 0.05 } },
 };
 
-export const defaultFadeInVariants: Variants = {
+const defaultFadeInVariants: Variants = {
   initial: {
     opacity: 0,
     transition: { duration: 0.5, ease: defaultEasing },
@@ -28,7 +28,7 @@ export const defaultFadeInVariants: Variants = {
   },
 };
 
-export const defaultFadeInUpVariants: Variants = {
+const defaultFadeInUpVariants: Variants = {
   initial: {
     y: 20,
     opacity: 0,
@@ -49,7 +49,7 @@ export const defaultFadeInUpVariants: Variants = {
   },
 };
 
-export const defaultFadeInScaleVariants: Variants = {
+const defaultFadeInScaleVariants: Variants = {
   initial: {
     scale: 0.85,
     opacity: 0,
@@ -70,7 +70,7 @@ export const defaultFadeInScaleVariants: Variants = {
   },
 };
 
-export const defaultFadeInLeftVariants: Variants = {
+const defaultFadeInLeftVariants: Variants = {
   initial: {
     x: -22,
     opacity: 0,
@@ -91,7 +91,7 @@ export const defaultFadeInLeftVariants: Variants = {
   },
 };
 
-export const defaultFadeInRightVariants: Variants = {
+const defaultFadeInRightVariants: Variants = {
   initial: {
     x: 22,
     opacity: 0,
@@ -110,4 +110,14 @@ export const defaultFadeInRightVariants: Variants = {
     transition: { duration: 0.9, ease: defaultEasing },
     willChange: 'opacity, transform',
   },
+};
+
+export {
+  defaultFadeInLeftVariants,
+  defaultFadeInRightVariants,
+  defaultFadeInScaleVariants,
+  defaultFadeInUpVariants,
+  defaultFadeInVariants,
+  staggerHalf,
+  staggerOne,
 };
