@@ -1,3 +1,3 @@
-import SentryInit from "@/utils/sentry";
+import SentryInit from '@/utils/sentry';
 
 SentryInit();

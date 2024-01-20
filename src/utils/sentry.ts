@@ -7,7 +7,7 @@ function SentryInit() {
       tracesSampleRate: 1.0,
       environment: process.env.NODE_ENV,
     });
-}
+  }
 }
 
 export default SentryInit;
