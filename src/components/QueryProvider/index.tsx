@@ -14,7 +14,7 @@ function QueryProvider({ children }: { children: ReactNode }) {
             staleTime: 20 * 1000,
           },
         },
-      })
+      }),
   );
 
   return (
