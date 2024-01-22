@@ -1,5 +1,6 @@
 import QueryProvider from '@/components/QueryProvider';
 import METADATA from '@/constants/metaData';
+import '@/styles/globalStyle.css';
 
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   },
 };
 
-function RootLayout({ children }: { children: Readonly<ReactNode> } ) {
+function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
