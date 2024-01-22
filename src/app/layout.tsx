@@ -1,6 +1,6 @@
 import QueryProvider from '@/components/QueryProvider';
 import METADATA from '@/constants/metaData';
-import '@/styles/globalStyle.css';
+import '@/styles/globalStyle.scss';
 
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
@@ -39,7 +39,7 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
     <html lang="ko">
       <body>
         <QueryProvider>{children}</QueryProvider>
-        <Toaster containerStyle={{ fontSize: '16px' }} />
+        <Toaster containerClassName="toast" />
       </body>
     </html>
   );
