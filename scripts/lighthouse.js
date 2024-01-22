@@ -6,7 +6,9 @@ module.exports = () => {
   const formatResult = (res) => Math.round(res * 100);
 
   const results = JSON.parse(
-    fs.readFileSync(`${secrets.working_directory}/lhci_reports/manifest.json`)
+    fs.readFileSync(
+      `${process.env.working_directory}/lhci_reports/manifest.json`
+    )
   );
 
   let comments = '';
