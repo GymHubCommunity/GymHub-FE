@@ -5,7 +5,7 @@ module.exports = () => {
   const score = (res) => (res >= 90 ? '🟢' : res >= 50 ? '🟠' : '🔴');
   const formatResult = (res) => Math.round(res * 100);
 
-  const results = JSON.parse(fs.readFileSync('./lhci_reports/manifest.json'));
+  const results = JSON.parse(fs.readFileSync(`${process.env.LIGHTHOUSE_FILE}`));
 
   let comments = '';
 
