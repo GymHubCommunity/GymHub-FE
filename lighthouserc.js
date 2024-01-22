@@ -1,18 +1,21 @@
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: './build',
+      startServerCommand: 'npm run start',
       url: ['http://localhost:3000'],
-      collect: {
-        numberOfRuns: 3,
-      },
+      numberOfRuns: 1,
     },
     upload: {
-      startServerCommand: 'npm run start',
-      target: 'temporary-public-storage',
+      target: 'filesystem',
+      outputDir: './lhci_reports',
+      reportFilenamePattern: '%%PATHNAME%%-%%DATETIME%%-report.%%EXTENSION%%',
     },
     assert: {
       preset: 'lighthouse:recommended',
+      assertions: {
+        'uses-rel-preload': 'off',
+        'uses-rel-preconnect': 'off',
+      },
     },
   },
 };

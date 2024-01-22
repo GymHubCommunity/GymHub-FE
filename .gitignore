@@ -35,4 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.lighthouseci/
+# lighthouse
+.lighthouseci
+lhci_reports
