@@ -19,15 +19,16 @@ jobs:
         run: |
           npm ci
 
+      - name: Install @lhci/cli
+        run: npm install -g @lhci/cli@0.13.x
+
       - name: Build the application
         run: npm run build
 
       - name: Run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.13.x
-          lhci autorun || echo "Lighthouse CI 실행이 실패했어요 🥵"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: lhci autorun || echo "Lighthouse CI 실행이 실패했어요 🥵"
 
       - name: Format lighthouse score
         id: format_lighthouse_score
