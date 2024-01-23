@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run start',
       url: ['http://localhost:3000'],
-      numberOfRuns: 1,
+      numberOfRuns: 5,
     },
     upload: {
       target: 'filesystem',
@@ -16,6 +16,8 @@ module.exports = {
     assert: {
       preset: 'lighthouse:recommended',
       assertions: {
+        'categories:performance': ['warn', { minScore: 0.9 }],
+        'categories:accessibility': ['error', { minScore: 1 }],
         'uses-rel-preload': 'off',
         'uses-rel-preconnect': 'off',
       },
