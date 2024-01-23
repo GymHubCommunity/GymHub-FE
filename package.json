@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "lintStaged": "lint-staged"
+    "lintStaged": "lint-staged",
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@sentry/nextjs": "^7.93.0",
@@ -24,6 +25,7 @@
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.13.0",
     "@storybook/addon-essentials": "^7.6.8",
     "@storybook/addon-interactions": "^7.6.8",
     "@storybook/addon-links": "^7.6.8",
