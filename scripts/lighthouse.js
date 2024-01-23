@@ -19,10 +19,8 @@ module.exports = () => {
       (key) => (summary[key] = formatResult(summary[key]))
     );
 
-    const [, pageName] = url.split('3000');
-
     const comment = [
-      `🏋🏻 ${pageName}의 Lighthouse 리포트입니다 🏋🏻 `,
+      `🏋🏻 Gymhub의 Lighthouse 리포트입니다 🏋🏻 `,
       `| Category | Score |`,
       `| --- | --- |`,
       `| ${score(summary.performance)} Performance | ${summary.performance} |`,
