@@ -19,6 +19,8 @@ module.exports = () => {
       (key) => (summary[key] = formatResult(summary[key]))
     );
 
+    const [] = url.split('3000');
+
     const comment = [
       `🏋🏻 Gymhub의 Lighthouse 리포트입니다 🏋🏻 `,
       `| Category | Score |`,
