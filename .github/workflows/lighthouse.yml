@@ -51,4 +51,4 @@ jobs:
         with:
           message: ${{ steps.format_lighthouse_score.outputs.comments}}
 
-            - run: echo '${{github.actor}}님! light house 보고가세용 🤨'
+      - run: echo '${{github.actor}}님! light house 보고가세용 🤨'
