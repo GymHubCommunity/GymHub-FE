@@ -10,7 +10,7 @@ module.exports = () => {
   let comments = '';
 
   results.forEach((result) => {
-    const { url, summary, jsonPath } = result;
+    const { url, summary, jsonPath } = result[0];
     const details = JSON.parse(fs.readFileSync(jsonPath));
 
     const { audits } = details;
