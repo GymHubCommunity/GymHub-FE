@@ -2,7 +2,7 @@ import Name from '@/components/atoms/Name';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import WorkOutDays from '@/components/atoms/WorkOutDays';
 import styles from '@/components/molecules/Profile/Profile.module.scss';
-import Patrick from '@/public/images/뚱이.jpeg';
+import Patrick from '@/public/images/star.jpeg';
 
 function Profile() {
   return (
