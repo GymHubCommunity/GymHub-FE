@@ -78,6 +78,14 @@ textarea:not([rows]) {
   min-height: 10em;
 }
 
+// @TODO: 삭제 예정
+section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
 :target {
   scroll-margin-block: 5ex;
 }
