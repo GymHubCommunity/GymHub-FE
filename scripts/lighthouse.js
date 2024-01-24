@@ -10,7 +10,7 @@ module.exports = () => {
   let comments = '';
 
   results.forEach((result) => {
-    const { url, summary, jsonPath } = result[0];
+    const { summary, jsonPath } = result[0];
     const details = JSON.parse(fs.readFileSync(jsonPath));
 
     const { audits } = details;
@@ -44,16 +44,12 @@ module.exports = () => {
       )} First Contentful Paint | ${
         audits[`first-contentful-paint`].displayValue
       } |`,
-      `| ${score(
-        audits[`speed-index`].score * 100
-      )} Speed Index | ${
+      `| ${score(audits[`speed-index`].score * 100)} Speed Index | ${
         audits[`speed-index`].displayValue
       } |`,
       `| ${score(
         audits[`total-blocking-time`].score * 100
-      )} Total Blocking Time | ${
-        audits[`total-blocking-time`].displayValue
-      } |`,
+      )} Total Blocking Time | ${audits[`total-blocking-time`].displayValue} |`,
       `| ${score(
         audits[`largest-contentful-paint`].score * 100
       )} Largest Contentful Paint | ${
@@ -63,8 +59,8 @@ module.exports = () => {
         audits[`cumulative-layout-shift`].score * 100
       )} Cumulative Layout Shift | ${
         audits[`cumulative-layout-shift`].displayValue
-      } |`
-    ].join("\n");
+      } |`,
+    ].join('\n');
 
     comments += `${comment}\n\n${detail}\n\n`;
   });
