@@ -4,7 +4,7 @@ import RegisterFormProvider from '@/components/FormProvider/RegisterFormProvider
 import { ReactNode } from 'react';
 
 import { userFormSchema } from '@/constants/userSchema';
-import useIsMounted from '@/hooks/useMounted';
+import useIsMounted from '@/hooks/useIsMounted';
 import { SchemaProps } from '@/types/user';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
