@@ -3,7 +3,7 @@
 interface SchemaProps {
   email: string;
   address: string;
-  birthday: BirthdayProps;
+  birthday?: BirthdayProps;
   introduction: string;
   status: string;
   careers?: CareerProps[];
@@ -16,12 +16,12 @@ interface BirthdayProps {
 }
 
 interface CareerProps {
-  companyName: string;
-  title: string;
+  companyName?: string;
+  title?: string;
   description?: string;
-  startDate: string;
+  startDate?: string;
   endDate?: string;
-  isCurrent: boolean;
+  isCurrent?: boolean;
 }
 
 export type { SchemaProps };
