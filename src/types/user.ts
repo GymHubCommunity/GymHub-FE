@@ -3,10 +3,8 @@
 interface SchemaProps {
   email: string;
   address: string;
-  birthday?: BirthdayProps;
   introduction: string;
   status: string;
-  careers?: CareerProps[];
 }
 
 interface BirthdayProps {
