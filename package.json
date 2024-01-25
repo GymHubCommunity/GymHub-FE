@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "lintStaged": "lint-staged"
+    "lintStaged": "lint-staged",
+    "webpack": "webpack-bundle-analyzer"
   },
   "dependencies": {
     "@sentry/nextjs": "^7.93.0",
@@ -38,6 +39,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "css-loader": "^6.9.1",
+    "css-minimizer-webpack-plugin": "^6.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "eslint-plugin-storybook": "^0.6.15",
@@ -46,9 +49,12 @@
     "prettier": "^3.2.2",
     "sass": "^1.69.7",
     "storybook": "^7.6.8",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "typescript": "^5",
+    "typescript": "^5.3.3",
     "webpack": "^5.89.0",
+    "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4"
   },
   "lint-staged": {
