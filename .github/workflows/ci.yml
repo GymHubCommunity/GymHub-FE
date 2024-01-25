@@ -9,6 +9,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Configure Git
+        run: git config core.ignorecase false
+
       - name: Check Node
         uses: actions/setup-node@v4
         with:
