@@ -1,0 +1,13 @@
+body:
+  - type: dropdown
+    id: download
+    attributes:
+      label: 🧑🏻‍💻 발표자
+      options:
+        - 남궁수
+        - 남궁수영
+        - 임윤혁
+        - 한슬희
+    validations:  
+      required: true
+  - type: markdown

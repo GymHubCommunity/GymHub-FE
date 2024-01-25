@@ -11,7 +11,8 @@
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "lintStaged": "lint-staged",
-    "webpack": "webpack-bundle-analyzer"
+    "webpack": "webpack-bundle-analyzer",
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@sentry/nextjs": "^7.93.0",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@lhci/cli": "^0.13.0",
     "@storybook/addon-essentials": "^7.6.8",
     "@storybook/addon-interactions": "^7.6.8",
     "@storybook/addon-links": "^7.6.8",

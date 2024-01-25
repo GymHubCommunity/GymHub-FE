@@ -1,5 +1,6 @@
 import QueryProvider from '@/components/QueryProvider';
 import METADATA from '@/constants/metaData';
+import '@/styles/globalStyle.scss';
 import { JotaiProvider } from 'jotai';
 
 import type { Metadata } from 'next';
