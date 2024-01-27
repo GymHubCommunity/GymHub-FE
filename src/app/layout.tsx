@@ -1,3 +1,4 @@
+import AuthProvider from '@/components/AuthProvider';
 import QueryProvider from '@/components/QueryProvider';
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
@@ -40,7 +41,9 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
     <html lang="ko">
       <body>
         <Tracking />
-        <QueryProvider>{children}</QueryProvider>
+        <AuthProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </AuthProvider>
         <Toaster containerClassName="toast" />
       </body>
     </html>
