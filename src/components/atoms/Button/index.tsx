@@ -12,7 +12,11 @@ interface ButtonProps {
 
 function Button({ onClick, content, size, color }: ButtonProps) {
   return (
-    <button onClick={onClick} className={cn('button', size, color)}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn('button', size, color)}
+    >
       {content}
     </button>
   );
