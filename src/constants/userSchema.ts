@@ -7,6 +7,7 @@ const EMAIL_STANDARD =
 const userFormSchema = yup.object().shape({
   email: yup
     .string()
+    .trim()
     .required('이메일을 입력해주세요')
     .matches(EMAIL_STANDARD, '올바른 이메일 주소가 아닙니다'),
   address: yup.string().required('주소를 입력해주세요'),
