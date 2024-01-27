@@ -1,3 +1,3 @@
-const baseURL = 'http://localhost:3000/'; //임시 URL
+const baseURL = 'https://gymhub.vercel.app/';
 
 export { baseURL };

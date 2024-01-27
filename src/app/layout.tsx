@@ -1,7 +1,8 @@
 import QueryProvider from '@/components/QueryProvider';
-import METADATA from '@/constants/metaData';
+import METADATA from '@/constants/metaData';';
+import Tracking from '@/utils/Tracking';
 import '@/styles/globalStyle.scss';
-import { JotaiProvider } from 'jotai';
+import { JotaiProvider } from 'jotai
 
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
@@ -39,10 +40,11 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
+        <Tracking />
         <JotaiProvider>
           <QueryProvider>{children}</QueryProvider>
         </JotaiProvider>
-        <Toaster containerStyle={{ fontSize: '16px' }} />
+        <Toaster containerClassName="toast" />
       </body>
     </html>
   );
