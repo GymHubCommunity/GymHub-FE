@@ -39,7 +39,6 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <Tracking />
         <QueryProvider>
           <MobileLayout>{children}</MobileLayout>
         </QueryProvider>
