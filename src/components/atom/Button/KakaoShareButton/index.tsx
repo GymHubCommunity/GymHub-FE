@@ -3,9 +3,10 @@
 import { useEffect } from 'react';
 
 //TODO: 데이터 추가 및 디자인 입히기
+const id = 'kakao-sdk';
+
 function KakaoShareButton() {
   useEffect(() => {
-    const id = 'kakao-sdk';
     if (document.getElementById(id) == null) {
       const script = document.createElement('script');
       script.id = id;
