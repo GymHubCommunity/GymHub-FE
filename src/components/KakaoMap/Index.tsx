@@ -1,6 +1,7 @@
 'use client';
 import styles from '@/components/KakaoMap/KakaoMap.module.scss';
 import { DEFAULT_LOCATION } from '@/constants/Map';
+import useCurrentLocation from '@/hooks/useCurrentPosition';
 import { useEffect, useRef, useState } from 'react';
 
 //remote/global.d.ts 가 merge되면 지울 부분
@@ -13,7 +14,10 @@ const id = 'kakaoMap';
 
 function KakaoMap() {
   const [map, setMap] = useState<any>(null);
+  const [marker, setMarker] = useState<any>();
+
   const container = useRef(null);
+  const location = useCurrentLocation();
 
   useEffect(() => {
     if (document.getElementById(id) == null) {
@@ -40,10 +44,24 @@ function KakaoMap() {
       };
 
       setMap(new window.kakao.maps.Map(container.current, options));
+      setMarker(new window.kakao.maps.Marker());
     });
   };
 
-  return <div className={styles.container} ref={container}></div>;
+  const moveToCurrentLocation = () => {
+    const { latitude, longitude } = location;
+    const currentPos = new window.kakao.maps.LatLng(latitude, longitude);
+    map.panTo(currentPos);
+  };
+
+  return (
+    <>
+      <button className={styles.button} onClick={moveToCurrentLocation}>
+        현재 위치
+      </button>
+      <div className={styles.container} ref={container}></div>
+    </>
+  );
 }
 
 export default KakaoMap;
