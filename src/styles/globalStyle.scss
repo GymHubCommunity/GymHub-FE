@@ -69,6 +69,15 @@ select {
   font: inherit;
 }
 
+input {
+  border: none;
+  padding: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 button {
   all: unset;
   cursor: pointer;
