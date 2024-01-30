@@ -1,9 +1,9 @@
-.wrapper {
+.container {
   width: 100%;
   height: 100vh;
   height: -moz-available;
   height: -webkit-fill-available;
   min-height: calc(var(--vh, 1vh) * 100);
-  max-width: 480px; //TODO: 디자인 정해진 사이즈로 변경
+  max-width: 393px;
   margin: 0 auto;
 }

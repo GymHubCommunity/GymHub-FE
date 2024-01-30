@@ -13,7 +13,7 @@ function MobileLayout({ children }: PropsWithChildren) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, [windowSize.height]);
 
-  return <div className={styles.wrapper}>{children}</div>;
+  return <div className={styles.container}>{children}</div>;
 }
 
 export default MobileLayout;
