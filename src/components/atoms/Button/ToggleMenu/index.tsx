@@ -1,4 +1,4 @@
-import styles from '@/components/atoms/Toggle/ToggleMenu/ToggleMenu.module.scss';
+import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
 import { menuItems } from '@/constants/ToggleMenu';
 import useToggleMenu from '@/hooks/useToggleMenu';
 
