@@ -6,7 +6,7 @@ function ToggleMenu() {
   const { isOpen, openMenu, closeMenu } = useToggleMenu();
 
   return (
-    <div onBlur={closeMenu}>
+    <div role="presentation" onBlur={closeMenu}>
       <button
         type="button"
         className={styles.toggleButton}
