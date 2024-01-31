@@ -53,7 +53,6 @@ function KakaoMap() {
     const currentPos = new window.kakao.maps.LatLng(latitude, longitude);
     map.panTo(currentPos);
 
-    marker.setMap(null);
     marker.setMap(map);
     marker.setPosition(currentPos);
   };
