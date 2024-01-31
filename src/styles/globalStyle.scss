@@ -70,8 +70,7 @@ select {
 }
 
 input {
-  border: none;
-  padding: none;
+  all: unset;
 }
 
 input:focus {
