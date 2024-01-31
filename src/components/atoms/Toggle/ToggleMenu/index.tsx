@@ -7,7 +7,11 @@ function ToggleMenu() {
 
   return (
     <div onBlur={closeMenu}>
-      <button type="button" className={styles.button} onClick={openMenu} />
+      <button
+        type="button"
+        className={styles.toggleButton}
+        onClick={openMenu}
+      />
       {isOpen && (
         <ul className={styles.menus}>
           {menuItems.map((val) => (
