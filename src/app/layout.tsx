@@ -1,3 +1,4 @@
+import MobileLayout from '@/components/Layout/MobileLayout';
 import QueryProvider from '@/components/QueryProvider';
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
@@ -39,7 +40,9 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
     <html lang="ko">
       <body>
         <Provider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <MobileLayout>{children}</MobileLayout>
+          </QueryProvider>
         </Provider>
         <Toaster containerClassName="toast" />
       </body>
