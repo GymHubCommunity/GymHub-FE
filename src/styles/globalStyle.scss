@@ -78,6 +78,15 @@ textarea:not([rows]) {
   min-height: 10em;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
 :target {
   scroll-margin-block: 5ex;
 }
