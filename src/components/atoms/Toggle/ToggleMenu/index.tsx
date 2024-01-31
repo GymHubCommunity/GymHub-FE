@@ -16,6 +16,7 @@ function ToggleMenu() {
         <ul className={styles.menus}>
           {menuItems.map((val) => (
             <li
+              role="presentation"
               key={val.id}
               className={styles.item}
               onMouseDown={() => console.log(val.item)}
