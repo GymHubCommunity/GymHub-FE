@@ -1,23 +1,35 @@
 'use client';
-import ConvertDate from '@/utils/ConvertDate';
-import { ChangeEvent, useState } from 'react';
+import RegisterItem from '@/components/Form/RegisterItem';
+import RegisterFormProvider from '@/components/FormProvider/RegisterFormProvider';
+import { SchemaProps } from '@/types/user';
+import DateFormat from '@/utils/DateFormat';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useFormContext } from 'react-hook-form';
 
 function DateInput() {
-  const [startsAt, setStartsAt] = useState('');
-  const minDateTime = ConvertDate(new Date()).slice(0, 16);
+  const { year, month, day } = DateFormat(new Date());
+  const minDateTime = year + '-' + month + '-' + day;
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setStartsAt(ConvertDate(new Date(event.target.value)));
-  };
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<SchemaProps>();
 
   return (
-    <input
-      placeholder="선택"
-      type="datetime-local"
-      value={startsAt.slice(0, 16)}
-      min={minDateTime}
-      onChange={handleChange}
-    />
+    <RegisterFormProvider>
+      <RegisterItem title="날짜 " required>
+        <DatePicker
+          dateFormat="yyyy.MM.dd"
+          shouldCloseOnSelect
+          minDate={new Date(minDateTime)}
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+        />
+      </RegisterItem>
+    </RegisterFormProvider>
   );
 }
 
