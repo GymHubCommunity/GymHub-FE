@@ -1,5 +1,3 @@
-'use client';
-
 import imgDownLoad from '@/utils/ImgDownLoad';
 
 interface ImgDownLoadProps {
