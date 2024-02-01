@@ -13,8 +13,8 @@ declare global {
 const id = 'kakaoMap';
 
 function KakaoMap() {
-  const [map, setMap] = useState<any>(null);
-  const [marker, setMarker] = useState<any>();
+  const [map, setMap] = useState<kakao>(null);
+  const [marker, setMarker] = useState<kakao>();
 
   const container = useRef(null);
   const location = useCurrentLocation();
