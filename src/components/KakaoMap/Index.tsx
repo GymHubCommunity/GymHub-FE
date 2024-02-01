@@ -13,8 +13,8 @@ declare global {
 const id = 'kakaoMap';
 
 function KakaoMap() {
-  const [map, setMap] = useState<kakao>(null);
-  const [marker, setMarker] = useState<kakao>();
+  const [map, setMap] = useState<any>(null);
+  const [marker, setMarker] = useState<any>();
 
   const container = useRef(null);
   const location = useCurrentLocation();
@@ -62,7 +62,7 @@ function KakaoMap() {
       <button className={styles.button} onClick={moveToCurrentLocation}>
         현재 위치
       </button>
-      <div className={styles.container} ref={container}></div>
+      <div className={styles.container} ref={container} />
     </>
   );
 }
