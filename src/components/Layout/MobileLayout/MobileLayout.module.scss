@@ -1,0 +1,10 @@
+.container {
+  position: relatiave;
+  width: 100%;
+  height: 100vh;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  min-height: calc(var(--vh, 1vh) * 100);
+  max-width: 393px;
+  margin: 0 auto;
+}

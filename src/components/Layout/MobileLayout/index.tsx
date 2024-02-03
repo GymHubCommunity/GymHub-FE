@@ -1,5 +1,5 @@
 'use client';
-import styles from '@/components/Layout/Layout.module.scss';
+import styles from '@/components/Layout/MobileLayout/MobileLayout.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
 import { PropsWithChildren, useEffect } from 'react';
 
