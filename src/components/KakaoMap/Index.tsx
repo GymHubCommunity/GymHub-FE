@@ -4,12 +4,6 @@ import { DEFAULT_LOCATION } from '@/constants/Map';
 import useCurrentLocation from '@/hooks/useCurrentPosition';
 import { useEffect, useRef, useState } from 'react';
 
-//remote/global.d.ts 가 merge되면 지울 부분
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
 const id = 'kakaoMap';
 
 function KakaoMap() {
@@ -34,23 +28,23 @@ function KakaoMap() {
   }, []);
 
   const loadMap = () => {
-    window.kakao.maps.load(() => {
+    window.Kakao.maps.load(() => {
       const options = {
-        center: new window.kakao.maps.LatLng(
+        center: new window.Kakao.maps.LatLng(
           DEFAULT_LOCATION.LATITUDE,
           DEFAULT_LOCATION.LONGITUDE,
         ),
         level: 3,
       };
 
-      setMap(new window.kakao.maps.Map(container.current, options));
-      setMarker(new window.kakao.maps.Marker());
+      setMap(new window.Kakao.maps.Map(container.current, options));
+      setMarker(new window.Kakao.maps.Marker());
     });
   };
 
   const moveToCurrentLocation = () => {
     const { latitude, longitude } = location;
-    const currentPos = new window.kakao.maps.LatLng(latitude, longitude);
+    const currentPos = new window.Kakao.maps.LatLng(latitude, longitude);
     map.panTo(currentPos);
 
     marker.setMap(map);
