@@ -1,6 +1,6 @@
 'use client';
 
-import RegisterFormProvider from '@/components/FormProvider/RegisterFormProvider';
+import RegisterFormProvider from '@/providers/FormProvider/RegisterFormProvider';
 import { ReactNode } from 'react';
 
 import { userFormSchema } from '@/constants/userSchema';
