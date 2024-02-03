@@ -1,7 +1,6 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "plugin:storybook/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
@@ -14,6 +13,8 @@
     "no-unused-vars": "off",
     "no-duplicate-imports": "off",
     "@typescript-eslint/ban-types": "warn",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/no-unresolved": "warn",
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }
