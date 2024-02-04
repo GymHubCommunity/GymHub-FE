@@ -14,7 +14,7 @@ function LabelInput() {
         onKeyDown={handleEnter}
       />
       {labels.map((value) => (
-        <div key={value.id} className={styles.labelContainer}>
+        <div key={value.id} className={styles.labelWrapper}>
           <div className={styles.label}>{value.value}</div>
           <button
             className={styles.deleteButton}
