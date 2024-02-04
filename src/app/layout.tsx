@@ -1,7 +1,10 @@
-import QueryProvider from '@/components/QueryProvider';
+import MobileLayout from '@/components/Layout/MobileLayout';
+import QueryProvider from '@/providers/QueryProvider';
+
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
 
+import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -38,7 +41,11 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <MobileLayout>
+            <Layout>{children}</Layout>
+          </MobileLayout>
+        </QueryProvider>
         <Toaster containerClassName="toast" />
       </body>
     </html>
