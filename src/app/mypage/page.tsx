@@ -3,11 +3,7 @@
 import MyProfile from '@/components/organisms/MyProfile';
 
 function MyPage() {
-  return (
-    <section>
-      <MyProfile />
-    </section>
-  );
+  return <MyProfile />;
 }
 
 export default MyPage;
