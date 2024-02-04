@@ -1,4 +1,4 @@
-import styles from '@/components/Modal/Modal.module.scss';
+import styles from '@/components/organisms/Modal/Modal.module.scss';
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
