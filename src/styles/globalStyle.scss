@@ -14,6 +14,7 @@ html {
 
 html,
 body {
+  height: 100%;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
 }
@@ -76,6 +77,20 @@ button {
 
 textarea:not([rows]) {
   min-height: 10em;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition: all 0.15s ease-in-out;
+  }
 }
 
 :target {

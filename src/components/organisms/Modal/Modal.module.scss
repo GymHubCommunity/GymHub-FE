@@ -1,0 +1,42 @@
+@import '@/styles/colors.scss';
+@import '@/styles/mixin.scss';
+
+.background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 767px;
+  height: 200px;
+  max-width: 80%;
+  max-height: 90%;
+  overflow-y: auto;
+  background-color: $white;
+  padding: 20px 20px;
+
+  border: 1px solid $black;
+  border-radius: 10px;
+}
+
+.wrapper {
+  @include flexEnd;
+}
+
+.closeButton {
+  border: 5px solid rgba(255, 0, 0, 0.7);
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 15px;
+  text-align: center;
+}
