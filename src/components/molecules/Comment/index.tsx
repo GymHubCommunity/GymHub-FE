@@ -18,7 +18,7 @@ function Comment({ comment }: CommentProps) {
       <div className={styles.inWrapper}>
         <ProfileImg imgUrl={comment.imgUrl} size={38} />
         <div className={styles.user}>
-          <Name name={comment.userName} size="md" />
+          <Name name={comment.userName} size="medium" />
           <PostContent type="default" content={comment.comment} />
         </div>
       </div>
