@@ -1,12 +1,16 @@
 import styles from '@/components/atoms/Content/Content.module.scss';
 
-interface ContentProp {
+interface PostContentProps {
   type: 'default' | 'workOut';
   content?: string;
   workOutTime?: string;
 }
 
-function Content({ type = 'default', content, workOutTime }: ContentProp) {
+function PostContent({
+  type = 'default',
+  content,
+  workOutTime,
+}: PostContentProps) {
   return (
     <>
       {type === 'workOut' ? (
@@ -18,4 +22,4 @@ function Content({ type = 'default', content, workOutTime }: ContentProp) {
   );
 }
 
-export default Content;
+export default PostContent;

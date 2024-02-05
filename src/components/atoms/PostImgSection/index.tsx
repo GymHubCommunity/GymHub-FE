@@ -1,8 +1,8 @@
 import styles from '@/components/atoms/PostImg/PostImg.module.scss';
-import { ImgProp } from '@/types/image';
+import { ImgProps } from '@/types/image';
 import Image from 'next/image';
 
-function PostImg({ imgUrl }: ImgProp) {
+function PostImgSection({ imgUrl }: ImgProps) {
   return (
     <Image
       className={styles.postImg}
@@ -14,4 +14,4 @@ function PostImg({ imgUrl }: ImgProp) {
   );
 }
 
-export default PostImg;
+export default PostImgSection;

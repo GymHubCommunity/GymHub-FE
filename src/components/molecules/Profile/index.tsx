@@ -4,7 +4,7 @@ import styles from '@/components/molecules/Profile/Profile.module.scss';
 import { StaticImageData } from 'next/image';
 
 interface ProfileProps {
-  data: {
+  profile: {
     imgUrl: StaticImageData;
     postCount: string;
     workOutCount: string;
@@ -13,14 +13,14 @@ interface ProfileProps {
   };
 }
 
-function Profile({ data }: ProfileProps) {
+function Profile({ profile }: ProfileProps) {
   return (
     <div className={styles.wrapper}>
-      <ProfileImg imgUrl={data.imgUrl} size={67} />
-      <Info type="normal" content="게시글" count={data.postCount} />
-      <Info type="normal" content="운동 일수" count={data.workOutCount} />
-      <Info type="follow" content="팔로우" count={data.followCount} />
-      <Info type="follow" content="팔로잉" count={data.followingCount} />
+      <ProfileImg imgUrl={profile.imgUrl} size={67} />
+      <Info type="default" content="게시글" count={profile.postCount} />
+      <Info type="default" content="운동 일수" count={profile.workOutCount} />
+      <Info type="follow" content="팔로우" count={profile.followCount} />
+      <Info type="follow" content="팔로잉" count={profile.followingCount} />
     </div>
   );
 }

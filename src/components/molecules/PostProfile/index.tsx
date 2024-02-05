@@ -1,26 +1,26 @@
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
-import Content from '@/components/atoms/Content';
 import Name from '@/components/atoms/Name';
+import PostContent from '@/components/atoms/PostContent';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
 import { StaticImageData } from 'next/image';
 
 interface PostProfileProps {
-  data: {
+  postProfile: {
     imgUrl: StaticImageData;
     name: string;
     workOutTime: string;
   };
 }
 
-function PostProfile({ data }: PostProfileProps) {
+function PostProfile({ postProfile }: PostProfileProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inWrapper}>
-        <ProfileImg imgUrl={data.imgUrl} size={57} />
+        <ProfileImg imgUrl={postProfile.imgUrl} size={57} />
         <div className={styles.profile}>
-          <Name name={data.name} size="lg" />
-          <Content type="workOut" workOutTime={data.workOutTime} />
+          <Name name={postProfile.name} size="lg" />
+          <PostContent type="workOut" workOutTime={postProfile.workOutTime} />
         </div>
       </div>
       <ToggleMenu type="post" />

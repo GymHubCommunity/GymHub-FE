@@ -1,21 +1,21 @@
-import Content from '@/components/atoms/Content';
-import PostImg from '@/components/atoms/PostImg';
+import PostContent from '@/components/atoms/PostContent';
+import PostImgSection from '@/components/atoms/PostImgSection';
 import styles from '@/components/molecules/Post/Post.module.scss';
 import { StaticImageData } from 'next/image';
 
 interface PostProps {
-  data: {
+  post: {
     postContent: string;
     imgUrl: StaticImageData;
   };
 }
 
-function Post({ data }: PostProps) {
+function Post({ post }: PostProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.postWrapper}>
-        <Content type="default" content={data.postContent} />
-        <PostImg imgUrl={data.imgUrl} />
+        <PostContent type="default" content={post.postContent} />
+        <PostImgSection imgUrl={post.imgUrl} />
       </div>
     </div>
   );
