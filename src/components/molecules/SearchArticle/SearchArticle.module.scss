@@ -1,0 +1,7 @@
+@use '/src/styles/mixin.scss';
+
+.wrapper {
+  @include mixin.flexCenter;
+  flex-direction: column;
+  gap: 5px;
+}
