@@ -1,4 +1,4 @@
-import styles from '@/components/atoms/Content/Content.module.scss';
+import styles from '@/components/atoms/PostContent/PostContent.module.scss';
 
 interface PostContentProps {
   type: 'default' | 'workOut';

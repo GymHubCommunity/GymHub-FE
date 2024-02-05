@@ -19,7 +19,7 @@ function PostProfile({ postProfile }: PostProfileProps) {
       <div className={styles.inWrapper}>
         <ProfileImg imgUrl={postProfile.imgUrl} size={57} />
         <div className={styles.profile}>
-          <Name name={postProfile.name} size="lg" />
+          <Name name={postProfile.name} size="large" />
           <PostContent type="workOut" workOutTime={postProfile.workOutTime} />
         </div>
       </div>
