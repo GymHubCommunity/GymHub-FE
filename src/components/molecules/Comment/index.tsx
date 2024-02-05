@@ -2,11 +2,10 @@ import Name from '@/components/atoms/Name';
 import PostContent from '@/components/atoms/PostContent';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import styles from '@/components/molecules/Comment/Comment.module.scss';
-import { StaticImageData } from 'next/image';
 
 interface CommentProps {
   comment: {
-    imgUrl: StaticImageData;
+    imgUrl: string;
     userName: string;
     comment: string;
   };
