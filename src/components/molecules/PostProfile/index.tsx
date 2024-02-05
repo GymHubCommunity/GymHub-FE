@@ -3,11 +3,10 @@ import Name from '@/components/atoms/Name';
 import PostContent from '@/components/atoms/PostContent';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
-import { StaticImageData } from 'next/image';
 
 interface PostProfileProps {
   postProfile: {
-    imgUrl: StaticImageData;
+    imgUrl: string;
     name: string;
     workOutTime: string;
   };

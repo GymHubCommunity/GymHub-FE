@@ -1,12 +1,11 @@
 import PostContent from '@/components/atoms/PostContent';
 import PostImgSection from '@/components/atoms/PostImgSection';
 import styles from '@/components/molecules/Post/Post.module.scss';
-import { StaticImageData } from 'next/image';
 
 interface PostProps {
   post: {
     postContent: string;
-    imgUrl: StaticImageData;
+    imgUrl: string;
   };
 }
 
