@@ -3,7 +3,7 @@ import QueryProvider from '@/providers/QueryProvider';
 
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
-
+import { Provider } from 'jotai';
 import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
@@ -41,11 +41,13 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>
-          <MobileLayout>
-            <Layout>{children}</Layout>
-          </MobileLayout>
-        </QueryProvider>
+        <Provider>
+          <QueryProvider>
+            <MobileLayout>
+              <Layout>{children}</Layout>
+            </MobileLayout>
+          </QueryProvider>
+        </Provider>
         <Toaster containerClassName="toast" />
       </body>
     </html>
