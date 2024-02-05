@@ -2,6 +2,7 @@ import styles from '@/styles/icon.scss';
 import classNames from 'classnames';
 import type { PropsWithChildren, SVGProps } from 'react';
 
+//TODO: global color theme 변수로 수정
 interface SVGElementProps extends SVGProps<SVGSVGElement> {
   width?: number;
   height?: number;

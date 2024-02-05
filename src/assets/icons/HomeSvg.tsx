@@ -1,6 +1,7 @@
 import Svg from '@/components/atoms/Svg';
 import { ComponentProps } from 'react';
 
+//TODO: global color theme 변수로 수정
 interface SvgProps extends ComponentProps<typeof Svg> {
   color?: string;
 }
