@@ -1,4 +1,15 @@
+$width: 358px;
+
 .swiper {
-  width: 90%;
-  height: 200px;
+  width: $width;
+  height: 280px;
+}
+
+.large {
+  width: $width;
+  height: 368px;
+}
+
+.img {
+  object-fit: contain;
 }
