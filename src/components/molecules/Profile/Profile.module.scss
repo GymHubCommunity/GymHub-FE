@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.inWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
