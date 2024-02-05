@@ -1,8 +1,12 @@
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
-import { menuItems } from '@/constants/ToggleMenu';
+import { menuItems, postItems } from '@/constants/ToggleMenu';
 import useToggleMenu from '@/hooks/useToggleMenu';
 
-function ToggleMenu() {
+interface ToggleMenuProp {
+  type: 'profile' | 'post';
+}
+
+function ToggleMenu({ type }: ToggleMenuProp) {
   const { isOpen, openMenu, closeMenu } = useToggleMenu();
 
   return (
@@ -14,7 +18,7 @@ function ToggleMenu() {
       />
       {isOpen && (
         <ul className={styles.menus}>
-          {menuItems.map((val) => (
+          {(type === 'profile' ? menuItems : postItems).map((val) => (
             <li
               role="presentation"
               key={val.id}

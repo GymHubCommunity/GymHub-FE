@@ -1,0 +1,11 @@
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.info {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
