@@ -5,7 +5,7 @@ const cn = classNames.bind(styles);
 
 interface Name {
   name: string;
-  size: 'size' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
 }
 
 function Name({ name, size }: Name) {
