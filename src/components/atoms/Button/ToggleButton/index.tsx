@@ -1,4 +1,3 @@
-'use client';
 import styles from '@/components/atoms/Button/ToggleButton/ToggleButton.module.scss';
 import { useState } from 'react';
 
