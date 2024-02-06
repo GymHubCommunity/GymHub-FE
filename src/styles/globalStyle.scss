@@ -1,3 +1,5 @@
+@import '@/styles/colors.scss';
+
 *,
 *::before,
 *::after {
@@ -17,6 +19,7 @@ body {
   height: 100%;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
+  color: $white;
 }
 
 body,
