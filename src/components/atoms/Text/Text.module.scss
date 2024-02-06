@@ -1,0 +1,60 @@
+@import '@/styles/fontWeights.scss';
+@import '@/styles/colors.scss';
+
+.wrapper {
+  color: $white;
+  font-size: 1.6rem;
+  font-weight: $light;
+
+  // button
+  &.button {
+    font-size: 1.8rem;
+    color: $buttonText;
+    font-weight: $medium;
+  }
+
+  // onBoarding
+  &.intro {
+    font-size: 2rem;
+    font-weight: $regular;
+    color: $gray300;
+  }
+  &.inputExplain {
+    font-size: 2.2rem;
+    font-weight: $regular;
+    color: $gray300;
+  }
+
+  // post
+  &.userName {
+    font-weight: $medium;
+  }
+  &.description {
+    font-size: 1.4rem;
+  }
+  &.postingTime {
+    font-size: 1.4rem;
+    color: $gray400;
+  }
+  &.exerciseCompletedTime {
+    font-size: 1.2rem;
+    color: $gray300;
+  }
+  &.heartCount {
+    font-weight: $regular;
+  }
+  &.comment {
+    font-size: 1.2rem;
+  }
+  &.commentCount {
+    font-size: 1.4rem;
+    color: $gray300;
+  }
+  &.commentHeartCount {
+    font-size: 0.8rem;
+  }
+  &.hashtag {
+    font-size: 1.4rem;
+    color: $greenNeon;
+  }
+}
