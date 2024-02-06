@@ -2,10 +2,10 @@ import Svg from '@/components/atoms/Svg';
 
 interface LogoSvgProps {
   width?: number;
-  size?: number;
+  height?: number;
 }
 
-function LogoSvg({ width, size }: LogoSvgProps) {
+function LogoSvg({ width, height }: LogoSvgProps) {
   return (
     <Svg width={249} height={45} viewBox="0 0 249 45" fill="none">
       <path

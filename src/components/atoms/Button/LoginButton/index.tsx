@@ -11,8 +11,6 @@ interface LoginButtonProp {
 }
 
 function LoginButton({ account }: LoginButtonProp) {
-  const accountName = account === 'kakao' ? '카카오' : 'Google';
-
   const handleLogin = () => {
     console.log(account);
   };
