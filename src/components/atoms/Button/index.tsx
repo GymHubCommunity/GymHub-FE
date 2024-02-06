@@ -5,7 +5,7 @@ const cn = classNames.bind(styles);
 
 interface ButtonProps {
   onClick: () => void;
-  children: string;
+  content: string;
   size: 'sm' | 'md' | 'lg';
   color: string;
 }
