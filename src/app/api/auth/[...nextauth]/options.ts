@@ -5,7 +5,7 @@ import KakaoProvider from 'next-auth/providers/kakao';
 const authOptions: NextAuthOptions = {
   providers: [
     KakaoProvider({
-      clientId: process.env.KAKAO_CLIENT_ID || '',
+      clientId: process.env.KAKAO_API_KEY || '',
       clientSecret: process.env.KAKAO_CLIENT_SECRET || '',
     }),
     GoogleProvider({

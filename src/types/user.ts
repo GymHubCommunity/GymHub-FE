@@ -1,5 +1,6 @@
 interface UserRegisterProps {
   accessToken: TokenProp;
+  requiredAdditionalInfo: boolean;
   userInfo: UserInfoProps;
 }
 
