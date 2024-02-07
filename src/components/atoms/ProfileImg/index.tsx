@@ -1,19 +1,13 @@
 import styles from '@/components/atoms/ProfileImg/ProfileImg.module.scss';
-import classNames from 'classnames/bind';
-import Image, { StaticImageData } from 'next/image';
+import { ImgProps } from '@/types/image';
+import Image from 'next/image';
 
-const cn = classNames.bind(styles);
-
-interface ProfileImg {
-  imgUrl: StaticImageData;
-}
-
-function ProfileImg({ imgUrl }: ProfileImg) {
+function ProfileImg({ imgUrl, size = 80 }: ImgProps) {
   return (
     <Image
-      className={cn('profileImg')}
-      width={80}
-      height={80}
+      className={styles.profileImg}
+      width={size}
+      height={size}
       src={imgUrl}
       alt="프로필 이미지"
     />

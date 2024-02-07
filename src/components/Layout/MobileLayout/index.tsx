@@ -1,5 +1,5 @@
 'use client';
-import styles from '@/components/Layout/Layout.module.scss';
+import styles from '@/components/Layout/MobileLayout/MobileLayout.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
 import { PropsWithChildren, useEffect } from 'react';
 
@@ -13,7 +13,7 @@ function MobileLayout({ children }: PropsWithChildren) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, [windowSize.height]);
 
-  return <div className={styles.container}>{children}</div>;
+  return <div className={styles.wrapper}>{children}</div>;
 }
 
 export default MobileLayout;

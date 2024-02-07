@@ -1,3 +1,5 @@
+@import '@/styles/colors.scss';
+
 *,
 *::before,
 *::after {
@@ -14,8 +16,10 @@ html {
 
 html,
 body {
+  height: 100%;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
+  color: $white;
 }
 
 body,
@@ -69,6 +73,14 @@ select {
   font: inherit;
 }
 
+input {
+  all: unset;
+}
+
+input:focus {
+  outline: none;
+}
+
 button {
   all: unset;
   cursor: pointer;
@@ -78,12 +90,18 @@ textarea:not([rows]) {
   min-height: 10em;
 }
 
-// @TODO: 삭제 예정
-section {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition: all 0.15s ease-in-out;
+  }
 }
 
 :target {
