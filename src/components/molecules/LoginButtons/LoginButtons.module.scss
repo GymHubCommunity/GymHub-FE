@@ -1,6 +1,7 @@
+@import '@/styles/mixin.scss';
+
 .wrapper {
-  display: flex;
+  @include flexCenter;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
 }

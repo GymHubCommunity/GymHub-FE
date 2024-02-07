@@ -1,26 +1,24 @@
+@import '@/styles/mixin.scss';
+@import '@/styles/colors.scss';
+
 .button {
-  display: flex;
+  @include flexCenter;
   width: 353px;
   height: 60px;
   padding: 10px;
-  justify-content: center;
-  align-items: center;
   gap: 6px;
   flex-shrink: 0;
   border-radius: 8px;
 
-  color: #1a1a1a;
+  color: $buttonText;
   text-align: center;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 600;
   line-height: 150%;
 }
 
 .kakao {
-  background: #fee500;
+  background: $kakao;
 }
 
 .google {
-  background: #fefefe;
+  background: $white;
 }
