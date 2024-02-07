@@ -1,12 +1,13 @@
 @import '@/styles/mixin.scss';
 @import '@/styles/zIndex.scss';
+@import '@/styles/colors.scss';
 
 .wrapper {
   @include flexBetween;
   position: sticky;
   top: 0;
-  height: 48px;
+  height: 54px;
   padding: 0 15px;
-  background-color: #c4cfd4;
+  background-color: $background;
   z-index: $aboveDefault;
 }
