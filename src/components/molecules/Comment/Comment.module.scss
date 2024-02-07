@@ -1,7 +1,12 @@
 @use '/src//styles/mixin.scss';
 
 .wrapper {
-  @include flexBetween;
+  @include mixin.flexBetween;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
 }
 
 .inWrapper {

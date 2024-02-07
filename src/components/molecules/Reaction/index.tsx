@@ -1,3 +1,4 @@
+import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/Reaction/Reaction.module.scss';
 
 function Reaction() {
@@ -6,9 +7,8 @@ function Reaction() {
       {/* TODO: 좋아요, 댓글, 날짜 추후 변경 */}
       <div className={styles.reaction}>
         <div>좋아요</div>
-        <div>댓글</div>
       </div>
-      <div>2024.02.03</div>
+      <Text post="postingTime">3시간전 운동완료</Text>
     </div>
   );
 }
