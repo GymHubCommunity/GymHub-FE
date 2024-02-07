@@ -12,16 +12,23 @@ interface CommentProps {
 
 function Comment({ comment }: CommentProps) {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inWrapper}>
-        <ProfileImg imgUrl={comment.imgUrl} size={34} />
-        <div className={styles.user}>
-          <Text post="commentUserName">{comment.userName}</Text>
-          <Text post="comment">{comment.comment}</Text>
+    <>
+      <button type="button" onClick={() => {}}>
+        <Text post="commentCount">댓글 6개 전체보기</Text>
+      </button>
+      <div className={styles.wrapper}>
+        <div className={styles.inWrapper}>
+          <div className={styles.user}>
+            <ProfileImg imgUrl={comment.imgUrl} size={34} />
+            <div className={styles.userComment}>
+              <Text post="commentUserName">{comment.userName}</Text>
+              <Text post="comment">{comment.comment}</Text>
+            </div>
+          </div>
+          <div>좋아요</div>
         </div>
       </div>
-      <div>좋아요</div>
-    </div>
+    </>
   );
 }
 

@@ -1,16 +1,22 @@
-@use '/src//styles/mixin.scss';
+@import '/src/styles/mixin.scss';
 
 .wrapper {
-  @include mixin.flexBetween;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userComment {
   display: flex;
   flex-direction: column;
 }
 
 .inWrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  @include flexBetween;
 }

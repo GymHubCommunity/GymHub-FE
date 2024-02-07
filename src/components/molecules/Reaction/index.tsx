@@ -5,9 +5,7 @@ function Reaction() {
   return (
     <div className={styles.wrapper}>
       {/* TODO: 좋아요, 댓글, 날짜 추후 변경 */}
-      <div className={styles.reaction}>
-        <div>좋아요</div>
-      </div>
+      <div>좋아요</div>
       <Text post="postingTime">3시간전 운동완료</Text>
     </div>
   );
