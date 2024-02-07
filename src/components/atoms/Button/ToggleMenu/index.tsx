@@ -1,4 +1,4 @@
-import ToggleMenuSvg from '@/assets/icons/ToggleMenu';
+import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
 import { menuItems, postItems } from '@/constants/ToggleMenu';
 import useToggleMenu from '@/hooks/useToggleMenu';

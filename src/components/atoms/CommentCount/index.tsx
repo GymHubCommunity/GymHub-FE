@@ -1,4 +1,4 @@
-import Text from '../Text';
+import Text from '@/components/atoms/Text';
 
 interface CommentCountProps {
   type: 'default' | 'allView';
