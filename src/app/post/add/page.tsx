@@ -1,11 +1,8 @@
-import PostEditor from '@/components/atoms/Editor/PostEditor';
+'use client';
+import AddPost from '@/components/organisms/AddPost';
 
-function AddPost() {
-  return (
-    <>
-      <PostEditor />
-    </>
-  );
+function AddPostPage() {
+  return <AddPost />;
 }
 
-export default AddPost;
+export default AddPostPage;
