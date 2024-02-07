@@ -1,3 +1,4 @@
+import AuthProvider from '@/providers/AuthProvider';
 import MobileLayout from '@/components/Layout/MobileLayout';
 import QueryProvider from '@/providers/QueryProvider';
 
@@ -41,13 +42,15 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <Provider>
-          <QueryProvider>
-            <MobileLayout>
-              <Layout>{children}</Layout>
-            </MobileLayout>
-          </QueryProvider>
-        </Provider>
+        <AuthProvider>
+          <Provider>
+            <QueryProvider>
+              <MobileLayout>
+                <Layout>{children}</Layout>
+              </MobileLayout>
+            </QueryProvider>
+          </Provider>
+        </AuthProvider>
         <Toaster containerClassName="toast" />
       </body>
     </html>
