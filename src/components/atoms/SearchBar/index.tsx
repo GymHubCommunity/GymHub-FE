@@ -1,9 +1,8 @@
+import SearchSvg from '@/assets/icons/SearchSvg';
 import styles from '@/components/atoms/SearchBar/SearchBar.module.scss';
 import useSearchFilter from '@/hooks/useSearchFilter';
-import SearchImg from '@/public/icons/Search.svg';
 
 import { atom, useAtom } from 'jotai';
-import Image from 'next/image';
 import { useRef } from 'react';
 
 export const searchValueAtom = atom('');
@@ -24,7 +23,7 @@ function SearchBar({ type }: SearchBarProp) {
 
   return (
     <div className={styles.wrapper}>
-      <Image className={styles.searchImg} src={SearchImg} alt="돋보기 아이콘" />
+      <SearchSvg />
       {type === 'hashTag' ? (
         <input
           className={styles.input}
