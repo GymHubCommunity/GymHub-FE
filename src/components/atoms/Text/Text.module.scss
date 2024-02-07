@@ -43,6 +43,10 @@
   &.heartCount {
     font-weight: $regular;
   }
+  &.commentUserName {
+    font-size: 1.2rem;
+    font-weight: $medium;
+  }
   &.comment {
     font-size: 1.2rem;
   }
@@ -56,5 +60,15 @@
   &.hashtag {
     font-size: 1.4rem;
     color: $greenNeon;
+  }
+  &.searched {
+    font-size: 1.4rem;
+    color: $white;
+    font-weight: $medium;
+  }
+  &.noPost {
+    font-size: 2rem;
+    font-weight: $regular;
+    color: $darkGray300;
   }
 }
