@@ -1,9 +1,8 @@
 'use client';
+import Login from '@/components/organisms/Login';
 
-import RegisterFormProvider from '@/providers/FormProvider/RegisterFormProvider';
-
-function Signin() {
-  return <RegisterFormProvider></RegisterFormProvider>;
+function SigninPage() {
+  return <Login />;
 }
 
-export default Signin;
+export default SigninPage;
