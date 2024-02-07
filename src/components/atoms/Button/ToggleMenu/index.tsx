@@ -1,3 +1,4 @@
+import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
 import { menuItems, postItems } from '@/constants/ToggleMenu';
 import useToggleMenu from '@/hooks/useToggleMenu';
@@ -11,11 +12,9 @@ function ToggleMenu({ type }: ToggleMenuProp) {
 
   return (
     <div role="presentation" onBlur={closeMenu}>
-      <button
-        type="button"
-        className={styles.toggleButton}
-        onClick={openMenu}
-      />
+      <button type="button" onClick={openMenu}>
+        <ToggleMenuSvg />
+      </button>
       {isOpen && (
         <ul className={styles.menus}>
           {(type === 'profile' ? menuItems : postItems).map((val) => (
