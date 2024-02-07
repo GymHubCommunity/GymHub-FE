@@ -1,9 +1,11 @@
 import AuthProvider from '@/components/AuthProvider';
-import QueryProvider from '@/components/QueryProvider';
+import MobileLayout from '@/components/Layout/MobileLayout';
+import QueryProvider from '@/providers/QueryProvider';
+
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
-import Tracking from '@/utils/Tracking';
-
+import { Provider } from 'jotai';
+import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -42,7 +44,13 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
       <body>
         <Tracking />
         <AuthProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <Provider>
+            <QueryProvider>
+              <MobileLayout>
+                <Layout>{children}</Layout>
+              </MobileLayout>
+            </QueryProvider>
+          </Provider>
         </AuthProvider>
         <Toaster containerClassName="toast" />
       </body>

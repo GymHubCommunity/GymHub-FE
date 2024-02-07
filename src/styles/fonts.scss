@@ -1,0 +1,16 @@
+@import '@/styles/fontWeights.scss';
+
+.small {
+  font-size: 1.2rem;
+  font-weight: $thin;
+}
+
+.medium {
+  font-size: 1.6rem;
+  font-weight: $normal;
+}
+
+.large {
+  font-size: 2rem;
+  font-weight: $bold;
+}

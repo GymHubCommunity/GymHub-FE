@@ -13,6 +13,9 @@ const nextConfig = {
   sentry: {
     hideSourceMaps: true,
   },
+  experimental: {
+    forceSwcTransforms: true,
+  },
 };
 
 const sentryWebpackPluginOptions = {
