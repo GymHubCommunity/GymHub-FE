@@ -1,0 +1,14 @@
+@import '/src/styles/mixin.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  @include flexCenter;
+  height: 60px;
+  width: 100%;
+  background: #c7f640;
+
+  color: #1a1a1a;
+  border-radius: 100px;
+  font-size: 1.125rem;
+  font-weight: $medium;
+}
