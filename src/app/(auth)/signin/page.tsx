@@ -1,5 +1,5 @@
 import authOptions from '@/app/api/auth/[...nextauth]/options';
-import SocialSigninButton from '@/components/atoms/Button';
+import SocialSigninButton from '@/components/atoms/Button/SocialSigninButton';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
 
