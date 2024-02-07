@@ -13,14 +13,6 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'github.com',
-      },
-    ],
-  },
 };
 
 const sentryWebpackPluginOptions = {
