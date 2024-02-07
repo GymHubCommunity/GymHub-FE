@@ -42,7 +42,6 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <Tracking />
         <AuthProvider>
           <Provider>
             <QueryProvider>

@@ -15,4 +15,4 @@ interface UserInfoProps {
   nickname: string;
 }
 
-export type { UserRegisterProps };
+export type { UserInfoProps, UserRegisterProps };
