@@ -1,5 +1,4 @@
-'use client';
-import RegisterItem from '@/components/Form/RegisterItem';
+import RegisterItem from '@/components/atoms/Form/RegisterItem';
 import DateFormat from '@/utils/DateFormat';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
