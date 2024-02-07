@@ -1,4 +1,4 @@
-import AuthProvider from '@/components/AuthProvider';
+import AuthProvider from '@/providers/AuthProvider';
 import MobileLayout from '@/components/Layout/MobileLayout';
 import QueryProvider from '@/providers/QueryProvider';
 
