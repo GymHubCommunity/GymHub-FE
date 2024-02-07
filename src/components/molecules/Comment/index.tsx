@@ -1,6 +1,7 @@
 import ProfileImg from '@/components/atoms/ProfileImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/Comment/Comment.module.scss';
+import { usePathname } from 'next/navigation';
 
 interface CommentProps {
   comment: {
@@ -11,11 +12,17 @@ interface CommentProps {
 }
 
 function Comment({ comment }: CommentProps) {
+  const pathname = usePathname();
   return (
     <>
-      <button type="button" onClick={() => {}}>
-        <Text post="commentCount">댓글 6개 전체보기</Text>
-      </button>
+      {pathname === '/search' ? (
+        <button type="button" onClick={() => {}}>
+          <Text post="commentCount">댓글 6개 전체보기</Text>
+        </button>
+      ) : (
+        <Text post="commentCount">댓글 6개</Text>
+      )}
+
       <div className={styles.wrapper}>
         <div className={styles.inWrapper}>
           <div className={styles.user}>
