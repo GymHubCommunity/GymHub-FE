@@ -13,4 +13,4 @@ async function Signin() {
   return <SocialSigninButton providers={providers} />;
 }
 
-export default Signin;
+export default SigninPage;
