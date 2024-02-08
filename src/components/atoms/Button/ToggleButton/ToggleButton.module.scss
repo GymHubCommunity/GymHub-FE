@@ -7,6 +7,15 @@
   height: 26px;
 }
 
+.content {
+  position: absolute;
+  right: 55px;
+  bottom: 3.5px;
+  text-wrap: nowrap;
+  font-size: 1.7rem;
+  color: $darkGray300;
+}
+
 .toggleSlider {
   position: absolute;
   cursor: pointer;

@@ -7,6 +7,7 @@ function ToggleButton() {
   // @TODO CSS 수정
   return (
     <label className={styles.label}>
+      <p className={styles.content}>{isSelected ? '공개' : '비공개'}</p>
       <input
         type="checkbox"
         className={styles.input}
