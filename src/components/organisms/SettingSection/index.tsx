@@ -1,0 +1,18 @@
+import SettingArticle from '@/components/molecules/SettingArticle';
+import styles from '@/components/organisms/SettingSection/SettingSection.module.scss';
+import BackButtonHeader from '../Header/BackButtonHeader';
+
+function SettingSection() {
+  return (
+    <>
+      <BackButtonHeader pageName="설정" />
+      <div className={styles.wrapper}>
+        <SettingArticle type="profileToggle" />
+        <SettingArticle type="logout" />
+        <SettingArticle type="withDraw" />
+      </div>
+    </>
+  );
+}
+
+export default SettingSection;
