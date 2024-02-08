@@ -5,7 +5,7 @@ interface RegisterItemProps {
   required?: boolean;
   description?: string;
   errorMessage?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 function RegisterItem({

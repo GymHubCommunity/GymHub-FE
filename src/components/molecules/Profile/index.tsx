@@ -1,11 +1,10 @@
 import Info from '@/components/atoms/CountInfo';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import styles from '@/components/molecules/Profile/Profile.module.scss';
-import { StaticImageData } from 'next/image';
 
 interface ProfileProps {
   profile: {
-    imgUrl: StaticImageData;
+    imgUrl: string;
     postCount: string;
     workOutCount: string;
     followCount: string;

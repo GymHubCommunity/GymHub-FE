@@ -1,7 +1,5 @@
-import { StaticImageData } from 'next/image';
-
 interface ImgProps {
-  imgUrl: StaticImageData;
+  imgUrl: string;
   size?: number;
 }
 
