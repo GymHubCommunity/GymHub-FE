@@ -1,8 +1,0 @@
-@import '@/styles/mixin.scss';
-
-.wrapper {
-  @include flexCenter;
-  flex-direction: column;
-  gap: 19px;
-  text-align: center;
-}
