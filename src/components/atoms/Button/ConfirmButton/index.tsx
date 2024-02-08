@@ -1,4 +1,4 @@
-import styles from '@/components/atoms/Button/PostConfirmButton/PostConfirmButton.module.scss';
+import styles from '@/components/atoms/Button/ConfirmButton/ConfirmButton.module.scss';
 
 interface PostConfirmButtonProps {
   title: string;

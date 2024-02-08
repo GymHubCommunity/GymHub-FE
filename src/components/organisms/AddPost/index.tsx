@@ -1,4 +1,4 @@
-import PostConfirmButton from '@/components/atoms/Button/PostConfirmButton';
+import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import PostEditor from '@/components/atoms/Editor/PostEditor';
 import AttachButtons from '@/components/molecules/Post/AttachButtons';
 import styles from '@/components/organisms/AddPost/AddPost.module.scss';
@@ -13,7 +13,7 @@ function AddPost() {
         <PostEditor />
         <div className={styles.inWrapper}>
           <AttachButtons />
-          <PostConfirmButton
+          <ConfirmButton
             title="게시하기"
             onClick={() => console.log('confirm')}
           />
