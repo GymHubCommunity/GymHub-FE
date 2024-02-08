@@ -4,6 +4,9 @@ const path = require('path');
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
+  images: {
+    domains: ['k.kakaocdn.net', 'lh3.googleusercontent.com', 'github.com'],
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },

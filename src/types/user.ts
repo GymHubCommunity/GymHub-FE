@@ -1,25 +1,18 @@
-//TODO: 확정된 항목으로 수정
+interface UserRegisterProps {
+  accessToken: TokenProp;
+  requiredAdditionalInfo: boolean;
+  userInfo: UserInfoProps;
+}
 
-interface SchemaProps {
+interface TokenProp {
+  accessToken: string;
+}
+
+interface UserInfoProps {
+  id: number;
   email: string;
-  address: string;
-  introduction: string;
-  status: string;
+  profileUrl: string;
+  nickname: string;
 }
 
-interface BirthdayProps {
-  year: string;
-  month: string;
-  day: string;
-}
-
-interface CareerProps {
-  companyName?: string;
-  title?: string;
-  description?: string;
-  startDate?: string;
-  endDate?: string;
-  isCurrent?: boolean;
-}
-
-export type { SchemaProps };
+export type { UserInfoProps, UserRegisterProps };

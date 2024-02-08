@@ -1,12 +1,12 @@
 import { userFormSchema } from '@/constants/userSchema';
-import { SchemaProps } from '@/types/user';
 import { DevTool } from '@hookform/devtools';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PropsWithChildren } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
+//TODO: useForm type 주입
 function RegisterFormProvider({ children }: PropsWithChildren) {
-  const methods = useForm<SchemaProps>({
+  const methods = useForm({
     mode: 'onBlur',
     resolver: yupResolver(userFormSchema),
   });

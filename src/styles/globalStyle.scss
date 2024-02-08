@@ -1,9 +1,24 @@
+@import '@/styles/colors.scss';
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  white-space: pre-wrap;
+  font-family:
+    'Pretendard',
+    Apple SD Gothic Neo,
+    serif,
+    sans-serif;
 }
 
 html {
@@ -17,6 +32,7 @@ body {
   height: 100%;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
+  color: $white;
 }
 
 body,
@@ -68,6 +84,14 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+input {
+  all: unset;
+}
+
+input:focus {
+  outline: none;
 }
 
 button {
