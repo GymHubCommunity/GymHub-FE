@@ -1,0 +1,14 @@
+@import '@/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 267px;
+  padding-top: 233px;
+}
+
+.innerWrapper {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 20px;
+}
