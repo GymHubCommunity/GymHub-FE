@@ -36,11 +36,22 @@ export const metadata: Metadata = {
     site: METADATA.URL,
     images: [METADATA.IMAGE],
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    userScalable: false,
+  },
 };
 
 function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          name="naver-site-verification"
+          content="a891c3b0994e59e64ba7393a7644c2979b797bb5"
+        />
+      </head>
       <body>
         <AuthProvider>
           <Provider>
