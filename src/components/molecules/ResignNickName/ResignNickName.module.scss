@@ -1,0 +1,27 @@
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/colors.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.text {
+  font-size: 1.4rem;
+  font-weight: $light;
+  color: $gray300;
+}
+
+@import '/src/styles/fontWeights.scss';
+
+.input {
+  font-size: 2.2rem;
+  font-weight: $regular;
+  padding: 13px 8px;
+  background: $darkGray700;
+  text-align: center;
+  border-radius: 8px;
+}
