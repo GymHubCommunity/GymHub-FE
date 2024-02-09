@@ -1,6 +1,6 @@
 import SettingArticle from '@/components/molecules/SettingArticle';
+import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/SettingSection/SettingSection.module.scss';
-import BackButtonHeader from '../Header/BackButtonHeader';
 
 function SettingSection() {
   return (
