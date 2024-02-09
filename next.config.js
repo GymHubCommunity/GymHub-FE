@@ -16,6 +16,9 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
+  env: {
+    NEXTAUTH_SECRET: process.env.AUTH_SECRET,
+  },
 };
 
 const sentryWebpackPluginOptions = {
