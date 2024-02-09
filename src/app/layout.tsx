@@ -9,6 +9,7 @@ import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Providers from '@/providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL(METADATA.URL),
@@ -42,15 +43,7 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <body>
-        <AuthProvider>
-          <Provider>
-            <QueryProvider>
-              <MobileLayout>
-                <Layout>{children}</Layout>
-              </MobileLayout>
-            </QueryProvider>
-          </Provider>
-        </AuthProvider>
+        <Providers>{children}</Providers>
         <Toaster containerClassName="toast" />
       </body>
     </html>
