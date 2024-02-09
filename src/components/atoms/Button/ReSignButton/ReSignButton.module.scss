@@ -18,4 +18,8 @@
     color: $red;
     border: 1px solid $red;
   }
+
+  &:disabled {
+    opacity: 0.3;
+  }
 }
