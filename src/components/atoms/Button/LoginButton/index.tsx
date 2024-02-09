@@ -1,38 +1,34 @@
+'use client';
 import styles from '@/components/atoms/Button/LoginButton/LoginButton.module.scss';
-import classNames from 'classnames/bind';
-import KakaoIconSvg from '@/assets/icons/KakaoIconSvg';
-import GoogleIconSvg from '@/assets/icons/GoogleIconSvg';
+import classNames from 'classnames/bind';;
 import Text from '@/components/atoms/Text';
+import { BuiltInProviderType } from 'next-auth/providers/index';
+import { ClientSafeProvider, LiteralUnion, signIn } from 'next-auth/react';
 
 const cn = classNames.bind(styles);
 
-interface LoginButtonProp {
-  account: 'kakao' | 'google';
+export interface ProviderProps {
+  providers: Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  >;
 }
 
-function LoginButton({ account }: LoginButtonProp) {
-  const handleLogin = () => {
-    console.log(account);
-  };
-
+function LoginButton({ providers }: ProviderProps) {
   return (
-    <button
-      type="button"
-      className={cn('button', account)}
-      onClick={handleLogin}
-    >
-      {account === 'google' ? (
-        <>
-          <GoogleIconSvg />
-          <Text button="button">Google로 시작하기</Text>
-        </>
-      ) : (
-        <>
-          <KakaoIconSvg />
-          <Text button="button">카카오로 시작하기</Text>
-        </>
-      )}
-    </button>
+    <>
+      {Object.values(providers).map((provider) => (
+        <button
+          type="button"
+          onClick={() => signIn(provider.id, { callbackUrl: '/' })}
+          key={provider.name}
+          className={cn('button')}
+        >
+          <Text button="button">{provider.name}로 시작하기</Text>
+        </button>
+      ))}
+      ;
+    </>
   );
 }
 
