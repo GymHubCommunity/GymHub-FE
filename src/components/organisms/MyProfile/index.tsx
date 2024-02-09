@@ -3,9 +3,9 @@ import Post from '@/components/molecules/Post';
 import PostProfile from '@/components/molecules/PostProfile';
 import Profile from '@/components/molecules/Profile';
 import Reaction from '@/components/molecules/Reaction';
+import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/MyProfile/MyProfile.module.scss';
 import { comment, post, postProfile, profile } from '@/constants/MockData';
-import BackButtonHeader from '../Header/BackButtonHeader';
 
 function MyProfile() {
   return (
