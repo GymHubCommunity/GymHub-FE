@@ -2,10 +2,10 @@
 
 .wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  gap: 168px;
   padding: 10px;
+  height: 83vh;
 }
 .inWrapper {
   display: flex;
