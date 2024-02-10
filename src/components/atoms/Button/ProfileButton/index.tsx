@@ -5,7 +5,10 @@ interface ProfileButton {
 }
 
 function ProfileButton({ type }: ProfileButton) {
-  const profileUpdate = () => {};
+  const profileUpdate = () => {
+    // TODO: 로직 추가 필요
+    console.log('프로필 수정하기 버튼');
+  };
   return (
     <>
       {type === 'profileUpdate' ? (
