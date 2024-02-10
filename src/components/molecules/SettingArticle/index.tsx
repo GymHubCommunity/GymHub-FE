@@ -3,12 +3,12 @@ import styles from '@/components/molecules/SettingArticle/SettingArticle.module.
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 
-interface SettingArticleProp {
+interface SettingArticleProps {
   type: 'profileToggle' | 'logout' | 'withDraw';
   children?: ReactNode;
 }
 
-function SettingArticle({ type, children }: SettingArticleProp) {
+function SettingArticle({ type, children }: SettingArticleProps) {
   const router = useRouter();
   switch (type) {
     case 'profileToggle':
