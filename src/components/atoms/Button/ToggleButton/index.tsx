@@ -4,28 +4,18 @@ import { useState } from 'react';
 function ToggleButton() {
   const [isSelected, setIsSelected] = useState(false);
 
-  const handleSelectedTrue = () => {
-    setIsSelected(true);
-  };
-
-  const handleSelectedFalse = () => {
-    setIsSelected(false);
-  };
-
   // @TODO CSS 수정
   return (
-    <>
-      <button
-        type="button"
-        className={isSelected ? styles.red : styles.green}
-        onClick={handleSelectedTrue}
+    <label className={styles.label}>
+      <p className={styles.content}>{isSelected ? '공개' : '비공개'}</p>
+      <input
+        type="checkbox"
+        className={styles.input}
+        checked={isSelected}
+        onChange={() => setIsSelected((prev) => !prev)}
       />
-      <button
-        type="button"
-        className={isSelected ? styles.green : styles.red}
-        onClick={handleSelectedFalse}
-      />
-    </>
+      <div className={styles.toggleSlider} />
+    </label>
   );
 }
 

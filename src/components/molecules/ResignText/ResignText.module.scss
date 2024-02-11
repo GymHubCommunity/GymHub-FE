@@ -1,0 +1,22 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mainText {
+  font-size: 1.8rem;
+  font-weight: $light;
+  text-align: center;
+}
+
+.subText {
+  font-size: 1.6rem;
+  font-weight: $light;
+  color: $red;
+  text-align: center;
+  word-break: keep-all;
+}
