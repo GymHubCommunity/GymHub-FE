@@ -1,0 +1,13 @@
+@import '@/styles/colors.scss';
+@import '@/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  width: 353px;
+  height: 49px;
+  padding: 10px;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: $darkGray500;
+}

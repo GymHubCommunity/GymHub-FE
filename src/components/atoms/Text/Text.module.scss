@@ -12,6 +12,11 @@
     color: $buttonText;
     font-weight: $medium;
   }
+  &.addButton {
+    font-size: 1.4rem;
+    color: $gray300;
+    font-weight: $light;
+  }
 
   // onBoarding
   &.intro {
