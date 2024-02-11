@@ -19,4 +19,21 @@ const comment = {
   comment: '와 하체를 하시다니 득근하세요',
 };
 
-export { comment, post, postProfile };
+interface ExerciseTrack {
+  [trackName: string]: string;
+}
+
+const exerciseHistory: {
+  part: string;
+  tracks: ExerciseTrack;
+} = {
+  part: '등, 허벅지',
+  tracks: {
+    '스미스 머신 벤치 프레스': '34kg x 10회 x 10세트',
+    '인클라인 덤벨 벤치 프레스': '34kg x 10회 x 10세트',
+    '덤벨 플라이': '34kg x 10회 x 10세트',
+    '스미스 머신 바벨 로우': '34kg x 10회 x 10세트',
+  },
+};
+
+export { comment, post, postProfile, exerciseHistory };
