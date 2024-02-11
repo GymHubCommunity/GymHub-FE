@@ -72,4 +72,14 @@
     font-weight: $regular;
     color: $darkGray300;
   }
+
+  //history
+  &.name {
+    font-size: 1.2rem;
+    font-weight: $medium;
+  }
+  &.value {
+    font-size: 1.2rem;
+    font-weight: $light;
+  }
 }

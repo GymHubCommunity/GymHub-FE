@@ -20,12 +20,15 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'noPost';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
+  history?: 'name' | 'value';
   children: ReactNode;
 }
 
-function Text({ post, button, onBoarding, children }: TextProps) {
+function Text({ post, button, onBoarding, history, children }: TextProps) {
   return (
-    <span className={cn('wrapper', post, button, onBoarding)}>{children}</span>
+    <span className={cn('wrapper', post, button, onBoarding, history)}>
+      {children}
+    </span>
   );
 }
 
