@@ -1,14 +1,23 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
-import { menuItems, postItems } from '@/constants/ToggleMenu';
+import { profileItems, postItems, historyItems } from '@/constants/ToggleMenu';
 import useToggleMenu from '@/hooks/useToggleMenu';
+import classNames from 'classnames/bind';
+
+const cn = classNames.bind(styles);
 
 interface ToggleMenuProp {
-  type: 'profile' | 'post';
+  type: 'profile' | 'post' | 'history';
 }
 
 function ToggleMenu({ type }: ToggleMenuProp) {
   const { isOpen, openMenu, closeMenu } = useToggleMenu();
+  const menuItems =
+    type === 'profile'
+      ? profileItems
+      : type === 'post'
+        ? postItems
+        : historyItems;
 
   return (
     <div role="presentation" onBlur={closeMenu}>
@@ -17,14 +26,16 @@ function ToggleMenu({ type }: ToggleMenuProp) {
       </button>
       {isOpen && (
         <ul className={styles.menus}>
-          {(type === 'profile' ? menuItems : postItems).map((val) => (
+          {menuItems.map((val) => (
             <li
               role="presentation"
               key={val.id}
-              className={styles.item}
+              className={styles.itemWrapper}
               onMouseDown={() => console.log(val.item)}
             >
-              {val.item}
+              <div className={cn('item', { delete: val.id === 2 })}>
+                {val.item}
+              </div>
             </li>
           ))}
         </ul>
