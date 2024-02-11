@@ -1,17 +1,17 @@
 import RegisterItem from '@/components/atoms/Form/RegisterItem';
 import DateFormat from '@/utils/DateFormat';
-import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from '@/components/atoms/Input/DateInput/DataInput.module.scss';
 import LeftArrowSvg from '@/assets/icons/LeftArrorSvg';
 import RightArrowSvg from '@/assets/icons/RightArrowSvg';
 import { ko } from 'date-fns/locale';
+import useSelectedDate from '@/hooks/useSelectedDate';
 
 function DateInput() {
   const { year, month, day } = DateFormat(new Date());
   const minDateTime = year + '-' + month + '-' + day;
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+  const { selectedDate, updateDate } = useSelectedDate();
 
   return (
     <RegisterItem>
@@ -31,7 +31,7 @@ function DateInput() {
               : styles.unselectedDay
           }
           locale={ko}
-          onChange={(date) => setSelectedDate(date)}
+          onChange={(date) => updateDate(date)}
           renderCustomHeader={({ decreaseMonth, increaseMonth }) => (
             <div className={styles.header}>
               <button
