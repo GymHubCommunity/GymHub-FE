@@ -1,11 +1,5 @@
-import AuthProvider from '@/providers/AuthProvider';
-import MobileLayout from '@/components/Layout/MobileLayout';
-import QueryProvider from '@/providers/QueryProvider';
-
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
-import { Provider } from 'jotai';
-import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
