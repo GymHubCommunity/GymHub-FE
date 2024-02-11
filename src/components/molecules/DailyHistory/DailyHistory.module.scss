@@ -1,11 +1,12 @@
 .wrapper {
   display: flex;
+  margin: 21px 0 18px 0;
   padding: 14px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 6px;
-  width: 357px;
+  width: 337px;
   border-radius: 14px;
   background: linear-gradient(
       126deg,
@@ -19,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 332px;
+  width: 312px;
 }
 
 .part {
@@ -38,5 +39,5 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 329px;
+  width: 309px;
 }

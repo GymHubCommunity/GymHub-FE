@@ -13,7 +13,6 @@ function DateInput() {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
   const [day, setDay] = useState('');
-  const minDateTime = year + '-' + month + '-' + day;
   const { selectedDate, updateDate } = useSelectedDate();
 
   useEffect(() => {
@@ -25,6 +24,24 @@ function DateInput() {
     }
   }, [selectedDate]);
 
+  const decreaseHeader = () => {
+    if (parseInt(month) === 1) {
+      setYear(String(parseInt(year) - 1));
+      setMonth('12');
+    } else {
+      setMonth(String(parseInt(month) - 1));
+    }
+  };
+
+  const increaseHeader = () => {
+    if (parseInt(month) === 12) {
+      setYear(String(parseInt(year) + 1));
+      setMonth('1');
+    } else {
+      setMonth(String(parseInt(month) + 1));
+    }
+  };
+
   return (
     <RegisterItem>
       <div className={styles.wrapper}>
@@ -33,7 +50,6 @@ function DateInput() {
           dateFormat="yyyy.MM.dd"
           calendarStartDay={1}
           shouldCloseOnSelect
-          minDate={new Date(minDateTime)}
           selected={selectedDate}
           className={styles.input}
           calendarClassName={styles.calender}
@@ -48,7 +64,10 @@ function DateInput() {
             <div className={styles.header}>
               <button
                 type="button"
-                onClick={decreaseMonth}
+                onClick={() => {
+                  decreaseMonth();
+                  decreaseHeader();
+                }}
                 className={styles.monthButton}
               >
                 <LeftArrowSvg />
@@ -58,7 +77,10 @@ function DateInput() {
               </div>
               <button
                 type="button"
-                onClick={increaseMonth}
+                onClick={() => {
+                  increaseMonth();
+                  increaseHeader();
+                }}
                 className={styles.monthButton}
               >
                 <RightArrowSvg />
