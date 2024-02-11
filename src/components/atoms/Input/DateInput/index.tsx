@@ -7,11 +7,23 @@ import LeftArrowSvg from '@/assets/icons/LeftArrorSvg';
 import RightArrowSvg from '@/assets/icons/RightArrowSvg';
 import { ko } from 'date-fns/locale';
 import useSelectedDate from '@/hooks/useSelectedDate';
+import { useEffect, useState } from 'react';
 
 function DateInput() {
-  const { year, month, day } = DateFormat(new Date());
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [day, setDay] = useState('');
   const minDateTime = year + '-' + month + '-' + day;
   const { selectedDate, updateDate } = useSelectedDate();
+
+  useEffect(() => {
+    if (selectedDate) {
+      const { year, month, day } = DateFormat(selectedDate);
+      setYear(year);
+      setMonth(month);
+      setDay(day);
+    }
+  }, [selectedDate]);
 
   return (
     <RegisterItem>
