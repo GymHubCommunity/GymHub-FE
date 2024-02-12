@@ -10,8 +10,6 @@ interface EditHistoryFormProps {
 }
 
 function EditHistoryForm({ name }: EditHistoryFormProps) {
-  // @TODO API로 해당하는 name에 맞는 set 정보 불러오기
-
   // @TODO atom으로 나누기
   return (
     <div className={styles.wrapper}>
@@ -23,17 +21,18 @@ function EditHistoryForm({ name }: EditHistoryFormProps) {
         <CloseIconSvg />
       </div>
       <LineSvg />
+      {/* @TODO API로 해당하는 name에 맞는 set 정보 불러오기 */}
       <div className={styles.set}>
         <div className={styles.setText}>
           <Text>1세트</Text>
         </div>
         <div className={styles.inputWrapper}>
           <div className={styles.input}>
-            <input />
+            <input value={100} />
             <p className={styles.inputText}>kg</p>
           </div>
           <div className={styles.input}>
-            <input />
+            <input value={10} />
             <p className={styles.inputText}>회</p>
           </div>
           <button type="button" className={styles.deleteButton}>
