@@ -1,6 +1,6 @@
-@import '@/styles/mixin.scss';
-@import '@/styles/zIndex.scss';
-@import '@/styles/colors.scss';
+@import '/src/styles/mixin.scss';
+@import '/src/styles/zIndex.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   @include flexBetween;
@@ -8,6 +8,5 @@
   top: 0;
   height: 54px;
   padding: 0 15px;
-  background-color: $background;
   z-index: $aboveDefault;
 }
