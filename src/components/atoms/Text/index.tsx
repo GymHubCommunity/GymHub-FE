@@ -19,7 +19,7 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'searched'
     | 'noPost';
   button?: string;
-  onBoarding?: 'intro' | 'inputExplain';
+  onBoarding?: string;
   children: ReactNode;
 }
 
