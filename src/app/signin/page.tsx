@@ -1,7 +1,7 @@
 import Login from '@/components/organisms/Login';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
-import authOptions from '../api/auth/[...nextauth]/options';
+import authOptions from '@/app/api/auth/[...nextauth]/options';
 import { redirect } from 'next/navigation';
 
 async function Signin() {
