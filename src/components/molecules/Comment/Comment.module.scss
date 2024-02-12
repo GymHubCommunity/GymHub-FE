@@ -3,20 +3,17 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .user {
-  display: flex;
-  align-items: center;
+  @include flexBetween;
   gap: 10px;
 }
 
 .userComment {
   display: flex;
   flex-direction: column;
-}
-
-.inWrapper {
-  @include flexBetween;
+  flex-grow: 1;
+  gap: 2px;
 }
