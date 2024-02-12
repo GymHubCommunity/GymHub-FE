@@ -1,4 +1,14 @@
 // TODO: API 연동시, 삭제 예정
+const profile = {
+  name: '부리부리몬',
+  imgUrl:
+    'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
+  postCount: '5',
+  exerciseDays: '121212',
+  followCount: '133',
+  followingCount: '233',
+};
+
 const postProfile = {
   imgUrl:
     'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',

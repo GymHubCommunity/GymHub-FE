@@ -1,0 +1,14 @@
+@import '@/styles/fontWeights.scss';
+@import '@/styles/colors.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  color: $gray300;
+  font-size: 1rem;
+  font-weight: $regular;
+}

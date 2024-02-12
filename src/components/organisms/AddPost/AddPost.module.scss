@@ -1,0 +1,14 @@
+@import '@/styles/mixin.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  height: 83vh;
+}
+.inWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
