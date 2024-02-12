@@ -20,7 +20,7 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'noPost';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
-  history?: 'name' | 'value' | 'modalTitle' | 'modalInfo';
+  history?: 'name' | 'value' | 'modalTitle' | 'modalInfo' | 'trackName';
   children: ReactNode;
 }
 
