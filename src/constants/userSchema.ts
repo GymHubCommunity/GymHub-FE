@@ -13,6 +13,7 @@ const userFormSchema = yup.object().shape({
   status: yup.string(),
   nickname: yup
     .string()
+    .min(2)
     .max(12, '닉네임은 12글자 이내로 입력해주세요.')
     .matches(
       /^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*$/,

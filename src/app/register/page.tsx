@@ -1,5 +1,12 @@
+'use client';
+import RegisterForm from '@/components/organisms/RegisterForm';
+
 function Register() {
-  return <div>회원 정보 입력 페이지</div>;
+  return (
+    <div>
+      <RegisterForm />
+    </div>
+  );
 }
 
 export default Register;
