@@ -1,5 +1,13 @@
+'use client';
+
+import MainSection from '@/components/organisms/MainSection';
+
 function Home() {
-  return <main>home</main>;
+  return (
+    <div>
+      <MainSection />
+    </div>
+  );
 }
 
 export default Home;
