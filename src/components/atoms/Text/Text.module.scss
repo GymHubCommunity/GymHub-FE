@@ -87,4 +87,14 @@
     font-size: 1.2rem;
     font-weight: $light;
   }
+  &.modalTitle {
+    font-size: 1.6rem;
+    font-weight: $regular;
+  }
+  &.modalInfo {
+    font-size: 1.2rem;
+    font-weight: $light;
+    line-height: 18px;
+    color: #b7b9c2;
+  }
 }
