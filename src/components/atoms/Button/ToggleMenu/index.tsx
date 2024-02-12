@@ -1,6 +1,7 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
 import { profileItems, postItems, historyItems } from '@/constants/ToggleMenu';
+import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
@@ -14,6 +15,7 @@ interface ToggleMenuProp {
 function ToggleMenu({ type }: ToggleMenuProp) {
   const router = useRouter();
   const { isOpen, openMenu, closeMenu } = useToggleMenu();
+  const { showModal } = useModalInfo();
   const menuItems =
     type === 'profile'
       ? profileItems
@@ -27,7 +29,7 @@ function ToggleMenu({ type }: ToggleMenuProp) {
     } else if (id === 1) {
       // TODO
     } else {
-      // modal
+      showModal();
     }
   };
 
