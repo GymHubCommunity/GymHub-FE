@@ -1,0 +1,14 @@
+.wrapper {
+  position: fixed;
+  right: 20px;
+  bottom: 75px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: fit-content;
+  height: auto;
+  padding: 21px;
+  border-radius: 100px;
+  border: 1.2px solid #000;
+  background: linear-gradient(156deg, #c7f640 12.07%, #c7f640 88.48%);
+}

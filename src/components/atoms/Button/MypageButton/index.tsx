@@ -1,5 +1,13 @@
+import HeaderMyPageSvg from '@/assets/icons/HeaderMyPageSvg';
+import { useRouter } from 'next/navigation';
+
 function MypageButton() {
-  return <button>회원</button>;
+  const router = useRouter();
+  return (
+    <button onClick={() => router.push('/mypage')}>
+      <HeaderMyPageSvg />
+    </button>
+  );
 }
 
 export default MypageButton;
