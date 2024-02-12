@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  padding: 14px;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.svgWrapper {
+  display: inline;
+  position: absolute;
+  left: 20px;
+}
