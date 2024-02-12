@@ -11,10 +11,13 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'postingTime'
     | 'exerciseCompletedTime'
     | 'heartCount'
+    | 'commentUserName'
     | 'comment'
     | 'commentCount'
     | 'commentHeartCount'
-    | 'hashtag';
+    | 'hashtag'
+    | 'searched'
+    | 'noPost';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
   children: ReactNode;

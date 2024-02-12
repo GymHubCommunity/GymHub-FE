@@ -1,0 +1,26 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.button {
+  width: 333px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: $medium;
+  padding: 10px;
+  border-radius: 100px;
+
+  &.cancel {
+    background: $darkGray500;
+  }
+
+  &.delete {
+    color: $red;
+    border: 1px solid $red;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+}
