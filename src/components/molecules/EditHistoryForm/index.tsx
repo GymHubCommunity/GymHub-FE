@@ -28,8 +28,14 @@ function EditHistoryForm({ name }: EditHistoryFormProps) {
           <Text>1세트</Text>
         </div>
         <div className={styles.inputWrapper}>
-          <input placeholder="kg" className={styles.input} />
-          <input placeholder="회" className={styles.input} />
+          <div className={styles.input}>
+            <input />
+            <p className={styles.inputText}>kg</p>
+          </div>
+          <div className={styles.input}>
+            <input />
+            <p className={styles.inputText}>회</p>
+          </div>
           <button type="button" className={styles.deleteButton}>
             세트 삭제
           </button>
