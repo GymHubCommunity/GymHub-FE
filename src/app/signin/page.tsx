@@ -1,16 +1,20 @@
-import authOptions from '@/app/api/auth/[...nextauth]/options';
-import SocialSigninButton from '@/components/atoms/Button/SocialSigninButton';
+import Login from '@/components/organisms/Login';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
+import authOptions from '@/app/api/auth/[...nextauth]/options';
+import { redirect } from 'next/navigation';
 
 async function Signin() {
-  const session = await getServerSession(authOptions);
   const providers = await getProviders();
-  if (session) {
-    return { redirect: { destination: '/' } };
+  const session = await getServerSession(authOptions);
+
+  if (session) redirect('/');
+
+  if (!providers) {
+    return <span>사용 가능하지 않습니다</span>;
   }
 
-  return <SocialSigninButton providers={providers} />;
+  return <Login providers={providers} />;
 }
 
 export default Signin;

@@ -4,6 +4,7 @@ import styles from '@/components/molecules/Comment/Comment.module.scss';
 import { usePathname } from 'next/navigation';
 
 interface CommentProps {
+  type: 'default' | 'allView';
   comment: {
     id: number;
     imgUrl: string;

@@ -3,12 +3,18 @@
 .wrapper {
   @include flexCenter;
   flex-direction: column;
-  gap: 267px;
-  padding-top: 233px;
+  gap: 190px;
+  padding-top: 150px;
 }
 
 .innerWrapper {
   @include flexCenter;
   flex-direction: column;
   gap: 20px;
+}
+
+.buttonWrapper {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 12px;
 }

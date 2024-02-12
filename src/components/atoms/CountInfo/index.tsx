@@ -1,4 +1,4 @@
-import styles from '@/components/atoms/Info/Info.module.scss';
+import styles from '@/components/atoms/CountInfo/CountInfo.module.scss';
 
 interface CountInfoProps {
   type: 'default' | 'follow';
@@ -11,9 +11,9 @@ function CountInfo({ type, content, count }: CountInfoProps) {
     <div className={styles.wrapper}>
       <p className={styles.info}>{content}</p>
       {type === 'default' ? (
-        <p className={styles.info}>{count}</p>
+        <p className={styles.count}>{count}</p>
       ) : (
-        <p className={styles.info}>{count}명</p>
+        <p className={styles.count}>{count}명</p>
       )}
     </div>
   );
