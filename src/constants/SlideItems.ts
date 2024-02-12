@@ -13,4 +13,4 @@ const slideItems = [
   { id: 4, imgUrl: choImg },
 ];
 
-export default { slideItems };
+export { slideItems };
