@@ -20,7 +20,7 @@ function SearchSection() {
           <PostProfile postProfile={postProfile} />
           <Post post={post} />
           <Reaction />
-          <Comment comment={comment} />
+          <Comment type="allView" comment={comment} />
         </>
       ) : (
         <div className={styles.noPost}>

@@ -1,0 +1,20 @@
+@import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.info {
+  font-size: 1.4rem;
+  font-weight: $medium;
+  color: $white;
+}
+
+.count {
+  font-size: 1.2rem;
+  font-weight: $light;
+  color: $gray300;
+}

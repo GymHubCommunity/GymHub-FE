@@ -1,0 +1,13 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.button {
+  width: 90%;
+  padding: 10px;
+  background: $darkGray500;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: $regular;
+  color: $gray300;
+  text-align: center;
+}

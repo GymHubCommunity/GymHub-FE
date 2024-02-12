@@ -4,6 +4,7 @@ import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/Comment/Comment.module.scss';
 
 interface CommentProps {
+  type: 'default' | 'allView';
   comment: {
     imgUrl: string;
     userName: string;
@@ -11,10 +12,10 @@ interface CommentProps {
   };
 }
 
-function Comment({ comment }: CommentProps) {
+function Comment({ type, comment }: CommentProps) {
   return (
     <>
-      <CommentCount type="allView" count="6" />
+      <CommentCount type={type} count="6" />
       <div className={styles.wrapper}>
         <div className={styles.inWrapper}>
           <div className={styles.user}>
