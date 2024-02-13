@@ -128,7 +128,7 @@ const comment = [
     imgUrl:
       'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
     userName: '하체왕 김하체',
-    commentDate: '2023.2.7 오전 12시 30분',
+    date: '2023.2.7 오전 12시 31분',
     comment: '와 하체를 하시다니 득근하세요',
   },
   {
@@ -136,7 +136,7 @@ const comment = [
     imgUrl:
       'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
     userName: '상체왕 김상체',
-    commentDate: '2023.2.7 오전 12시 31분',
+    date: '2023.2.7 오전 12시 31분',
     comment: '상체가 최고입니다',
   },
   {
@@ -144,7 +144,7 @@ const comment = [
     imgUrl:
       'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
     userName: '팔왕 김팔',
-    commentDate: '2023.2.7 오전 12시 32분',
+    date: '2023.2.7 오전 12시 32분',
     comment: '팔운동이 최고임요;',
   },
 ];
