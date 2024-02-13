@@ -38,9 +38,7 @@ function MainSection() {
           <RoutineArticle />
         </div>
       </div>
-      <div className={styles.floatingButton}>
-        <FloatingButton />
-      </div>
+      <FloatingButton />
     </div>
   );
 }
