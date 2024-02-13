@@ -5,7 +5,7 @@ import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import { comment, stories } from '@/constants/MockData';
-import TextureImg from '@/public/images/Textures.png';
+import HeaderImg from '@/public/images/HeaderImg.png';
 import { atom, useSetAtom } from 'jotai';
 import Image from 'next/image';
 import { useEffect } from 'react';
@@ -26,7 +26,7 @@ function MainSection() {
         className={styles.storyBackground}
         width={402}
         height={260}
-        src={TextureImg}
+        src={HeaderImg}
         alt="배경 이미지"
       />
       <StoryArticle stories={stories} />

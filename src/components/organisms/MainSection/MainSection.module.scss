@@ -5,7 +5,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, $purpleBackground 7%, $greenNeon 25%);
 }
 
 .storyWrapper {
@@ -17,7 +16,6 @@
 .storyBackground {
   position: absolute;
   top: 0;
-  mix-blend-mode: color-dodge;
 }
 
 .feedWrapper {
@@ -27,6 +25,7 @@
   padding: 20px;
   border-radius: 20px 20px 0 0;
   background: $story;
+  z-index: $aboveTwo;
 }
 
 .inWrapper {
