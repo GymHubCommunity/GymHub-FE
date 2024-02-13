@@ -19,7 +19,8 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'searched'
     | 'noPost'
     | 'story'
-    | 'storyName';
+    | 'storyName'
+    | 'commentDate';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
   children: ReactNode;

@@ -1,12 +1,11 @@
 import HeaderSearchSvg from '@/assets/icons/HeaderSearchSvg';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 function SearchButton() {
-  const router = useRouter();
   return (
-    <button onClick={() => router.push('/search')}>
+    <Link href={'/search'}>
       <HeaderSearchSvg />
-    </button>
+    </Link>
   );
 }
 

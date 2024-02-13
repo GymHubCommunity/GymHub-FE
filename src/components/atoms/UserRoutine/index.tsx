@@ -8,7 +8,7 @@ export interface nameProp {
 function UserRoutine({ name }: nameProp) {
   return (
     <div className={styles.wrapper}>
-      <DumbbellSvg />
+      <DumbbellSvg type="default" />
       <span className={styles.content}>{name}의 운동 루틴</span>
     </div>
   );

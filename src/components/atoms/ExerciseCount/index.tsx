@@ -7,6 +7,7 @@ interface ExerciseCountProp {
   count: number;
 }
 
+// 4이하 일때 형광색, 4이상 일때 보라색
 function ExerciseCount({ count }: ExerciseCountProp) {
   let type = '';
   if (count > 4) {

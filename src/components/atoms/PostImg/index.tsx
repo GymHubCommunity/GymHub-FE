@@ -8,7 +8,6 @@ const id = 32;
 
 function PostImgSection({ imgUrl }: ImgProps) {
   const router = useRouter();
-
   return (
     <Image
       role="presentation"

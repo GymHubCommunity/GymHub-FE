@@ -82,4 +82,9 @@
     font-weight: $medium;
     color: $story;
   }
+  &.commentDate {
+    font-size: 1rem;
+    font-weight: $light;
+    color: $darkGray100;
+  }
 }

@@ -1,12 +1,11 @@
 import HeaderMyPageSvg from '@/assets/icons/HeaderMyPageSvg';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 function MypageButton() {
-  const router = useRouter();
   return (
-    <button onClick={() => router.push('/mypage')}>
+    <Link href={'/mypage'}>
       <HeaderMyPageSvg />
-    </button>
+    </Link>
   );
 }
 
