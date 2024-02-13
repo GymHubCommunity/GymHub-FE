@@ -33,7 +33,7 @@ interface ExerciseTrack {
   [trackName: string]: string;
 }
 
-const exerciseHistory: {
+const exerciseRecords: {
   part: string;
   tracks: ExerciseTrack;
 } = {
@@ -46,4 +46,4 @@ const exerciseHistory: {
   },
 };
 
-export { comment, post, postProfile, profile, exerciseHistory };
+export { comment, post, postProfile, profile, exerciseRecords };

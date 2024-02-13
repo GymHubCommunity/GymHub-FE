@@ -1,6 +1,6 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
-import { profileItems, postItems, historyItems } from '@/constants/ToggleMenu';
+import { profileItems, postItems, recordsItems } from '@/constants/ToggleMenu';
 import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
 import classNames from 'classnames/bind';
@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 const cn = classNames.bind(styles);
 
 interface ToggleMenuProp {
-  type: 'profile' | 'post' | 'history';
+  type: 'profile' | 'post' | 'records';
 }
 
 function ToggleMenu({ type }: ToggleMenuProp) {
@@ -21,11 +21,11 @@ function ToggleMenu({ type }: ToggleMenuProp) {
       ? profileItems
       : type === 'post'
         ? postItems
-        : historyItems;
+        : recordsItems;
 
   const handleOnClick = (id: number) => {
     if (id === 0) {
-      router.push('/history/edit');
+      router.push('/records/[recordId]');
     } else if (id === 1) {
       // TODO
     } else {

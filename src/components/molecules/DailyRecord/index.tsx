@@ -1,11 +1,11 @@
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
-import styles from '@/components/molecules/DailyHistory/DailyHistory.module.scss';
+import styles from '@/components/molecules/DailyRecord/DailyRecord.module.scss';
 import Text from '@/components/atoms/Text';
 import useSelectedDate from '@/hooks/useSelectedDate';
 import DateFormat from '@/utils/DateFormat';
-import { exerciseHistory } from '@/constants/MockData';
+import { exerciseRecords } from '@/constants/MockData';
 
-function DailyHistory() {
+function DailyRecord() {
   const { selectedDate } = useSelectedDate();
   const targetDate = selectedDate !== null ? selectedDate : new Date();
   const { year, month, day } = DateFormat(targetDate);
@@ -13,20 +13,20 @@ function DailyHistory() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <Text history="name">
+        <Text records="name">
           {year}.{month}.{day} 운동 기록
         </Text>
-        <ToggleMenu type="history" />
+        <ToggleMenu type="records" />
       </div>
       <div className={styles.part}>
-        <Text history="name">운동 부위</Text>
-        <Text history="value">{exerciseHistory.part}</Text>
+        <Text records="name">운동 부위</Text>
+        <Text records="value">{exerciseRecords.part}</Text>
       </div>
       <div className={styles.contentWrapper}>
-        {Object.keys(exerciseHistory.tracks).map((trackName) => (
+        {Object.keys(exerciseRecords.tracks).map((trackName) => (
           <div key={trackName} className={styles.content}>
-            <Text history="name">{trackName}</Text>
-            <Text history="value">{exerciseHistory.tracks[trackName]}</Text>
+            <Text records="name">{trackName}</Text>
+            <Text records="value">{exerciseRecords.tracks[trackName]}</Text>
           </div>
         ))}
       </div>
@@ -34,4 +34,4 @@ function DailyHistory() {
   );
 }
 
-export default DailyHistory;
+export default DailyRecord;

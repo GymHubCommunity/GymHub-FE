@@ -3,20 +3,20 @@ import CloseIconSvg from '@/assets/icons/CloseIconSvg';
 import LineSvg from '@/assets/icons/LineSvg';
 import PlusIconSvg from '@/assets/icons/PlusIconSvg';
 import Text from '@/components/atoms/Text';
-import styles from '@/components/molecules/EditHistoryForm/EditHistoryForm.module.scss';
+import styles from '@/components/molecules/EditRecordsForm/EditRecordsForm.module.scss';
 
-interface EditHistoryFormProps {
+interface EditRecordsFormProps {
   name: string;
 }
 
-function EditHistoryForm({ name }: EditHistoryFormProps) {
+function EditRecordsForm({ name }: EditRecordsFormProps) {
   // @TODO atom으로 나누기
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <BabelSvg />
         <div className={styles.nameText}>
-          <Text history="trackName">{name}</Text>
+          <Text records="trackName">{name}</Text>
         </div>
         <CloseIconSvg />
       </div>
@@ -48,4 +48,4 @@ function EditHistoryForm({ name }: EditHistoryFormProps) {
   );
 }
 
-export default EditHistoryForm;
+export default EditRecordsForm;
