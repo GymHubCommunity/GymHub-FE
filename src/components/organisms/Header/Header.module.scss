@@ -4,8 +4,6 @@
 
 .wrapper {
   @include flexBetween;
-  position: sticky;
-  top: 0;
   height: 54px;
   z-index: $aboveDefault;
 }

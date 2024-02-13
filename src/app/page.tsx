@@ -3,11 +3,7 @@
 import MainSection from '@/components/organisms/MainSection';
 
 function Home() {
-  return (
-    <div>
-      <MainSection />
-    </div>
-  );
+  return <MainSection />;
 }
 
 export default Home;
