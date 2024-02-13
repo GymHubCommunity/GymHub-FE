@@ -12,7 +12,7 @@ interface PostProfileProps {
   };
 }
 
-function PostProfile({ type = 'default', postProfile }: PostProfileProps) {
+function PostProfile({ type, postProfile }: PostProfileProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inWrapper}>

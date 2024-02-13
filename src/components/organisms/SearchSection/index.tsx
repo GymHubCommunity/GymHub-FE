@@ -17,10 +17,10 @@ function SearchSection() {
       {/* TODO: 검색된 결과에 따라 나오는 값 변환 해줘야함 */}
       {filterValue.length !== 0 ? (
         <>
-          <PostProfile postProfile={postProfile} />
+          <PostProfile type={'default'} postProfile={postProfile} />
           <Post post={post} />
           <Reaction />
-          <Comment type="allView" comment={comment} />
+          <Comment comment={comment} />
         </>
       ) : (
         <div className={styles.noPost}>
