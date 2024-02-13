@@ -2,8 +2,8 @@
 
 import PostSection from '@/components/organisms/PostSection';
 
-function MyPage() {
+function PostDetailPage() {
   return <PostSection />;
 }
 
-export default MyPage;
+export default PostDetailPage;
