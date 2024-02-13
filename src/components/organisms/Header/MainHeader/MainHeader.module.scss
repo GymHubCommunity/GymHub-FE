@@ -16,7 +16,11 @@
   display: flex;
   font-size: 2rem;
   font-weight: $bold;
-  font-family: 'Hanson';
+  font-family:
+    'Hanson',
+    Apple SD Gothic Neo,
+    serif,
+    sans-serif;
   margin-top: 5px;
 }
 
