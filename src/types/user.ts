@@ -9,7 +9,7 @@ interface TokenProp {
 }
 
 interface UserInputRegisterProps {
-  profileUrl: string;
+  profileUrl?: string;
   nickname: string;
 }
 

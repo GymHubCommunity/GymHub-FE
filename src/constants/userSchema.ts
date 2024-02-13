@@ -13,13 +13,14 @@ const userFormSchema = yup.object().shape({
   status: yup.string(),
   nickname: yup
     .string()
-    .min(2)
+    .min(2, '닉네임은 최소 2글자 이상 입력해주세요.')
     .max(12, '닉네임은 12글자 이내로 입력해주세요.')
     .matches(
       /^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*$/,
       '특수문자, 띄어쓰기 없이 입력해주세요.',
     )
     .required(''),
+  profileUrl: yup.string(),
 });
 
 export { userFormSchema };
