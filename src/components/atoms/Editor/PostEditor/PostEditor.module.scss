@@ -1,0 +1,12 @@
+@import '@/styles/colors.scss';
+@import '@/styles/fontWeights.scss';
+.editor {
+  width: 100%;
+  height: 433px;
+  background-color: $background;
+  all: unset;
+  color: $white;
+
+  font-size: 1.3rem;
+  font-weight: $light;
+}

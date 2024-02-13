@@ -1,13 +1,53 @@
-.red {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: red;
+@import '/src/styles/colors.scss';
+
+.label {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 26px;
 }
 
-.green {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: green;
+.content {
+  position: absolute;
+  right: 55px;
+  bottom: 3.5px;
+  text-wrap: nowrap;
+  font-size: 1.7rem;
+  color: $darkGray300;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $darkGray350;
+  transition: 0.4s;
+  border-radius: 40px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: $white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}
+
+.input {
+  opacity: 0;
+
+  &:checked + .toggleSlider:before {
+    transform: translateX(23px);
+  }
+
+  &:checked + .toggleSlider {
+    background-color: $greenNeon100;
+  }
 }

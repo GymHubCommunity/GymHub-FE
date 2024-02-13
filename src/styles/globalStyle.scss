@@ -67,6 +67,9 @@ span,
 p {
   text-wrap: balance;
 }
+a {
+  text-decoration: none;
+}
 
 a:not([class]) {
   text-decoration-skip-ink: auto;

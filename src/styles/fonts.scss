@@ -1,4 +1,4 @@
-@import '/src/styles/fontWeights.scss';
+@import '@/styles/fontWeights.scss';
 
 .small {
   font-size: 1.2rem;
@@ -7,7 +7,7 @@
 
 .medium {
   font-size: 1.6rem;
-  font-weight: $medium;
+  font-weight: $normal;
 }
 
 .large {
