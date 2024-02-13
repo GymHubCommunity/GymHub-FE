@@ -1,11 +1,11 @@
 import CommentSvg from '@/assets/icons/CommentSvg';
 import commonStyles from '@/components/atoms/Button/CommonStyle.module.scss';
+import LikeButton from '@/components/atoms/Button/LikeButton';
 import styles from '@/components/atoms/Button/ReactionButton/ReactionButton.module.scss';
 import { commentCountAtom } from '@/components/organisms/MainSection';
 import useLiked from '@/hooks/useLiked';
 import { useAtomValue } from 'jotai';
 import Link from 'next/link';
-import LikeButton from '../LikeButton';
 
 /* TODO: 게시글 상세보기 API 완료시 수정 필요
  *  LikeButton count 수정 필요

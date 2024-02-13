@@ -1,9 +1,9 @@
 import StoryButton from '@/components/atoms/Button/StoryButton';
+import ExerciseCount from '@/components/atoms/ExerciseCount';
 import styles from '@/components/atoms/Story/Story.module.scss';
 import 'swiper/css';
 import { FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ExerciseCount from '../ExerciseCount';
 
 // TODO: 타입 수정 필요
 export interface StoryProps {

@@ -1,12 +1,12 @@
 import Text from '@/components/atoms/Text';
+import Comment from '@/components/molecules/Comment';
+import Post from '@/components/molecules/Post';
+import PostProfile from '@/components/molecules/PostProfile';
+import Reaction from '@/components/molecules/Reaction';
 import { commentCountAtom } from '@/components/organisms/MainSection';
 import { comment, post, postProfile } from '@/constants/MockData';
 import { useAtomValue } from 'jotai';
 import { usePathname } from 'next/navigation';
-import Comment from '../Comment';
-import Post from '../Post';
-import PostProfile from '../PostProfile';
-import Reaction from '../Reaction';
 
 function PostArticle() {
   const commentCount = useAtomValue(commentCountAtom);
