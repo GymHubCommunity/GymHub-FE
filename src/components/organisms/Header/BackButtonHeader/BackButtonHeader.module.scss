@@ -1,6 +1,7 @@
-@import '@/styles/fontWeights.scss';
+@import '/src/styles/fontWeights.scss';
 
 .title {
-  font-size: 1rem;
+  flex-grow: 0.1;
+  font-size: 1.6rem;
   font-weight: $regular;
 }
