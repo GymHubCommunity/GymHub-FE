@@ -1,19 +1,18 @@
 @import '/src/styles/mixin.scss';
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.user {
   @include flexBetween;
   gap: 10px;
 }
 
-.userComment {
+.inWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 2px;
+}
+
+.userWrapper {
+  @include flexStart;
+  gap: 10px;
 }

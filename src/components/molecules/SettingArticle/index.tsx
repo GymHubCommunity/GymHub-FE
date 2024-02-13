@@ -1,6 +1,6 @@
 import ToggleButton from '@/components/atoms/Button/ToggleButton';
 import styles from '@/components/molecules/SettingArticle/SettingArticle.module.scss';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { ReactNode } from 'react';
 
 interface SettingArticleProps {
@@ -9,7 +9,6 @@ interface SettingArticleProps {
 }
 
 function SettingArticle({ type, children }: SettingArticleProps) {
-  const router = useRouter();
   switch (type) {
     case 'profileToggle':
       return (
@@ -21,25 +20,17 @@ function SettingArticle({ type, children }: SettingArticleProps) {
     case 'logout':
       return (
         <div className={styles.wrapper}>
-          <button
-            type="button"
-            className={styles.settingName}
-            onClick={() => router.push('/mypage')}
-          >
+          <Link href={'/mypage'} className={styles.settingName}>
             로그아웃
-          </button>
+          </Link>
         </div>
       );
     case 'withDraw':
       return (
         <div className={styles.wrapper}>
-          <button
-            type="button"
-            className={styles.withDraw}
-            onClick={() => router.push('/setting/resign')}
-          >
+          <Link href={'/setting/resign'} className={styles.withDraw}>
             회원 탈퇴
-          </button>
+          </Link>
         </div>
       );
     default:

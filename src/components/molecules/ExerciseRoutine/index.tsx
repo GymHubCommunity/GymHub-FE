@@ -13,14 +13,14 @@ function ExerciseRoutine() {
           <div className={styles.exerciseWrapper}>
             <ul className={styles.exerciseInWrapper}>
               {val.exerciseEquipment.map((val2) => (
-                <li key={val.id} className={styles.exercise}>
+                <li key={val2.id} className={styles.exercise}>
                   {val2.name}
                 </li>
               ))}
             </ul>
             <div className={styles.setWrapper}>
               {val.exerciseEquipment.map((val2) => (
-                <p key={val.id}>{val2.set}</p>
+                <p key={val2.id}>{val2.set}</p>
               ))}
             </div>
           </div>
