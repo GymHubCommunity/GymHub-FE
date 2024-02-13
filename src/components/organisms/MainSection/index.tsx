@@ -20,7 +20,7 @@ function MainSection() {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <MainHeader />
       <Image
         className={styles.storyBackground}
@@ -39,7 +39,7 @@ function MainSection() {
         </div>
       </div>
       <FloatingButton />
-    </div>
+    </main>
   );
 }
 
