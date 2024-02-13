@@ -1,8 +1,8 @@
+@import '@/styles/mixin.scss';
+
 .wrapper {
-  display: flex;
+  @include flexCenter;
   padding: 14px;
-  align-items: center;
-  justify-content: center;
 
   position: relative;
 }

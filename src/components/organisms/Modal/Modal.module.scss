@@ -17,11 +17,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  display: flex;
   padding: 19px 6px 10px 6px;
+  @include flexCenter;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 
   border: 0;
@@ -46,11 +44,9 @@
 }
 
 .deleteButton {
-  display: flex;
+  @include flexCenter;
   width: 122px;
   padding: 11px 0px;
-  justify-content: center;
-  align-items: center;
   color: #ff453a;
   font-size: 1.6rem;
   font-weight: 610;
@@ -61,11 +57,9 @@
 }
 
 .closeButton {
-  display: flex;
+  @include flexCenter;
   width: 122px;
   padding: 11px 0px;
-  justify-content: center;
-  align-items: center;
   color: #111212;
   font-size: 1.6rem;
   font-weight: 650;

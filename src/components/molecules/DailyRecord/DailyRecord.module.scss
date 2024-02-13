@@ -1,10 +1,10 @@
+@import '@/styles/mixin.scss';
+
 .wrapper {
-  display: flex;
+  @include aFlexStart;
+  flex-direction: column;
   margin: 21px 0 18px 0;
   padding: 14px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   gap: 6px;
   width: 337px;
   border-radius: 14px;
@@ -17,9 +17,7 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flexBetween;
   width: 312px;
 }
 
@@ -36,8 +34,6 @@
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flexBetween;
   width: 309px;
 }

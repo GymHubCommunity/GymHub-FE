@@ -1,5 +1,6 @@
 @import '@/styles/colors.scss';
 @import '@/styles/fontWeights.scss';
+@import '@/styles/mixin.scss';
 
 .input {
   display: flex;
@@ -20,9 +21,7 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flexBetween;
   background-color: $background;
   width: 100%;
   color: $white;
