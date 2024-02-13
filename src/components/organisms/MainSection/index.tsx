@@ -1,23 +1,24 @@
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
-import Comment from '@/components/molecules/Comment';
-import ExerciseRoutine from '@/components/molecules/ExerciseRoutine';
-import Post from '@/components/molecules/Post';
-import PostProfile from '@/components/molecules/PostProfile';
-import Reaction from '@/components/molecules/Reaction';
+import PostArticle from '@/components/molecules/PostArticle';
+import RoutineArticle from '@/components/molecules/RoutineArticle';
 import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
-import {
-  comment,
-  post,
-  postProfile,
-  postRoutine,
-  stories,
-} from '@/constants/MockData';
+import { comment, stories } from '@/constants/MockData';
 import TextureImg from '@/public/images/Textures.png';
+import { atom, useSetAtom } from 'jotai';
 import Image from 'next/image';
+import { useEffect } from 'react';
+
+export const commentCountAtom = atom(0);
 
 function MainSection() {
+  const setCommentCount = useSetAtom(commentCountAtom);
+
+  useEffect(() => {
+    setCommentCount(comment.length);
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <MainHeader />
@@ -31,19 +32,15 @@ function MainSection() {
       <StoryArticle stories={stories} />
       <div className={styles.feedWrapper}>
         <div className={styles.inWrapper}>
-          <PostProfile type="default" postProfile={postProfile} />
-          <Post post={post} />
-          <Reaction />
-          <Comment comment={comment} />
+          <PostArticle />
         </div>
         <div className={styles.inWrapper}>
-          <PostProfile type="exercised" postProfile={postProfile} />
-          <Post post={postRoutine} />
-          <ExerciseRoutine />
-          <Reaction />
+          <RoutineArticle />
         </div>
       </div>
-      <FloatingButton />
+      <div className={styles.floatingButton}>
+        <FloatingButton />
+      </div>
     </div>
   );
 }

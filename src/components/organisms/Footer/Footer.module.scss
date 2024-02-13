@@ -3,12 +3,12 @@
 
 .wrapper {
   @include flexCenter;
+  gap: 56px;
   position: sticky;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 68px;
-  padding: 0 15px;
+  padding: 16px 16px 34px 16px;
   border-top: 1px solid $border;
   background-color: $background;
 }
