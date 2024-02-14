@@ -2,7 +2,8 @@ import CommentSvg from '@/assets/icons/CommentSvg';
 import commonStyles from '@/components/atoms/Button/CommonStyle.module.scss';
 import LikeButton from '@/components/atoms/Button/LikeButton';
 import styles from '@/components/atoms/Button/ReactionButton/ReactionButton.module.scss';
-import { commentCountAtom } from '@/components/organisms/MainSection';
+import { commentCountAtom } from '@/hooks/atoms';
+
 import useLiked from '@/hooks/useLiked';
 import { useAtomValue } from 'jotai';
 import Link from 'next/link';

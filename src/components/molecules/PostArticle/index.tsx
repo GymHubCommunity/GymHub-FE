@@ -3,8 +3,9 @@ import Comment from '@/components/molecules/Comment';
 import Post from '@/components/molecules/Post';
 import PostProfile from '@/components/molecules/PostProfile';
 import Reaction from '@/components/molecules/Reaction';
-import { commentCountAtom } from '@/components/organisms/MainSection';
+
 import { comment, post, postProfile } from '@/constants/MockData';
+import { commentCountAtom } from '@/hooks/atoms';
 import { useAtomValue } from 'jotai';
 import { usePathname } from 'next/navigation';
 

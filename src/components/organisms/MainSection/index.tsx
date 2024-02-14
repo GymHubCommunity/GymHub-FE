@@ -5,12 +5,11 @@ import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import { comment, stories } from '@/constants/MockData';
+import { commentCountAtom } from '@/hooks/atoms';
 import HeaderImg from '@/public/images/HeaderImg.png';
-import { atom, useSetAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 import Image from 'next/image';
 import { useEffect } from 'react';
-
-export const commentCountAtom = atom(0);
 
 function MainSection() {
   const setCommentCount = useSetAtom(commentCountAtom);
