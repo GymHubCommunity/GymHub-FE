@@ -1,0 +1,10 @@
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  gap: 5px;
+  &.comment {
+    flex-direction: column;
+    gap: 0;
+  }
+}

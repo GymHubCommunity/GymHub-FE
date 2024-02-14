@@ -1,9 +1,9 @@
 'use client';
 
-import MyProfile from '@/components/organisms/MyProfile';
+import PostSection from '@/components/organisms/PostSection';
 
 function MyPage() {
-  return <MyProfile />;
+  return <PostSection />;
 }
 
 export default MyPage;

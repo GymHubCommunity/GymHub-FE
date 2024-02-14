@@ -1,0 +1,21 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: $darkGray500;
+}
+
+.content {
+  background: linear-gradient(96deg, #c7f740 19.44%, #d15cff 79.3%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.4rem;
+  font-weight: $medium;
+}
