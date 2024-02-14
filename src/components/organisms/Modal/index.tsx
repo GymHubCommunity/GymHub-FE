@@ -1,47 +1,45 @@
 import styles from '@/components/organisms/Modal/Modal.module.scss';
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
+import Text from '@/components/atoms/Text';
 
 interface ModalProps {
   isShow: boolean;
-  setIsShow: Dispatch<SetStateAction<boolean>>;
-  content: string;
+  closeModal: () => void;
 }
 
-function Modal({ isShow, setIsShow, content }: ModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
-
+function Modal({ isShow, closeModal }: ModalProps) {
   useEffect(() => {
-    const closeModal = (e: MouseEvent) => {
-      if (
-        isShow &&
-        modalRef.current &&
-        modalRef.current.contains(e.target as Node)
-      ) {
-        setIsShow(false);
-      }
+    const handleCloseModal = (e: MouseEvent) => {
+      closeModal();
     };
-    document.addEventListener('mousedown', closeModal);
+    document.addEventListener('mousedown', handleCloseModal);
 
     return () => {
-      document.removeEventListener('mousedown', closeModal);
+      document.removeEventListener('mousedown', handleCloseModal);
     };
   }, [isShow]);
 
-  return createPortal(
+  return (
     <>
-      <div className={styles.background} ref={modalRef} />
+      {isShow && <div className={styles.blur}></div>}
       <div className={styles.container}>
-        <div className={styles.wrapper}>
-          <button
-            className={styles.closeButton}
-            onClick={() => setIsShow(false)}
-          />
+        <div className={styles.infoWrapper}>
+          <Text records="modalTitle">운동 기록 삭제</Text>
+          <Text records="modalInfo">
+            운동 기록 삭제 시에는 복구할 수 없습니다.{'\n'}운동 기록을
+            삭제할까요?
+          </Text>
         </div>
-        <p className={styles.title}>{content}</p>
+        <div className={styles.buttonWrapper}>
+          <button className={styles.deleteButton} onClick={() => closeModal()}>
+            삭제
+          </button>
+          <button className={styles.closeButton} onClick={() => closeModal()}>
+            취소
+          </button>
+        </div>
       </div>
-    </>,
-    document.body,
+    </>
   );
 }
 

@@ -131,3 +131,34 @@ li {
 .queryDevTool {
   font-size: 1.6rem;
 }
+
+body {
+  .react-datepicker {
+    border: none;
+    .react-datepicker__header {
+      padding: 0;
+      border-radius: 0;
+    }
+    .react-datepicker__triangle {
+      display: none;
+    }
+    .react-datepicker__month {
+      width: 100%;
+      margin-top: 12px;
+    }
+    .react-datepicker__day--outside-month {
+      cursor: default;
+      visibility: hidden;
+    }
+    .react-datepicker__day-names {
+      display: flex;
+      justify-content: space-between;
+      background-color: $background;
+      padding: 10px 43px 0px 50px;
+      .react-datepicker__day-name {
+        color: $gray300;
+        font-size: 16px;
+      }
+    }
+  }
+}
