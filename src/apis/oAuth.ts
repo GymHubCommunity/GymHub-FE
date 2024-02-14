@@ -1,10 +1,5 @@
 import { instance } from '@/apis';
 
-interface SocialProps {
-  social: string;
-  authCode: string;
-}
-
 async function getAuthorizedUrl(social: string) {
   const response = await instance.get(`/oauth/${social}/authorized_url`);
   console.log(response.data);
