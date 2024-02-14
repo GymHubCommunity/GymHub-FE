@@ -8,11 +8,6 @@
   color: $gray300;
   background: $darkGray500;
 
-  &.selected {
-    color: $black;
-    background: $greenNeon;
-  }
-
   &:focus {
     color: $black;
     background: $greenNeon;
