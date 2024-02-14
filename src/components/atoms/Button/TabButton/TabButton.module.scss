@@ -1,0 +1,20 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  padding: 10px 14px;
+  border-radius: 100px;
+  color: $gray300;
+  background: $darkGray500;
+
+  &.selected {
+    color: $black;
+    background: $greenNeon;
+  }
+
+  &:focus {
+    color: $black;
+    background: $greenNeon;
+  }
+}
