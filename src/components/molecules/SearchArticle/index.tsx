@@ -11,11 +11,13 @@ function SearchArticle() {
   return (
     <div className={styles.wrapper}>
       <SearchBar type="hashTag" />
-      <Text post="searched">
-        {filterValue.length !== 0
-          ? `#${searchValue} ${filterValue.length}건 검색됨`
-          : ' '}
-      </Text>
+      {filterValue.length !== 0 ? (
+        <Text post="searched">
+          #{searchValue} {filterValue.length}건 검색됨
+        </Text>
+      ) : (
+        ' '
+      )}
     </div>
   );
 }
