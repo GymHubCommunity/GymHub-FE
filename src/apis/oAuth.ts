@@ -1,12 +1,25 @@
 import { instance } from '@/apis';
 
-interface SocialProp {
+interface SocialProps {
   social: string;
+  authCode: string;
 }
 
-async function postOAuth({ social }: SocialProp) {
-  const response = await instance.post(`/oauth/${social}/login`);
+async function getAuthorizedUrl(social: string) {
+  const response = await instance.get(`/oauth/${social}/authorized_url`);
+  console.log(response.data);
   return response.data;
 }
 
-export { postOAuth };
+async function postOAuth({
+  social,
+  authCode,
+}: {
+  social: string;
+  authCode: string;
+}) {
+  const response = await instance.post(`/oauth/${social}/login`, authCode);
+  return response.data;
+}
+
+export { getAuthorizedUrl, postOAuth };
