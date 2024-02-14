@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { atom, useAtom } from 'jotai';
+
+const isOpenAtom = atom(false);
 
 function useToggleMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useAtom(isOpenAtom);
   const openMenu = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(true);
   };
   const closeMenu = () => {
     setIsOpen(false);

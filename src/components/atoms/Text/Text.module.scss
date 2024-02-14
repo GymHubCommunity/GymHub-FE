@@ -12,6 +12,11 @@
     color: $buttonText;
     font-weight: $medium;
   }
+  &.addButton {
+    font-size: 1.4rem;
+    color: $gray300;
+    font-weight: $light;
+  }
 
   // onBoarding
   &.intro {
@@ -86,5 +91,29 @@
     font-size: 1rem;
     font-weight: $light;
     color: $darkGray100;
+  }
+
+  //records
+  &.name {
+    font-size: 1.2rem;
+    font-weight: $medium;
+  }
+  &.value {
+    font-size: 1.2rem;
+    font-weight: $light;
+  }
+  &.modalTitle {
+    font-size: 1.6rem;
+    font-weight: $regular;
+  }
+  &.modalInfo {
+    font-size: 1.2rem;
+    font-weight: $light;
+    line-height: 18px;
+    color: #b7b9c2;
+  }
+  &.trackName {
+    font-size: 1.8rem;
+    font-weight: $light;
   }
 }
