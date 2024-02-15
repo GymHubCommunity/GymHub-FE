@@ -1,4 +1,5 @@
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';
 import PostEditor from '@/components/atoms/Editor/PostEditor';
 import AttachButtons from '@/components/molecules/Post/AttachButtons';
 import styles from '@/components/organisms/AddPost/AddPost.module.scss';
@@ -28,6 +29,10 @@ function AddPost() {
     setImage(image);
   };
 
+  const handleImageDelete = () => {
+    setImage('');
+  };
+
   return (
     <div className={commonStyles.wrapper}>
       <BackButtonHeader pageName={PAGE_NAMES.POST.ADD_POST} />
@@ -38,13 +43,14 @@ function AddPost() {
         >
           <PostEditor name="content" handleChange={handleChange} />
           {image && (
-            <div>
+            <div className={styles.imageWrapper}>
+              <ImageDeleteButton onClick={() => handleImageDelete()} />
               <Image
                 src={image}
                 width={353}
                 height={289}
                 alt="게시글 첨부사진"
-              />
+              ></Image>
             </div>
           )}
           <div className={styles.inWrapper}>
