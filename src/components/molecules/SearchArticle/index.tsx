@@ -1,6 +1,7 @@
-import SearchBar, { searchValueAtom } from '@/components/atoms/SearchBar';
+import SearchInput from '@/components/atoms/Input/SearchInput';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/SearchArticle/SearchArticle.module.scss';
+import { searchValueAtom } from '@/hooks/atoms';
 import { filterValueAtom } from '@/hooks/useSearchFilter';
 
 import { useAtomValue } from 'jotai';
@@ -11,7 +12,7 @@ function SearchArticle() {
 
   return (
     <div className={styles.wrapper}>
-      <SearchBar type="hashTag" />
+      <SearchInput type="hashTag" />
       {filterValue.length !== 0 ? (
         <Text post="searched">
           #{searchValue} {filterValue.length}건 검색됨
