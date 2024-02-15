@@ -1,6 +1,6 @@
 import { instance } from '@/apis';
 
-function setAuthorizationToken(access_token: any) {
+function setAuthorizationToken(access_token: string) {
   const token = localStorage.getItem(access_token);
   if (token) {
     instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;

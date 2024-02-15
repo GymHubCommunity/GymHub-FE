@@ -6,11 +6,11 @@ async function getAuthorizedUrl(social: string) {
 }
 
 function postOAuth(authCode: string) {
-  const data = instance.post(`/oauth/kakao/login`, {
+  const response = instance.post(`/oauth/kakao/login`, {
     authCode,
   });
 
-  return data;
+  return response;
 }
 
 function postLogout() {

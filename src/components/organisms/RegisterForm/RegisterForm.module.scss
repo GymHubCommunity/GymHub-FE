@@ -1,5 +1,5 @@
 @import '@/styles/mixin.scss';
-@import '@/styles/colors.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   @include flexCenter;
@@ -15,7 +15,6 @@
   border-radius: 4px;
   background-color: $darkGray700;
 
-  
   font-size: 2.2rem;
   color: #fafdff;
 }

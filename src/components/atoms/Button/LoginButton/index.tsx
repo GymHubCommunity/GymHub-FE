@@ -3,9 +3,11 @@ import styles from '@/components/atoms/Button/LoginButton/LoginButton.module.scs
 import classNames from 'classnames/bind';
 import Text from '@/components/atoms/Text';
 import { BuiltInProviderType } from 'next-auth/providers/index';
-import { ClientSafeProvider, LiteralUnion, signIn } from 'next-auth/react';
+import { ClientSafeProvider, LiteralUnion } from 'next-auth/react';
 import GoogleIconSvg from '@/assets/icons/GoogleIconSvg';
 import KakaoIconSvg from '@/assets/icons/KakaoIconSvg';
+import { getAuthorizedUrl } from '@/apis/oAuth';
+import { useRouter } from 'next/navigation';
 
 const cn = classNames.bind(styles);
 
@@ -17,12 +19,23 @@ export interface ProviderProps {
 }
 
 function LoginButton({ providers }: ProviderProps) {
+  const router = useRouter();
+
+  const handleOAuthAuthorizedUrl = async (social: string) => {
+    try {
+      const response = await getAuthorizedUrl(social);
+      router.push(response.authorizedUrl);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {Object.values(providers).map((provider) => (
         <button
           type="button"
-          onClick={() => signIn(provider.id, { callbackUrl: '/' })}
+          onClick={() => handleOAuthAuthorizedUrl(provider.id)}
           key={provider.name}
           className={cn('button', `${provider.id}`)}
         >
