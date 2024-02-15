@@ -46,9 +46,9 @@ function AddPost() {
             <div className={styles.imageWrapper}>
               <ImageDeleteButton onClick={() => handleImageDelete()} />
               <Image
-                src={image}
                 width={353}
                 height={289}
+                src={image}
                 alt="게시글 첨부사진"
               ></Image>
             </div>
