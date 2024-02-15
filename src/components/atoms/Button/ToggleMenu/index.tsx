@@ -1,6 +1,6 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
+import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import useToggleMenu from '@/hooks/useToggleMenu';
-import ToggleItems from './ToggleItems';
 
 export interface ToggleMenuProp {
   type: 'profile' | 'post' | 'records';

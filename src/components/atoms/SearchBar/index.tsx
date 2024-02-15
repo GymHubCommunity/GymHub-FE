@@ -1,11 +1,11 @@
 import SearchSvg from '@/assets/icons/SearchSvg';
+import SearchButton from '@/components/atoms/Button/SearchButton';
 import styles from '@/components/atoms/SearchBar/SearchBar.module.scss';
 import useSearchFilter from '@/hooks/useSearchFilter';
 
 import { atom, useAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
-import SearchButton from '../Button/SearchButton';
 
 export const searchValueAtom = atom('');
 
