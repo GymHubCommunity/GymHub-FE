@@ -1,6 +1,6 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
-import { profileItems, postItems, recordsItems } from '@/constants/ToggleMenu';
+import { postItems, profileItems, recordsItems } from '@/constants/ToggleMenu';
 import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
 import classNames from 'classnames/bind';
@@ -14,7 +14,7 @@ interface ToggleMenuProp {
 
 function ToggleMenu({ type }: ToggleMenuProp) {
   const router = useRouter();
-  const { isOpen, openMenu, closeMenu } = useToggleMenu();
+  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
   const { showModal } = useModalInfo();
   const menuItems =
     type === 'profile'
@@ -35,7 +35,7 @@ function ToggleMenu({ type }: ToggleMenuProp) {
 
   return (
     <div role="presentation" onBlur={closeMenu}>
-      <button type="button" onClick={openMenu}>
+      <button type="button" onClick={toggleMenu}>
         <ToggleMenuSvg />
       </button>
       {isOpen && (
