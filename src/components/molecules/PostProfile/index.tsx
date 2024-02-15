@@ -1,4 +1,5 @@
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
+
 import ProfileImg from '@/components/atoms/ProfileImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';

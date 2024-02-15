@@ -3,7 +3,9 @@ import styles from '@/components/atoms/SearchBar/SearchBar.module.scss';
 import useSearchFilter from '@/hooks/useSearchFilter';
 
 import { atom, useAtom } from 'jotai';
+import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
+import SearchButton from '../Button/SearchButton';
 
 export const searchValueAtom = atom('');
 
@@ -21,15 +23,21 @@ function SearchBar({ type }: SearchBarProp) {
     setSearchValue,
   });
 
+  const pathName = usePathname();
+
   return (
     <div className={styles.wrapper}>
       <SearchSvg />
       {type === 'hashTag' ? (
-        <input
-          className={styles.input}
-          onChange={searchHashTag}
-          placeholder="#해시태그 검색"
-        />
+        <>
+          <input
+            className={styles.input}
+            onChange={searchHashTag}
+            placeholder="해시태그 검색..."
+            pattern="[^\s]+"
+          />
+          {pathName === '/search' && <SearchButton page="search" />}
+        </>
       ) : (
         <input
           className={styles.input}

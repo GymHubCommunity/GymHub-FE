@@ -1,0 +1,13 @@
+@import '/src/styles/colors.scss';
+
+.button {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  padding: 6px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  background: $greenNeon100;
+  color: $black;
+}

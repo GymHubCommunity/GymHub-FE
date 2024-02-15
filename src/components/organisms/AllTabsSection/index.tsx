@@ -9,11 +9,14 @@ import styles from '@/components/organisms/AllTabsSection/AllTabsSection.module.
 import { comment, post, postProfile } from '@/constants/MockData';
 import { filterValueAtom } from '@/hooks/useSearchFilter';
 import { useAtom } from 'jotai';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 function AllTabsSection() {
   const [filterValue, setFilterValue] = useAtom(filterValueAtom);
   const [isSelected, setIsSelected] = useState('전체');
+
+  const pathName = usePathname();
 
   const handleClicked = (selectTab: string) => {
     setIsSelected(selectTab);
@@ -39,7 +42,7 @@ function AllTabsSection() {
         </>
       ) : (
         <>
-          <Tabs clicked={handleClicked} />
+          {pathName === '/alltabs' && <Tabs clicked={handleClicked} />}
           <div className={styles.noPost}>
             <Text post="noPost">게시글이 없습니다.</Text>
           </div>

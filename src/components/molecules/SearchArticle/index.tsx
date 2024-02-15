@@ -8,6 +8,7 @@ import { useAtomValue } from 'jotai';
 function SearchArticle() {
   const searchValue = useAtomValue(searchValueAtom);
   const filterValue = useAtomValue(filterValueAtom);
+
   return (
     <div className={styles.wrapper}>
       <SearchBar type="hashTag" />

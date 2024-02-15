@@ -5,7 +5,7 @@ function Search() {
   return (
     <div>
       <SearchInput />
-      <SearchButton />
+      <SearchButton page="search" />
     </div>
   );
 }
