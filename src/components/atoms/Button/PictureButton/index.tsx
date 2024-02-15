@@ -1,16 +1,32 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
+import { PictureButtonProps } from '@/types/image';
 
-interface PictureButtonProps {
-  onClick: () => void;
-}
+function PictureButton({ onImageChange }: PictureButtonProps) {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const file = e.target.files[0];
 
-function PictureButton({ onClick }: PictureButtonProps) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+      if (reader.readyState === 2) {
+        onImageChange(e.target?.result as string);
+      }
+    };
+  };
+
   return (
-    <button onClick={onClick} className={styles.wrapper}>
+    <label htmlFor="fileInput" className={styles.wrapper}>
       <PictureSvg />
       <span className={styles.title}>사진</span>
-    </button>
+      <input
+        type="file"
+        id="fileInput"
+        className={styles.file}
+        onChange={handleImageChange}
+      ></input>
+    </label>
   );
 }
 

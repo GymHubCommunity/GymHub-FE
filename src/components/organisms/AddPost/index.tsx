@@ -5,10 +5,12 @@ import styles from '@/components/organisms/AddPost/AddPost.module.scss';
 import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import { PAGE_NAMES } from '@/constants/PageNames';
+import Image from 'next/image';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 function AddPost() {
+  const [image, setImage] = useState('');
   const [disabled, setDisabled] = useState(true);
   const methods = useForm();
 
@@ -21,6 +23,11 @@ function AddPost() {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDisabled(e.target.value.trim() === '');
   };
+
+  const handleImageChange = (image: string) => {
+    setImage(image);
+  };
+
   return (
     <div className={commonStyles.wrapper}>
       <BackButtonHeader pageName={PAGE_NAMES.POST.ADD_POST} />
@@ -30,8 +37,18 @@ function AddPost() {
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           <PostEditor name="content" handleChange={handleChange} />
+          {image && (
+            <div>
+              <Image
+                src={image}
+                width={353}
+                height={289}
+                alt="게시글 첨부사진"
+              />
+            </div>
+          )}
           <div className={styles.inWrapper}>
-            <AttachButtons />
+            <AttachButtons onImageChange={handleImageChange} />
             <ConfirmButton title="게시하기" type="submit" disabled={disabled} />
           </div>
         </form>
