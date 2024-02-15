@@ -5,8 +5,8 @@ async function getAuthorizedUrl(social: string) {
   return response.data;
 }
 
-function postOAuth(authCode: string) {
-  const response = instance.post(`/oauth/kakao/login`, {
+async function postOAuth(social: string, authCode: string) {
+  const response = await instance.post(`/oauth/${social}/login`, {
     authCode,
   });
 

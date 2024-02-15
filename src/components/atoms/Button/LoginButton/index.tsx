@@ -25,6 +25,7 @@ function LoginButton({ providers }: ProviderProps) {
     try {
       const response = await getAuthorizedUrl(social);
       router.push(response.authorizedUrl);
+      return social;
     } catch (error) {
       console.log(error);
     }
