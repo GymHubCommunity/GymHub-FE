@@ -4,7 +4,7 @@ import ProfileImgSvg from '@/assets/icons/ProfileImgSvg';
 import { ChangeEvent, useState } from 'react';
 import Image from 'next/image';
 
-function ProfileImgSetting() {
+function ProfileImgSetting(props: any) {
   const [previewImage, setPreviewImage] = useState<string>('');
 
   const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +30,7 @@ function ProfileImgSetting() {
           accept="image/png, image/jpeg, image/jpg"
           className={styles.cameraInput}
           onChange={handleChangeFile}
+          ref={props.inputRef}
         />
         <div className={styles.profileImg}>
           {previewImage ? (
