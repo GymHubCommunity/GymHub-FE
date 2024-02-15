@@ -1,22 +1,18 @@
 @import '/src/styles/mixin.scss';
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  @include flexBetween;
   gap: 10px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.userComment {
-  display: flex;
-  flex-direction: column;
 }
 
 .inWrapper {
-  @include flexBetween;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+}
+
+.userWrapper {
+  @include flexStart;
+  gap: 10px;
 }

@@ -1,5 +1,5 @@
-@import '@/styles/fontWeights.scss';
-@import '@/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   color: $white;
@@ -11,6 +11,11 @@
     font-size: 1.8rem;
     color: $buttonText;
     font-weight: $medium;
+  }
+  &.addButton {
+    font-size: 1.4rem;
+    color: $gray300;
+    font-weight: $light;
   }
 
   // onBoarding
@@ -71,5 +76,44 @@
     font-size: 2rem;
     font-weight: $regular;
     color: $darkGray300;
+  }
+  &.story {
+    font-size: 1.4rem;
+    font-weight: $regular;
+    color: $gray100;
+  }
+  &.storyName {
+    font-size: 1.1rem;
+    font-weight: $medium;
+    color: $story;
+  }
+  &.commentDate {
+    font-size: 1rem;
+    font-weight: $light;
+    color: $darkGray100;
+  }
+
+  //records
+  &.name {
+    font-size: 1.2rem;
+    font-weight: $medium;
+  }
+  &.value {
+    font-size: 1.2rem;
+    font-weight: $light;
+  }
+  &.modalTitle {
+    font-size: 1.6rem;
+    font-weight: $regular;
+  }
+  &.modalInfo {
+    font-size: 1.2rem;
+    font-weight: $light;
+    line-height: 18px;
+    color: #b7b9c2;
+  }
+  &.trackName {
+    font-size: 1.8rem;
+    font-weight: $light;
   }
 }

@@ -1,14 +1,37 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleMenu.module.scss';
-import { menuItems, postItems } from '@/constants/ToggleMenu';
+import { profileItems, postItems, recordsItems } from '@/constants/ToggleMenu';
+import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
+import classNames from 'classnames/bind';
+import { useRouter } from 'next/navigation';
+
+const cn = classNames.bind(styles);
 
 interface ToggleMenuProp {
-  type: 'profile' | 'post';
+  type: 'profile' | 'post' | 'records';
 }
 
 function ToggleMenu({ type }: ToggleMenuProp) {
+  const router = useRouter();
   const { isOpen, openMenu, closeMenu } = useToggleMenu();
+  const { showModal } = useModalInfo();
+  const menuItems =
+    type === 'profile'
+      ? profileItems
+      : type === 'post'
+        ? postItems
+        : recordsItems;
+
+  const handleOnClick = (id: number) => {
+    if (id === 0) {
+      router.push('/records/[recordId]');
+    } else if (id === 1) {
+      // TODO
+    } else {
+      showModal();
+    }
+  };
 
   return (
     <div role="presentation" onBlur={closeMenu}>
@@ -17,14 +40,16 @@ function ToggleMenu({ type }: ToggleMenuProp) {
       </button>
       {isOpen && (
         <ul className={styles.menus}>
-          {(type === 'profile' ? menuItems : postItems).map((val) => (
+          {menuItems.map((val) => (
             <li
               role="presentation"
               key={val.id}
-              className={styles.item}
-              onMouseDown={() => console.log(val.item)}
+              className={styles.itemWrapper}
+              onMouseDown={() => handleOnClick(val.id)}
             >
-              {val.item}
+              <div className={cn('item', { delete: val.id === 2 })}>
+                {val.item}
+              </div>
             </li>
           ))}
         </ul>

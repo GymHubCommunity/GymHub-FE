@@ -7,6 +7,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Hanson';
+  src: url('/fonts/Hanson-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -113,11 +119,6 @@ ul {
 
 li {
   list-style: none;
-
-  &:hover {
-    transform: scale(1.1, 1.1);
-    transition: all 0.15s ease-in-out;
-  }
 }
 
 :target {
@@ -130,4 +131,35 @@ li {
 
 .queryDevTool {
   font-size: 1.6rem;
+}
+
+body {
+  .react-datepicker {
+    border: none;
+    .react-datepicker__header {
+      padding: 0;
+      border-radius: 0;
+    }
+    .react-datepicker__triangle {
+      display: none;
+    }
+    .react-datepicker__month {
+      width: 100%;
+      margin-top: 12px;
+    }
+    .react-datepicker__day--outside-month {
+      cursor: default;
+      visibility: hidden;
+    }
+    .react-datepicker__day-names {
+      display: flex;
+      justify-content: space-between;
+      background-color: $background;
+      padding: 10px 43px 0px 50px;
+      .react-datepicker__day-name {
+        color: $gray300;
+        font-size: 16px;
+      }
+    }
+  }
 }

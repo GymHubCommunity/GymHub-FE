@@ -1,0 +1,31 @@
+@import '/src/styles/mixin.scss';
+@import '/src/styles/zIndex.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  @include flexBetween;
+  top: 0;
+  height: 54px;
+  margin: 15px 20px;
+  color: $story;
+  z-index: $aboveTwo;
+}
+
+.title {
+  display: flex;
+  font-size: 2rem;
+  font-weight: $bold;
+  font-family:
+    'Hanson',
+    Apple SD Gothic Neo,
+    serif,
+    sans-serif;
+  margin-top: 5px;
+}
+
+.inWrapper {
+  display: flex;
+
+  gap: 10px;
+}

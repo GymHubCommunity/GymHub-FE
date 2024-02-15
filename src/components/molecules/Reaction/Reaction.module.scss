@@ -1,10 +1,21 @@
+@import '/src/styles/mixin.scss';
+
 .wrapper {
+  @include flexBetween;
+  gap: 8px;
+}
+
+.inWrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 8px;
 }
 
 .reaction {
   display: flex;
   gap: 10px;
+}
+
+.comment {
+  display: flex;
+  flex-grow: 1;
 }

@@ -17,15 +17,21 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'commentHeartCount'
     | 'hashtag'
     | 'searched'
-    | 'noPost';
+    | 'noPost'
+    | 'story'
+    | 'storyName'
+    | 'commentDate';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
+  records?: 'name' | 'value' | 'modalTitle' | 'modalInfo' | 'trackName';
   children: ReactNode;
 }
 
-function Text({ post, button, onBoarding, children }: TextProps) {
+function Text({ post, button, onBoarding, records, children }: TextProps) {
   return (
-    <span className={cn('wrapper', post, button, onBoarding)}>{children}</span>
+    <span className={cn('wrapper', post, button, onBoarding, records)}>
+      {children}
+    </span>
   );
 }
 

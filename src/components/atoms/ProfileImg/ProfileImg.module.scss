@@ -1,3 +1,10 @@
+@import '/src/styles/colors.scss';
+
 .profileImg {
   border-radius: 1000px;
+
+  &.story {
+    border: 1.2px solid $story;
+    border-radius: 300px;
+  }
 }

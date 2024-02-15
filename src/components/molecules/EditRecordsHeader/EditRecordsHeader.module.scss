@@ -1,0 +1,14 @@
+@import '@/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  padding: 14px;
+
+  position: relative;
+}
+
+.svgWrapper {
+  display: inline;
+  position: absolute;
+  left: 20px;
+}
