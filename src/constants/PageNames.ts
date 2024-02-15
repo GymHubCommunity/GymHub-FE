@@ -7,7 +7,7 @@ const PAGE_NAMES = {
     EXERCISE_RECORD: '운동 기록',
     CALL_EXERCISE_RECORD: '운동 기록 불러오기',
     MODIFY_EXERCISE_RECORD: '운동 기록 수정',
-    ADD_EXERCISE_RECORD: '운동 기록하기2',
+    ADD_EXERCISE_RECORD: '운동 기록하기',
   },
   EXERCISE: {
     ADD_EXERCISE: '운동 추가',
