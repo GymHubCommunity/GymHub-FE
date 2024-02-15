@@ -2,19 +2,19 @@ import { instance } from '@/apis';
 
 async function getAuthorizedUrl(social: string) {
   const response = await instance.get(`/oauth/${social}/authorized_url`);
-  console.log(response.data);
   return response.data;
 }
 
-async function postOAuth({
-  social,
-  authCode,
-}: {
-  social: string;
-  authCode: string;
-}) {
-  const response = await instance.post(`/oauth/${social}/login`, authCode);
-  return response.data;
+function postOAuth(authCode: string) {
+  const data = instance.post(`/oauth/kakao/login`, {
+    authCode,
+  });
+
+  return data;
 }
 
-export { getAuthorizedUrl, postOAuth };
+function postLogout() {
+  instance.post(`/auth/logout`);
+}
+
+export { getAuthorizedUrl, postOAuth, postLogout };
