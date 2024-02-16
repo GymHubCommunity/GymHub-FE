@@ -1,3 +1,5 @@
+'use client';
+
 import {
   postUnfollow,
   postFollow,
@@ -7,10 +9,10 @@ import {
   getFollowers,
 } from '@/apis/followController';
 
-function followExample() {
+function FollowExample() {
   const postFollowRequest = async () => {
     try {
-      const userId = 2;
+      const userId = 3;
       const result = await postFollow({ id: userId });
       const status = result.status;
       console.log(status);
@@ -33,7 +35,9 @@ function followExample() {
     try {
       const userId = 2;
       const result = await getFollowings({ id: userId });
-      console.log('Followings:', result);
+      const follows = result.follows;
+      const followsNum = follows.length;
+      console.log('Followers: ', followsNum);
     } catch (error) {
       console.error('Error sending follow request:', error);
     }
@@ -43,7 +47,9 @@ function followExample() {
     try {
       const userId = 2;
       const result = await getFollowers({ id: userId });
-      console.log('Followers: ', result);
+      const follows = result.follows;
+      const followsNum = follows.length;
+      console.log('Followers: ', follows);
     } catch (error) {
       console.error('Error sending follow request:', error);
     }
@@ -53,7 +59,7 @@ function followExample() {
     try {
       const userId = 1;
       const result = await postFollower({ id: userId });
-      console.log('Follower request successful');
+      console.log('Follower request successful', result);
     } catch (error) {
       console.error('Error sending follow request:', error);
     }
@@ -61,9 +67,9 @@ function followExample() {
 
   const deleteFollowerRequest = async () => {
     try {
-      const userId = 2;
+      const userId = 1;
       const result = await deleteFollower({ id: userId });
-      console.log('Follow request successful');
+      console.log('Follow request successful: ', result);
     } catch (error) {
       console.error('Error sending follow request:', error);
     }
@@ -73,7 +79,7 @@ function followExample() {
     <>
       <button
         type="button"
-        onClick={postFollowRequest}
+        onClick={getFollowingsRequest}
         style={{
           backgroundColor: 'white',
           color: 'black',
@@ -86,4 +92,4 @@ function followExample() {
   );
 }
 
-export default followExample;
+export default FollowExample;
