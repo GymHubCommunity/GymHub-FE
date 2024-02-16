@@ -1,5 +1,5 @@
-@import '@/styles/fontWeights.scss';
-@import '@/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   color: $white;
@@ -76,6 +76,21 @@
     font-size: 2rem;
     font-weight: $regular;
     color: $darkGray300;
+  }
+  &.story {
+    font-size: 1.4rem;
+    font-weight: $regular;
+    color: $gray100;
+  }
+  &.storyName {
+    font-size: 1.1rem;
+    font-weight: $medium;
+    color: $story;
+  }
+  &.commentDate {
+    font-size: 1rem;
+    font-weight: $light;
+    color: $darkGray100;
   }
 
   //records

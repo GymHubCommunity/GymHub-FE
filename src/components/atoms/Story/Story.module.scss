@@ -1,0 +1,33 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todayExercise {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 100px;
+  border: 1px solid $story;
+  background: rgba(255, 255, 255, 0.1);
+  color: $story;
+  font-size: 1.4rem;
+  font-weight: $bold;
+}
+
+.mySwiper {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  color: $black;
+
+  .swiper-slide {
+    width: fit-content;
+  }
+}

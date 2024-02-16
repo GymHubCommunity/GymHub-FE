@@ -1,0 +1,41 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/zIndex.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.storyWrapper {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+}
+
+.storyBackground {
+  position: absolute;
+  top: 0;
+}
+
+.feedWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  background: $story;
+  z-index: $aboveTwo;
+}
+
+.inWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.floatingButton {
+  position: absolute;
+  top: 735px;
+  right: 80px;
+}

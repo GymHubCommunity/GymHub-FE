@@ -1,0 +1,22 @@
+@import '/src/styles/zIndex.scss';
+@import '/src/styles/colors.scss';
+
+.wrapper {
+  position: fixed;
+  right: 15px;
+  bottom: 100px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: fit-content;
+  height: auto;
+  padding: 21px;
+  border-radius: 100px;
+  border: 1.2px solid #000;
+  background: linear-gradient(
+    156deg,
+    $greenNeon100 12.07%,
+    $greenNeon100 88.48%
+  );
+  z-index: $aboveTwo;
+}

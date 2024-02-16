@@ -1,0 +1,46 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: $darkGray600;
+  color: $black;
+}
+
+.inWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: $white;
+}
+
+.exerciseArea {
+  font-size: 1.2rem;
+  font-weight: $light;
+  color: $gray400;
+}
+
+.exerciseWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exercise {
+  list-style: square;
+  list-style-position: inside;
+  font-size: 1.2rem;
+  font-weight: $medium;
+}
+
+.exerciseInWrapper,
+.setWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
