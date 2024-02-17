@@ -1,4 +1,4 @@
-import styles from '@/components/atoms/SearchBar/SearchBar.module.scss';
+import styles from '@/components/atoms/Input/Input.module.scss';
 import Svg from '@/components/atoms/Svg';
 
 function SearchSvg() {

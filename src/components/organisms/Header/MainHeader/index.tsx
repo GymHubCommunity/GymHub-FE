@@ -9,7 +9,7 @@ function MainHeader() {
       <SettingButton />
       <h1 className={styles.title}>GYMHUB</h1>
       <div className={styles.inWrapper}>
-        <SearchButton />
+        <SearchButton page="main" />
         <MypageButton />
       </div>
     </header>

@@ -1,5 +1,4 @@
 import CommentSvg from '@/assets/icons/CommentSvg';
-import commonStyles from '@/components/atoms/Button/CommonStyle.module.scss';
 import LikeButton from '@/components/atoms/Button/LikeButton';
 import styles from '@/components/atoms/Button/ReactionButton/ReactionButton.module.scss';
 import { commentCountAtom } from '@/hooks/atoms';
@@ -33,7 +32,7 @@ function ReactionButton({ type }: ReactionButtonProp) {
       ) : (
         <Link href={'/post/${id}'} className={styles.inWrapper}>
           <CommentSvg />
-          <p className={commonStyles.count}>{commentCount}</p>
+          <p className={styles.count}>{commentCount}</p>
         </Link>
       )}
     </div>

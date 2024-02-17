@@ -1,5 +1,4 @@
 import LikeSvg from '@/assets/icons/LikeSvg';
-import commonStyles from '@/components/atoms/Button/CommonStyle.module.scss';
 import styles from '@/components/atoms/Button/LikeButton/LikeButton.module.scss';
 import classNames from 'classnames/bind';
 
@@ -16,7 +15,7 @@ function LikeButton({ type, isLike, handleLike, count }: LikeButtonProps) {
   return (
     <button onClick={handleLike} className={cn('wrapper', type)}>
       <LikeSvg type={isLike} />
-      <p className={commonStyles.count}>{count}</p>
+      <p className={cn('count', type)}>{count}</p>
     </button>
   );
 }

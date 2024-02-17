@@ -38,6 +38,9 @@
   &.description {
     font-size: 1.4rem;
   }
+  &.hashTag {
+    color: $exerciseCount;
+  }
   &.postingTime {
     font-size: 1.4rem;
     color: $gray400;
@@ -115,5 +118,18 @@
   &.trackName {
     font-size: 1.8rem;
     font-weight: $light;
+  }
+  &.noExercise {
+    font-size: 1.2rem;
+    font-weight: $regular;
+    color: $gray600;
+    line-height: 18px;
+    text-align: center;
+  }
+  &.directInput {
+    font-size: 1.2rem;
+    font-weight: $regular;
+    color: $greenNeon;
+    text-decoration: underline;
   }
 }

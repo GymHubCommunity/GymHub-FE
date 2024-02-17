@@ -1,0 +1,11 @@
+@import '/src/styles/colors';
+@import '/src/styles/fontWeights';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include aFlexStart;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px 20px;
+  gap: 16px;
+}

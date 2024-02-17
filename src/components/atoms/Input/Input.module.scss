@@ -1,0 +1,42 @@
+@import '/src/styles/colors.scss';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchImg {
+  position: absolute;
+  margin-left: 6px;
+}
+
+.input {
+  width: 100%;
+  height: 26px;
+  padding: 4px 29px 4px 38px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  color: $white;
+  caret-color: $greenNeon100;
+  background-color: $darkGray500;
+}
+
+.commentInput {
+  position: relative;
+  width: 100%;
+  height: 26px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  color: $white;
+  caret-color: $greenNeon100;
+  background-color: $darkGray500;
+}
+
+.commentSubmit {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+}

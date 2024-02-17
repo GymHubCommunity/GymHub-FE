@@ -1,12 +1,15 @@
 import styles from '@/components/molecules/ExerciseRoutine/ExerciseRoutine.module.scss';
 import UserRoutineArticle from '@/components/molecules/UserRoutineArticle';
 import { postProfile } from '@/constants/MockData';
+import useSelectedDate from '@/hooks/useSelectedDate';
 
 function ExerciseRoutine() {
   // TODO: API 연동시, 데이터 변경 필요
+  const { selectedDate } = useSelectedDate();
+  const targetDate = selectedDate !== null ? selectedDate : new Date();
   return (
     <div className={styles.wrapper}>
-      <UserRoutineArticle name={postProfile.name} />
+      <UserRoutineArticle name={postProfile.name} date={targetDate} />
       {postProfile.exerciseArea.map((val) => (
         <div key={val.id} className={styles.inWrapper}>
           <p className={styles.exerciseArea}>{val.name}</p>

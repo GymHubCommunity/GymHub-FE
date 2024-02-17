@@ -1,15 +1,17 @@
 'use client';
 
-import EditRecordsForm from '@/components/molecules/EditRecordsForm';
-import EditRecordsHeader from '@/components/molecules/EditRecordsHeader';
+import EditRecordsHeader, {
+  exerciseAtom,
+} from '@/components/molecules/EditRecord/EditRecordsHeader';
+import { useAtomValue } from 'jotai';
 
 function EditPage() {
   // @TODO API로 EditHistoryForm 불러오기
-
+  const exercise = useAtomValue(exerciseAtom);
   return (
     <>
       <EditRecordsHeader />
-      <EditRecordsForm name="바벨 스쿼트" />
+      {exercise}
     </>
   );
 }
