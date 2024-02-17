@@ -19,7 +19,17 @@ const instanceFiles = axios.create({
   },
 });
 
-export { instance, instanceFiles };
+const instanceWithCookie = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+  },
+  withCredentials: true,
+  timeout: 5000,
+});
+
+export { instance, instanceFiles, instanceWithCookie };
 
 function responsefulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {

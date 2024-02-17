@@ -1,9 +1,14 @@
-import { instance } from '@/apis';
 import { UserInputRegisterProps } from '@/types/user';
 import { deleteCookie, getCookie } from 'cookies-next';
+import { instance, instanceWithCookie } from '@/apis';
 
 async function postRegister(body: UserInputRegisterProps) {
   const response = await instance.post(`/member/register`, body);
+  return response;
+}
+
+async function postRefreshToken(refresh: string) {
+  const response = await instanceWithCookie.post(`/auth/refresh`, refresh);
   return response;
 }
 
@@ -35,4 +40,4 @@ export const authToken = {
   },
 };
 
-export { postRegister };
+export { postRegister, postRefreshToken };
