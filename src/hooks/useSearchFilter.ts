@@ -19,7 +19,10 @@ function useSearchFilter({ timer, searchValue, setSearchValue }: Props) {
     }
 
     timer.current = setTimeout(() => {
-      setSearchValue(e.target.value);
+      let value = e.target.value;
+      const blank_pattern = /[\s]/g; // 띄어쓰기 찾아버리는 정규표현식
+      if (blank_pattern.test(value)) value = value.replace(/ /g, ''); // 해당 로직은 띄어쓰기를 없애버립니다 참 좋죠?
+      setSearchValue(value);
     }, 800);
   };
 

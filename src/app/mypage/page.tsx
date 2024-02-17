@@ -1,9 +1,15 @@
 'use client';
 
-import MyProfile from '@/components/organisms/MyProfile';
+import Footer from '@/components/organisms/Footer';
+import PostSection from '@/components/organisms/PostSection';
 
 function MyPage() {
-  return <MyProfile />;
+  return (
+    <>
+      <PostSection type={'myPage'} />
+      <Footer />
+    </>
+  );
 }
 
 export default MyPage;

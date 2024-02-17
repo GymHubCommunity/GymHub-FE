@@ -1,12 +1,30 @@
 @import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
-  width: 90%;
   display: flex;
-  justify-content: space-between;
+  flex-shrink: 0;
+  align-items: center;
+  width: 100%;
   margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid $border;
+  gap: 18px;
 }
 
 .inWrapper {
-  @include flexCenter;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.infoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }

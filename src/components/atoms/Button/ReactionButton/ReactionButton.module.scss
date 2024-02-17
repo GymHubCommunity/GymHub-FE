@@ -1,0 +1,32 @@
+@import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.wrapper {
+  width: fit-content;
+  display: flex;
+  padding: 6px 12px 6px 12px;
+  align-items: center;
+  border-radius: 100px;
+  background: linear-gradient(
+      0deg,
+      rgba(11, 12, 16, 0.4) 0%,
+      rgba(11, 12, 16, 0.4) 100%
+    ),
+    rgba(255, 255, 255, 0.07);
+}
+
+.inWrapper {
+  @include flexCenter;
+  gap: 5px;
+}
+
+.count {
+  color: $count;
+  font-size: 1.6rem;
+  font-weight: $regular;
+
+  &.comment {
+    font-size: 1rem;
+  }
+}

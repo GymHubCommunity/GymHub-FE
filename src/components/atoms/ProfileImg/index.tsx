@@ -1,11 +1,14 @@
 import styles from '@/components/atoms/ProfileImg/ProfileImg.module.scss';
 import { ImgProps } from '@/types/image';
+import classNames from 'classnames/bind';
 import Image from 'next/image';
 
-function ProfileImg({ imgUrl, size = 80 }: ImgProps) {
+const cn = classNames.bind(styles);
+
+function ProfileImg({ imgUrl, size = 80, type }: ImgProps) {
   return (
     <Image
-      className={styles.profileImg}
+      className={cn('profileImg', type)}
       width={size}
       height={size}
       src={imgUrl}
@@ -13,5 +16,4 @@ function ProfileImg({ imgUrl, size = 80 }: ImgProps) {
     />
   );
 }
-
 export default ProfileImg;

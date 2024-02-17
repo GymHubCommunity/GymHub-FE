@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 interface RegisterItemProps {
-  title: string;
+  title?: string;
   required?: boolean;
   description?: string;
   errorMessage?: string;

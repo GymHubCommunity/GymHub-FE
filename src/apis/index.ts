@@ -1,7 +1,9 @@
 import { BASE_URL } from '@/constants/common';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
-import { authToken, postRefreshToken } from './user/register';
+import { authToken, postRefreshToken } from '@/apis/user/register';
+import Alert from '@/components/organisms/Alert';
+import { alertParamsProps } from '@/types/alert';
 
 const instance = axios.create({
   baseURL: BASE_URL,
@@ -38,7 +40,7 @@ function responsefulfilledInterceptor(res: AxiosResponse) {
   return Promise.reject(res.data);
 }
 
-async function responseRejectedInterceptor(error: AxiosError) {
+async function responseRejectedInterceptor(error) {
   if (error.response?.status === 401) {
     const refreshToken = getCookie('refresh') as string;
 
@@ -57,6 +59,24 @@ async function responseRejectedInterceptor(error: AxiosError) {
 
     await new Promise((res) => res);
     return null;
+  }
+
+  if (error) {
+    let alertParams: alertParamsProps = {
+      errorMessage:
+        error.response?.data?.message ?? '관리자에게 문의 바랍니다.',
+      status: error.response?.status,
+    };
+
+    if (error.code === 'ECONNABORTED') {
+      alertParams = {
+        errorMessage: '응답 시간이 초과되었습니다.',
+        status: 408,
+      };
+    }
+
+    Alert(alertParams);
+    return Promise.reject(error);
   }
 
   return error;

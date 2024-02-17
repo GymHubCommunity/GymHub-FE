@@ -1,9 +1,15 @@
 'use client';
 
-import SearchSection from '@/components/organisms/SearchSection';
+import AllTabsSection from '@/components/organisms/AllTabsSection';
+import Footer from '@/components/organisms/Footer';
 
-function Search() {
-  return <SearchSection />;
+function SearchPage() {
+  return (
+    <>
+      <AllTabsSection />
+      <Footer />
+    </>
+  );
 }
 
-export default Search;
+export default SearchPage;

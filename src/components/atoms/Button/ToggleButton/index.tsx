@@ -1,10 +1,8 @@
 import styles from '@/components/atoms/Button/ToggleButton/ToggleButton.module.scss';
-import { useState } from 'react';
+import useToggleButton from '@/hooks/useToggleButton';
 
 function ToggleButton() {
-  const [isSelected, setIsSelected] = useState(false);
-
-  // @TODO CSS 수정
+  const { isSelected, handlePrivate } = useToggleButton();
   return (
     <label className={styles.label}>
       <p className={styles.content}>{isSelected ? '공개' : '비공개'}</p>
@@ -12,7 +10,7 @@ function ToggleButton() {
         type="checkbox"
         className={styles.input}
         checked={isSelected}
-        onChange={() => setIsSelected((prev) => !prev)}
+        onChange={handlePrivate}
       />
       <div className={styles.toggleSlider} />
     </label>

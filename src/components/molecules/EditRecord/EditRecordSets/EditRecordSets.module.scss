@@ -1,0 +1,51 @@
+@import '/src/styles/colors';
+@import '/src/styles/fontWeights';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.setText {
+  width: 48px;
+  color: #b7b9c2;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  @include flexCenter;
+  padding: 10px;
+  width: 86px;
+  height: 44px;
+  border-radius: 4px;
+  background: #202124;
+
+  input {
+    width: 46px;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+
+.inputText {
+  width: 20px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: $gray300;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  padding: 10px 17px;
+  border-radius: 4px;
+  background: $darkGray700;
+  color: $red;
+  font-size: 1.4rem;
+}
