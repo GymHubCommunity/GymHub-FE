@@ -1,4 +1,4 @@
-import SearchInput from '@/components/atoms/Input/SearchInput';
+import Input from '@/components/atoms/Input';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/SearchArticle/SearchArticle.module.scss';
 import { searchValueAtom } from '@/hooks/atoms';
@@ -12,7 +12,7 @@ function SearchArticle() {
 
   return (
     <div className={styles.wrapper}>
-      <SearchInput type="hashTag" />
+      <Input type="hashTag" />
       {filterValue.length !== 0 ? (
         <Text post="searched">
           #{searchValue} {filterValue.length}건 검색됨

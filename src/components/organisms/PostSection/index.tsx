@@ -1,3 +1,4 @@
+import Input from '@/components/atoms/Input';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import RoutineArticle from '@/components/molecules/RoutineArticle';
@@ -21,9 +22,11 @@ function PostSection() {
           <BackButtonHeader pageName={'게시글 상세 보기'} />
         </>
       )}
+
       <div className={styles.inWrapper}>
         <div className={styles.postWrapper}>
           <PostArticle />
+          <Input type="comment" />
         </div>
         <div className={styles.routineWrapper}>
           <RoutineArticle />
