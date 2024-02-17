@@ -25,7 +25,7 @@ function CallbackOAuth(social: any) {
     };
 
     handleLogin();
-  }, [router, params]);
+  }, []);
 
   return <div>로딩중</div>;
 }
