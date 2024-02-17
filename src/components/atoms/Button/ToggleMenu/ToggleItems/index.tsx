@@ -1,63 +1,49 @@
 import styles from '@/components/atoms/Button/ToggleMenu/ToggleItems/ToggleItems.module.scss';
-import { postItems, profileItems, recordsItems } from '@/constants/ToggleMenu';
-import useModalInfo from '@/hooks/useModalInfo';
+import useToggleItems from '@/hooks/useToggleItems';
+import { ToggleMenuProp } from '@/types/toggle';
 import classNames from 'classnames/bind';
-import { usePathname, useRouter } from 'next/navigation';
-import { ToggleMenuProp } from '..';
 
 const cn = classNames.bind(styles);
 
 function ToggleItems({ type }: ToggleMenuProp) {
-  const router = useRouter();
-  const pathName = usePathname();
-  const { showModal } = useModalInfo();
-  const menuItems =
-    type === 'profile'
-      ? profileItems
-      : type === 'post'
-        ? postItems
-        : recordsItems;
-
-  const handleOnClick = (id: number) => {
-    if (id === 0) {
-      router.push('/records/[recordId]');
-    } else if (id === 1) {
-      // TODO
-    } else {
-      showModal();
-    }
-  };
+  const { pathName, menuItems, handleOnClick } = useToggleItems({ type });
   return (
     <ul className={styles.menus}>
-      {pathName === '/' &&
-        menuItems.map(
-          (val) =>
-            val.id === 2 && (
-              <li
-                role="presentation"
-                key={val.id}
-                className={styles.itemWrapper}
-                onMouseDown={() => handleOnClick(val.id)}
+      {/* pathName 부분을 나중에 본인 아이디인지 아닌지에 따라서 나누면 됩니다. */}
+      {pathName === '/mypage'
+        ? menuItems.map(
+            (val) =>
+              val.id !== 2 && (
+                <li
+                  role="presentation"
+                  key={val.id}
+                  className={styles.itemWrapper}
+                  onMouseDown={() => handleOnClick(val.item)}
+                >
+                  <div className={cn('item', { delete: val.id === 1 })}>
+                    {val.item}
+                  </div>
+                </li>
+              ),
+          )
+        : menuItems.map((val) => (
+            <li
+              role="presentation"
+              key={val.id}
+              className={styles.itemWrapper}
+              onMouseDown={() => handleOnClick(val.item)}
+            >
+              <div
+                className={cn('item', {
+                  delete:
+                    val.item.includes('삭제하기') ||
+                    val.item.includes('신고하기'),
+                })}
               >
-                <div className={cn('item', { delete: val.id === 2 })}>
-                  {val.item}
-                </div>
-              </li>
-            ),
-        )}
-      {pathName !== '/' &&
-        menuItems.map((val) => (
-          <li
-            role="presentation"
-            key={val.id}
-            className={styles.itemWrapper}
-            onMouseDown={() => handleOnClick(val.id)}
-          >
-            <div className={cn('item', { delete: val.id === 2 })}>
-              {val.item}
-            </div>
-          </li>
-        ))}
+                {val.item}
+              </div>
+            </li>
+          ))}
     </ul>
   );
 }
