@@ -4,6 +4,7 @@ import setAuthorizationToken from '@/libs/api/setAuthorizationToken';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
+//TODO: 로딩중 컴포넌트 넣기
 function CallbackOAuth(social: any) {
   const router = useRouter();
   const params = useSearchParams();
@@ -14,6 +15,7 @@ function CallbackOAuth(social: any) {
       if (authCode) {
         try {
           const data = await postOAuth(social.params.provider[0], authCode);
+          localStorage.setItem('accessToken', data.data.accessToken);
           setAuthorizationToken(data.data.accessToken);
           router.push('/signin/register');
         } catch (error) {
@@ -23,9 +25,9 @@ function CallbackOAuth(social: any) {
     };
 
     handleLogin();
-  });
+  }, [router, params]);
 
-  return <div>로딩중 !!!!!!</div>;
+  return <div>로딩중</div>;
 }
 
 export default CallbackOAuth;
