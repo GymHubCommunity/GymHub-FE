@@ -1,16 +1,18 @@
-@import '@/styles/mixin.scss';
-@import '@/styles/fontWeights.scss';
-@import '@/styles/colors.scss';
+@import '/src/styles/mixin.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   @include flexCenter;
+  position: fixed; // TODO: 이 부분 확인 필요
+  bottom: 30px;
   height: 60px;
-  width: 100%;
+  width: 90%;
   background: $greenNeon100;
 
   color: $buttonText;
   border-radius: 100px;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-weight: $medium;
 
   &:disabled {

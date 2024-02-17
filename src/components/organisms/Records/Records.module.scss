@@ -1,8 +1,11 @@
-@import '@/styles/mixin';
+@import '/src/styles/mixin';
 
 .wrapper {
-  @include flexCenter;
+  height: 100vh;
+  display: flex;
+  align-items: center;
   flex-direction: column;
+  padding: 0 20px;
 }
 
 .header {
