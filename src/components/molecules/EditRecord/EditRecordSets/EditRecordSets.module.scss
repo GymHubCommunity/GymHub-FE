@@ -1,26 +1,8 @@
-@import '@/styles/colors';
-@import '@/styles/fontWeights';
-@import '@/styles/mixin.scss';
+@import '/src/styles/colors';
+@import '/src/styles/fontWeights';
+@import '/src/styles/mixin.scss';
 
 .wrapper {
-  @include aFlexStart;
-  flex-direction: column;
-  width: 100%;
-  padding: 16px 20px;
-  gap: 16px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nameText {
-  width: 285px;
-}
-
-.set {
   display: flex;
   align-items: center;
   gap: 27px;
@@ -66,17 +48,4 @@
   background: $darkGray700;
   color: $red;
   font-size: 1.4rem;
-}
-
-.addButton {
-  @include flexCenter;
-  width: 333px;
-  height: 21px;
-  padding: 10px;
-  gap: 10px;
-  border-radius: 5px;
-  border: 1px solid $darkGray300;
-  color: #8b8e97;
-  font-size: 1.4rem;
-  font-weight: $light;
 }

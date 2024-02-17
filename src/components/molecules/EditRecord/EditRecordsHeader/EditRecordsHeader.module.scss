@@ -1,0 +1,11 @@
+@import '@/styles/mixin.scss';
+
+.wrapper {
+  @include flexBetween;
+  padding: 14px;
+  position: relative;
+}
+
+.button {
+  scale: 80%;
+}
