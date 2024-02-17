@@ -5,7 +5,7 @@ import styles from '@/components/molecules/Post/Post.module.scss';
 export interface PostProps {
   post: {
     postContent: string;
-    imgUrl: string;
+    imgUrl?: string;
   };
 }
 
@@ -14,7 +14,7 @@ function Post({ post }: PostProps) {
     <div className={styles.wrapper}>
       <div className={styles.postWrapper}>
         <Text post="description">{post.postContent}</Text>
-        <PostImgSection imgUrl={post.imgUrl} />
+        {post.imgUrl && <PostImgSection imgUrl={post.imgUrl} />}
       </div>
     </div>
   );

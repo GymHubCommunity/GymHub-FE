@@ -7,6 +7,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Hanson';
+  src: url('/fonts/Hanson-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -113,11 +119,6 @@ ul {
 
 li {
   list-style: none;
-
-  &:hover {
-    transform: scale(1.1, 1.1);
-    transition: all 0.15s ease-in-out;
-  }
 }
 
 :target {

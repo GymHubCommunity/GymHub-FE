@@ -17,7 +17,10 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'commentHeartCount'
     | 'hashtag'
     | 'searched'
-    | 'noPost';
+    | 'noPost'
+    | 'story'
+    | 'storyName'
+    | 'commentDate';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
   records?: 'name' | 'value' | 'modalTitle' | 'modalInfo' | 'trackName';

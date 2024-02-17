@@ -1,5 +1,12 @@
+import HeaderSearchSvg from '@/assets/icons/HeaderSearchSvg';
+import Link from 'next/link';
+
 function SearchButton() {
-  return <button>검색</button>;
+  return (
+    <Link href={'/alltabs'}>
+      <HeaderSearchSvg />
+    </Link>
+  );
 }
 
 export default SearchButton;

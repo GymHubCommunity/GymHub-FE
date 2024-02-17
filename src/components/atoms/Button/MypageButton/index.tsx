@@ -1,5 +1,12 @@
+import HeaderMyPageSvg from '@/assets/icons/HeaderMyPageSvg';
+import Link from 'next/link';
+
 function MypageButton() {
-  return <button>회원</button>;
+  return (
+    <Link href={'/mypage'}>
+      <HeaderMyPageSvg />
+    </Link>
+  );
 }
 
 export default MypageButton;
