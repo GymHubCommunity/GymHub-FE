@@ -6,7 +6,7 @@ import PostSection from '@/components/organisms/PostSection';
 function MyPage() {
   return (
     <>
-      <PostSection />
+      <PostSection type={'myPage'} />
       <Footer />
     </>
   );
