@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 
 //TODO: 이미지 업로드 기능 부착 및 api 수정
 function Register() {
-  const methods = useForm<UserInputRegisterProps>({
+  const methods = useForm({
     mode: 'onChange',
     resolver: yupResolver(userFormSchema),
   });
