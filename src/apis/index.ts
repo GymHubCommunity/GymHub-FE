@@ -19,7 +19,6 @@ const instanceAuth = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-type': 'application/json',
-    accept: '*/*',
     // @TODO 로그인 시, access token 전역으로 관리
     Authorization:
       //Bearer ${localStorage.getItem("accessToken")},
