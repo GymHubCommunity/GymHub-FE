@@ -1,11 +1,12 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
 import { PictureButtonProps } from '@/types/image';
-import { instance, instanceFiles } from '@/apis';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import useImageUpload from '@/hooks/useImageUpload';
 
 function PictureButton({ onImageChange }: PictureButtonProps) {
-  const [file, setFile] = useState<File | null>(null);
+  const { file, setFile, handleSetPresignedURL } = useImageUpload();
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     const file = e.target.files[0];
@@ -21,22 +22,13 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
   };
 
   useEffect(() => {
-    handleFileUpload();
+    handlePresignedUrl();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
-  const handleFileUpload = async () => {
+  const handlePresignedUrl = async () => {
     if (!file) return;
-
-    const formData = new FormData();
-    formData.append('contentLength', file.size + '');
-    formData.append('extension', file.type.replace('image/', ''));
-
-    try {
-      const response = await instance.post('/images/presigned_url', formData);
-      console.log('response  : ', response);
-    } catch (e) {
-      console.error(e);
-    }
+    await handleSetPresignedURL(file);
   };
 
   return (

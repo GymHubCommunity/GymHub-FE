@@ -1,3 +1,4 @@
+import { submitPost, submitPostProps } from '@/apis/post';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';
 import PostEditor from '@/components/atoms/Editor/PostEditor';
@@ -6,19 +7,44 @@ import styles from '@/components/organisms/AddPost/AddPost.module.scss';
 import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import { PAGE_NAMES } from '@/constants/PageNames';
+import useImageUpload from '@/hooks/useImageUpload';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 
 function AddPost() {
   const [image, setImage] = useState('');
   const [disabled, setDisabled] = useState(true);
   const methods = useForm();
+  const { handleUploadImageToS3 } = useImageUpload();
+  const router = useRouter();
+
+  const reset = () => {
+    handleImageDelete();
+    methods.reset({ content: '' });
+  };
 
   //TODO: content :string , imageURL: string[] , hashtags : string[] (값이 없을 경우 빈배열로 )
-  const onSubmit = (data: any) => {
-    // 폼 제출(submit) 로직을 여기에 구현합니다.
-    console.log('data : ', data);
+  const onSubmit = async (param: submitPostProps) => {
+    if (image) {
+      const imageUrl = await handleUploadImageToS3();
+      if (imageUrl) {
+        param.imageUrls = [imageUrl];
+      }
+    } else {
+      //TODO: 서버쪽 수정사항 배포 되면 넣을 예정
+      // param.imageUrls = [''];
+    }
+
+    //TODO : hashTags 추가작업 진행 해야함.
+    param.hashTags = ['#오운완'];
+
+    const result = await submitPost(param);
+    if (result) {
+      reset();
+      router.push('/');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
