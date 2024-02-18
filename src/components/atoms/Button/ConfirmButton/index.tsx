@@ -4,7 +4,7 @@ interface ConfirmButtonProps {
   title: string;
   onClick?: () => void;
   type?: 'button' | 'submit';
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 function ConfirmButton({
