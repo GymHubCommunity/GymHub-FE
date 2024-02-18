@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/constants/common';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
 import { authToken, postRefreshToken } from '@/apis/user/register';
 import Alert from '@/components/organisms/Alert';
@@ -9,7 +9,6 @@ const instance = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
   },
   timeout: 5000,
 });
@@ -25,7 +24,6 @@ const instanceWithCookie = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
   },
   withCredentials: true,
   timeout: 5000,
