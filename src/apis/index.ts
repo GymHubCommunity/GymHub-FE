@@ -31,7 +31,18 @@ const instanceWithCookie = axios.create({
   timeout: 5000,
 });
 
-export { instance, instanceFiles, instanceWithCookie };
+//TODO 로그인 시, access token 전역으로 관리
+const instanceAuth = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-type': 'application/json',
+    Authorization:
+      //Bearer ${localStorage.getItem("accessToken")},
+      'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzEzNjg2MTEzfQ.hEB6Jsw3aRpYjZCPlSSGg77l3RC2TA8lLikvMeM7WjkCDxyWm1zh0_Va4zMuCifbQfSLkhIkqm1OJVze8n59tg',
+  },
+});
+
+export { instance, instanceFiles, instanceWithCookie, instanceAuth };
 
 function responsefulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {
