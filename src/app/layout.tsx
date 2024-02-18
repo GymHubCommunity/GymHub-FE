@@ -38,10 +38,10 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  initialScale: 1,
-  width: 'device-width',
-};
+// export const viewport: Viewport = {
+//   initialScale: 1,
+//   width: 'device-width',
+// };
 
 function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
