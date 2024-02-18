@@ -1,0 +1,21 @@
+@import '@/styles/fontWeights';
+
+.wrapper {
+  display: flex;
+  width: max-content;
+  padding: 20px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  border-radius: 100px;
+  background: #161719;
+}
+
+.text {
+  color: #8e9098;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: $medium;
+  padding-top: 3.5px;
+}
