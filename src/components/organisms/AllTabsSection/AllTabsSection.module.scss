@@ -1,6 +1,7 @@
 @import '/src/styles/mixin.scss';
 
 .wrapper {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -9,5 +10,5 @@
 
 .noPost {
   @include flexCenter;
-  margin-top: 408px;
+  margin-top: 50%;
 }

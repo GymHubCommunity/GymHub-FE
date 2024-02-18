@@ -1,4 +1,6 @@
 @import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
 
 .wrapper {
   width: fit-content;
@@ -17,4 +19,14 @@
 .inWrapper {
   @include flexCenter;
   gap: 5px;
+}
+
+.count {
+  color: $count;
+  font-size: 1.6rem;
+  font-weight: $regular;
+
+  &.comment {
+    font-size: 1rem;
+  }
 }

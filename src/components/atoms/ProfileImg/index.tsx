@@ -16,5 +16,4 @@ function ProfileImg({ imgUrl, size = 80, type }: ImgProps) {
     />
   );
 }
-
 export default ProfileImg;

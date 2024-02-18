@@ -2,6 +2,7 @@
 
 .profileImg {
   border-radius: 1000px;
+  object-fit: cover;
 
   &.story {
     border: 1.2px solid $story;

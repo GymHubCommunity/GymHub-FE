@@ -23,7 +23,14 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'commentDate';
   button?: string;
   onBoarding?: 'intro' | 'inputExplain';
-  records?: 'name' | 'value' | 'modalTitle' | 'modalInfo' | 'trackName';
+  records?:
+    | 'name'
+    | 'value'
+    | 'modalTitle'
+    | 'modalInfo'
+    | 'trackName'
+    | 'noExercise'
+    | 'directInput';
   children: ReactNode;
 }
 

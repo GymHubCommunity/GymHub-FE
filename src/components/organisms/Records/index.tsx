@@ -1,11 +1,11 @@
+import FloatingButton from '@/components/atoms/Button/FloatingButton';
 import DateInput from '@/components/atoms/Input/DateInput';
-import DailyRecord from '@/components/molecules/DailyRecord';
-import useToggleMenu from '@/hooks/useToggleMenu';
-import styles from '@/components/organisms/Records/Records.module.scss';
 import Text from '@/components/atoms/Text';
-import AddTrackButton from '@/components/atoms/Button/AddTrackButton';
+import ExerciseRoutine from '@/components/molecules/ExerciseRoutine';
 import Modal from '@/components/organisms/Modal';
+import styles from '@/components/organisms/Records/Records.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
+import useToggleMenu from '@/hooks/useToggleMenu';
 
 function Records() {
   const { isOpen } = useToggleMenu();
@@ -18,8 +18,8 @@ function Records() {
         <Text>운동 기록</Text>
       </div>
       <DateInput />
-      <DailyRecord />
-      <AddTrackButton />
+      <ExerciseRoutine />
+      <FloatingButton type={'addExercise'} />
       {isShow && <Modal isShow={isShow} closeModal={closeModal} />}
     </div>
   );

@@ -1,0 +1,12 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  flex-direction: column;
+  width: 168px;
+  height: 223px;
+  border-radius: 10px;
+  background: $exerciseAdd;
+  gap: 15px;
+}

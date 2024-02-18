@@ -37,7 +37,7 @@ function MainSection() {
           <RoutineArticle />
         </div>
       </div>
-      <FloatingButton />
+      <FloatingButton type={'post'} />
     </main>
   );
 }
