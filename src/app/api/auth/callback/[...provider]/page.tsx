@@ -3,6 +3,7 @@ import { postOAuth } from '@/apis/oAuth';
 import setAuthorizationToken from '@/libs/api/setAuthorizationToken';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 //TODO: 로딩중 컴포넌트 넣기
 function CallbackOAuth(social: any) {
@@ -19,7 +20,7 @@ function CallbackOAuth(social: any) {
           setAuthorizationToken(data.data.accessToken);
           router.push('/signin/register');
         } catch (error) {
-          throw Error('인증 코드가 존재하지 않습니다.');
+          toast.error('인증 코드가 존재하지 않습니다.');
         }
       }
     };
