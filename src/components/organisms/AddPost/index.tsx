@@ -25,7 +25,6 @@ function AddPost() {
     methods.reset({ content: '' });
   };
 
-  //TODO: content :string , imageURL: string[] , hashtags : string[] (값이 없을 경우 빈배열로 )
   const onSubmit = async (param: submitPostProps) => {
     if (image) {
       const imageUrl = await handleUploadImageToS3();
@@ -33,12 +32,11 @@ function AddPost() {
         param.imageUrls = [imageUrl];
       }
     } else {
-      //TODO: 서버쪽 수정사항 배포 되면 넣을 예정
-      // param.imageUrls = [''];
+      param.imageUrls = [];
     }
 
     //TODO : hashTags 추가작업 진행 해야함.
-    param.hashTags = ['#오운완'];
+    param.hashTags = [];
 
     const result = await submitPost(param);
     if (result) {
