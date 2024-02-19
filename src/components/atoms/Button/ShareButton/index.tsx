@@ -6,7 +6,7 @@ function ShareButton() {
   const { openToast } = useShareToast();
 
   return (
-    <div className={styles.wrapper} onClick={openToast}>
+    <div className={styles.wrapper} onClick={openToast} role="button">
       <p className={styles.text}>운동 친구 초대하기</p>
       <ShareSvg />
     </div>
