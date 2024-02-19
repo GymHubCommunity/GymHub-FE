@@ -1,6 +1,6 @@
 import { UserInputRegisterProps } from '@/types/user';
 import { deleteCookie, getCookie } from 'cookies-next';
-import { instance, instanceWithCookie } from '@/apis';
+import { instance } from '@/apis';
 
 async function postRegister(body: UserInputRegisterProps) {
   const response = await instance.post(`/member/register`, body);
@@ -8,7 +8,7 @@ async function postRegister(body: UserInputRegisterProps) {
 }
 
 async function postRefreshToken(refresh: string) {
-  const response = await instanceWithCookie.post(`/auth/refresh`, refresh);
+  const response = await instance.post(`/auth/refresh`, refresh);
   return response;
 }
 
