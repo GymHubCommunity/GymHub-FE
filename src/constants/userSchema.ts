@@ -1,4 +1,3 @@
-//TODO: 확정된 항목으로 수정
 import * as yup from 'yup';
 
 const EMAIL_STANDARD =
@@ -8,11 +7,20 @@ const userFormSchema = yup.object().shape({
   email: yup
     .string()
     .trim()
-    .required('이메일을 입력해주세요')
     .matches(EMAIL_STANDARD, '올바른 이메일 주소가 아닙니다'),
-  address: yup.string().required('주소를 입력해주세요'),
-  introduction: yup.string().required('한 줄 소개를 입력해주세요'),
-  status: yup.string().required('운동 상태를 선택해주세요'),
+  address: yup.string(),
+  introduction: yup.string(),
+  status: yup.string(),
+  nickname: yup
+    .string()
+    .min(2, '닉네임은 최소 2글자 이상 입력해주세요.')
+    .max(12, '닉네임은 12글자 이내로 입력해주세요.')
+    .matches(
+      /^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*$/,
+      '특수문자, 띄어쓰기 없이 입력해주세요.',
+    )
+    .required(''),
+  profileUrl: yup.string(),
 });
 
 export { userFormSchema };
