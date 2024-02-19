@@ -5,6 +5,7 @@
 .wrapper {
   @include flexCenter;
   flex-direction: column;
+  gap: 27px;
 }
 
 .headerWrapper {
@@ -13,5 +14,8 @@
 }
 
 .itemWrapper {
-  gap: 30px;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
