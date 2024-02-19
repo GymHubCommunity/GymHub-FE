@@ -5,10 +5,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+
+  &.title {
+    color: $gray300;
+    font-size: 1rem;
+    font-weight: $regular;
+  }
 }
 
-.title {
-  color: $gray300;
-  font-size: 1rem;
-  font-weight: $regular;
+.file {
+  display: none;
 }

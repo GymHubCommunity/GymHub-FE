@@ -3,5 +3,8 @@ interface ImgProps {
   type?: string;
   size?: number;
 }
+interface PictureButtonProps {
+  onImageChange: (image: string) => void;
+}
 
-export type { ImgProps };
+export type { ImgProps, PictureButtonProps };

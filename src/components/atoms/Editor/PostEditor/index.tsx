@@ -1,11 +1,28 @@
 import styles from '@/components/atoms/Editor/PostEditor/PostEditor.module.scss';
+import { POST_PLACEHOLDER } from '@/constants/Post';
+import { useFormContext } from 'react-hook-form';
 
 //TODO: 기능 작업 해야함
-function PostEditor() {
-  const placeHolder =
-    '오늘은 어떤 얘기를 할까요?\n운동 루틴, 식단, 다이어트 등등...';
+
+interface PostEditorProps {
+  name: string;
+  handleChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+function PostEditor({ name, handleChange }: PostEditorProps) {
+  const { register } = useFormContext();
   return (
-    <textarea className={styles.editor} placeholder={placeHolder}></textarea>
+    <>
+      <textarea
+        id={name}
+        className={styles.editor}
+        placeholder={POST_PLACEHOLDER}
+        {...register(name, {
+          required: true,
+        })}
+        onChange={handleChange}
+      ></textarea>
+    </>
   );
 }
 

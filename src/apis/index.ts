@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/constants/common';
+import { BASE_URL, AWS_S3_URL } from '@/constants/common';
 import axios from 'axios';
 import Alert from '@/components/organisms/Alert';
 import { alertParamsProps } from '@/types/alert';
@@ -29,6 +29,10 @@ const instanceAuth = axios.create({
   },
 });
 
+const instanceAWS = axios.create({
+  baseURL: AWS_S3_URL,
+});
+
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -51,4 +55,4 @@ instance.interceptors.response.use(
   },
 );
 
-export { instance, instanceFiles, instanceAuth };
+export { instance, instanceFiles, instanceAuth, instanceAWS };
