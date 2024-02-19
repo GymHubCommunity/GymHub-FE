@@ -2,8 +2,13 @@ import { UserInputRegisterProps } from '@/types/user';
 import { deleteCookie, getCookie } from 'cookies-next';
 import { instance } from '@/apis';
 
-async function postRegister(body: UserInputRegisterProps) {
-  const response = await instance.post(`/member/register`, body);
+async function postRegister(nickname: string, profileUrl: string) {
+  const data = {
+    nickname,
+    profileUrl,
+  };
+
+  const response = await instance.post(`/members/register`, data);
   return response;
 }
 
@@ -22,19 +27,19 @@ export const authToken = {
   })(),
   refresh: (() => {
     try {
-      return getCookie('refreshToken');
+      return getCookie('refresh');
     } catch (err) {
       return null;
     }
   })(),
   refetch: () => {
     authToken.access = getCookie('accessToken');
-    authToken.refresh = getCookie('refreshToken');
+    authToken.refresh = getCookie('refresh');
     return;
   },
   destroy: () => {
     deleteCookie('accessToken');
-    deleteCookie('refreshToken');
+    deleteCookie('refresh');
     authToken.access = null;
     authToken.refresh = null;
   },
