@@ -18,6 +18,17 @@ const instanceFiles = axios.create({
   },
 });
 
+const instanceAuth = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-type': 'application/json',
+    // @TODO 로그인 시, access token 전역으로 관리
+    Authorization:
+      //Bearer ${localStorage.getItem("accessToken")},
+      'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzEzNjg2MTEzfQ.hEB6Jsw3aRpYjZCPlSSGg77l3RC2TA8lLikvMeM7WjkCDxyWm1zh0_Va4zMuCifbQfSLkhIkqm1OJVze8n59tg',
+  },
+});
+
 const instanceAWS = axios.create({
   baseURL: AWS_S3_URL,
 });
@@ -44,4 +55,4 @@ instance.interceptors.response.use(
   },
 );
 
-export { instance, instanceFiles, instanceAWS };
+export { instance, instanceFiles, instanceAuth, instanceAWS };
