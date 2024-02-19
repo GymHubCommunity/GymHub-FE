@@ -11,6 +11,7 @@ const instance = axios.create({
     'Content-type': 'application/json',
   },
   timeout: 5000,
+  withCredentials: true,
 });
 
 const instanceFiles = axios.create({
@@ -18,15 +19,6 @@ const instanceFiles = axios.create({
   headers: {
     'Content-Type': 'multipart/form-data',
   },
-});
-
-const instanceWithCookie = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-type': 'application/json',
-  },
-  withCredentials: true,
-  timeout: 5000,
 });
 
 //TODO 로그인 시, access token 전역으로 관리
@@ -40,7 +32,7 @@ const instanceAuth = axios.create({
   },
 });
 
-export { instance, instanceFiles, instanceWithCookie, instanceAuth };
+export { instance, instanceFiles, instanceAuth };
 
 function responsefulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {
@@ -51,15 +43,15 @@ function responsefulfilledInterceptor(res: AxiosResponse) {
 
 async function responseRejectedInterceptor(error) {
   if (error.response?.status === 401) {
-    const refreshToken = getCookie('refresh') as string;
+    const refresh = getCookie('refresh') as string;
 
     try {
-      const token = await postRefreshToken(refreshToken);
+      const token = await postRefreshToken(refresh);
 
       if (token) {
         authToken.destroy();
         setCookie('accessToken', token.data.accessToken);
-        setCookie('refresh', refreshToken);
+        setCookie('refresh', refresh);
       }
     } catch (e) {
       authToken.destroy();
