@@ -1,9 +1,12 @@
 import ShareSvg from '@/assets/icons/ShareSvg';
 import styles from '@/components/atoms/Button/ShareButton/ShareButton.module.scss';
+import useShareToast from '@/hooks/useShareToast';
 
 function ShareButton() {
+  const { openToast } = useShareToast();
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={openToast}>
       <p className={styles.text}>운동 친구 초대하기</p>
       <ShareSvg />
     </div>
