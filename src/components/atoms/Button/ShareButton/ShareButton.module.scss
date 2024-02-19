@@ -1,4 +1,5 @@
 @import '@/styles/fontWeights';
+@import '@/styles/colors';
 
 .wrapper {
   display: flex;
@@ -13,7 +14,7 @@
 }
 
 .text {
-  color: #8e9098;
+  color: $gray600;
   text-align: center;
   font-size: 1.8rem;
   font-weight: $medium;
