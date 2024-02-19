@@ -1,16 +1,28 @@
 import styles from '@/components/atoms/Button/ConfirmButton/ConfirmButton.module.scss';
 
-interface PostConfirmButtonProps {
+interface ConfirmButtonProps {
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
+  type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
-function PostConfirmButton({ title, onClick }: PostConfirmButtonProps) {
+function ConfirmButton({
+  title,
+  onClick,
+  type = 'button',
+  disabled,
+}: ConfirmButtonProps) {
   return (
-    <button onClick={onClick} className={styles.wrapper}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={styles.wrapper}
+      disabled={disabled}
+    >
       {title}
     </button>
   );
 }
 
-export default PostConfirmButton;
+export default ConfirmButton;

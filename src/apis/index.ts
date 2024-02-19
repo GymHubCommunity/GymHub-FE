@@ -1,7 +1,8 @@
-import { BASE_URL } from '@/constants/common';
+import { BASE_URL, AWS_S3_URL } from '@/constants/common';
 import axios, { AxiosResponse } from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
 import { authToken, postRefreshToken } from '@/apis/user/register';
+
 import Alert from '@/components/organisms/Alert';
 import { alertParamsProps } from '@/types/alert';
 
@@ -32,7 +33,9 @@ const instanceAuth = axios.create({
   },
 });
 
-export { instance, instanceFiles, instanceAuth };
+const instanceAWS = axios.create({
+  baseURL: AWS_S3_URL,
+});
 
 function responsefulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {
@@ -87,3 +90,5 @@ instance.interceptors.response.use(
   responsefulfilledInterceptor,
   responseRejectedInterceptor,
 );
+
+export { instance, instanceFiles, instanceAuth, instanceAWS };
