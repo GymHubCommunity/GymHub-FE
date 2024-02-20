@@ -10,14 +10,14 @@ export interface PostProps {
 }
 
 function Post({ postId, content, imageUrl }: PostProps) {
+  console.log(imageUrl?.length === 0);
   return (
     <div className={styles.wrapper}>
       <div className={styles.postWrapper}>
-        {/* TODO: 이미지 클릭시 이동하도록 수정 필요 (임시) */}
-        <Link href={`/post/${postId}`}>
+        <Link className={styles.contentWrapper} href={`/post/${postId}`}>
           <Text post="description">{content}</Text>
+          {imageUrl && <PostImgSection imgUrl={imageUrl} />}
         </Link>
-        {imageUrl?.length !== 0 ?? <PostImgSection imgUrl={imageUrl} />}
       </div>
     </div>
   );

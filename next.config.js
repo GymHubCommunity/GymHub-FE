@@ -10,6 +10,7 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       'github.com',
       'avatars.githubusercontent.com',
+      '52.79.247.31',
     ],
   },
   sassOptions: {

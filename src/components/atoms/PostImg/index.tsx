@@ -3,13 +3,15 @@ import { ImgProps } from '@/types/Image';
 import Image from 'next/image';
 
 function PostImgSection({ imgUrl }: ImgProps) {
+  if (imgUrl === null || imgUrl.length === 0) return;
+
   return (
     <Image
       role="presentation"
       className={styles.postImg}
       width={385}
       height={287}
-      src={imgUrl as string}
+      src={typeof imgUrl === 'string' ? imgUrl : imgUrl[0]}
       alt="포스트 이미지"
     />
   );

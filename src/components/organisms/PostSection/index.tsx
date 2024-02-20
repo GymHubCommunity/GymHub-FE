@@ -7,7 +7,7 @@ import { profile } from '@/constants/MockData';
 import { GetPostDetailProps } from '@/types/GetPost';
 
 interface PostSectionProp {
-  data: GetPostDetailProps;
+  data?: GetPostDetailProps; // TODO: 옵셔널 수정필요
   type: 'myPage' | 'postDetail';
 }
 
