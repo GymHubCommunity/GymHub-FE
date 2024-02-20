@@ -1,7 +1,7 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
 import useImageUpload from '@/hooks/useImageUpload';
-import { PictureButtonProps } from '@/types/image';
+import { PictureButtonProps } from '@/types/Image';
 import { useEffect } from 'react';
 
 function PictureButton({ onImageChange }: PictureButtonProps) {

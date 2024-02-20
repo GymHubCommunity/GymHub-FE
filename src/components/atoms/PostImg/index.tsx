@@ -1,5 +1,5 @@
 import styles from '@/components/atoms/PostImg/PostImg.module.scss';
-import { ImgProps } from '@/types/image';
+import { ImgProps } from '@/types/Image';
 import Image from 'next/image';
 
 function PostImgSection({ imgUrl }: ImgProps) {

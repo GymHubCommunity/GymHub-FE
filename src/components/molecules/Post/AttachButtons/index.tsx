@@ -2,7 +2,7 @@ import CommitButton from '@/components/atoms/Button/CommitButton';
 import PictureButton from '@/components/atoms/Button/PictureButton';
 import RoutineButton from '@/components/atoms/Button/RoutineButton';
 import styles from '@/components/molecules/Post/AttachButtons/AttachButtons.module.scss';
-import { PictureButtonProps } from '@/types/image';
+import { PictureButtonProps } from '@/types/Image';
 
 function AttachButtons({ onImageChange }: PictureButtonProps) {
   return (
