@@ -1,0 +1,16 @@
+@import '@/styles/colors';
+
+.wrapper {
+}
+
+.mySwiper {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+
+  swiper-slide {
+    width: fit-content;
+    max-width: 50px;
+  }
+}
