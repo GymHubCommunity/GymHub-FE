@@ -27,7 +27,7 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
   }, [file]);
 
   const handlePresignedUrl = async () => {
-    if (!file) return;
+    if (!file.name) return;
     await handleSetPresignedURL(file);
   };
 
