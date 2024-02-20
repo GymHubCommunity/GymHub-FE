@@ -10,7 +10,6 @@ export interface PostProps {
 }
 
 function Post({ postId, content, imageUrl }: PostProps) {
-  console.log(imageUrl?.length === 0);
   return (
     <div className={styles.wrapper}>
       <div className={styles.postWrapper}>
