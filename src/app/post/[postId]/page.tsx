@@ -2,7 +2,7 @@
 
 import useGetPostDetail from '@/apis/Query/useGetPostDetail';
 import PostSection from '@/components/organisms/PostSection';
-import { GetPostDetailProps } from '@/types/getPost';
+import { GetPostDetailProps } from '@/types/GetPost';
 
 function PostDetailPage() {
   const { data } = useGetPostDetail();

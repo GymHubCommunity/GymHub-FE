@@ -1,7 +1,7 @@
 import PostProfile from '@/components/molecules/PostProfile';
 
 import { commentCountAtom } from '@/hooks/atoms';
-import { WriterInfoProps } from '@/types/getPost';
+import { WriterInfoProps } from '@/types/GetPost';
 import { useAtomValue } from 'jotai';
 import { usePathname } from 'next/navigation';
 import Post from '../Post';

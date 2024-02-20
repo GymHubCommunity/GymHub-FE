@@ -1,5 +1,5 @@
 import { instance } from '@/apis/index';
-import { GetPostDetailProps } from '@/types/getPost';
+import { GetPostDetailProps } from '@/types/GetPost';
 import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import { toast } from 'react-hot-toast';
