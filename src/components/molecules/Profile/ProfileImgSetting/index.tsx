@@ -4,9 +4,9 @@ import ProfileImgSvg from '@/assets/icons/ProfileImgSvg';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
 import useImageUpload from '@/hooks/useImageUpload';
-import { PictureButtonProps } from '@/types/image';
+import { ImgUploadButtonProps } from '@/types/image';
 
-function ProfileImgSetting({ prop, onImageChange }: PictureButtonProps) {
+function ProfileImgSetting({ prop, onImageChange }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
   const [image, setImage] = useState('');
 

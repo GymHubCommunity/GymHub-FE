@@ -1,10 +1,10 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
-import { PictureButtonProps } from '@/types/image';
+import { ImgUploadButtonProps } from '@/types/image';
 import { ChangeEvent, useEffect } from 'react';
 import useImageUpload from '@/hooks/useImageUpload';
 
-function PictureButton({ onImageChange }: PictureButtonProps) {
+function PictureButton({ onImageChange }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
