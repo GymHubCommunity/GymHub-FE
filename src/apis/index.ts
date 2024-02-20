@@ -57,7 +57,6 @@ async function responseRejectedInterceptor(error) {
       }
     } catch (e) {
       authToken.destroy();
-      console.log(e);
     }
 
     await new Promise((res) => res);

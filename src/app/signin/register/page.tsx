@@ -33,7 +33,7 @@ function Register() {
     }
 
     try {
-      await postRegister(data.nickname, data?.profileUrl);
+      await postRegister(data);
       router.push('/');
     } catch (e) {
       throw Error('회원가입에 실패하였습니다');

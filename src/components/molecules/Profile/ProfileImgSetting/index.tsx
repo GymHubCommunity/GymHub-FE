@@ -34,15 +34,14 @@ function ProfileImgSetting(props: any) {
   };
 
   return (
-    <label htmlFor="fileInput">
+    <label htmlFor="profileImgInput">
       <div className={styles.wrapper}>
         <input
-          id="fileInput"
+          id="profileImgInput"
           type="file"
-          accept="file"
           className={styles.cameraInput}
           onChange={handleImageChange}
-          ref={props.inputRef}
+          {...props}
         />
         <div className={styles.profileImg}>
           {image ? (

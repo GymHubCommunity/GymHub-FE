@@ -22,7 +22,7 @@ function RegisterForm({ onSubmit }: RegisterFormProp) {
   return (
     <div className={styles.wrapper}>
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
-      <ProfileImgSetting {...register('profileUrl')} />
+      <ProfileImgSetting register={register('profileUrl')} />
 
       <div className={styles.nicknameWrapper}>
         <input placeholder="닉네임" {...register('nickname')} />
