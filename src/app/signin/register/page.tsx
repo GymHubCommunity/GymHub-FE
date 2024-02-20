@@ -9,6 +9,7 @@ import { DevTool } from '@hookform/devtools';
 import { useRouter } from 'next/navigation';
 import { postRegister } from '@/apis/user/register';
 import { UserInputRegisterProps } from '@/types/user';
+import useImageUpload from '@/hooks/useImageUpload';
 
 function Register() {
   const methods = useForm({
@@ -19,8 +20,18 @@ function Register() {
   const { handleSubmit } = methods;
   const isMounted = useIsMounted();
   const router = useRouter();
+  const { handleUploadImageToS3 } = useImageUpload();
 
   const onSubmit = async (data: UserInputRegisterProps) => {
+    if (data) {
+      const imageUrl = await handleUploadImageToS3();
+      if (imageUrl) {
+        data.profileUrl = imageUrl;
+      }
+    } else {
+      data.profileUrl = null;
+    }
+
     try {
       await postRegister(data.nickname, data?.profileUrl);
       router.push('/');

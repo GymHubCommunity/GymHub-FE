@@ -3,17 +3,21 @@ import ProfileImgSetting from '@/components/molecules/Profile/ProfileImgSetting'
 import Text from '@/components/atoms/Text';
 import { useFormContext } from 'react-hook-form';
 import { UserInputRegisterProps } from '@/types/user';
+import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import { useState } from 'react';
 
-interface RegisterFormProps {
+interface RegisterFormProp {
   onSubmit: () => void;
 }
 
 //TODO: 디자인 입히기
-function RegisterForm({ onSubmit }: RegisterFormProps) {
+function RegisterForm({ onSubmit }: RegisterFormProp) {
   const {
     register,
     formState: { errors },
   } = useFormContext<UserInputRegisterProps>();
+
+  const [disabled, setDisabled] = useState(true);
 
   return (
     <div className={styles.wrapper}>
@@ -29,6 +33,7 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
       <button type="submit" onClick={onSubmit}>
         완료
       </button>
+      {/* <ConfirmButton title="완료" type="submit" /> */}
     </div>
   );
 }
