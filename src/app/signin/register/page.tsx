@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 import { postRegister } from '@/apis/user/register';
 import { UserInputRegisterProps } from '@/types/user';
 
-//TODO: 이미지 업로드 기능 부착 및 api 수정
 function Register() {
   const methods = useForm({
     mode: 'onChange',
