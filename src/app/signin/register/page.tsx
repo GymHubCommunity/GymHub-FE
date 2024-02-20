@@ -14,13 +14,12 @@ function Register() {
   });
 
   const isMounted = useIsMounted();
-  const { handleSubmit } = methods;
 
   return (
     <>
       {isMounted && (
         <FormProvider {...methods}>
-          <RegisterForm methods={handleSubmit} />
+          <RegisterForm handleSubmit={methods.handleSubmit} />
           <DevTool control={methods.control} />
         </FormProvider>
       )}

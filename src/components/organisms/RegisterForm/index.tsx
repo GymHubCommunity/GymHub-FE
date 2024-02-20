@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import useImageUpload from '@/hooks/useImageUpload';
 
 //TODO: 디자인 입히기
-function RegisterForm(methods: any) {
+function RegisterForm(handleSubmit: any) {
   const {
     register,
     formState: { errors },
@@ -43,7 +43,7 @@ function RegisterForm(methods: any) {
   const [disabled, setDisabled] = useState(true);
 
   return (
-    <form className={styles.wrapper} onSubmit={methods(onSubmit)}>
+    <form className={styles.wrapper} onSubmit={handleSubmit.handleSubmit(onSubmit)}>
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
       <ProfileImgSetting
         onImageChange={handleImageChange}
