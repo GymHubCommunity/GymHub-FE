@@ -1,5 +1,5 @@
 import styles from '@/components/atoms/ProfileImg/ProfileImg.module.scss';
-import { ImgProps } from '@/types/Image';
+import { ImgProps } from '@/types/image';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 
