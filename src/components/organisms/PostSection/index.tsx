@@ -1,16 +1,18 @@
 import Input from '@/components/atoms/Input';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
-import RoutineArticle from '@/components/molecules/RoutineArticle';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import { profile } from '@/constants/MockData';
+import { GetPostDetailProps } from '@/types/GetPost';
 
 interface PostSectionProp {
+  data: GetPostDetailProps;
   type: 'myPage' | 'postDetail';
 }
 
-function PostSection({ type }: PostSectionProp) {
+function PostSection({ data, type }: PostSectionProp) {
+  if (!data) return;
   return (
     <div className={styles.wrapper}>
       {type === 'myPage' ? (
@@ -24,12 +26,18 @@ function PostSection({ type }: PostSectionProp) {
 
       <div className={styles.inWrapper}>
         <div className={styles.postWrapper}>
-          <PostArticle />
+          <PostArticle
+            postId={data.postId}
+            userInfo={data.writerInfo}
+            content={data.content}
+            imageUrl={data.imageUrls as Array<string>}
+          />
           <Input type="comment" />
         </div>
-        <div className={styles.routineWrapper}>
+        {/* TODO: 운동루틴 API 개발되면 수정 */}
+        {/* <div className={styles.routineWrapper}>
           <RoutineArticle />
-        </div>
+        </div> */}
       </div>
     </div>
   );
