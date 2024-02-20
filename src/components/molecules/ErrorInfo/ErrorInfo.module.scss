@@ -15,7 +15,5 @@
 
 .itemWrapper {
   height: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
 }
