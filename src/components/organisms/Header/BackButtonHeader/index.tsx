@@ -8,13 +8,12 @@ interface HeaderProp {
 
 function BackButtonHeader({ pageName }: HeaderProp) {
   return (
-    <>
-      <header className={commonStyles.wrapper}>
+    <header className={commonStyles.wrapper}>
+      <div className={commonStyles.button}>
         <BackButton />
-        <span className={styles.title}>{pageName}</span>
-        <span />
-      </header>
-    </>
+      </div>
+      <span className={styles.title}>{pageName}</span>
+    </header>
   );
 }
 
