@@ -1,4 +1,3 @@
-// useImageUpload.ts
 import { atom, useAtom } from 'jotai';
 import { getPresignedURL, uploadImageToS3 } from '@/apis/image';
 import PresignedUrls from '@/utils/PresignedUrls';
@@ -15,7 +14,7 @@ const useImageUpload = () => {
     if (!file) return;
     const formData = new FormData();
     formData.append('contentLength', file.size + '');
-    formData.append('extension', file.type.replace('image/', ''));
+    formData.append('extension', file.type?.replace('image/', ''));
     try {
       const response = await getPresignedURL({ formData });
       if (response) {
