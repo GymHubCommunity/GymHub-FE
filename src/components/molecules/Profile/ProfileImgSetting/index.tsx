@@ -4,8 +4,9 @@ import ProfileImgSvg from '@/assets/icons/ProfileImgSvg';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
 import useImageUpload from '@/hooks/useImageUpload';
+import { PictureButtonProps } from '@/types/image';
 
-function ProfileImgSetting(props: any) {
+function ProfileImgSetting({ prop, onImageChange }: PictureButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
   const [image, setImage] = useState('');
 
@@ -17,6 +18,7 @@ function ProfileImgSetting(props: any) {
     reader.onload = (e: ProgressEvent<FileReader>) => {
       if (reader.readyState === 2) {
         setImage(e.target?.result as string);
+        onImageChange(e.target?.result as string);
       }
     };
     e.target.value = '';
@@ -41,7 +43,7 @@ function ProfileImgSetting(props: any) {
           type="file"
           className={styles.cameraInput}
           onChange={handleImageChange}
-          {...props}
+          {...prop}
         />
         <div className={styles.profileImg}>
           {image ? (

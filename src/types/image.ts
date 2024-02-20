@@ -5,6 +5,7 @@ interface ImgProps {
 }
 interface PictureButtonProps {
   onImageChange: (image: string) => void;
+  prop?: any;
 }
 
 export type { ImgProps, PictureButtonProps };
