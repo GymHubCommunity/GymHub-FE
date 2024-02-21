@@ -11,7 +11,7 @@ function QueryProvider({ children }: { children: ReactNode }) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 20 * 1000,
+            staleTime: 3 * 1000,
           },
         },
       }),
