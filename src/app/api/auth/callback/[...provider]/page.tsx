@@ -16,7 +16,12 @@ function CallbackOAuth(social: any) {
         try {
           const data = await postOAuth(social.params.provider[0], authCode);
           localStorage.setItem('accessToken', data.data.accessToken);
-          router.push('/signin/register');
+
+          if (data.data.requiredAdditionalInfo) {
+            router.push('/');
+          } else {
+            router.push('/signin/register');
+          }
         } catch (error) {
           toast.error('인증 코드가 존재하지 않습니다.');
         }
