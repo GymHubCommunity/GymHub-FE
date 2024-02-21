@@ -1,0 +1,8 @@
+@mixin modalText {
+  color: $count;
+  font-family: 'SF Pro';
+  font-size: 1.7rem;
+  font-weight: $light;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+}
