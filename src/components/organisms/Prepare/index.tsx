@@ -3,7 +3,7 @@ import Footer from '@/components/organisms/Footer';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/molecules/ErrorInfo/ErrorInfo.module.scss';
 import Image from 'next/image';
-import PrepareImg from '@/public/images/Prepare.png';
+import PrepareImg from '@/public/images/Prepare.webp';
 
 interface PrepareProp {
   type: 'default' | 'map&Mate';
