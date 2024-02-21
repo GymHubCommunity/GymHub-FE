@@ -5,11 +5,11 @@ import {
 import { NextRequest, NextResponse } from 'next/server';
 
 async function middleware(request: NextRequest) {
-  const code = request.cookies.get('code')?.value;
+  const refresh = request.cookies.get('refresh')?.value;
 
-  if (!code) {
+  if (!refresh) {
     const response = NextResponse.redirect(request.url);
-    response.cookies.set('code', 'code value');
+    response.cookies.set('refresh', refresh);
     applySetCookie(request, response);
     return response;
   }

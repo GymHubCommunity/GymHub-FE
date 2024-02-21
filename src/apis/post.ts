@@ -1,5 +1,4 @@
 import { instance } from '@/apis';
-import { FieldValues } from 'react-hook-form';
 
 export interface submitPostProps {
   content?: string;
