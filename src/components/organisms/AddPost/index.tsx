@@ -12,11 +12,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { useAtomValue } from 'jotai';
+import { useAtom } from 'jotai';
 
 function AddPost() {
   const [image, setImage] = useState('');
-  const hashTags = useAtomValue(hashTagsAtom);
+  const [hashTags, setHashTags] = useAtom(hashTagsAtom);
   const [disabled, setDisabled] = useState(true);
   const methods = useForm();
   const { handleUploadImageToS3 } = useImageUpload();
@@ -25,6 +25,7 @@ function AddPost() {
   const reset = () => {
     handleImageDelete();
     methods.reset({ content: '' });
+    setHashTags([]);
   };
 
   const onSubmit = async (param: submitPostProps) => {
