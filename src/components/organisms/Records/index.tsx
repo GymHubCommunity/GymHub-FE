@@ -13,14 +13,16 @@ function Records() {
 
   return (
     <div className={styles.wrapper}>
-      {isOpen && <div className={styles.blur}></div>}
+      {isOpen && <div className={styles.blur} />}
       <div className={styles.header}>
         <Text>운동 기록</Text>
       </div>
       <DateInput />
       <ExerciseRoutine />
       <FloatingButton type={'addExercise'} />
-      {isShow && <Modal isShow={isShow} closeModal={closeModal} />}
+      {isShow && (
+        <Modal type="recordsDel" isShow={isShow} closeModal={closeModal} />
+      )}
     </div>
   );
 }
