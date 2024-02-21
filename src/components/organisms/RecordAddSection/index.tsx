@@ -1,8 +1,8 @@
 import commonStyles from '@/components/organisms/Common.module.scss';
 import styles from '@/components/organisms/RecordAddSection/RecordAddSection.module.scss';
-import LowerImg from '@/public/icons/Lower.svg';
-import UpperImg from '@/public/icons/Upper.svg';
-import WholeImg from '@/public/icons/Whole.svg';
+import LowerImg from '@/public/images/Lower.png';
+import UpperImg from '@/public/images/Upper.png';
+import WholeImg from '@/public/images/Whole.png';
 
 import PostConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageButton from '@/components/atoms/Button/ImageButton';

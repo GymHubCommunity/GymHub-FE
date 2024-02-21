@@ -21,15 +21,4 @@ async function postLogout() {
   return instance.post(`/auth/logout`);
 }
 
-instance.interceptors.request.use(
-  (config) => {
-    config.headers['Authorization'] =
-      `Bearer ${localStorage.getItem('accessToken')}`;
-    return config;
-  },
-  (err) => {
-    return Promise.reject(err);
-  },
-);
-
 export { getAuthorizedUrl, postOAuth, postLogout };

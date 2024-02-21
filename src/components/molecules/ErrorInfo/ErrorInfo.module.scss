@@ -1,0 +1,19 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.headerWrapper {
+  height: calc(var(--vh, 1vh) * 100);
+  padding: 14px 20px 0 20px;
+}
+
+.itemWrapper {
+  height: 75%;
+  @include flexCenter;
+}

@@ -5,7 +5,13 @@ const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
   images: {
-    domains: ['k.kakaocdn.net', 'lh3.googleusercontent.com', 'github.com'],
+    domains: [
+      'k.kakaocdn.net',
+      'lh3.googleusercontent.com',
+      'github.com',
+      'avatars.githubusercontent.com',
+      `${process.env.SAMPLE_IMAGE_URL}`,
+    ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
