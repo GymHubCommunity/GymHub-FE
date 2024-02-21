@@ -3,14 +3,9 @@
 .wrapper {
 }
 
-.mySwiper {
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-
-  swiper-slide {
-    width: fit-content;
-    max-width: 50px;
-  }
+.footer {
+  background: $background;
+  position: fixed;
+  padding: 0 20px 0 20px;
+  bottom: 30px;
 }
