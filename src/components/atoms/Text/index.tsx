@@ -5,6 +5,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 const cn = classNames.bind(styles);
 
 interface TextProps extends HTMLAttributes<HTMLSpanElement> {
+  errorMessage?: 'errorMessage';
   post?:
     | 'userName'
     | 'description'
@@ -36,6 +37,7 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 function Text({
+  errorMessage,
   post,
   button,
   onBoarding,
@@ -44,7 +46,17 @@ function Text({
   children,
 }: TextProps) {
   return (
-    <span className={cn('wrapper', post, button, onBoarding, records, modal)}>
+    <span
+      className={cn(
+        'wrapper',
+        errorMessage,
+        post,
+        button,
+        onBoarding,
+        records,
+        modal,
+      )}
+    >
       {children}
     </span>
   );
