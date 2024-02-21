@@ -17,6 +17,10 @@ async function postRefreshToken(refresh: string) {
   return response;
 }
 
+async function deleteUser(memberId: number) {
+  await instance.delete(`/members/${memberId}`);
+}
+
 export const authToken = {
   access: (() => {
     try {
@@ -45,4 +49,4 @@ export const authToken = {
   },
 };
 
-export { postRegister, postRefreshToken };
+export { postRegister, postRefreshToken, deleteUser };
