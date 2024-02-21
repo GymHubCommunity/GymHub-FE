@@ -1,4 +1,5 @@
 @import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
 
 .wrapper {
   display: inline-flex;
@@ -13,5 +14,6 @@
 
 .text {
   color: $darkGray300;
-  font-size: 2rem;
+  font-size: 1.95rem;
+  font-weight: $medium;
 }

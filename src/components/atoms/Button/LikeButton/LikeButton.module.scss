@@ -6,6 +6,7 @@
 .wrapper {
   @include flexCenter;
   gap: 5px;
+  max-height: 25px;
   &.comment {
     flex-direction: column;
     gap: 0;
