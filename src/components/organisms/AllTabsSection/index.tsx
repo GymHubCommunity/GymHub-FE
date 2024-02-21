@@ -1,12 +1,10 @@
 import Text from '@/components/atoms/Text';
 import Comment from '@/components/molecules/Comment';
-import Post from '@/components/molecules/Post';
-import PostProfile from '@/components/molecules/PostProfile';
 import Reaction from '@/components/molecules/Reaction';
 import SearchArticle from '@/components/molecules/SearchArticle';
 import Tabs from '@/components/molecules/Tabs';
 import styles from '@/components/organisms/AllTabsSection/AllTabsSection.module.scss';
-import { comment, post, postProfile } from '@/constants/MockData';
+import { comment } from '@/constants/MockData';
 import { filterValueAtom } from '@/hooks/useSearchFilter';
 import { useAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
@@ -35,8 +33,8 @@ function AllTabsSection() {
       {/* TODO: 검색된 결과에 따라 나오는 값 변환 해줘야함 */}
       {filterValue.length !== 0 ? (
         <>
-          <PostProfile type={'default'} postProfile={postProfile} />
-          <Post post={post} />
+          {/* <PostProfile type={'default'} postProfile={postProfile} /> */}
+          {/* <Post post={post} /> */}
           <Reaction />
           <Comment comment={comment} />
         </>

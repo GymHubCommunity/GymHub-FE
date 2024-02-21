@@ -1,20 +1,22 @@
 import PostImgSection from '@/components/atoms/PostImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/Post/Post.module.scss';
+import Link from 'next/link';
 
 export interface PostProps {
-  post: {
-    postContent: string;
-    imgUrl?: string;
-  };
+  postId: number;
+  content: string;
+  imageUrl: string | Array<string> | null;
 }
 
-function Post({ post }: PostProps) {
+function Post({ postId, content, imageUrl }: PostProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.postWrapper}>
-        <Text post="description">{post.postContent}</Text>
-        {post.imgUrl && <PostImgSection imgUrl={post.imgUrl} />}
+        <Link className={styles.contentWrapper} href={`/post/${postId}`}>
+          <Text post="description">{content}</Text>
+          {imageUrl && <PostImgSection imgUrl={imageUrl} />}
+        </Link>
       </div>
     </div>
   );
