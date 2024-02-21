@@ -4,7 +4,6 @@ import styles from '@/components/organisms/SelectSection/SelectSection.module.sc
 import LabelSlide from '@/components/molecules/LabelSlide';
 import ChecklistSlide from '@/components/molecules/ChecklistSlide';
 import useSelectedPart from '@/hooks/useSelectedPart';
-import SelectedMachine from '@/components/atoms/SelectedMachine';
 
 interface SelectSectionProp {
   part: 'UPPER' | 'LOWER' | 'WHOLE';
