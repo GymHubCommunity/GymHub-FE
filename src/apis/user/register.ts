@@ -17,6 +17,12 @@ async function postRefreshToken(refresh: string) {
   return response;
 }
 
+// 회원 정보 조회
+async function getUserInfo(memberId: number) {
+  await instance.get(`/members/${memberId}`);
+}
+
+// 회원 정보 삭제
 async function deleteUser(memberId: number) {
   await instance.delete(`/members/${memberId}`);
 }
@@ -49,4 +55,4 @@ export const authToken = {
   },
 };
 
-export { postRegister, postRefreshToken, deleteUser };
+export { postRegister, postRefreshToken, getUserInfo, deleteUser };
