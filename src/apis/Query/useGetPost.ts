@@ -8,7 +8,7 @@ interface getPostProps {
 
 function useGetPost() {
   const getPost = async ({ pageParam }: getPostProps) => {
-    const response = await instance.get(`/posts?page=${pageParam}&size=${6}`);
+    const response = await instance.get(`/posts?page=${pageParam}&size=${5}`);
     return response.data;
   };
 
@@ -28,7 +28,7 @@ function useGetPost() {
     },
   });
 
-  if (isError) toast.error('글 목록 불러오기 실패');
+  if (isError) toast.error('글 목록 불러오기가 실패했어요.');
 
   return { data, fetchNextPage, hasNextPage };
 }
