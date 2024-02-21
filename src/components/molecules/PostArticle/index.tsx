@@ -1,10 +1,10 @@
 import PostProfile from '@/components/molecules/PostProfile';
 
+import Post from '@/components/molecules/Post';
 import { commentCountAtom } from '@/hooks/atoms';
 import { WriterInfoProps } from '@/types/GetPost';
 import { useAtomValue } from 'jotai';
 import { usePathname } from 'next/navigation';
-import Post from '../Post';
 
 interface PostArticleProps {
   postId: number;
