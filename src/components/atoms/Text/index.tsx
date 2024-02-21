@@ -22,7 +22,7 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'storyName'
     | 'commentDate';
   button?: string;
-  onBoarding?: 'intro' | 'inputExplain';
+  onBoarding?: string;
   records?:
     | 'name'
     | 'value'

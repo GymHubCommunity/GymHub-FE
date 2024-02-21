@@ -1,7 +1,18 @@
+import {
+  RequestCookies,
+  ResponseCookies,
+} from 'next/dist/compiled/@edge-runtime/cookies';
 import { NextRequest, NextResponse } from 'next/server';
 
 async function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL('/signin', request.url));
+  const code = request.cookies.get('code')?.value;
+
+  if (!code) {
+    const response = NextResponse.redirect(request.url);
+    response.cookies.set('code', 'code value');
+    applySetCookie(request, response);
+    return response;
+  }
 }
 
 export default middleware;
@@ -10,3 +21,23 @@ export default middleware;
 export const config = {
   matcher: ['/mypage/:path*', '/post/:path*'],
 };
+
+//* 쿠키
+function applySetCookie(req: NextRequest, res: NextResponse): void {
+  const resCookies = new ResponseCookies(res.headers);
+  const newReqHeaders = new Headers(req.headers);
+  const newReqCookies = new RequestCookies(newReqHeaders);
+
+  resCookies.getAll().forEach((cookie) => newReqCookies.set(cookie));
+
+  NextResponse.next({
+    request: { headers: newReqHeaders },
+  }).headers.forEach((value, key) => {
+    if (
+      key === 'x-middleware-override-headers' ||
+      key.startsWith('x-middleware-request-')
+    ) {
+      res.headers.set(key, value);
+    }
+  });
+}

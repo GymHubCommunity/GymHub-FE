@@ -25,6 +25,8 @@ const nextConfig = {
   env: {
     NEXTAUTH_SECRET: process.env.AUTH_SECRET,
   },
+
+  reactStrictMode: false,
 };
 
 const sentryWebpackPluginOptions = {

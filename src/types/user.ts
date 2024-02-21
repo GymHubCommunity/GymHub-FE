@@ -8,11 +8,14 @@ interface TokenProp {
   accessToken: string;
 }
 
-interface UserInfoProps {
-  id: number;
-  email: string;
-  profileUrl: string;
+interface UserInputRegisterProps {
+  profileUrl?: string;
   nickname: string;
 }
 
-export type { UserInfoProps, UserRegisterProps };
+interface UserInfoProps extends UserInputRegisterProps {
+  id: number;
+  email: string;
+}
+
+export type { UserInfoProps, UserRegisterProps, UserInputRegisterProps };

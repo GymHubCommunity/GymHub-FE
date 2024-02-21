@@ -1,0 +1,25 @@
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexCenter;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.profileImg {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.cameraImg {
+  position: relative;
+  bottom: -38px;
+  right: -50px;
+}
+
+.cameraInput {
+  display: none;
+}
