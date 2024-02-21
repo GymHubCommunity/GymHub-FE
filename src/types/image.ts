@@ -1,5 +1,5 @@
 interface ImgProps {
-  imgUrl: string;
+  imgUrl: string | Array<string> | null;
   type?: string;
   size?: number;
 }

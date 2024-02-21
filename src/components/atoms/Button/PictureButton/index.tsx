@@ -3,6 +3,7 @@ import styles from '@/components/atoms/Button/PictureButton/PictureButton.module
 import { ImgUploadButtonProps } from '@/types/image';
 import { ChangeEvent, useEffect } from 'react';
 import useImageUpload from '@/hooks/useImageUpload';
+import { useEffect } from 'react';
 
 function PictureButton({ onImageChange }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
@@ -27,7 +28,7 @@ function PictureButton({ onImageChange }: ImgUploadButtonProps) {
   }, [file]);
 
   const handlePresignedUrl = async () => {
-    if (!file) return;
+    if (!file.name) return;
     await handleSetPresignedURL(file);
   };
 

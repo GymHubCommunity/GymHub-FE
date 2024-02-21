@@ -1,0 +1,29 @@
+@import '@/styles/colors';
+@import '@/styles/fontWeights';
+
+.wrapper {
+  display: flex;
+  width: 353px;
+  padding: 26px 70px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  border: 1.5px solid rgba(199, 246, 64, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+
+  color: $story;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 20px;
+}
+
+.text {
+  font-weight: $regular;
+}
+
+.boldText {
+  font-weight: $bold;
+}
