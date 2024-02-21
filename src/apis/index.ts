@@ -2,7 +2,6 @@ import { BASE_URL, AWS_S3_URL } from '@/constants/common';
 import axios, { AxiosResponse } from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
 import { authToken, postRefreshToken } from '@/apis/user/register';
-
 import Alert from '@/components/organisms/Alert';
 import { alertParamsProps } from '@/types/alert';
 
@@ -22,20 +21,20 @@ const instanceFiles = axios.create({
   },
 });
 
-//TODO 로그인 시, access token 전역으로 관리
-const instanceAuth = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-type': 'application/json',
-    Authorization:
-      //Bearer ${localStorage.getItem("accessToken")},
-      'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNzEzNjg2MTEzfQ.hEB6Jsw3aRpYjZCPlSSGg77l3RC2TA8lLikvMeM7WjkCDxyWm1zh0_Va4zMuCifbQfSLkhIkqm1OJVze8n59tg',
-  },
-});
-
 const instanceAWS = axios.create({
   baseURL: AWS_S3_URL,
 });
+
+instance.interceptors.request.use(
+  (config) => {
+    config.headers['Authorization'] =
+      `Bearer ${localStorage.getItem('accessToken')}`;
+    return config;
+  },
+  (err) => {
+    return Promise.reject(err);
+  },
+);
 
 function responsefulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {
@@ -58,7 +57,6 @@ async function responseRejectedInterceptor(error) {
       }
     } catch (e) {
       authToken.destroy();
-      console.log(e);
     }
 
     await new Promise((res) => res);
@@ -91,4 +89,4 @@ instance.interceptors.response.use(
   responseRejectedInterceptor,
 );
 
-export { instance, instanceFiles, instanceAuth, instanceAWS };
+export { instance, instanceFiles, instanceAWS };

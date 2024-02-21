@@ -1,10 +1,9 @@
-// useImageUpload.ts
 import { atom, useAtom } from 'jotai';
 import { getPresignedURL, uploadImageToS3 } from '@/apis/image';
 import PresignedUrls from '@/utils/PresignedUrls';
 import { S3_BUCKET_NAME, AWS_S3_URL } from '@/constants/common';
 
-const fileAtom = atom<File | null>({} as File);
+const fileAtom = atom<File | null>(null as File);
 const presignedUrlAtom = atom('');
 
 const useImageUpload = () => {
