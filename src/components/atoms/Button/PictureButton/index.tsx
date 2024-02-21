@@ -1,8 +1,8 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
+import useImageUpload from '@/hooks/useImageUpload';
 import { PictureButtonProps } from '@/types/image';
 import { useEffect } from 'react';
-import useImageUpload from '@/hooks/useImageUpload';
 
 function PictureButton({ onImageChange }: PictureButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
@@ -27,7 +27,7 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
   }, [file]);
 
   const handlePresignedUrl = async () => {
-    if (!file) return;
+    if (!file.name) return;
     await handleSetPresignedURL(file);
   };
 

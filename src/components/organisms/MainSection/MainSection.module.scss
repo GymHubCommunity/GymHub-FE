@@ -8,9 +8,9 @@
 }
 
 .storyWrapper {
-  position: relative;
-  padding-left: 26px;
-  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .storyBackground {
@@ -21,6 +21,7 @@
 .feedWrapper {
   display: flex;
   flex-direction: column;
+
   gap: 40px;
   padding: 20px;
   border-radius: 20px 20px 0 0;
