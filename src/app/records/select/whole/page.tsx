@@ -2,12 +2,12 @@
 
 import SelectSection from '@/components/organisms/SelectSection/page';
 
-function LowerPage() {
+function WholePage() {
   return (
     <>
-      <SelectSection part="LOWER" />
+      <SelectSection part="WHOLE" />
     </>
   );
 }
 
-export default LowerPage;
+export default WholePage;
