@@ -12,17 +12,15 @@ interface PostEditorProps {
 function PostEditor({ name, handleChange }: PostEditorProps) {
   const { register } = useFormContext();
   return (
-    <>
-      <textarea
-        id={name}
-        className={styles.editor}
-        placeholder={POST_PLACEHOLDER}
-        {...register(name, {
-          required: true,
-        })}
-        onChange={handleChange}
-      ></textarea>
-    </>
+    <textarea
+      id={name}
+      className={styles.editor}
+      placeholder={POST_PLACEHOLDER}
+      {...register(name, {
+        required: true,
+      })}
+      onChange={handleChange}
+    ></textarea>
   );
 }
 

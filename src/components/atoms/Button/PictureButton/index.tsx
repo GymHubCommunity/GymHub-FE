@@ -40,7 +40,7 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
         id="fileInput"
         className={styles.file}
         onChange={handleImageChange}
-      ></input>
+      />
     </label>
   );
 }
