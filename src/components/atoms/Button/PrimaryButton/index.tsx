@@ -1,7 +1,11 @@
 import styles from '@/components/atoms/Button/PrimaryButton/PrimaryButton.module.scss';
 
-function PrimaryButton({ children }) {
-  return <button className={styles.wrapper}>{children}</button>;
+function PrimaryButton({ isActive, children }) {
+  return (
+    <button className={styles.wrapper} disabled={!isActive}>
+      {children}
+    </button>
+  );
 }
 
 export default PrimaryButton;
