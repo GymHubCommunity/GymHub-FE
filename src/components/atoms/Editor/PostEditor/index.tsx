@@ -23,8 +23,8 @@ function PostEditor({ name, handleChange }: PostEditorProps) {
 
   const findHashTags = (str: string) => {
     const hashTagsRegex = /#([ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9_]+)(?=[\s.,:;]|$)/g;
-    const hashTags = str.match(hashTagsRegex);
-    return hashTags || [];
+    const filterHashTags = str.match(hashTagsRegex);
+    return filterHashTags || [];
   };
 
   return (
@@ -38,7 +38,7 @@ function PostEditor({ name, handleChange }: PostEditorProps) {
         })}
         onChange={handleTextAreaChange}
         maxLength={2000}
-      ></textarea>
+      />
       {hashTags && (
         <div className={styles.wrapper}>
           {hashTags.map((tag, index) => (
