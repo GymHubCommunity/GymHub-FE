@@ -7,9 +7,10 @@
   @include flexCenter;
   gap: 5px;
   max-height: 25px;
+
   &.comment {
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
   }
 }
 
@@ -19,6 +20,6 @@
   font-weight: $regular;
 
   &.comment {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
