@@ -4,9 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
-function useGetPostDetail() {
+interface useGetPostDetailProp {
+  Id?: string;
+}
+
+function useGetPostDetail({ Id }: useGetPostDetailProp) {
   const pathName = usePathname();
-  const postId = pathName.slice(6);
+  let postId = '';
+  {
+    Id === undefined ? (postId = pathName.slice(6)) : (postId = Id);
+  }
 
   const { data, isError } = useQuery({
     queryKey: ['postDetail', postId],

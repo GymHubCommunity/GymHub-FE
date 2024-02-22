@@ -5,7 +5,7 @@ import PostSection from '@/components/organisms/PostSection';
 import { GetPostDetailProps } from '@/types/GetPost';
 
 function PostDetailPage() {
-  const { data } = useGetPostDetail();
+  const { data } = useGetPostDetail({});
 
   return <PostSection type={'postDetail'} data={data as GetPostDetailProps} />;
 }
