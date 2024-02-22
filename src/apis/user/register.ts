@@ -1,4 +1,3 @@
-import { UserInputRegisterProps } from '@/types/user';
 import { deleteCookie, getCookie } from 'cookies-next';
 import { instance } from '@/apis';
 
