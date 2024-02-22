@@ -1,4 +1,9 @@
-import { submitPost, submitPostProps } from '@/apis/post';
+import {
+  submitPost,
+  submitPostProps,
+  postProps,
+  updatePost,
+} from '@/apis/post';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';
 import PostEditor, { hashTagsAtom } from '@/components/atoms/Editor/PostEditor';
@@ -9,18 +14,30 @@ import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import { PAGE_NAMES } from '@/constants/PageNames';
 import useImageUpload from '@/hooks/useImageUpload';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useAtom } from 'jotai';
 
-function AddPost() {
+function AddPost({
+  postId,
+  imageUrls = [],
+  hashtags = [],
+  content = '',
+  work = 'add',
+}: postProps) {
   const [image, setImage] = useState('');
   const [hashTags, setHashTags] = useAtom(hashTagsAtom);
   const [disabled, setDisabled] = useState(true);
   const methods = useForm();
   const { handleUploadImageToS3 } = useImageUpload();
   const router = useRouter();
+
+  const init = () => {
+    if (imageUrls.length > 0) setImage(imageUrls[0]);
+    if (hashtags.length > 0) setHashTags(hashtags);
+    methods.setValue('content', content);
+  };
 
   const reset = () => {
     handleImageDelete();
@@ -29,23 +46,39 @@ function AddPost() {
   };
 
   const onSubmit = async (param: submitPostProps) => {
-    if (image) {
+    if (image.startsWith('data')) {
       const imageUrl = await handleUploadImageToS3();
       if (imageUrl) {
         param.imageUrls = [imageUrl];
       }
+    } else if (image.startsWith('http')) {
+      param.imageUrls = [image];
     } else {
       param.imageUrls = [];
     }
 
     param.hashTags = hashTags;
-
-    const result = await submitPost(param);
-    if (result) {
-      reset();
-      router.push('/');
+    if (work === 'update') {
+      const result = await updatePost(postId, param);
+      if (result === 204) {
+        router.push(`/post/${postId}`);
+      }
+    } else {
+      const result = await submitPost(param);
+      if (result === 201) {
+        //TODO : 응답오는 URI 값으로 변경 해야함 (게시글 상세보기)
+        router.push('/');
+      }
     }
   };
+  useEffect(() => {
+    if (work === 'update') {
+      init();
+    }
+    return () => {
+      reset();
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDisabled(e.target.value === '');
@@ -61,7 +94,13 @@ function AddPost() {
 
   return (
     <div className={commonStyles.wrapper}>
-      <BackButtonHeader pageName={PAGE_NAMES.POST.ADD_POST} />
+      <BackButtonHeader
+        pageName={
+          work === 'update'
+            ? PAGE_NAMES.POST.UPDATE_POST
+            : PAGE_NAMES.POST.ADD_POST
+        }
+      />
       <FormProvider {...methods}>
         <form
           className={styles.wrapper}
