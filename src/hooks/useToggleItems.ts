@@ -27,7 +27,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
     // TODO: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
     switch (item) {
       case POST_UPDATE:
-        router.push(`post/${id}`);
+        router.push(`post/${id}/edit`);
         break;
       default:
         showModal();
