@@ -3,8 +3,8 @@ import UserRoutineArticle from '@/components/molecules/UserRoutineArticle';
 import { postProfile } from '@/constants/MockData';
 import useSelectedDate from '@/hooks/useSelectedDate';
 
+// TODO: API 연동시, 데이터 변경 필요
 function ExerciseRoutine() {
-  // TODO: API 연동시, 데이터 변경 필요
   const { selectedDate } = useSelectedDate();
   const targetDate = selectedDate !== null ? selectedDate : new Date();
   return (
