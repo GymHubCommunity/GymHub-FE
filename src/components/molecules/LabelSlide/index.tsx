@@ -17,24 +17,22 @@ function LabelSlide({ part }: LabelSildeProp) {
     part === 'UPPER' ? upperPart : part === 'LOWER' ? lowerPart : wholePart;
 
   return (
-    <>
-      <Swiper
-        slidesPerView="auto"
-        modules={[FreeMode]}
-        className={styles.mySwiper}
-      >
-        {labels.map((val) => (
-          <SwiperSlide key={val.id} className={styles.swiperSlide}>
-            <PartLabel
-              isSelected={val.id === selectedId ? true : false}
-              onClick={() => handleLabel(val)}
-            >
-              {val.part}
-            </PartLabel>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
+    <Swiper
+      slidesPerView="auto"
+      modules={[FreeMode]}
+      className={styles.mySwiper}
+    >
+      {labels.map((val) => (
+        <SwiperSlide key={val.id} className={styles.swiperSlide}>
+          <PartLabel
+            isSelected={val.id === selectedId ? true : false}
+            onClick={() => handleLabel(val)}
+          >
+            {val.part}
+          </PartLabel>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }
 

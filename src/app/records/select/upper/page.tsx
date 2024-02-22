@@ -3,11 +3,7 @@
 import SelectSection from '@/components/organisms/SelectSection/page';
 
 function UpperPage() {
-  return (
-    <>
-      <SelectSection part="UPPER" />
-    </>
-  );
+  return <SelectSection part="UPPER" />;
 }
 
 export default UpperPage;

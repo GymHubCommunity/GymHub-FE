@@ -14,7 +14,7 @@ function SelectSection({ part }: SelectSectionProp) {
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <div>
         <BackButtonHeader
           pageName={
             part === 'UPPER' ? '상체' : part === 'LOWER' ? '하체' : '전신'
