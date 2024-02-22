@@ -1,7 +1,10 @@
 @import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
 
 .wrapper {
   @include flexBetween;
+  position: relative;
+  width: 100%;
   gap: 10px;
 }
 
@@ -15,4 +18,25 @@
 .userWrapper {
   @include flexStart;
   gap: 10px;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0;
+  left: 350px;
+
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 /1;
+
+  width: 44px;
+  height: 100%;
+  background: $red;
+  overflow: hidden;
+}
+
+.deleteLabel {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
 }
