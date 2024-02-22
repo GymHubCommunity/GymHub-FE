@@ -1,5 +1,7 @@
+import { deletePost } from '@/apis/post';
 import {
   POST_UPDATE,
+  POST_DELETE,
   postItems,
   profileItems,
   recordsItems,
@@ -28,6 +30,10 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
     switch (item) {
       case POST_UPDATE:
         router.push(`post/${id}/edit`);
+        break;
+      case POST_DELETE:
+        deletePost(id);
+        router.push(`/`);
         break;
       default:
         showModal();
