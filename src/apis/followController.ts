@@ -1,7 +1,13 @@
 import { instance } from '@/apis/index';
 
 interface IdProp {
-  id: number;
+  id: string;
+}
+
+interface ListProps {
+  id: string;
+  lastId?: number;
+  size: number;
 }
 
 async function postUnfollow({ id }: IdProp) {
@@ -24,13 +30,17 @@ async function deleteFollower({ id }: IdProp) {
   return response.data;
 }
 
-async function getFollowings({ id }: IdProp) {
-  const response = await instance.get(`/members/${id}/followings`);
+async function getFollowings({ id, lastId = -1, size }: ListProps) {
+  const response = await instance.get(
+    `/members/${id}/followings?lastId=${lastId}&size=${size}`,
+  );
   return response.data;
 }
 
-async function getFollowers({ id }: IdProp) {
-  const response = await instance.get(`/members/${id}/followers`);
+async function getFollowers({ id, lastId = -1, size }: ListProps) {
+  const response = await instance.get(
+    `/members/${id}/followers?lastId=${lastId}&size=${size}`,
+  );
   return response.data;
 }
 
