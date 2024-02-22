@@ -30,6 +30,7 @@ function MainSection() {
                 userInfo={val.writerInfo}
                 content={val.content}
                 imageUrl={val.imageUrl as string}
+                registeredAt={val.registeredAt}
               />
             </div>
           ))}

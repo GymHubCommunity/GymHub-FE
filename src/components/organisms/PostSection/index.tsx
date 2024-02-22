@@ -31,6 +31,7 @@ function PostSection({ data, type }: PostSectionProp) {
             userInfo={data.writerInfo}
             content={data.content}
             imageUrl={data.imageUrls as Array<string>}
+            registeredAt={data.registeredAt}
           />
           <Input type="comment" />
         </div>
