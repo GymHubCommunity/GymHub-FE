@@ -1,9 +1,10 @@
 @import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
 
 .wrapper {
   display: inline-flex;
   width: 100%;
-  height: 551px;
+  height: 350px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -13,5 +14,6 @@
 
 .text {
   color: $darkGray300;
-  font-size: 2rem;
+  font-size: 1.95rem;
+  font-weight: $medium;
 }
