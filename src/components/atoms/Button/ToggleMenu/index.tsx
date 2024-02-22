@@ -3,7 +3,7 @@ import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import useToggleMenu from '@/hooks/useToggleMenu';
 import { ToggleMenuProp } from '@/types/toggle';
 
-function ToggleMenu({ type }: ToggleMenuProp) {
+function ToggleMenu({ type, id }: ToggleMenuProp) {
   const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
 
   return (
@@ -11,7 +11,7 @@ function ToggleMenu({ type }: ToggleMenuProp) {
       <button type="button" onClick={toggleMenu}>
         <ToggleMenuSvg />
       </button>
-      {isOpen && <ToggleItems type={type} />}
+      {isOpen && <ToggleItems type={type} id={id} />}
     </div>
   );
 }

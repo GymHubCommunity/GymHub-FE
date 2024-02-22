@@ -9,7 +9,7 @@ import { ToggleMenuProp } from '@/types/toggle';
 
 import { usePathname, useRouter } from 'next/navigation';
 
-function useToggleItems({ type }: ToggleMenuProp) {
+function useToggleItems({ type, id }: ToggleMenuProp) {
   const router = useRouter();
   const pathName = usePathname();
   const { showModal } = useModalInfo();
@@ -27,7 +27,7 @@ function useToggleItems({ type }: ToggleMenuProp) {
     // TODO: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
     switch (item) {
       case POST_UPDATE:
-        router.push('/records/[recordId]');
+        router.push(`post/${id}`);
         break;
       default:
         showModal();
