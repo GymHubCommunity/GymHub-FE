@@ -1,4 +1,4 @@
-import { deletePost } from '@/apis/post';
+import useDeletePost from '@/apis/Query/useDeletePost';
 import {
   POST_UPDATE,
   POST_DELETE,
@@ -15,6 +15,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
   const router = useRouter();
   const pathName = usePathname();
   const { showModal } = useModalInfo();
+  const handleDeletePost = useDeletePost();
 
   let menuItems = [];
 
@@ -25,15 +26,14 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
     menuItems = recordsItems;
   }
 
-  const handleOnClick = (item: string) => {
+  const handleOnClick = async (item: string) => {
     // TODO: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
     switch (item) {
       case POST_UPDATE:
         router.push(`post/${id}/edit`);
         break;
       case POST_DELETE:
-        deletePost(id);
-        router.push(`/`);
+        handleDeletePost.mutateAsync({ Id: id });
         break;
       default:
         showModal();
