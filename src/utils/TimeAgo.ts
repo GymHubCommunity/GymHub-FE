@@ -18,4 +18,4 @@ function timeAgo(date: string) {
   return `${Math.floor(years)}년 전`;
 }
 
-export default { timeAgo };
+export default timeAgo;
