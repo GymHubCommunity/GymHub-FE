@@ -1,9 +1,4 @@
-import {
-  submitPost,
-  submitPostProps,
-  postProps,
-  updatePost,
-} from '@/apis/post';
+import { submitPostProps, postProps } from '@/apis/post';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';
 import PostEditor, { hashTagsAtom } from '@/components/atoms/Editor/PostEditor';
@@ -18,6 +13,8 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useAtom } from 'jotai';
+import useUpdatePost from '@/apis/Query/useUpdatePost';
+import useSubmitPost from '@/apis/Query/useSubmitPost';
 
 function AddPost({
   postId,
@@ -32,6 +29,8 @@ function AddPost({
   const methods = useForm();
   const { handleUploadImageToS3 } = useImageUpload();
   const router = useRouter();
+  const handleUpdate = useUpdatePost();
+  const handleSubmit = useSubmitPost();
 
   const init = () => {
     if (imageUrls.length > 0) setImage(imageUrls[0]);
@@ -59,14 +58,17 @@ function AddPost({
 
     param.hashTags = hashTags;
     if (work === 'update') {
-      const result = await updatePost(postId, param);
+      const result = await handleUpdate.mutateAsync({
+        Id: postId,
+        param: param,
+      });
       if (result === 204) {
         router.push(`/post/${postId}`);
       }
     } else {
-      const result = await submitPost(param);
+      const result = await handleSubmit.mutateAsync({ param: param });
       if (result === 201) {
-        //TODO : 응답오는 URI 값으로 변경 해야함 (게시글 상세보기)
+        //TODO : 서버에서 수정되면 응답오는 URI 값으로 변경 해야함 (게시글 상세보기)
         router.push('/');
       }
     }
