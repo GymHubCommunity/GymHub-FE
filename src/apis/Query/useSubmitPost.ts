@@ -10,10 +10,7 @@ function useSubmitPost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['updatePost'],
-    mutationFn: ({ param }: useSubmitPostProp) => {
-      const response = submitPost(param);
-      return response;
-    },
+    mutationFn: ({ param }: useSubmitPostProp) => submitPost(param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },

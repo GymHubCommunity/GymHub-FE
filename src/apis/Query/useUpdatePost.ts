@@ -11,10 +11,7 @@ function useUpdatePost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['updatePost'],
-    mutationFn: ({ Id, param }: useUpdatePostProp) => {
-      const response = updatePost(Id, param);
-      return response;
-    },
+    mutationFn: ({ Id, param }: useUpdatePostProp) => updatePost(Id, param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['postDetail'] });
     },
