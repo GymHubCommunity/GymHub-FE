@@ -5,7 +5,13 @@ import timeAgo from '@/utils/TimeAgo';
 
 import { usePathname } from 'next/navigation';
 
-function Reaction({ postId, commentCount, registeredAt }) {
+interface ReactionProps {
+  postId: number;
+  commentCount: number;
+  registeredAt: string;
+}
+
+function Reaction({ postId, commentCount, registeredAt }: ReactionProps) {
   const pathName = usePathname();
   const time = timeAgo(registeredAt);
 
