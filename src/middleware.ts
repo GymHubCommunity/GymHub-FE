@@ -9,7 +9,7 @@ async function middleware(request: NextRequest) {
 
   if (!refresh) {
     const response = NextResponse.redirect(request.url);
-    response.cookies.set('refresh', refresh);
+    response.cookies.set('refresh', refresh as string);
     applySetCookie(request, response);
     return response;
   }
