@@ -1,11 +1,11 @@
 import { instance } from '@/apis/index';
+import useGetPostId from '@/hooks/useGetPostId';
 import { GetPostDetailProps } from '@/types/GetPost';
-import getPostId from '@/utils/GetPostId';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
 function useGetPostDetail() {
-  const { postId } = getPostId();
+  const { postId } = useGetPostId();
 
   const { data, isError } = useQuery({
     queryKey: ['postDetail', postId],

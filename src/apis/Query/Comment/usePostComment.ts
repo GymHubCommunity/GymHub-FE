@@ -1,5 +1,6 @@
 import { instance } from '@/apis/index';
-import getPostId from '@/utils/GetPostId';
+import useGetPostId from '@/hooks/useGetPostId';
+
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
@@ -8,7 +9,7 @@ interface postCommentProp {
 }
 
 function usePostComment() {
-  const { postId } = getPostId();
+  const { postId } = useGetPostId();
   const queryClient = useQueryClient();
 
   const { mutate: postComment } = useMutation({

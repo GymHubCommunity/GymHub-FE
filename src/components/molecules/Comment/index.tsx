@@ -6,7 +6,7 @@ import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/Comment/Comment.module.scss';
 import DragComment from '@/components/molecules/Comment/DragComment';
 import useComment from '@/hooks/useComment';
-import getPostId from '@/utils/GetPostId';
+import useGetPostId from '@/hooks/useGetPostId';
 
 interface CommentProps {
   id: number;
@@ -17,7 +17,7 @@ interface CommentProps {
 }
 
 function Comment({ id, imgUrl, userName, date, comment }: CommentProps) {
-  const { postId } = getPostId();
+  const { postId } = useGetPostId();
   const {
     itemX,
     formatDate,
