@@ -1,14 +1,17 @@
 import styles from '@/components/atoms/Button/ProfileButton/ProfileButton.module.scss';
+import { useRouter } from 'next/navigation';
 
 interface ProfileButton {
   type: 'profileUpdate' | 'follow';
 }
 
 function ProfileButton({ type }: ProfileButton) {
+  const router = useRouter();
+
   const profileUpdate = () => {
-    // TODO: 로직 추가 필요
-    console.log('프로필 수정하기 버튼');
+    router.push('/signin/register/edit');
   };
+
   return (
     <>
       {type === 'profileUpdate' ? (

@@ -27,6 +27,12 @@ async function deleteUser(memberId: number) {
   await instance.delete(`/members/${memberId}`);
 }
 
+// 회원 정보 수정
+async function putUserInfo() {
+  const response = await instance.put(`/members/me`);
+  return response;
+}
+
 export const authToken = {
   access: (() => {
     try {
@@ -55,4 +61,4 @@ export const authToken = {
   },
 };
 
-export { postRegister, postRefreshToken, getUserInfo, deleteUser };
+export { postRegister, postRefreshToken, getUserInfo, deleteUser, putUserInfo };
