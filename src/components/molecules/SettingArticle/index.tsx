@@ -20,7 +20,7 @@ function SettingArticle({ type, children }: SettingArticleProps) {
     case 'logout':
       return (
         <div className={styles.wrapper}>
-          <Link href={'/mypage'} className={styles.settingName}>
+          <Link href="/signin" className={styles.settingName}>
             로그아웃
           </Link>
         </div>

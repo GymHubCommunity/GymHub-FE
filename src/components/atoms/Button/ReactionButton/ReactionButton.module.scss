@@ -19,12 +19,14 @@
 .inWrapper {
   @include flexCenter;
   gap: 5px;
+  max-height: 25px;
 }
 
 .count {
   color: $count;
   font-size: 1.6rem;
   font-weight: $regular;
+  margin-bottom: 0.7px;
 
   &.comment {
     font-size: 1rem;
