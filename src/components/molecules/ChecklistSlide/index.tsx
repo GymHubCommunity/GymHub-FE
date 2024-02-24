@@ -1,11 +1,16 @@
+import {
+  getMachines,
+  getMachinesAll,
+  getMachinesAllProps,
+  getMachinesProps,
+} from '@/apis/machineController';
+import CheckList from '@/components/atoms/CheckList';
+import styles from '@/components/molecules/ChecklistSlide/ChecklistSlide.module.scss';
+import useSelectedPart from '@/hooks/useSelectedPart';
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import { FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useEffect, useState } from 'react';
-import styles from '@/components/molecules/ChecklistSlide/ChecklistSlide.module.scss';
-import CheckList from '@/components/atoms/CheckList';
-import useSelectedPart from '@/hooks/useSelectedPart';
-import { getMachines, getMachinesAll } from '@/apis/machineController';
 
 interface ChecklistSlideProp {
   part: 'UPPER' | 'LOWER' | 'WHOLE';
@@ -13,17 +18,18 @@ interface ChecklistSlideProp {
 
 function ChecklistSlide({ part }: ChecklistSlideProp) {
   const { selectedId } = useSelectedPart();
-  const [lists, setLists] = useState([]);
-  const [allLists, setAllLists] = useState([]);
-  const [currentLists, setCurrentLists] = useState([]);
+  const [lists, setLists] = useState<getMachinesProps[]>([]);
+  const [allLists, setAllLists] = useState<getMachinesAllProps[]>([]);
+  const [currentLists, setCurrentLists] = useState<getMachinesAllProps[]>([]);
 
   const getMachineLists = async () => {
     try {
       const result = await getMachines({ part: part });
       const allResult = await getMachinesAll();
-      setLists(result.parts);
-      setAllLists(allResult.machines);
-      setCurrentLists(allResult.machines);
+
+      setLists([result]);
+      setAllLists([allResult]);
+      setCurrentLists([allResult]);
     } catch (error) {
       console.error('Error getting machine lists: ', error);
     }
@@ -37,7 +43,7 @@ function ChecklistSlide({ part }: ChecklistSlideProp) {
     if (selectedId === 0) {
       setCurrentLists(allLists);
     } else {
-      setCurrentLists(lists[selectedId - 1].machines);
+      setCurrentLists(lists[selectedId - 1]?.parts);
     }
   }, [selectedId]);
 
@@ -49,11 +55,13 @@ function ChecklistSlide({ part }: ChecklistSlideProp) {
         modules={[FreeMode]}
         className={styles.mySwiper}
       >
-        {currentLists.map((val) => (
-          <SwiperSlide key={val.id} className={styles.swiperSlide}>
-            <CheckList>{val.name}</CheckList>
-          </SwiperSlide>
-        ))}
+        {currentLists?.map((val) =>
+          val.machines.map((val2) => (
+            <SwiperSlide key={val2.id} className={styles.swiperSlide}>
+              <CheckList>{val2.name}</CheckList>
+            </SwiperSlide>
+          )),
+        )}
       </Swiper>
     </>
   );
