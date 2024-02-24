@@ -1,31 +1,21 @@
 import CommentSubmitSvg from '@/assets/icons/CommentSubmitSvg';
 import SearchSvg from '@/assets/icons/SearchSvg';
 import styles from '@/components/atoms/Input/Input.module.scss';
-import { searchValueAtom } from '@/hooks/atoms';
-import useSearchFilter from '@/hooks/useSearchFilter';
-
-import { useAtom } from 'jotai';
-import { ChangeEvent, useRef, useState } from 'react';
+import useInput from '@/hooks/useInput';
 
 interface InputProp {
   type: 'hashTag' | 'workOut' | 'comment' | 'addExercise';
 }
 
 function Input({ type }: InputProp) {
-  const [submitColor, setSubmitColor] = useState('#4B4D54');
-  const [searchValue, setSearchValue] = useAtom(searchValueAtom);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const { searchHashTag } = useSearchFilter({
-    timer,
-    searchValue,
-    setSearchValue,
-  });
-
-  const commentSubmit = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 0) setSubmitColor('#C7F640');
-    if (e.target.value.length === 0) setSubmitColor('#4B4D54');
-  };
+  const {
+    changeButtonColor,
+    content,
+    isDisabled,
+    searchHashTag,
+    submitColor,
+    submitComment,
+  } = useInput();
 
   return (
     <div className={styles.wrapper}>
@@ -49,7 +39,8 @@ function Input({ type }: InputProp) {
       {type === 'comment' && (
         <input
           className={styles.commentInput}
-          onChange={commentSubmit}
+          value={content}
+          onChange={changeButtonColor}
           placeholder="어떤 운동 얘기를 할까요?"
         />
       )}
@@ -63,7 +54,12 @@ function Input({ type }: InputProp) {
       {type !== 'comment' ? (
         <SearchSvg />
       ) : (
-        <button type="submit" className={styles.commentSubmit}>
+        <button
+          type="submit"
+          className={styles.commentSubmit}
+          onClick={submitComment}
+          disabled={isDisabled}
+        >
           <CommentSubmitSvg color={submitColor} />
         </button>
       )}
