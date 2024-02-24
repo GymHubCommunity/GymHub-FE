@@ -4,14 +4,20 @@ import { ReactNode } from 'react';
 
 interface ErrorInfoProps {
   text: string;
+  line?: string;
+  nextLine?: string;
   children: ReactNode;
 }
 
-function ErrorInfo({ children, text }: ErrorInfoProps) {
+function ErrorInfo({ text, line, nextLine, children }: ErrorInfoProps) {
   return (
     <div className={styles.wrapper}>
       {children}
-      <Text errorMessage="errorMessage">{text}</Text>
+      <Text errorMessage="errorMessage">
+        {text}
+        <p className={styles.lineWrapper}>{line}</p>
+        <p> {nextLine}</p>
+      </Text>
     </div>
   );
 }
