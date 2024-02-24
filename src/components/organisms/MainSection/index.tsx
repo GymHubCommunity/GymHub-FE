@@ -40,7 +40,9 @@ function MainSection() {
         </div>
         <div ref={ref} />
       </main>
-      <FloatingButton type={'post'} />
+      <div className={styles.floatingButton}>
+        <FloatingButton type={'post'} />
+      </div>
     </>
   );
 }

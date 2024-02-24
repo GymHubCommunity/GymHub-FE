@@ -22,7 +22,7 @@ function KakaoShareButton() {
   const kakaoShare = () => {
     window.Kakao.Share.sendCustom({
       installTalk: true,
-      templateId: 103530,
+      templateId: 104636,
       templateArgs: {},
     });
   };
