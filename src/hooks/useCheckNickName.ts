@@ -1,21 +1,29 @@
+import { getUserInfo } from '@/apis/user/register';
 import { isCheckNameAtom } from '@/components/molecules/ResignNickName';
 import { useSetAtom } from 'jotai';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-function useCheckNickName(nickname: string) {
+function useCheckNickName(memberId: number) {
   const [nickName, setNickName] = useState('');
   const setIsCheckName = useSetAtom(isCheckNameAtom);
 
-  const handleCheckNickName = (e: ChangeEvent<HTMLInputElement>) => {
+  async function handleCheckNickName(e: ChangeEvent<HTMLInputElement>) {
     setNickName(e.target.value);
-    if (e.target.value === nickname) {
-      setIsCheckName(false);
-    }
-  };
+    try {
+      const response = await getUserInfo(memberId);
 
-  console.log(nickName)
+      if (e.target.value === response.data.nickname) {
+        setIsCheckName(false);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  console.log(nickName);
+
   useEffect(() => {
-    if (nickName !== nickname) setIsCheckName(true);
+    // if (nickName !== postProfile.name) setIsCheckName(true);
   }, [nickName]);
 
   return { handleCheckNickName };
