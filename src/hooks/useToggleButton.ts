@@ -1,28 +1,24 @@
 import { instance } from '@/apis';
-import { BASE_URL } from '@/constants/common';
-import { useState } from 'react';
+import { atom, useAtom } from 'jotai';
+
+const selectedAtom = atom(false);
 
 function useToggleButton() {
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected, setIsSelected] = useAtom(selectedAtom);
 
   const handlePrivate = async () => {
     setIsSelected((prev) => !prev);
 
-    let test = '';
+    let disclosure = '';
 
     if (isSelected) {
-      test = 'PRIVATE';
+      disclosure = 'PRIVATE';
     } else {
-      test = 'PUBLIC';
+      disclosure = 'PUBLIC';
     }
 
-    // TODO: headers 부분 변경 필요
-    await instance.post(`${BASE_URL}/members/account/privacy`, null, {
-      params: { policy: test },
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('access-Token')}`,
-      },
+    await instance.post(`/members/account/privacy`, null, {
+      params: { policy: disclosure },
     });
   };
   return { isSelected, handlePrivate };
