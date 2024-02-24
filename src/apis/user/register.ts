@@ -18,7 +18,8 @@ async function postRefreshToken(refresh: string) {
 
 // 회원 정보 조회
 async function getUserInfo(memberId: number) {
-  await instance.get(`/members/${memberId}`);
+  const response = await instance.get(`/members/${memberId}`);
+  return response;
 }
 
 // 회원 정보 삭제

@@ -1,5 +1,4 @@
 import { BASE_URL } from '@/constants/common';
-import axios from 'axios';
 import { instanceAuth } from '@/apis/index';
 
 interface IdProp {
