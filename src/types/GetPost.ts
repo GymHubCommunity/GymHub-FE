@@ -32,7 +32,7 @@ interface GetPostDetailProps {
   content: string;
   imageUrls?: [string | null];
   hashtags?: [string | null];
-  commentCount?: number;
+  commentCount: number;
   registeredAt: string;
 }
 
