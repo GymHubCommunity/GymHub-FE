@@ -3,7 +3,7 @@ import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/LoginInfo/LoginInfo.module.scss';
 import Image from 'next/image';
 import { m } from 'framer-motion';
-import { defaultFadeInUpVariants, fadeInUpVariants } from '@/constants/motion';
+import { defaultFadeInUpVariants } from '@/constants/motion';
 import LogoSvg from '@/assets/icons/LogoSvg';
 
 function LoginInfo() {

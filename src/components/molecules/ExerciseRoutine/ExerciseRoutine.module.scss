@@ -16,6 +16,7 @@
 .inWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
   color: $white;
 }
@@ -44,4 +45,5 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
+  font-size: 1.2rem;
 }
