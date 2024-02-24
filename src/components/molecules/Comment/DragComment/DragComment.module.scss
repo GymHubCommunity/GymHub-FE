@@ -1,0 +1,9 @@
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexBetween;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  gap: 10px;
+}

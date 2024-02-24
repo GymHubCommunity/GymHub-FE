@@ -1,6 +1,6 @@
 'use client';
 
-import useGetPostDetail from '@/apis/Query/useGetPostDetail';
+import useGetPostDetail from '@/apis/Query/Post/useGetPostDetail';
 import PostSection from '@/components/organisms/PostSection';
 import { GetPostDetailProps } from '@/types/GetPost';
 

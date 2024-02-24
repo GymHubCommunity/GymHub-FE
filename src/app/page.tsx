@@ -1,6 +1,6 @@
 'use client';
 
-import useGetPost from '@/apis/Query/useGetPost';
+import useGetPost from '@/apis/Query/Post/useGetPost';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import Footer from '@/components/organisms/Footer';
 import MainSection from '@/components/organisms/MainSection';
