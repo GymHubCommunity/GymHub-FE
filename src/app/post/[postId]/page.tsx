@@ -6,7 +6,7 @@ import { GetPostDetailProps } from '@/types/GetPost';
 
 function PostDetailPage() {
   const { data } = useGetPostDetail();
-
+  if (!data) return;
   return <PostSection type={'postDetail'} data={data as GetPostDetailProps} />;
 }
 
