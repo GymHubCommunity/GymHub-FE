@@ -9,7 +9,6 @@ import { postRegister } from '@/apis/user/register';
 import { useRouter } from 'next/navigation';
 import useImageUpload from '@/hooks/useImageUpload';
 
-//TODO: 디자인 입히기
 function RegisterForm(handleSubmit: any) {
   const {
     register,
