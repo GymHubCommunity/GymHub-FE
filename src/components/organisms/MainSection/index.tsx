@@ -6,10 +6,12 @@ import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import { stories } from '@/constants/MockData';
 import useMainSection from '@/hooks/useMainSection';
 import MainBackgroundImg from '@/public/images/MainBackground.png';
+
 import Image from 'next/image';
 
 function MainSection() {
   const { data, ref } = useMainSection();
+
   return (
     <>
       <main className={styles.wrapper}>
@@ -31,6 +33,7 @@ function MainSection() {
                 content={val.content}
                 imageUrl={val.imageUrl as string}
                 registeredAt={val.registeredAt}
+                commentCount={val.commentCount}
               />
             </div>
           ))}
