@@ -3,12 +3,12 @@ import ProfileImgSetting from '@/components/molecules/Profile/ProfileImgSetting'
 import Text from '@/components/atoms/Text';
 import { useFormContext } from 'react-hook-form';
 import { UserInputRegisterProps } from '@/types/user';
+import PostConfirmButton from '@/components/atoms/Button/ConfirmButton';
 
 interface RegisterFormProps {
   onSubmit: () => void;
 }
 
-//TODO: 디자인 입히기
 function RegisterForm({ onSubmit }: RegisterFormProps) {
   const {
     register,
@@ -24,11 +24,9 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
         <input placeholder="닉네임" {...register('nickname')} />
       </div>
 
-      <h1>{errors.nickname?.message}</h1>
+      <span className={styles.errorMessage}>{errors.nickname?.message}</span>
 
-      <button type="submit" onClick={onSubmit}>
-        완료
-      </button>
+      <PostConfirmButton title="완료" onClick={onSubmit} />
     </div>
   );
 }
