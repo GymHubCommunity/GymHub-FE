@@ -1,7 +1,11 @@
 import usePostComment from '@/apis/Query/Comment/usePostComment';
 import useUpdateComment from '@/apis/Query/Comment/useUpdateComment';
-import { commentIdAtom } from '@/components/molecules/Comment';
-import { commentAtom, commentSubmitType, searchValueAtom } from '@/hooks/atoms';
+import {
+  commentAtom,
+  commentIdAtom,
+  commentSubmitType,
+  searchValueAtom,
+} from '@/hooks/atoms';
 import useSearchFilter from '@/hooks/useSearchFilter';
 
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';

@@ -1,8 +1,11 @@
 import { atom } from 'jotai';
 
 /**
- * 댓글 관련 아톰
+ * 댓글 관련 atom
  */
+// 댓글 id
+const commentIdAtom = atom(0);
+
 // 댓글 값
 const commentAtom = atom('');
 
@@ -15,4 +18,10 @@ const commentSubmitType = atom('post');
 // 검색 값
 const searchValueAtom = atom('');
 
-export { commentAtom, commentCountAtom, commentSubmitType, searchValueAtom };
+export {
+  commentAtom,
+  commentCountAtom,
+  commentIdAtom,
+  commentSubmitType,
+  searchValueAtom,
+};

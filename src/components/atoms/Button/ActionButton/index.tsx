@@ -25,7 +25,7 @@ function ActionButton({ type, action, animateState }: ActionButtonProps) {
         disappear: { opacity: 0 },
       }}
     >
-      <motion.p
+      <motion.div
         variants={{
           appear: { scale: 1 },
           disappear: { scale: 0 },
@@ -42,7 +42,7 @@ function ActionButton({ type, action, animateState }: ActionButtonProps) {
             <p className={styles.text}>댓글 삭제</p>
           </div>
         )}
-      </motion.p>
+      </motion.div>
     </motion.button>
   );
 }

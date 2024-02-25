@@ -1,9 +1,9 @@
 import useDeleteComment from '@/apis/Query/Comment/useDeleteComment';
-import { commentIdAtom } from '@/components/molecules/Comment';
 import ModalArticle from '@/components/molecules/ModalArticle';
 import ModalToggle from '@/components/molecules/ModalToggle';
 import styles from '@/components/organisms/Modal/Modal.module.scss';
 import { CommentDel, RecordsDel } from '@/constants/ModalToggle';
+import { commentIdAtom } from '@/hooks/atoms';
 import useGetPostId from '@/hooks/useGetPostId';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
