@@ -1,7 +1,10 @@
 import { instance } from '@/apis';
+import { RecordProps } from '@/types/record';
 
-async function getRecordSnapshots() {
-  const response = await instance.get(`/records/snapshots`);
+async function getRecordSnapshots(size: number) {
+  const response = await instance.get<RecordProps>(
+    `/records/snapshots?size=${size}`,
+  );
   return response;
 }
 
