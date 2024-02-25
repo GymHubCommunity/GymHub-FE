@@ -13,13 +13,10 @@ interface ModalProps {
 function Modal({ type, isShow, closeModal }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
   useEffect(() => {
     const handleCloseModal = (e: MouseEvent) => {
-      if (
-        isShow &&
-        modalRef.current &&
-        modalRef.current.contains(e.target as Node)
-      ) {
+      if (isShow && modalRef.current?.contains(e.target as Node)) {
         closeModal();
       }
     };
