@@ -1,12 +1,12 @@
-@import '@/styles/colors';
-@import '@/styles/fontWeights';
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/mixin.scss';
 
 .wrapper {
-  display: flex;
-  width: calc(100vw - 40px);
+  @include flexBetween;
+  width: 100%;
   height: 58px;
   padding: 6px 20px;
-  align-items: center;
   gap: 10px;
 }
 
@@ -21,10 +21,4 @@
   font-size: 1.6rem;
   font-weight: $medium;
   color: $count;
-}
-
-.button {
-  padding: 6px 33px;
-  border-radius: 5px;
-  background: $darkGray650;
 }
