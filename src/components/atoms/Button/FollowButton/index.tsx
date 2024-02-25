@@ -1,9 +1,16 @@
 import styles from '@/components/atoms/Button/FollowButton/FollowButton.module.scss';
 import useFollowButton from '@/hooks/useFollowButton';
-import { useRouter } from 'next/navigation';
+import { atom, useSetAtom } from 'jotai';
 
-function FollowButton({ target }) {
-  const router = useRouter();
+export const followButtonAtom = atom('follower');
+
+interface FollowButtonProp {
+  target: 'follower' | 'following';
+}
+
+function FollowButton({ target }: FollowButtonProp) {
+  const setFollowButton = useSetAtom(followButtonAtom);
+
   const content = target === 'follower' ? '팔로워' : '팔로잉';
   const { follower, following, updateToFollower, updateToFollowing } =
     useFollowButton();
@@ -12,6 +19,7 @@ function FollowButton({ target }) {
     target === 'follower' ? updateToFollower : updateToFollowing;
 
   const handleFollow = () => {
+    setFollowButton(target);
     handleUpdate();
   };
 
