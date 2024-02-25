@@ -67,9 +67,8 @@ function AddPost({
       }
     } else {
       const result = await handleSubmit.mutateAsync({ param: param });
-      if (result === 201) {
-        //TODO : 서버에서 수정되면 응답오는 URI 값으로 변경 해야함 (게시글 상세보기)
-        router.push('/');
+      if (result) {
+        router.replace(`/post/${result.id}`);
       }
     }
   };

@@ -15,7 +15,7 @@ export interface submitPostProps {
 
 async function submitPost(param: submitPostProps) {
   const response = await instance.post('/posts', JSON.stringify(param));
-  return response.status;
+  return response.data;
 }
 
 async function updatePost(id: string, param: submitPostProps) {
