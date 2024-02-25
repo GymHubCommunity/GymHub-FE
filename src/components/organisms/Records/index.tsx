@@ -1,4 +1,6 @@
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
+import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
+import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import DateInput from '@/components/atoms/Input/DateInput';
 import Text from '@/components/atoms/Text';
 import ExerciseRoutine from '@/components/molecules/ExerciseRoutine';
@@ -19,6 +21,11 @@ function Records() {
       </div>
       <DateInput />
       <ExerciseRoutine />
+
+      <div className={styles.modalWrapper}>
+        {isOpen && <ToggleItems type="records" />}
+      </div>
+
       <FloatingButton type={'addExercise'} />
       {isShow && <Modal isShow={isShow} closeModal={closeModal} />}
     </div>
