@@ -23,7 +23,7 @@ function Records() {
       <ExerciseRoutine />
 
       <div className={styles.modalWrapper}>
-        {isOpen && <ToggleItems type="records" />}
+        {isOpen && <ToggleItems type="records" recordId={0} snapShotId={0} />}
       </div>
 
       <FloatingButton type={'addExercise'} />
