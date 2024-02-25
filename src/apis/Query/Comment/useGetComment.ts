@@ -13,7 +13,7 @@ interface useGetCommentProp {
 function useGetComment({ postId }: useGetCommentProp) {
   const getComment = async ({ pageParam }: getCommentProp) => {
     const response = await instance.get(
-      `/posts/${postId}/comments?page=${pageParam}&size=5`,
+      `/posts/${postId}/comments?page=${pageParam}&size=7`,
     );
     return response.data;
   };
