@@ -4,6 +4,6 @@
   @include flexBetween;
   position: relative;
   width: 100%;
-  height: fit-content;
+  min-height: 44px;
   gap: 10px;
 }

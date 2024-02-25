@@ -18,7 +18,7 @@ function DragComment({ id, itemX, children }: DragCommentProps) {
       }}
       drag="x"
       dragConstraints={{
-        left: -100,
+        left: -110,
         right: 0,
       }}
       dragElastic={0.5}
