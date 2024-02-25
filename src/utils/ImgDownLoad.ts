@@ -15,7 +15,7 @@ async function imgDownLoad(imgUrl: string, fileName: string) {
 
     window.URL.revokeObjectURL(imageUrl);
   } catch (error) {
-    toast.error('이미지 다운로드 오류');
+    toast.error('이미지 다운로드 오류가 발생하였습니다.');
   }
 }
 

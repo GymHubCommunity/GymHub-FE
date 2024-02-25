@@ -1,10 +1,11 @@
 interface ImgProps {
-  imgUrl: string;
+  imgUrl: string | Array<string> | null;
   type?: string;
   size?: number;
 }
-interface PictureButtonProps {
+interface ImgUploadButtonProps {
   onImageChange: (image: string) => void;
+  prop?: any;
 }
 
-export type { ImgProps, PictureButtonProps };
+export type { ImgProps, ImgUploadButtonProps };

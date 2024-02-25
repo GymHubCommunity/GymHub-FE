@@ -1,14 +1,12 @@
-@import '@/styles/fontWeights';
-@import '@/styles/colors';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/mixin.scss';
 
 .wrapper {
-  display: flex;
+  @include flexCenter;
   width: max-content;
   padding: 20px 30px;
-  justify-content: center;
-  align-items: center;
   gap: 6px;
-
   border-radius: 100px;
   background: #161719;
 }
@@ -16,8 +14,7 @@
 .text {
   color: $gray600;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.73rem;
   font-weight: $medium;
-  padding-top: 3.5px;
   caret-color: transparent;
 }

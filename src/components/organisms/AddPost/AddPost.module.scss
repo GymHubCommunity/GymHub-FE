@@ -2,10 +2,10 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  height: 80vh;
+  max-height: 73vh;
 }
+
 .inWrapper {
   display: flex;
   flex-direction: column;
@@ -16,13 +16,16 @@
   position: relative;
   border-radius: 10px;
   overflow: hidden;
+
   & button {
     position: absolute;
     right: 10px;
     top: 10px;
     z-index: 1;
   }
+
   &.image {
+    object-fit: cover;
     border-radius: 10px;
   }
 }

@@ -11,7 +11,7 @@ function ProfileImg({ imgUrl, size = 80, type }: ImgProps) {
       className={cn('profileImg', type)}
       width={size}
       height={size}
-      src={imgUrl}
+      src={imgUrl as string}
       alt="프로필 이미지"
     />
   );

@@ -6,6 +6,14 @@
   font-size: 1.6rem;
   font-weight: $light;
 
+  // error
+  &.errorMessage {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: $regular;
+    color: $darkGray300;
+  }
+
   // button
   &.button {
     font-size: 1.8rem;
@@ -30,7 +38,7 @@
     font-weight: $regular;
     color: $gray300;
   }
-  &.registerExplain{
+  &.registerExplain {
     font-size: 2.2rem;
     font-weight: $regular;
     color: $gray300;

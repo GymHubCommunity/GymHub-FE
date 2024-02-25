@@ -4,10 +4,10 @@
 
 .wrapper {
   @include flexCenter;
-  position: fixed; // TODO: 이 부분 확인 필요
+  position: fixed;
   bottom: 30px;
   height: 60px;
-  width: 90%;
+  width: 345px;
   background: $greenNeon100;
 
   color: $buttonText;

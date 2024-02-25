@@ -10,6 +10,7 @@ function ExerciseRoutine() {
   return (
     <div className={styles.wrapper}>
       <UserRoutineArticle name={postProfile.name} date={targetDate} />
+      
       {postProfile.exerciseArea.map((val) => (
         <div key={val.id} className={styles.inWrapper}>
           <p className={styles.exerciseArea}>{val.name}</p>
@@ -25,6 +26,7 @@ function ExerciseRoutine() {
               {val.exerciseEquipment.map((val2) => (
                 <p key={val2.id}>{val2.set}</p>
               ))}
+              
             </div>
           </div>
         </div>
