@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { submitPostProps, updatePost } from '@/apis/post';
 
 interface useUpdatePostProp {
-  Id?: string;
+  id?: string;
   param: submitPostProps;
 }
 
@@ -11,7 +11,7 @@ function useUpdatePost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['updatePost'],
-    mutationFn: ({ Id, param }: useUpdatePostProp) => updatePost(Id, param),
+    mutationFn: ({ id, param }: useUpdatePostProp) => updatePost(id, param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['postDetail'] });
     },

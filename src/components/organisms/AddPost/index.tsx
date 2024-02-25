@@ -59,7 +59,7 @@ function AddPost({
     param.hashTags = hashTags;
     if (work === 'update') {
       const result = await handleUpdate.mutateAsync({
-        Id: postId,
+        id: postId,
         param: param,
       });
       if (result === 204) {

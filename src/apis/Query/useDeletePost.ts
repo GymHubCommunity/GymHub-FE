@@ -3,14 +3,14 @@ import { toast } from 'react-hot-toast';
 import { deletePost } from '@/apis/post';
 
 interface useDeletePostProp {
-  Id?: number;
+  id?: number;
 }
 
 function useDeletePost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['deletePost'],
-    mutationFn: ({ Id }: useDeletePostProp) => deletePost(Id),
+    mutationFn: ({ id }: useDeletePostProp) => deletePost(id),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },

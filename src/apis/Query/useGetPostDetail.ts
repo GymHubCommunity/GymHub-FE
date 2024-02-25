@@ -5,14 +5,14 @@ import { usePathname } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
 interface useGetPostDetailProp {
-  Id?: string;
+  id?: string;
 }
 
-function useGetPostDetail({ Id }: useGetPostDetailProp) {
+function useGetPostDetail({ id }: useGetPostDetailProp) {
   const pathName = usePathname();
   let postId = '';
   {
-    Id === undefined ? (postId = pathName.slice(6)) : (postId = Id);
+    id === undefined ? (postId = pathName.slice(6)) : (postId = id);
   }
 
   const { data, isError } = useQuery({

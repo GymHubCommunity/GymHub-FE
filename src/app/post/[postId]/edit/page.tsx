@@ -3,7 +3,7 @@ import useGetPostDetail from '@/apis/Query/useGetPostDetail';
 import AddPost from '@/components/organisms/AddPost';
 
 function EditPostPage({ params }: { params: { postId: string } }) {
-  const { data } = useGetPostDetail({ Id: params.postId });
+  const { data } = useGetPostDetail({ id: params.postId });
   return (
     <>
       {data && (
