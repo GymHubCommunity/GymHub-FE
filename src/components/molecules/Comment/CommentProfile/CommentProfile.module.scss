@@ -1,15 +1,6 @@
 @import '/src/styles/mixin.scss';
-@import '/src/styles/colors.scss';
 
 .wrapper {
-  @include flexBetween;
-  position: relative;
-  width: 100%;
-  height: fit-content;
-  gap: 10px;
-}
-
-.inWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;

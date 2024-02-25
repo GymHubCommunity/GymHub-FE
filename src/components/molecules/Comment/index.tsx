@@ -1,13 +1,9 @@
 import ActionButton from '@/components/atoms/Button/ActionButton';
 import LikeButton from '@/components/atoms/Button/LikeButton';
 import ProfileImg from '@/components/atoms/ProfileImg';
-import Text from '@/components/atoms/Text';
-import styles from '@/components/molecules/Comment/Comment.module.scss';
 import DragComment from '@/components/molecules/Comment/DragComment';
 import useComment from '@/hooks/useComment';
-import { atom } from 'jotai';
-
-export const commentIdAtom = atom(0);
+import CommentProfile from './CommentProfile';
 
 interface CommentProps {
   id: number;
@@ -26,19 +22,17 @@ function Comment({ id, imgUrl, userName, date, comment }: CommentProps) {
     handleLike,
     countLike,
     handleUpdateComment,
-    deleteModal,
+    handleDeleteComment,
   } = useComment({ id, comment, date });
 
   return (
     <DragComment id={id} itemX={itemX}>
       <ProfileImg imgUrl={imgUrl} size={34} />
-      <div className={styles.inWrapper}>
-        <div className={styles.userWrapper}>
-          <Text post="commentUserName">{userName}</Text>
-          <Text post="commentDate">{formatDate}</Text>
-        </div>
-        <Text post="comment">{comment}</Text>
-      </div>
+      <CommentProfile
+        userName={userName}
+        formatDate={formatDate}
+        comment={comment}
+      />
       <LikeButton
         type="comment"
         isLike={isLike}
@@ -52,7 +46,7 @@ function Comment({ id, imgUrl, userName, date, comment }: CommentProps) {
       />
       <ActionButton
         type="delete"
-        action={deleteModal}
+        action={handleDeleteComment}
         animateState={animateState}
       />
     </DragComment>
