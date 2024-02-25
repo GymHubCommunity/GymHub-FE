@@ -19,9 +19,11 @@ function SettingArticle({ type, children }: SettingArticleProps) {
       );
     case 'logout':
       return (
-        <Link href={'/mypage'} className={styles.settingName}>
-          <div className={styles.wrapper}>로그아웃</div>
-        </Link>
+        <div className={styles.wrapper}>
+          <Link href="/signin" className={styles.settingName}>
+            로그아웃
+          </Link>
+        </div>
       );
     case 'withDraw':
       return (

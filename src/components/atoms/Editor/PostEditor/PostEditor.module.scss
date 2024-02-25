@@ -1,12 +1,22 @@
 @import '/src/styles/colors.scss';
 @import '/src/styles/fontWeights.scss';
-.editor {
-  width: 100%;
-  height: 433px;
-  background-color: $background;
-  all: unset;
-  color: $white;
 
-  font-size: 1.3rem;
+.editor {
+  all: unset;
+  white-space: pre-line;
+  word-wrap: break-word;
+  background-color: $background;
+  color: $count;
+  font-size: 1.7rem;
   font-weight: $light;
+}
+.wrapper {
+  padding: 10px;
+}
+.hashtag {
+  color: $exerciseCount;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: $light;
+  padding: 5px;
 }

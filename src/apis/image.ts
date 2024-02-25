@@ -1,5 +1,6 @@
 import { instance, instanceAWS } from '@/apis';
 import { S3_BUCKET_NAME } from '@/constants/common';
+
 interface getPresignedURLProps {
   formData?: FormData;
   fileData?: File;

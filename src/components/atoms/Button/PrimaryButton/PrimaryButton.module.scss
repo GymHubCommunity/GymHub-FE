@@ -1,0 +1,18 @@
+@import '@/styles/colors';
+@import '@/styles/fontWeights';
+
+.wrapper {
+  width: 333px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 100px;
+  background: $greenNeon100;
+  color: $buttonText;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: $medium;
+
+  &:disabled {
+    background: #44521c;
+  }
+}

@@ -1,0 +1,21 @@
+@import '@/styles/colors';
+
+.selected {
+  padding: 10px 14px;
+  width: fit-content;
+  text-align: center;
+  color: $black;
+  border-radius: 100px;
+  background: $greenNeon100;
+  font-size: 1.4rem;
+}
+
+.default {
+  padding: 10px 14px;
+  width: fit-content;
+  text-align: center;
+  color: $gray600;
+  border-radius: 100px;
+  background: $darkGray650;
+  font-size: 1.4rem;
+}

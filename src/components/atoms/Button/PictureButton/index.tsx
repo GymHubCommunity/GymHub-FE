@@ -1,13 +1,13 @@
 import PictureSvg from '@/assets/icons/PictureSvg';
 import styles from '@/components/atoms/Button/PictureButton/PictureButton.module.scss';
+import { ImgUploadButtonProps } from '@/types/image';
+import { ChangeEvent, useEffect } from 'react';
 import useImageUpload from '@/hooks/useImageUpload';
-import { PictureButtonProps } from '@/types/image';
-import { useEffect } from 'react';
 
-function PictureButton({ onImageChange }: PictureButtonProps) {
+function PictureButton({ onImageChange }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -27,7 +27,7 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
   }, [file]);
 
   const handlePresignedUrl = async () => {
-    if (!file) return;
+    if (!file.name) return;
     await handleSetPresignedURL(file);
   };
 
@@ -40,7 +40,7 @@ function PictureButton({ onImageChange }: PictureButtonProps) {
         id="fileInput"
         className={styles.file}
         onChange={handleImageChange}
-      ></input>
+      />
     </label>
   );
 }
