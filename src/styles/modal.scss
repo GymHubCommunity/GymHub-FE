@@ -1,0 +1,12 @@
+@import '/src/styles/colors.scss';
+
+@mixin modalStyle {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 10px;
+  background-color: $darkGray700;
+  z-index: 10;
+}
