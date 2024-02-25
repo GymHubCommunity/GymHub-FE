@@ -32,11 +32,9 @@ function SettingArticle({ type, children }: SettingArticleProps) {
       );
     case 'withDraw':
       return (
-        <div className={styles.wrapper}>
-          <Link href={'/setting/resign'} className={styles.withDraw}>
-            회원 탈퇴
-          </Link>
-        </div>
+        <Link href={'/setting/resign'} className={styles.withDraw}>
+          <div className={styles.wrapper}>회원 탈퇴</div>
+        </Link>
       );
     default:
       return (

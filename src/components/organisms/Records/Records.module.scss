@@ -9,9 +9,12 @@
 }
 
 .header {
-  @include flexCenter;
-  padding: 14px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
   width: 100%;
+  padding: 14px 0;
+  gap: 33%;
 }
 
 .blur {
