@@ -5,7 +5,7 @@ import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import { stories } from '@/constants/MockData';
 import useMainSection from '@/hooks/useMainSection';
-import MainBackgroundImg from '@/public/images/MainBackground.png';
+import MainBackgroundImg from '@/public/images/MainBackground.webp';
 import Image from 'next/image';
 
 function MainSection() {
@@ -18,6 +18,8 @@ function MainSection() {
           className={styles.storyBackground}
           width={402}
           height={260}
+          sizes="auto"
+          priority={true}
           src={MainBackgroundImg}
           alt="배경 이미지"
         />

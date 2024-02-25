@@ -6,7 +6,7 @@ import QueryProvider from '@/providers/QueryProvider';
 import { Provider } from 'jotai';
 import Layout from '@/components/Layout';
 import { ReactNode } from 'react';
-import { LazyMotion, domAnimation} from 'framer-motion';
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 function Providers({ children }: { children: Readonly<ReactNode> }) {
   return (

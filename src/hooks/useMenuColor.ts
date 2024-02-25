@@ -1,5 +1,3 @@
-'use client';
-
 import { usePathname } from 'next/navigation';
 
 function useMenuColor(pathName: string) {

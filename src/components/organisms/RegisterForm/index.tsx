@@ -43,7 +43,10 @@ function RegisterForm(handleSubmit: any) {
   const [disabled, setDisabled] = useState(true);
 
   return (
-    <form className={styles.wrapper} onSubmit={handleSubmit.handleSubmit(onSubmit)}>
+    <form
+      className={styles.wrapper}
+      onSubmit={handleSubmit.handleSubmit(onSubmit)}
+    >
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
       <ProfileImgSetting
         onImageChange={handleImageChange}

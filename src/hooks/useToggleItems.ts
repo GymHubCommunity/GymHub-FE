@@ -1,5 +1,6 @@
 import {
   POST_UPDATE,
+  RECORD_DELETE,
   postItems,
   profileItems,
   recordsItems,
@@ -29,8 +30,10 @@ function useToggleItems({ type }: ToggleMenuProp) {
       case POST_UPDATE:
         router.push('/records/[recordId]');
         break;
-      default:
+      case RECORD_DELETE:
         showModal();
+        break;
+      default:
         break;
     }
   };
