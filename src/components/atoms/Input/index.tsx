@@ -2,12 +2,15 @@ import CommentSubmitSvg from '@/assets/icons/CommentSubmitSvg';
 import SearchSvg from '@/assets/icons/SearchSvg';
 import styles from '@/components/atoms/Input/Input.module.scss';
 import useInput from '@/hooks/useInput';
+import { Dispatch, SetStateAction } from 'react';
 
 interface InputProp {
+  postType: string;
   type: 'hashTag' | 'workOut' | 'comment' | 'addExercise';
+  setPostType: Dispatch<SetStateAction<string>>;
 }
 
-function Input({ type }: InputProp) {
+function Input({ postType, type, setPostType }: InputProp) {
   const {
     changeButtonColor,
     content,
@@ -15,7 +18,8 @@ function Input({ type }: InputProp) {
     searchHashTag,
     submitColor,
     submitComment,
-  } = useInput();
+    handleUpdateComment,
+  } = useInput({ setPostType });
 
   return (
     <div className={styles.wrapper}>
@@ -26,7 +30,6 @@ function Input({ type }: InputProp) {
             onChange={searchHashTag}
             placeholder="해시태그 검색..."
           />
-          {/* 아마 삭제 예정? {pathName === '/search' && <SearchButton page="search" />} */}
         </>
       )}
       {type === 'workOut' && (
@@ -57,7 +60,9 @@ function Input({ type }: InputProp) {
         <button
           type="submit"
           className={styles.commentSubmit}
-          onClick={submitComment}
+          onClick={() =>
+            postType === 'post' ? submitComment() : handleUpdateComment()
+          }
           disabled={isDisabled}
         >
           <CommentSubmitSvg color={submitColor} />

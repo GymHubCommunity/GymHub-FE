@@ -6,8 +6,11 @@ import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import { profile } from '@/constants/MockData';
+import useModalInfo from '@/hooks/useModalInfo';
 import usePostSection from '@/hooks/usePostSection';
 import { GetPostDetailProps } from '@/types/GetPost';
+import { useState } from 'react';
+import Modal from '../Modal';
 
 interface PostSectionProp {
   data: GetPostDetailProps;
@@ -15,12 +18,17 @@ interface PostSectionProp {
 }
 
 function PostSection({ data, type }: PostSectionProp) {
-  const postId = data.postId;
+  const { isShow, closeModal } = useModalInfo();
+  const [postType, setPostType] = useState('post');
 
+  const postId = data.postId;
   const { comment, commentData, ref } = usePostSection({ postId });
 
   return (
     <div className={styles.wrapper}>
+      {isShow && (
+        <Modal type={'commentDel'} isShow={isShow} closeModal={closeModal} />
+      )}
       {type === 'myPage' ? (
         <>
           <BackButtonHeader pageName={profile.name} />
@@ -29,7 +37,6 @@ function PostSection({ data, type }: PostSectionProp) {
       ) : (
         <BackButtonHeader pageName={'게시글 상세 보기'} />
       )}
-
       <div className={styles.inWrapper}>
         <div className={styles.postWrapper}>
           <PostArticle
@@ -50,11 +57,12 @@ function PostSection({ data, type }: PostSectionProp) {
                 userName={val.writerInfo.nickname}
                 date={val.registeredAt}
                 comment={val.content}
+                setPostType={setPostType}
               />
             ))}
             <div ref={ref} />
           </div>
-          <Input type="comment" />
+          <Input type="comment" postType={postType} setPostType={setPostType} />
         </div>
         {/* TODO: 운동루틴 API 개발되면 수정 */}
         {/* <div className={styles.routineWrapper}>
