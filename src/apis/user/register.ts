@@ -17,7 +17,13 @@ async function postRefreshToken(refresh: string) {
 }
 
 // 회원 정보 조회
-async function getUserInfo(memberId: number) {
+async function getUserInfo() {
+  const response = await instance.get(`/members/me`);
+  return response;
+}
+
+// 회원 정보 조회 with memberId
+async function getUserInfoMemberId(memberId: number) {
   const response = await instance.get(`/members/${memberId}`);
   return response;
 }
@@ -61,4 +67,11 @@ export const authToken = {
   },
 };
 
-export { postRegister, postRefreshToken, getUserInfo, deleteUser, putUserInfo };
+export {
+  postRegister,
+  postRefreshToken,
+  getUserInfo,
+  getUserInfoMemberId,
+  deleteUser,
+  putUserInfo,
+};
