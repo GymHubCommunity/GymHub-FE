@@ -1,19 +1,14 @@
 import usePostComment from '@/apis/Query/Comment/usePostComment';
 import useUpdateComment from '@/apis/Query/Comment/useUpdateComment';
 import { commentIdAtom } from '@/components/molecules/Comment';
-import { atom, useAtom, useAtomValue } from 'jotai';
-import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from 'react';
+import { commentAtom, commentSubmitType, searchValueAtom } from '@/hooks/atoms';
+import useSearchFilter from '@/hooks/useSearchFilter';
+
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { ChangeEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
-import { searchValueAtom } from './atoms';
-import useSearchFilter from './useSearchFilter';
 
-export const commentAtom = atom('');
-
-interface useInputProp {
-  setPostType: Dispatch<SetStateAction<string>>;
-}
-
-function useInput({ setPostType }: useInputProp) {
+function useInput() {
   const [content, setContent] = useAtom(commentAtom);
   const [isDisabled, setIsDisabled] = useState(true);
   const [submitColor, setSubmitColor] = useState('#4B4D54');
@@ -21,6 +16,7 @@ function useInput({ setPostType }: useInputProp) {
 
   const [searchValue, setSearchValue] = useAtom(searchValueAtom);
   const commentId = useAtomValue(commentIdAtom);
+  const setCommentSubmitType = useSetAtom(commentSubmitType);
 
   const { postComment } = usePostComment();
   const { updateComment } = useUpdateComment();
@@ -53,7 +49,7 @@ function useInput({ setPostType }: useInputProp) {
 
   const handleUpdateComment = () => {
     updateComment({ content, commentId });
-    setPostType('post');
+    setCommentSubmitType('post');
     setContent('');
     setSubmitColor('#4B4D54');
   };

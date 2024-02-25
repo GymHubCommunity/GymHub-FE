@@ -1,16 +1,16 @@
 import CommentSubmitSvg from '@/assets/icons/CommentSubmitSvg';
 import SearchSvg from '@/assets/icons/SearchSvg';
 import styles from '@/components/atoms/Input/Input.module.scss';
+import { commentSubmitType } from '@/hooks/atoms';
+
 import useInput from '@/hooks/useInput';
-import { Dispatch, SetStateAction } from 'react';
+import { useAtomValue } from 'jotai';
 
 interface InputProp {
-  postType: string;
   type: 'hashTag' | 'workOut' | 'comment' | 'addExercise';
-  setPostType: Dispatch<SetStateAction<string>>;
 }
 
-function Input({ postType, type, setPostType }: InputProp) {
+function Input({ type }: InputProp) {
   const {
     changeButtonColor,
     content,
@@ -19,7 +19,9 @@ function Input({ postType, type, setPostType }: InputProp) {
     submitColor,
     submitComment,
     handleUpdateComment,
-  } = useInput({ setPostType });
+  } = useInput();
+
+  const submitType = useAtomValue(commentSubmitType);
 
   return (
     <div className={styles.wrapper}>
@@ -61,7 +63,7 @@ function Input({ postType, type, setPostType }: InputProp) {
           type="submit"
           className={styles.commentSubmit}
           onClick={() =>
-            postType === 'post' ? submitComment() : handleUpdateComment()
+            submitType === 'post' ? submitComment() : handleUpdateComment()
           }
           disabled={isDisabled}
         >

@@ -4,24 +4,26 @@ import timeAgo from '@/utils/TimeAgo';
 
 import { useMotionValue } from 'framer-motion';
 import { useSetAtom } from 'jotai';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { commentAtom } from './useInput';
-import useModalInfo from './useModalInfo';
+import { useEffect, useState } from 'react';
+
+import { commentAtom, commentSubmitType } from '@/hooks/atoms';
+import useModalInfo from '@/hooks/useModalInfo';
 
 interface useCommentProp {
   id: number;
   comment: string;
   date: string;
-  setPostType: Dispatch<SetStateAction<string>>;
 }
 
-function useComment({ id, comment, setPostType, date }: useCommentProp) {
+function useComment({ id, comment, date }: useCommentProp) {
   const itemX = useMotionValue(0);
   const [isActionShow, setIsActionShow] = useState(false);
   const animateState = isActionShow ? 'appear' : 'disappear';
 
   const setCommentId = useSetAtom(commentIdAtom);
   const setUpdateComment = useSetAtom(commentAtom);
+
+  const setCommentSubmitType = useSetAtom(commentSubmitType);
 
   const { isLike, countLike, handleLike } = useLiked();
 
@@ -33,7 +35,7 @@ function useComment({ id, comment, setPostType, date }: useCommentProp) {
 
   const handleUpdateComment = () => {
     itemX.set(0);
-    setPostType('update');
+    setCommentSubmitType('update');
     setUpdateComment(comment);
     setCommentId(id);
   };

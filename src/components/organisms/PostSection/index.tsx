@@ -4,13 +4,12 @@ import Comment from '@/components/molecules/Comment';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
+import Modal from '@/components/organisms/Modal';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import { profile } from '@/constants/MockData';
 import useModalInfo from '@/hooks/useModalInfo';
 import usePostSection from '@/hooks/usePostSection';
 import { GetPostDetailProps } from '@/types/GetPost';
-import { useState } from 'react';
-import Modal from '../Modal';
 
 interface PostSectionProp {
   data: GetPostDetailProps;
@@ -19,7 +18,6 @@ interface PostSectionProp {
 
 function PostSection({ data, type }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
-  const [postType, setPostType] = useState('post');
 
   const postId = data.postId;
   const { comment, commentData, ref } = usePostSection({ postId });
@@ -57,12 +55,11 @@ function PostSection({ data, type }: PostSectionProp) {
                 userName={val.writerInfo.nickname}
                 date={val.registeredAt}
                 comment={val.content}
-                setPostType={setPostType}
               />
             ))}
             <div ref={ref} />
           </div>
-          <Input type="comment" postType={postType} setPostType={setPostType} />
+          <Input type="comment" />
         </div>
         {/* TODO: 운동루틴 API 개발되면 수정 */}
         {/* <div className={styles.routineWrapper}>

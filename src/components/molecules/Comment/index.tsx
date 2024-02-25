@@ -6,7 +6,6 @@ import styles from '@/components/molecules/Comment/Comment.module.scss';
 import DragComment from '@/components/molecules/Comment/DragComment';
 import useComment from '@/hooks/useComment';
 import { atom } from 'jotai';
-import { Dispatch, SetStateAction } from 'react';
 
 export const commentIdAtom = atom(0);
 
@@ -16,17 +15,9 @@ interface CommentProps {
   userName: string;
   date: string;
   comment: string;
-  setPostType: Dispatch<SetStateAction<string>>;
 }
 
-function Comment({
-  id,
-  imgUrl,
-  userName,
-  date,
-  comment,
-  setPostType,
-}: CommentProps) {
+function Comment({ id, imgUrl, userName, date, comment }: CommentProps) {
   const {
     itemX,
     formatDate,
@@ -36,7 +27,7 @@ function Comment({
     countLike,
     handleUpdateComment,
     deleteModal,
-  } = useComment({ id, comment, date, setPostType });
+  } = useComment({ id, comment, date });
 
   return (
     <DragComment id={id} itemX={itemX}>
