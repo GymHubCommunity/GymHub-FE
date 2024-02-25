@@ -3,8 +3,9 @@
 
 .wrapper {
   @include flexCenter;
-  padding: 10px 14px;
+  padding: 8px 13px;
   border-radius: 100px;
+  font-size: 1.3rem;
   color: $gray300;
   background: $darkGray500;
 

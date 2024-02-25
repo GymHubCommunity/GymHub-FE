@@ -32,6 +32,7 @@ interface TextProps extends HTMLAttributes<HTMLSpanElement> {
     | 'trackName'
     | 'noExercise'
     | 'directInput';
+  modal?: 'modalText' | 'modalCancel';
   children: ReactNode;
 }
 
@@ -41,11 +42,20 @@ function Text({
   button,
   onBoarding,
   records,
+  modal,
   children,
 }: TextProps) {
   return (
     <span
-      className={cn('wrapper', errorMessage, post, button, onBoarding, records)}
+      className={cn(
+        'wrapper',
+        errorMessage,
+        post,
+        button,
+        onBoarding,
+        records,
+        modal,
+      )}
     >
       {children}
     </span>

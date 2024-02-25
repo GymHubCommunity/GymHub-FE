@@ -1,9 +1,9 @@
 .wrapper {
   position: fixed;
+  display: flex;
+  align-items: center;
   bottom: 105px;
   width: 290px;
   height: 26px;
-  display: flex;
-  align-items: center;
   gap: 20px;
 }

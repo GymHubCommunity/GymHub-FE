@@ -2,7 +2,7 @@ import Svg from '@/components/atoms/Svg';
 
 function CommitSvg() {
   return (
-    <Svg width={26} height={26}>
+    <Svg width={26} height={26} color="#fff">
       <rect x="4" y="4" width="4.5" height="4.5" rx="1" fill="#FEFEFE" />
       <rect
         x="4"
