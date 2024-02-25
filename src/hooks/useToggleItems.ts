@@ -1,5 +1,11 @@
 import {
+  deleteRecordSnapshots,
+  postRecordSnapshots,
+} from '@/apis/recordController';
+import {
   POST_UPDATE,
+  RECORD_SAVE,
+  RECORD_UPDATE,
   postItems,
   profileItems,
   recordsItems,
@@ -22,13 +28,24 @@ function useToggleItems({ type }: ToggleMenuProp) {
   } else {
     menuItems = recordsItems;
   }
+  if (type === 'records') {
+    menuItems = recordsItems;
+  }
 
-  const handleOnClick = (item: string) => {
-    // TODO: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
+  const handleOnClick = (
+    item: string,
+    recordId?: number,
+    snapshotId?: number,
+  ) => {
+    // *: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
     switch (item) {
       case POST_UPDATE:
-        router.push('/records/[recordId]');
+        router.push(`/records/recordId`);
         break;
+      case RECORD_SAVE:
+        postRecordSnapshots(recordId);
+      case RECORD_UPDATE:
+        deleteRecordSnapshots(snapshotId);
       default:
         showModal();
         break;

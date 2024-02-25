@@ -7,7 +7,7 @@ export const filterValueAtom = atom<string[]>([]);
 interface Props {
   timer: MutableRefObject<NodeJS.Timeout | null>;
   searchValue: string;
-  setSearchValue: any; // TODO: 타입 추정 안됨
+  setSearchValue: any; //*: 타입 추정 안됨
 }
 
 function useSearchFilter({ timer, searchValue, setSearchValue }: Props) {
