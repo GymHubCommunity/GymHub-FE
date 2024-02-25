@@ -1,4 +1,4 @@
-@import '/src/styles/mixin';
+@import '/src/styles/mixin.scss';
 
 .wrapper {
   height: 100vh;
@@ -6,6 +6,11 @@
   align-items: center;
   flex-direction: column;
   padding: 0 20px;
+  width: 100%;
+}
+
+.modalWrapper {
+  @include flexCenter;
 }
 
 .header {
