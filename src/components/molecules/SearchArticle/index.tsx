@@ -1,21 +1,20 @@
 import Input from '@/components/atoms/Input';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/SearchArticle/SearchArticle.module.scss';
-import { searchValueAtom } from '@/hooks/atoms';
 import { filterValueAtom } from '@/hooks/useSearchFilter';
 
-import { useAtomValue } from 'jotai';
+import { atom, useAtomValue } from 'jotai';
 
+export const totalCountAtom = atom(0);
 function SearchArticle() {
-  const searchValue = useAtomValue(searchValueAtom);
   const filterValue = useAtomValue(filterValueAtom);
-
+  const totalCount = useAtomValue(totalCountAtom);
   return (
     <div className={styles.wrapper}>
       <Input type="hashTag" />
-      {filterValue.length !== 0 ? (
+      {filterValue.length !== 0 || totalCount > 0 ? (
         <Text post="searched">
-          #{searchValue} {filterValue.length}건 검색됨
+          검색 결과 {totalCount ?? filterValue.length}건
         </Text>
       ) : (
         ' '
