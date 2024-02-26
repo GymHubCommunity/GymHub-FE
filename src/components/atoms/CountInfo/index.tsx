@@ -3,7 +3,7 @@ import styles from '@/components/atoms/CountInfo/CountInfo.module.scss';
 interface CountInfoProps {
   type: 'default' | 'follow';
   content: string;
-  count: string;
+  count?: string;
 }
 
 function CountInfo({ type, content, count }: CountInfoProps) {

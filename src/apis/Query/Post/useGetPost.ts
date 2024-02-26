@@ -3,7 +3,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
 interface getPostProp {
-  pageParam: number;
+  pageParam?: number;
 }
 
 function useGetPost() {
