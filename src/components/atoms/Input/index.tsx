@@ -51,13 +51,13 @@ function Input({ type }: InputProp) {
       )}
       {type === 'addExercise' && (
         <input
-          className={styles.input}
+          className={styles.addInput}
           onChange={() => {}}
           placeholder="추가하려는 운동을 입력해주세요."
         />
       )}
       {type !== 'comment' ? (
-        <SearchSvg />
+        <>{type === 'addExercise' ? <></> : <SearchSvg />}</>
       ) : (
         <button
           type="submit"
