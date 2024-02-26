@@ -13,8 +13,8 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useAtom } from 'jotai';
-import useUpdatePost from '@/apis/Query/useUpdatePost';
-import useSubmitPost from '@/apis/Query/useSubmitPost';
+import useUpdatePost from '@/apis/Query/Post/useUpdatePost';
+import useSubmitPost from '@/apis/Query/Post/useSubmitPost';
 
 function AddPost({
   postId,
