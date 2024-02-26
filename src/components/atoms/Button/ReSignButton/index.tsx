@@ -22,7 +22,7 @@ function ResignButton({ type, children, memberId }: ResignButtonProps) {
       onClick={
         type === 'cancel'
           ? handleCancelClick
-          : () => handleDeleteClick(memberId)
+          : () => handleDeleteClick(memberId as number)
       }
       disabled={type === 'delete' && isCheckName}
     >
