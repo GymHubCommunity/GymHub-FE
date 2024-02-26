@@ -13,7 +13,8 @@ function ExerciseRoutine() {
 
       {postProfile.exerciseArea.map((val) => (
         <div key={val.id} className={styles.inWrapper}>
-          <p className={styles.exerciseArea}>{val.name}</p>
+          <span className={styles.exerciseArea}>{val.name}</span>
+
           <div className={styles.exerciseWrapper}>
             <ul className={styles.exerciseInWrapper}>
               {val.exerciseEquipment.map((val2) => (
@@ -22,9 +23,10 @@ function ExerciseRoutine() {
                 </li>
               ))}
             </ul>
+
             <div className={styles.setWrapper}>
               {val.exerciseEquipment.map((val2) => (
-                <p key={val2.id}>{val2.set}</p>
+                <span key={val2.id}>{val2.set}</span>
               ))}
             </div>
           </div>
