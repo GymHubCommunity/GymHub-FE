@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 const selectedIdAtom = atom(0);
 const selectedNumAtom = atom(0);
 const isActiveAtom = atom(false);
-const selectedMachinesAtom = atom([]);
+const selectedMachinesAtom = atom<string[]>([]);
 
 function useSelectedPart() {
   const [selectedId, setSelectedId] = useAtom(selectedIdAtom);

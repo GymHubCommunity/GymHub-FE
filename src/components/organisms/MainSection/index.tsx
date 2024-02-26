@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 function MainSection() {
   const { data, ref } = useMainSection();
+
   return (
     <>
       <main className={styles.wrapper}>
@@ -32,6 +33,8 @@ function MainSection() {
                 userInfo={val.writerInfo}
                 content={val.content}
                 imageUrl={val.imageUrl as string}
+                registeredAt={val.registeredAt}
+                commentCount={val.commentCount}
               />
             </div>
           ))}
