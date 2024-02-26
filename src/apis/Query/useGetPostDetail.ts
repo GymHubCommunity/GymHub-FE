@@ -15,7 +15,7 @@ function useGetPostDetail({ id }: useGetPostDetailProp) {
     id === undefined ? (postId = pathName.slice(6)) : (postId = id);
   }
 
-  const { data, isError } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ['postDetail', postId],
     queryFn: async () => {
       const response = await instance.get<GetPostDetailProps>(
@@ -24,8 +24,9 @@ function useGetPostDetail({ id }: useGetPostDetailProp) {
       return response.data;
     },
   });
+
   if (isError) toast.error('게시글 상세보기 데이터를 가져오지 못했습니다.');
-  return { data };
+  return { data, isLoading };
 }
 
 export default useGetPostDetail;

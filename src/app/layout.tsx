@@ -1,6 +1,6 @@
 import METADATA from '@/constants/metaData';
 import '@/styles/globalStyle.scss';
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import Providers from '@/providers';
@@ -36,12 +36,10 @@ export const metadata: Metadata = {
     initialScale: 1,
     userScalable: false,
   },
+  icons: {
+    icon: METADATA.ICON,
+  },
 };
-
-// export const viewport: Viewport = {
-//   initialScale: 1,
-//   width: 'device-width',
-// };
 
 function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (

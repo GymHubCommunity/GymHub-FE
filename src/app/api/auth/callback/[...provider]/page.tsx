@@ -1,10 +1,10 @@
 'use client';
 import { postOAuth } from '@/apis/oAuth';
+import Loading from '@/components/atoms/Loading';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
-//TODO: 로딩중 컴포넌트 넣기
 function CallbackOAuth(social: any) {
   const router = useRouter();
   const params = useSearchParams();
@@ -16,7 +16,12 @@ function CallbackOAuth(social: any) {
         try {
           const data = await postOAuth(social.params.provider[0], authCode);
           localStorage.setItem('accessToken', data.data.accessToken);
-          router.push('/signin/register');
+
+          if (data.data.requiredAdditionalInfo) {
+            router.push('/');
+          } else {
+            router.push('/signin/register');
+          }
         } catch (error) {
           toast.error('인증 코드가 존재하지 않습니다.');
         }
@@ -26,7 +31,7 @@ function CallbackOAuth(social: any) {
     handleLogin();
   }, []);
 
-  return <div>로딩중</div>;
+  return <Loading />;
 }
 
 export default CallbackOAuth;

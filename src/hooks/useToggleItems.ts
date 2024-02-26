@@ -2,6 +2,7 @@ import useDeletePost from '@/apis/Query/useDeletePost';
 import {
   POST_UPDATE,
   POST_DELETE,
+  RECORD_DELETE,
   postItems,
   profileItems,
   recordsItems,
@@ -35,8 +36,10 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
       case POST_DELETE:
         handleDeletePost.mutateAsync({ id: id });
         break;
-      default:
+      case RECORD_DELETE:
         showModal();
+        break;
+      default:
         break;
     }
   };
