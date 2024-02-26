@@ -4,9 +4,11 @@ import PostArticle from '@/components/molecules/PostArticle';
 import SearchArticle, {
   totalCountAtom,
 } from '@/components/molecules/SearchArticle';
+import Tabs from '@/components/molecules/Tabs';
 import styles from '@/components/organisms/SearchSection/SearchSection.module.scss';
 import { keywordValueAtom } from '@/hooks/useSearchFilter';
 import { useAtomValue, useSetAtom } from 'jotai';
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -15,6 +17,7 @@ function SearchSection() {
   const { data, fetchNextPage, hasNextPage } = useSearchPost(keyword);
   const { ref, inView } = useInView();
   const setTotalCount = useSetAtom(totalCountAtom);
+  const pathName = usePathname();
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -32,6 +35,7 @@ function SearchSection() {
   return (
     <div className={styles.wrapper}>
       <SearchArticle />
+      {pathName === '/alltabs' && <Tabs />}
       {data?.pages.length ? (
         <>
           <div className={styles.feedWrapper}>
