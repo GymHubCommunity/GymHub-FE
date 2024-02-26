@@ -1,0 +1,36 @@
+@import '/src/styles/colors.scss';
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 410px;
+
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 /1;
+
+  width: 44px;
+  height: 44px;
+  background: $red;
+  overflow: hidden;
+
+  text-align: center;
+
+  &.update {
+    left: 366px;
+    background: $darkGray250;
+  }
+}
+
+.inWrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.text {
+  font-size: 1rem;
+}

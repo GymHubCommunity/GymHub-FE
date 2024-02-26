@@ -25,7 +25,6 @@ function FloatingButton({ type }: FloatingButtonProp) {
           <PlusSvg />
         </Link>
       ) : (
-        // TODO: 운동 추가하기 버튼
         <button onClick={openModal} className={styles.wrapper}>
           <FloatingDumbbellSvg />
         </button>

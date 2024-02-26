@@ -1,9 +1,9 @@
-import { BASE_URL, AWS_S3_URL } from '@/constants/common';
-import axios, { AxiosResponse } from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
 import { authToken, postRefreshToken } from '@/apis/user/register';
 import Alert from '@/components/organisms/Alert';
+import { AWS_S3_URL, BASE_URL } from '@/constants/common';
 import { alertParamsProps } from '@/types/alert';
+import axios, { AxiosResponse } from 'axios';
+import { getCookie, setCookie } from 'cookies-next';
 
 const instance = axios.create({
   baseURL: BASE_URL,
@@ -36,14 +36,14 @@ instance.interceptors.request.use(
   },
 );
 
-function responsefulfilledInterceptor(res: AxiosResponse) {
+function responseFulfilledInterceptor(res: AxiosResponse) {
   if (200 <= res.status && res.status < 300) {
     return res;
   }
   return Promise.reject(res.data);
 }
 
-async function responseRejectedInterceptor(error) {
+async function responseRejectedInterceptor(error: any) {
   if (error.response?.status === 401) {
     const refresh = getCookie('refresh') as string;
 
@@ -85,8 +85,8 @@ async function responseRejectedInterceptor(error) {
 }
 
 instance.interceptors.response.use(
-  responsefulfilledInterceptor,
+  responseFulfilledInterceptor,
   responseRejectedInterceptor,
 );
 
-export { instance, instanceFiles, instanceAWS };
+export { instance, instanceAWS, instanceFiles };

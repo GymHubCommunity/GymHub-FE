@@ -1,19 +1,11 @@
 import { instance } from '@/apis/index';
+import useGetPostId from '@/hooks/useGetPostId';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { useQuery } from '@tanstack/react-query';
-import { usePathname } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
-interface useGetPostDetailProp {
-  id?: string;
-}
-
-function useGetPostDetail({ id }: useGetPostDetailProp) {
-  const pathName = usePathname();
-  let postId = '';
-  {
-    id === undefined ? (postId = pathName.slice(6)) : (postId = id);
-  }
+function useGetPostDetail() {
+  const { postId } = useGetPostId();
 
   const { data, isError, isLoading } = useQuery({
     queryKey: ['postDetail', postId],

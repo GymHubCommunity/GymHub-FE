@@ -1,7 +1,8 @@
 import styles from '@/components/atoms/Editor/PostEditor/PostEditor.module.scss';
 import { POST_PLACEHOLDER } from '@/constants/Post';
-import { useFormContext } from 'react-hook-form';
 import { atom, useAtom } from 'jotai';
+import { ChangeEvent } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 export const hashTagsAtom = atom<string[]>([]);
 
@@ -14,7 +15,7 @@ function PostEditor({ name, handleChange }: PostEditorProps) {
   const { register } = useFormContext();
   const [hashTags, setHashTags] = useAtom(hashTagsAtom);
 
-  const handleTextAreaChange = (e) => {
+  const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     handleChange(e);
     const value = e.target.value;
     const result = findHashTags(value);

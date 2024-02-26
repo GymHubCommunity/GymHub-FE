@@ -1,9 +1,10 @@
 import BackIconSvg from '@/assets/icons/BackIconSvg';
 import PlusSvg from '@/assets/icons/PlusSvg';
 import Text from '@/components/atoms/Text';
+import EditRecordsForm from '@/components/molecules/EditRecord/EditRecordsForm';
 import styles from '@/components/molecules/EditRecord/EditRecordsHeader/EditRecordsHeader.module.scss';
+
 import { atom, useAtom } from 'jotai';
-import EditRecordsForm from '../EditRecordsForm';
 
 export const exerciseAtom = atom<any[]>([]);
 

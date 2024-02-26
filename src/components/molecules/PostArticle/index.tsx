@@ -1,7 +1,6 @@
-import PostProfile from '@/components/molecules/PostProfile';
-
 import Post from '@/components/molecules/Post';
-import { commentCountAtom } from '@/hooks/atoms';
+import PostProfile from '@/components/molecules/PostProfile';
+import Reaction from '@/components/molecules/Reaction';
 import { WriterInfoProps } from '@/types/GetPost';
 import { useAtom, useAtomValue } from 'jotai';
 import { usePathname } from 'next/navigation';
@@ -11,6 +10,8 @@ interface PostArticleProps {
   userInfo: WriterInfoProps;
   content: string;
   imageUrl: string | Array<string> | null;
+  commentCount: number;
+  registeredAt: string;
 }
 
 function PostArticle({
@@ -18,18 +19,18 @@ function PostArticle({
   userInfo,
   content,
   imageUrl,
+  commentCount,
+  registeredAt,
 }: PostArticleProps) {
-  const commentCount = useAtomValue(commentCountAtom);
-  const pathName = usePathname();
   return (
     <>
       <PostProfile type={'default'} postProfile={userInfo} postId={postId} />
       <Post postId={postId} content={content} imageUrl={imageUrl} />
-      {/* <Reaction /> */}
-      {/* {pathName !== '/' && (
-        <Text post="commentCount">댓글 {commentCount}개</Text>
-      )} */}
-      {/* <Comment comment={comment} /> */}
+      <Reaction
+        postId={postId}
+        commentCount={commentCount}
+        registeredAt={registeredAt}
+      />
     </>
   );
 }
