@@ -1,7 +1,12 @@
 import { instance } from '@/apis';
 import { atom, useAtom } from 'jotai';
 
-const selectedAtom = atom(false);
+const getInitialValue = () => {
+  const storedValue = localStorage.getItem('private');
+  return Boolean(storedValue) as boolean;
+};
+
+const selectedAtom = atom(getInitialValue());
 
 function useToggleButton() {
   const [isSelected, setIsSelected] = useAtom(selectedAtom);
@@ -16,6 +21,8 @@ function useToggleButton() {
     } else {
       disclosure = 'PUBLIC';
     }
+
+    localStorage.setItem('private', String(isSelected));
 
     await instance.post(`/members/account/privacy`, null, {
       params: { policy: disclosure },
