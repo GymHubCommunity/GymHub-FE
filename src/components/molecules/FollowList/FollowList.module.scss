@@ -1,0 +1,24 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+@import '/src/styles/mixin.scss';
+
+.wrapper {
+  @include flexBetween;
+  width: 100%;
+  height: 58px;
+  padding: 6px 20px;
+  gap: 10px;
+}
+
+.img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+
+.name {
+  width: 200px;
+  font-size: 1.6rem;
+  font-weight: $medium;
+  color: $count;
+}

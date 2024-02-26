@@ -1,0 +1,18 @@
+@import '@/styles/colors';
+
+.active {
+  width: 164.5px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $count;
+  color: $count;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.inactive {
+  width: 164.5px;
+  padding: 12px 16px;
+  color: $gray700;
+  font-size: 1.2rem;
+  text-align: center;
+}
