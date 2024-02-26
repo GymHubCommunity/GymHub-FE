@@ -1,4 +1,4 @@
-import useGetPost from '@/apis/Query/Post/useGetPost';
+import useGetPostwithScroll from '@/apis/Query/Post/useGetPostwithScroll';
 import { comment } from '@/constants/MockData';
 import { commentCountAtom } from '@/hooks/atoms';
 
@@ -10,7 +10,7 @@ function useMainSection() {
   const setCommentCount = useSetAtom(commentCountAtom);
   const { ref, inView } = useInView();
 
-  const { data, fetchNextPage, hasNextPage } = useGetPost();
+  const { data, fetchNextPage, hasNextPage } = useGetPostwithScroll();
 
   useEffect(() => {
     setCommentCount(comment.length);

@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-interface memberIdProp {
+export interface memberIdProp {
   memberId: number;
 }
 
@@ -38,9 +38,9 @@ interface getFollowingsProps {
 /*
  * 팔로워 목록 GET
  */
-function useGetFollowers({ memberId }: memberIdProp) {
+function useGetFollowers(memberId: number) {
   const getFollowers = async ({ lastId }: lastIdProp) => {
-    const response = await instance.get<getFollowersProps>(
+    const response = await instance.get(
       `/members/${memberId}/followers?lastId=${lastId}&size=11`,
     );
     return response.data;
@@ -70,9 +70,9 @@ function useGetFollowers({ memberId }: memberIdProp) {
 }
 
 /*
- * 팔로잉 목록 GET
+ *  목록 GET
  */
-function useGetFollowings({ memberId }: memberIdProp) {
+function useGetFollowings(memberId: number) {
   const getFollowings = async ({ lastId }: lastIdProp) => {
     const response = await instance.get<getFollowingsProps>(
       `/members/${memberId}/followings?lastId=${lastId}&size=11`,

@@ -27,9 +27,6 @@ function useCheckNickName() {
     }
   }
 
-  console.log(memberId);
-  console.log(nicknameAtom);
-
   useEffect(() => {
     if (nickName !== dataNickname) setIsCheckName(true);
   }, [nickName]);

@@ -7,6 +7,7 @@ export interface postProps {
   hashtags?: string[];
   work?: 'add' | 'update';
 }
+
 export interface submitPostProps {
   content?: string;
   imageUrls?: string[];
