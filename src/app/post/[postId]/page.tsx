@@ -6,7 +6,7 @@ import PostSection from '@/components/organisms/PostSection';
 import { GetPostDetailProps } from '@/types/GetPost';
 
 function PostDetailPage() {
-  const { data, isLoading } = useGetPostDetail();
+  const { data, isLoading } = useGetPostDetail({});
   if (!data) return;
 
   if (isLoading) {

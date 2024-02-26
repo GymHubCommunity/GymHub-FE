@@ -3,15 +3,18 @@ import useGetPostId from '@/hooks/useGetPostId';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+interface useGetPostDetailProp {
+  id?: string;
+}
 
-function useGetPostDetail() {
+function useGetPostDetail({ id }: useGetPostDetailProp) {
   const { postId } = useGetPostId();
 
   const { data, isError, isLoading } = useQuery({
-    queryKey: ['postDetail', postId],
+    queryKey: ['postDetail', id ?? postId],
     queryFn: async () => {
       const response = await instance.get<GetPostDetailProps>(
-        `/posts/${postId}`,
+        `/posts/${id ?? postId}`,
       );
       return response.data;
     },
