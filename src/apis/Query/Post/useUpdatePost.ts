@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { submitPostProps, updatePost } from '@/apis/post';
 
-interface useUpdatePostProp {
+interface updatePostProp {
   id: string;
   param: submitPostProps;
 }
@@ -11,7 +11,7 @@ function useUpdatePost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['updatePost'],
-    mutationFn: ({ id, param }: useUpdatePostProp) => updatePost(id, param),
+    mutationFn: ({ id, param }: updatePostProp) => updatePost(id, param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['postDetail'] });
     },

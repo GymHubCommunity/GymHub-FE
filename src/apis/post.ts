@@ -13,12 +13,12 @@ export interface submitPostProps {
   imageUrls?: string[];
   hashTags?: string[];
 }
-export interface useSearchPostProp {
+export interface searchPostProp {
   pageParam: number;
   keyword: string;
 }
 
-export interface searchPostProps {
+export interface searchResponseProps {
   hasNext: boolean;
   posts: {
     postId: number;
@@ -46,8 +46,8 @@ async function deletePost(id: number) {
   return response.data;
 }
 
-async function searchPost({ pageParam, keyword }: useSearchPostProp) {
-  const response = await instance.get<searchPostProps>(
+async function searchPost({ pageParam, keyword }: searchPostProp) {
+  const response = await instance.get<searchResponseProps>(
     keyword === '전체'
       ? `/posts/search?page=${pageParam}&size=2`
       : `/posts/search?hashtag=${keyword}&page=${pageParam}&size=2`,
