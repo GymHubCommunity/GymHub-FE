@@ -3,13 +3,12 @@ import ProfileImgSetting from '@/components/molecules/Profile/ProfileImgSetting'
 import Text from '@/components/atoms/Text';
 import { useFormContext } from 'react-hook-form';
 import { UserInputRegisterProps } from '@/types/user';
-import PostConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 
-interface RegisterFormProps {
-  onSubmit: () => void;
-}
-
-function RegisterForm({ onSubmit }: RegisterFormProps) {
+function RegisterForm(
+  { onSubmit }: any,
+  handleImageChange: (image: string) => void,
+) {
   const {
     register,
     formState: { errors },
@@ -18,7 +17,10 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
   return (
     <div className={styles.wrapper}>
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
-      <ProfileImgSetting {...register('profileUrl')} />
+      <ProfileImgSetting
+        onImageChange={handleImageChange}
+        {...register('profileUrl')}
+      />
 
       <div className={styles.nicknameWrapper}>
         <input placeholder="닉네임" {...register('nickname')} />
@@ -26,7 +28,7 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
 
       <span className={styles.errorMessage}>{errors.nickname?.message}</span>
 
-      <PostConfirmButton title="완료" onClick={onSubmit} />
+      <ConfirmButton title="완료" type="submit" onClick={onSubmit} />
     </div>
   );
 }

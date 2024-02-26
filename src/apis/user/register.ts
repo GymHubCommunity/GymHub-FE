@@ -1,12 +1,8 @@
 import { deleteCookie, getCookie } from 'cookies-next';
 import { instance } from '@/apis';
+import { UserInputRegisterProps } from '@/types/user';
 
-async function postRegister(nickname: string, profileUrl: string) {
-  const data = {
-    nickname,
-    profileUrl,
-  };
-
+async function postRegister(data: UserInputRegisterProps) {
   const response = await instance.post(`/members/register`, data);
   return response;
 }
