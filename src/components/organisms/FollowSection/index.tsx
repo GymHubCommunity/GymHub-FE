@@ -12,12 +12,10 @@ const memberId = 1;
 function FollowSection() {
   const followButton = useAtomValue(followButtonAtom);
 
-  const { followers, fetchNextFollowers, nextFollowers } = useGetFollowers({
-    memberId,
-  });
-  const { followings, fetchNextFollowing, nextFollowings } = useGetFollowings({
-    memberId,
-  });
+  const { followers, fetchNextFollowers, nextFollowers } =
+    useGetFollowers(memberId);
+  const { followings, fetchNextFollowing, nextFollowings } =
+    useGetFollowings(memberId);
 
   const { ref, inView } = useInView();
 

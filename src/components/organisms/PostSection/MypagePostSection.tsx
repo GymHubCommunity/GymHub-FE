@@ -16,10 +16,10 @@ interface PostSectionProp {
   // postData?: GetPostDetailProps[] | GetPost;
   postData?: any;
   detailData?: GetPostDetailProps;
-  type: 'myPage' | 'postDetail';
 }
 
-function MypagePostSection({ postData, type }: PostSectionProp) {
+//TODO: 글 이미지 받아오기 수정
+function MypagePostSection({ postData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
 
   const { data } = useQuery({
@@ -29,8 +29,6 @@ function MypagePostSection({ postData, type }: PostSectionProp) {
       return response;
     },
   });
-
-  // const { comment, commentData, ref } = usePostSection({ postId });
 
   return (
     <div className={styles.wrapper}>
@@ -53,7 +51,7 @@ function MypagePostSection({ postData, type }: PostSectionProp) {
               postId={item.postId}
               userInfo={item.writerInfo}
               content={item.content}
-              imageUrl={item.imageUrl}
+              imageUrl={item.imageUrl as string | string[] | null}
               registeredAt={item.registeredAt}
               commentCount={item.commentCount}
             />
