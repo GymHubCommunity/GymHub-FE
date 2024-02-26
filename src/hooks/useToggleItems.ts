@@ -34,7 +34,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
         router.push(`post/${id}/edit`);
         break;
       case POST_DELETE:
-        handleDeletePost.mutateAsync({ id: id });
+        handleDeletePost.mutateAsync({ id: id as number });
         break;
       case RECORD_DELETE:
         showModal();

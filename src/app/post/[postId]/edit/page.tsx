@@ -1,5 +1,5 @@
 'use client';
-import useGetPostDetail from '@/apis/Query/useGetPostDetail';
+import useGetPostDetail from '@/apis/Query/Post/useGetPostDetail';
 import AddPost from '@/components/organisms/AddPost';
 
 function EditPostPage({ params }: { params: { postId: string } }) {
@@ -8,8 +8,8 @@ function EditPostPage({ params }: { params: { postId: string } }) {
     <>
       {data && (
         <AddPost
-          imageUrls={data.imageUrls}
-          hashtags={data.hashtags}
+          imageUrls={data.imageUrls as string[]}
+          hashtags={data.hashtags as string[]}
           content={data.content}
           work="update"
           postId={params.postId}

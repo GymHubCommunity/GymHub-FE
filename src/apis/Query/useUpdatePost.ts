@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { submitPostProps, updatePost } from '@/apis/post';
 
 interface useUpdatePostProp {
-  id?: string;
+  id: string;
   param: submitPostProps;
 }
 

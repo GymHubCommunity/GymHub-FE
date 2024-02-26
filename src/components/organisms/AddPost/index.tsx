@@ -59,11 +59,11 @@ function AddPost({
     param.hashTags = hashTags;
     if (work === 'update') {
       const result = await handleUpdate.mutateAsync({
-        id: postId,
+        id: postId as string,
         param: param,
       });
       if (result === 204) {
-        router.push(`/post/${postId}`);
+        router.replace(`/post/${postId}`);
       }
     } else {
       const result = await handleSubmit.mutateAsync({ param: param });

@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { deletePost } from '@/apis/post';
 
 interface useDeletePostProp {
-  id?: number;
+  id: number;
 }
 
 function useDeletePost() {
@@ -15,7 +15,7 @@ function useDeletePost() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },
     onError(error) {
-      console.log('error : ', error);
+      console.error('error : ', error);
       toast.error('게시글을 삭제 하지 못했습니다.');
     },
   });
