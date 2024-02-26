@@ -48,7 +48,9 @@ async function deletePost(id: number) {
 
 async function searchPost({ pageParam, keyword }: useSearchPostProp) {
   const response = await instance.get<searchPostProps>(
-    `/posts/search?hashtag=${keyword}&page=${pageParam}&size=2`,
+    keyword === '전체'
+      ? `/posts/search?page=${pageParam}&size=2`
+      : `/posts/search?hashtag=${keyword}&page=${pageParam}&size=2`,
   );
   return response.data;
 }
