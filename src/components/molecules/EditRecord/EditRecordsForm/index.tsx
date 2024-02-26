@@ -1,8 +1,8 @@
 import LineSvg from '@/assets/icons/LineSvg';
 import AddSetButton from '@/components/atoms/Button/AddSetButton';
+import EditRecordName from '@/components/molecules/EditRecord/EditRecordName';
+import EditRecordSets from '@/components/molecules/EditRecord/EditRecordSets';
 import styles from '@/components/molecules/EditRecord/EditRecordsForm/EditRecordsForm.module.scss';
-import EditRecordName from '../EditRecordName';
-import EditRecordSets from '../EditRecordSets';
 
 interface EditRecordsFormProps {
   name: string;

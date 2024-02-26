@@ -2,13 +2,13 @@ import { instance } from '@/apis/index';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
-interface getPostProps {
+interface getPostProp {
   pageParam: number;
 }
 
 function useGetPost() {
-  const getPost = async ({ pageParam }: getPostProps) => {
-    const response = await instance.get(`/posts?page=${pageParam}&size=${5}`);
+  const getPost = async ({ pageParam }: getPostProp) => {
+    const response = await instance.get(`/posts?page=${pageParam}&size=5`);
     return response.data;
   };
 

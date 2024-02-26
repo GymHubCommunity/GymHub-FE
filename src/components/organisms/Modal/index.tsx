@@ -1,11 +1,16 @@
-import Text from '@/components/atoms/Text';
+import useDeleteComment from '@/apis/Query/Comment/useDeleteComment';
 import ModalArticle from '@/components/molecules/ModalArticle';
+import ModalToggle from '@/components/molecules/ModalToggle';
 import styles from '@/components/organisms/Modal/Modal.module.scss';
+import { CommentDel, RecordsDel } from '@/constants/ModalToggle';
+import { commentIdAtom } from '@/hooks/atoms';
+import useGetPostId from '@/hooks/useGetPostId';
+import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 interface ModalProps {
-  type: 'imgUpdate' | 'records' | 'recordsDel';
+  type: 'imgUpdate' | 'records' | 'recordsDel' | 'commentDel';
   isShow: boolean;
   closeModal: () => void;
 }
@@ -13,6 +18,16 @@ interface ModalProps {
 function Modal({ type, isShow, closeModal }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  // 댓글 삭제 로직
+  const { postId } = useGetPostId();
+  const commentId = useAtomValue(commentIdAtom);
+  const { deleteComment } = useDeleteComment({ postId, commentId });
+
+  const handleDeleteComment = () => {
+    deleteComment();
+    closeModal();
+  };
 
   useEffect(() => {
     const handleCloseModal = (e: MouseEvent) => {
@@ -49,26 +64,24 @@ function Modal({ type, isShow, closeModal }: ModalProps) {
         />
       )}
       {type === 'recordsDel' && (
-        <div className={styles.wrapper}>
-          <div className={styles.infoWrapper}>
-            <Text records="modalTitle">운동 기록 삭제</Text>
-            <Text records="modalInfo">
-              운동 기록 삭제 시에는 복구할 수 없습니다.{'\n'}운동 기록을
-              삭제할까요?
-            </Text>
-          </div>
-          <div className={styles.buttonWrapper}>
-            <button
-              className={styles.deleteButton}
-              onClick={() => closeModal()}
-            >
-              삭제
-            </button>
-            <button className={styles.closeButton} onClick={() => closeModal()}>
-              취소
-            </button>
-          </div>
-        </div>
+        <ModalToggle
+          title={RecordsDel.title}
+          info={RecordsDel.info}
+          buttonTextL={RecordsDel.buttonTextL}
+          buttonTextR={RecordsDel.buttonTextR}
+          actionButton={() => {}}
+          closeModal={closeModal}
+        />
+      )}
+      {type === 'commentDel' && (
+        <ModalToggle
+          title={CommentDel.title}
+          info={CommentDel.info}
+          buttonTextL={CommentDel.buttonTextL}
+          buttonTextR={CommentDel.buttonTextR}
+          actionButton={handleDeleteComment}
+          closeModal={closeModal}
+        />
       )}
     </>
   );

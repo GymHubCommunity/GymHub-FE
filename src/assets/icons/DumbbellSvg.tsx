@@ -1,3 +1,4 @@
+'use client';
 import Svg from '@/components/atoms/Svg';
 import useMenuColor from '@/hooks/useMenuColor';
 

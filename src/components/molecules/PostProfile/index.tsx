@@ -8,9 +8,10 @@ import { WriterInfoProps } from '@/types/GetPost';
 interface PostProfileProps {
   type: 'default' | 'exercised';
   postProfile: WriterInfoProps;
+  postId: number;
 }
 
-function PostProfile({ type, postProfile }: PostProfileProps) {
+function PostProfile({ type, postProfile, postId }: PostProfileProps) {
   if (!postProfile) return;
   return (
     <div className={styles.wrapper}>
@@ -23,7 +24,7 @@ function PostProfile({ type, postProfile }: PostProfileProps) {
           )}
         </div>
       </div>
-      <ToggleMenu type="post" />
+      <ToggleMenu type="post" id={postId} />
     </div>
   );
 }

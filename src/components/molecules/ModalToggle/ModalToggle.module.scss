@@ -1,0 +1,55 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/mixin.scss';
+@import '/src/styles/modal.scss';
+
+.wrapper {
+  @include modalStyle;
+  @include flexCenter;
+  flex-direction: column;
+  gap: 10px;
+  padding: 19px 6px 10px 6px;
+}
+
+.infoWrapper {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0px 16px 12px 16px;
+  text-align: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 6px;
+}
+
+.deleteButton {
+  @include flexCenter;
+  width: 122px;
+  padding: 11px 0px;
+
+  border-radius: 10px;
+  background: $darkGray500;
+
+  color: #ff453a;
+  font-size: 1.6rem;
+  font-weight: 610;
+  line-height: 22px;
+}
+
+.closeButton {
+  @include flexCenter;
+  width: 122px;
+  padding: 11px 0px;
+
+  border-radius: 10px;
+  background: $greenNeon;
+
+  color: #111212;
+  font-size: 1.6rem;
+  font-weight: 650;
+  line-height: 22px;
+}

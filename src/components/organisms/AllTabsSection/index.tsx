@@ -1,6 +1,5 @@
 import Text from '@/components/atoms/Text';
 import Comment from '@/components/molecules/Comment';
-import Reaction from '@/components/molecules/Reaction';
 import SearchArticle from '@/components/molecules/SearchArticle';
 import Tabs from '@/components/molecules/Tabs';
 import styles from '@/components/organisms/AllTabsSection/AllTabsSection.module.scss';
@@ -35,8 +34,17 @@ function AllTabsSection() {
         <>
           {/* <PostProfile type={'default'} postProfile={postProfile} /> */}
           {/* <Post post={post} /> */}
-          <Reaction />
-          <Comment comment={comment} />
+          {/* <Reaction /> */}
+          {comment.map((val) => (
+            <Comment
+              key={val.id}
+              id={val.id}
+              imgUrl={val.imgUrl}
+              userName={val.userName}
+              date={val.date}
+              comment={val.comment}
+            />
+          ))}
         </>
       ) : (
         <>
