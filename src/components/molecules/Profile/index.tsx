@@ -3,6 +3,7 @@ import ProfileButton from '@/components/atoms/Button/ProfileButton';
 import Info from '@/components/atoms/CountInfo';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import styles from '@/components/molecules/Profile/Profile.module.scss';
+import Link from 'next/link';
 
 interface ProfileProps {
   profileImg?: string;
@@ -28,16 +29,20 @@ function Profile({
         <div className={styles.infoWrapper}>
           <Info type="default" content="게시글" count={postCount} />
           <Info type="day" content="운동 일수" count={exerciseDays} />
-          <Info
-            type="follow"
-            content="팔로우"
-            count={followers?.pages.length}
-          />
-          <Info
-            type="follow"
-            content="팔로잉"
-            count={followings?.pages.length}
-          />
+          <Link href={`/follow/${memberId}`}>
+            <Info
+              type="follow"
+              content="팔로우"
+              count={followers?.pages.length}
+            />
+          </Link>
+          <Link href={`/follow/${memberId}`}>
+            <Info
+              type="follow"
+              content="팔로잉"
+              count={followings?.pages.length}
+            />
+          </Link>
         </div>
         <ProfileButton type="profileUpdate" />
       </div>

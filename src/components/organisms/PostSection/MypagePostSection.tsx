@@ -33,7 +33,6 @@ function MypagePostSection({ postData }: PostSectionProp) {
     return <Loading />;
   }
 
-  console.log(postData);
   return (
     <div className={styles.wrapper}>
       {isShow && (
