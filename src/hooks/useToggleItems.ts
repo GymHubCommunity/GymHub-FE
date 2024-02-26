@@ -4,6 +4,7 @@ import {
 } from '@/apis/recordController';
 import {
   POST_UPDATE,
+  RECORD_DELETE,
   RECORD_SAVE,
   RECORD_UPDATE,
   postItems,
@@ -32,7 +33,7 @@ function useToggleItems({ type }: ToggleMenuProp) {
     menuItems = recordsItems;
   }
 
-  const handleOnClick = (
+  const handleOnClick = async (
     item: string,
     recordId?: number,
     snapshotId?: number,
@@ -42,10 +43,12 @@ function useToggleItems({ type }: ToggleMenuProp) {
       case POST_UPDATE:
         router.push(`/records/recordId`);
         break;
-      case RECORD_SAVE:
-        postRecordSnapshots(recordId);
       case RECORD_UPDATE:
-        deleteRecordSnapshots(snapshotId);
+        router.push(`/records/${recordId}`);
+        break;
+      case RECORD_DELETE:
+        await deleteRecordSnapshots(snapshotId);
+        break;
       default:
         showModal();
         break;

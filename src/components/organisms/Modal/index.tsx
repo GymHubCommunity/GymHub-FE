@@ -1,6 +1,7 @@
 import styles from '@/components/organisms/Modal/Modal.module.scss';
 import { useEffect } from 'react';
 import Text from '@/components/atoms/Text';
+import { deleteRecordSnapshots } from '@/apis/recordController';
 
 interface ModalProps {
   isShow: boolean;
@@ -19,6 +20,11 @@ function Modal({ isShow, closeModal }: ModalProps) {
     };
   }, [isShow]);
 
+  const handleDeleteSnapshots = async (snapshotId: number) => {
+    await deleteRecordSnapshots(19);
+    console.log("스리")
+  };
+
   return (
     <>
       {isShow && <div className={styles.blur}></div>}
@@ -31,7 +37,7 @@ function Modal({ isShow, closeModal }: ModalProps) {
           </Text>
         </div>
         <div className={styles.buttonWrapper}>
-          <button className={styles.deleteButton} onClick={() => closeModal()}>
+          <button className={styles.deleteButton} onClick={() => handleDeleteSnapshots}>
             삭제
           </button>
           <button className={styles.closeButton} onClick={() => closeModal()}>

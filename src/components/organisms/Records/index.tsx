@@ -9,6 +9,7 @@ import styles from '@/components/organisms/Records/Records.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
 
+//TODO: recordId: post 루틴해서 나온 id값, snapShotId: post 스냅샷해서 나온 id 값
 function Records() {
   const { isOpen } = useToggleMenu();
   const { isShow, closeModal } = useModalInfo();
@@ -23,7 +24,7 @@ function Records() {
       <ExerciseRoutine />
 
       <div className={styles.modalWrapper}>
-        {isOpen && <ToggleItems type="records" recordId={0} snapShotId={0} />}
+        {isOpen && <ToggleItems type="records" recordId={17} snapShotId={18} />}
       </div>
 
       <FloatingButton type={'addExercise'} />

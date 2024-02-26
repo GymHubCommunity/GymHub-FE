@@ -14,7 +14,7 @@ async function postRecordSnapshots(recordId: number) {
 }
 
 async function deleteRecordSnapshots(snapshotId: number) {
-  await instance.post(`/records/snapshots/${snapshotId}`);
+  await instance.delete(`/records/snapshots/${snapshotId}`);
 }
 
 export { getRecordSnapshots, postRecordSnapshots, deleteRecordSnapshots };
