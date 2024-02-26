@@ -1,4 +1,5 @@
 import { instance } from '@/apis';
+import { WriterInfoProps } from '@/types/GetPost';
 
 export interface postProps {
   postId?: string;
@@ -11,6 +12,23 @@ export interface submitPostProps {
   content?: string;
   imageUrls?: string[];
   hashTags?: string[];
+}
+export interface useSearchPostProp {
+  pageParam: number;
+  keyword: string;
+}
+
+export interface searchPostProps {
+  hasNext: boolean;
+  posts: {
+    postId: number;
+    writerInfo: WriterInfoProps;
+    content: string;
+    imageUrl: string | Array<string> | null;
+    commentCount: number;
+    registeredAt: string;
+  }[];
+  totalPostCount: number;
 }
 
 async function submitPost(param: submitPostProps) {
@@ -28,4 +46,11 @@ async function deletePost(id: number) {
   return response.data;
 }
 
-export { submitPost, updatePost, deletePost };
+async function searchPost({ pageParam, keyword }: useSearchPostProp) {
+  const response = await instance.get<searchPostProps>(
+    `/posts/search?hashtag=${keyword}&page=${pageParam}&size=2`,
+  );
+  return response.data;
+}
+
+export { submitPost, updatePost, deletePost, searchPost };
