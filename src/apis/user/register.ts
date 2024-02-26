@@ -1,6 +1,6 @@
-import { UserInputRegisterProps } from '@/types/user';
 import { deleteCookie, getCookie } from 'cookies-next';
 import { instance } from '@/apis';
+import { UserInputRegisterProps } from '@/types/user';
 
 async function postRegister(data: UserInputRegisterProps) {
   const response = await instance.post(`/members/register`, data);
@@ -9,6 +9,29 @@ async function postRegister(data: UserInputRegisterProps) {
 
 async function postRefreshToken(refresh: string) {
   const response = await instance.post(`/auth/refresh`, refresh);
+  return response;
+}
+
+// 회원 정보 조회
+async function getUserInfo() {
+  const response = await instance.get(`/members/me`);
+  return response;
+}
+
+// 회원 정보 조회 with memberId
+async function getUserInfoMemberId(memberId: number) {
+  const response = await instance.get(`/members/${memberId}`);
+  return response;
+}
+
+// 회원 정보 삭제
+async function deleteUser(memberId: number) {
+  await instance.delete(`/members/${memberId}`);
+}
+
+// 회원 정보 수정
+async function putUserInfo() {
+  const response = await instance.put(`/members/me`);
   return response;
 }
 
@@ -40,4 +63,11 @@ export const authToken = {
   },
 };
 
-export { postRegister, postRefreshToken };
+export {
+  postRegister,
+  postRefreshToken,
+  getUserInfo,
+  getUserInfoMemberId,
+  deleteUser,
+  putUserInfo,
+};

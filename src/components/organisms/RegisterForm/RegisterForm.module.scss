@@ -4,17 +4,25 @@
 .wrapper {
   @include flexCenter;
   flex-direction: column;
+  padding-top: 40px;
 }
 
 .nicknameWrapper {
   @include flexCenter;
   text-align: center;
-  min-width: 240px;
-  min-height: 24px;
-  padding: 13px 8px;
+  min-width: 280px;
+  min-height: 20px;
+  padding: 9px 8px;
   border-radius: 4px;
   background-color: $darkGray700;
 
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   color: #fafdff;
+  margin-top: 10px;
+}
+
+.errorMessage {
+  margin-top: 9px;
+  font-size: 1.2rem;
+  color: $red;
 }

@@ -8,9 +8,10 @@ const cn = classNames.bind(styles);
 interface ResignButtonProps {
   type: 'cancel' | 'delete';
   children: ReactNode;
+  memberId?: number;
 }
 
-function ResignButton({ type, children }: ResignButtonProps) {
+function ResignButton({ type, children, memberId }: ResignButtonProps) {
   const { handleCancelClick, handleDeleteClick, isCheckName } =
     useResignButton();
 
@@ -18,7 +19,11 @@ function ResignButton({ type, children }: ResignButtonProps) {
     <button
       type="button"
       className={cn('button', type)}
-      onClick={type === 'cancel' ? handleCancelClick : handleDeleteClick}
+      onClick={
+        type === 'cancel'
+          ? handleCancelClick
+          : () => handleDeleteClick(memberId as number)
+      }
       disabled={type === 'delete' && isCheckName}
     >
       {children}
