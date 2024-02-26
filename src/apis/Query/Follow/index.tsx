@@ -152,6 +152,7 @@ function useDeleteFollow({ memberId }: memberIdProp) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['followers'] });
+      return toast.error('팔로우 삭제');
     },
     onError: () => {
       return toast.error('팔로우 삭제를 실패했습니다.');
