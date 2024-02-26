@@ -1,4 +1,5 @@
 import { instance } from '@/apis';
+import Loading from '@/components/atoms/Loading';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
@@ -15,20 +16,23 @@ import { useQuery } from '@tanstack/react-query';
 interface PostSectionProp {
   // postData?: GetPostDetailProps[] | GetPost;
   postData?: any;
-  detailData?: GetPostDetailProps;
 }
 
-//TODO: 글 이미지 받아오기 수정
 function MypagePostSection({ postData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
 
-  const { data } = useQuery({
-    queryKey: ['userInfoe'],
+  const { data, isLoading } = useQuery({
+    queryKey: ['userInfo'],
     queryFn: async () => {
       const response = await instance.get(`/members/me`);
+
       return response;
     },
   });
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -39,13 +43,13 @@ function MypagePostSection({ postData }: PostSectionProp) {
       <BackButtonHeader pageName={data?.data.nickname} />
       <Profile
         profileImg={data?.data.profileUrl}
-        postCount={postData?.length.toString()}
-        exerciseDays={postData?.length.toString()}
-        memberId={data?.data.id.toString()}
+        postCount={postData?.length}
+        exerciseDays={postData?.length}
+        memberId={data?.data.id}
       />
 
       <div className={styles.inWrapper}>
-        {postData?.map((item: GetPostDetailProps, index: number) => (
+        {postData.posts.map((item: GetPostDetailProps, index: number) => (
           <div className={styles.postWrapper} key={index}>
             <PostArticle
               postId={item.postId}

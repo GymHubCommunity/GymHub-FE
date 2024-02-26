@@ -26,23 +26,17 @@ function Profile({
 
       <div className={styles.inWrapper}>
         <div className={styles.infoWrapper}>
-          {postCount && (
-            <Info type="default" content="게시글" count={postCount} />
-          )}
-
-          {exerciseDays && (
-            <Info type="default" content="운동 일수" count={exerciseDays} />
-          )}
-
+          <Info type="default" content="게시글" count={postCount} />
+          <Info type="day" content="운동 일수" count={exerciseDays} />
           <Info
             type="follow"
             content="팔로우"
-            count={followers?.pages.length.toString()}
+            count={followers?.pages.length}
           />
           <Info
             type="follow"
             content="팔로잉"
-            count={followings?.pages.length.toString()}
+            count={followings?.pages.length}
           />
         </div>
         <ProfileButton type="profileUpdate" />
