@@ -25,7 +25,6 @@ function MypagePostSection({ postData }: PostSectionProp) {
     queryKey: ['userInfo'],
     queryFn: async () => {
       const response = await instance.get(`/members/me`);
-
       return response;
     },
   });
@@ -34,6 +33,7 @@ function MypagePostSection({ postData }: PostSectionProp) {
     return <Loading />;
   }
 
+  console.log(postData);
   return (
     <div className={styles.wrapper}>
       {isShow && (
@@ -43,8 +43,8 @@ function MypagePostSection({ postData }: PostSectionProp) {
       <BackButtonHeader pageName={data?.data.nickname} />
       <Profile
         profileImg={data?.data.profileUrl}
-        postCount={postData?.length}
-        exerciseDays={postData?.length}
+        postCount={postData.posts.length}
+        exerciseDays={postData.posts.length}
         memberId={data?.data.id}
       />
 
