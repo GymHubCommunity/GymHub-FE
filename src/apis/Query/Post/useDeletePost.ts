@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { deletePost } from '@/apis/post';
 
-interface deletePostProp {
+interface DeletePostProp {
   id: number;
 }
 
@@ -10,7 +10,7 @@ function useDeletePost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['deletePost'],
-    mutationFn: ({ id }: deletePostProp) => deletePost(id),
+    mutationFn: ({ id }: DeletePostProp) => deletePost(id),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },

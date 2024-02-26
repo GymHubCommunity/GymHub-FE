@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { submitPostProps, submitPost } from '@/apis/post';
 
-interface submitPostProp {
+interface SubmitPostProp {
   param: submitPostProps;
 }
 
@@ -10,7 +10,7 @@ function useSubmitPost() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ['updatePost'],
-    mutationFn: ({ param }: submitPostProp) => submitPost(param),
+    mutationFn: ({ param }: SubmitPostProp) => submitPost(param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },

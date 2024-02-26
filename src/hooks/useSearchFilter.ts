@@ -1,5 +1,5 @@
 import { WriterInfoProps } from '@/types/GetPost';
-import { atom, useAtom, useSetAtom } from 'jotai';
+import { atom, useSetAtom } from 'jotai';
 import { ChangeEvent, MutableRefObject } from 'react';
 
 interface filterValueProps {
@@ -25,7 +25,7 @@ function useSearchFilter({
   searchValue,
   setSearchValue,
 }: useSearchFilterProps) {
-  const setFilterValue = useSetAtom(filterValueAtom);
+  // const setFilterValue = useSetAtom(filterValueAtom);
   const setKeyword = useSetAtom(keywordValueAtom);
 
   const searchHashTag = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,11 +1,7 @@
 import SearchSection from '@/components/organisms/SearchSection';
 
 function AllTabsSection() {
-  return (
-    <>
-      <SearchSection />
-    </>
-  );
+  return <SearchSection />;
 }
 
 export default AllTabsSection;
