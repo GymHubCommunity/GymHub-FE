@@ -21,7 +21,11 @@ function SearchSection() {
       fetchNextPage();
     }
     if (data) {
-      setTotalCount(data.totalPostCount);
+      if (data.totalPostCount > 0) {
+        setTotalCount(data.totalPostCount);
+      } else {
+        setTotalCount(0);
+      }
     }
   }, [inView, hasNextPage, fetchNextPage]);
 
