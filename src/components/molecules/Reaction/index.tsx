@@ -20,14 +20,13 @@ function Reaction({ postId, commentCount, registeredAt }: ReactionProps) {
       {/* TODO: 좋아요, 댓글, 날짜 추후 변경 */}
       <div className={styles.inWrapper}>
         <ReactionButton type="like" />
-        {pathName === `/` ||
-          (pathName === '/search' && (
-            <ReactionButton
-              type="comment"
-              postId={postId}
-              commentCount={commentCount}
-            />
-          ))}
+        {!pathName.startsWith('/post') && (
+          <ReactionButton
+            type="comment"
+            postId={postId}
+            commentCount={commentCount}
+          />
+        )}
       </div>
       <Text post="postingTime">{time}</Text>
     </div>

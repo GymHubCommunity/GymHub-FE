@@ -34,6 +34,11 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
   const snapShot = useSetAtom(snapshotId);
   const readSnapShot = useAtomValue(snapshotId);
 
+  const handleRecordPost = async (recordId: number) => {
+    const response = await postRecordSnapshots(recordId as number);
+    snapShot(response.data.id);
+  };
+
   if (type === 'profile') menuItems = profileItems;
   if (type === 'post') {
     menuItems = postItems;
@@ -58,11 +63,10 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
     //TODO: 스냅샷 저장 성공시 저장된 항목 페이지로 이동해야 됌
     switch (item) {
       case RECORD_SAVE:
-        const response = await postRecordSnapshots(recordId as number);
-        snapShot(response.data.id);
+        if (recordId) handleRecordPost(recordId);
         break;
       case POST_UPDATE:
-        router.push(`/records/recordId`);
+        router.push(`/post/${id}/edit`);
         break;
       case RECORD_UPDATE:
         router.push(`/records/${recordId}`);

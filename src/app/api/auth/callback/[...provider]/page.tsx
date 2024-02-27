@@ -17,7 +17,7 @@ function CallbackOAuth(social: any) {
           const data = await postOAuth(social.params.provider[0], authCode);
           localStorage.setItem('accessToken', data.data.accessToken);
 
-          if (data.data.requiredAdditionalInfo) {
+          if (!data.data.requiredAdditionalInfo) {
             router.push('/');
           } else {
             router.push('/signin/register');

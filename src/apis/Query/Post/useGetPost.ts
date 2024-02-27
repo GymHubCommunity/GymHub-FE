@@ -12,7 +12,7 @@ function useGetPost() {
   };
 
   const { data, isError } = useQuery({
-    queryKey: ['posts'],
+    queryKey: ['myPosts'],
     queryFn: () => getPost(),
   });
 

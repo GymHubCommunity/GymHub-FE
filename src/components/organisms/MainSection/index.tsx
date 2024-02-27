@@ -1,4 +1,5 @@
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
+import BlankArticle from '@/components/molecules/BlankArticle';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import PostArticle from '@/components/molecules/PostArticle';
 import StoryArticle from '@/components/molecules/StoryArticle';
@@ -32,6 +33,13 @@ function MainSection() {
         />
         <StoryArticle stories={stories} />
         <div className={styles.feedWrapper}>
+          {(data?.pages?.length as number) === 0 ? (
+            <div className={styles.blankWrapper}>
+              <BlankArticle />
+            </div>
+          ) : (
+            ''
+          )}
           {data?.pages.map((val) => (
             <div key={val.postId} className={styles.inWrapper}>
               <PostArticle
@@ -46,6 +54,7 @@ function MainSection() {
               />
             </div>
           ))}
+
           {/* TODO: 루틴 API 연동시 데이터 연결 */}
           {/* <div className={styles.inWrapper}>
           <RoutineArticle />
