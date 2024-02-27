@@ -5,6 +5,7 @@ interface ConfirmButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit';
   disabled?: boolean;
+  isActive?: boolean;
 }
 
 function ConfirmButton({
@@ -12,13 +13,14 @@ function ConfirmButton({
   onClick,
   type = 'button',
   disabled,
+  isActive,
 }: ConfirmButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
       className={styles.wrapper}
-      disabled={disabled}
+      disabled={disabled ?? !isActive}
     >
       {title}
     </button>

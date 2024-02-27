@@ -2,13 +2,14 @@ import styles from '@/components/atoms/Button/PrimaryButton/PrimaryButton.module
 import { ReactNode } from 'react';
 
 interface PrimaryButtonProps {
+  onClick: () => void;
   isActive: boolean;
   children: ReactNode;
 }
 
-function PrimaryButton({ isActive, children }: PrimaryButtonProps) {
+function PrimaryButton({ onClick, isActive, children }: PrimaryButtonProps) {
   return (
-    <button className={styles.wrapper} disabled={!isActive}>
+    <button className={styles.wrapper} onClick={onClick} disabled={!isActive}>
       {children}
     </button>
   );

@@ -5,20 +5,29 @@ import useSelectedPart from '@/hooks/useSelectedPart';
 import { ReactNode, useEffect, useState } from 'react';
 
 interface CheckListProps {
+  id: number;
   children: ReactNode;
 }
 
-function CheckList({ children }: CheckListProps) {
+function CheckList({ id, children }: CheckListProps) {
   const check = String(children?.toString());
   const [isSelected, setIsSelected] = useState(false);
-  const { handleChecklist, selectedMachines } = useSelectedPart();
+  const { handleChecklist, selectedMachines, setSelectedMachines } =
+    useSelectedPart();
 
   const handleSelected = (name: string) => {
-    setIsSelected(handleChecklist(name));
+    if (!isSelected) {
+      setIsSelected(handleChecklist(id, name));
+    } else {
+      setIsSelected(false);
+      setSelectedMachines(selectedMachines.filter((val) => val.id !== id));
+    }
   };
 
   useEffect(() => {
-    if (selectedMachines.includes(check)) setIsSelected(true);
+    if (selectedMachines.includes(check)) {
+      setIsSelected((prev) => !prev);
+    }
   }, []);
 
   return (
