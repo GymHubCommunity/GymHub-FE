@@ -34,7 +34,7 @@ function Records() {
       const response = await instance.get(
         `/records?year=${year}&month=${month}`,
       );
-      console.log(response);
+
       return response.data;
     },
   });

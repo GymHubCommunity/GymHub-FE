@@ -59,7 +59,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
       case RECORD_SAVE:
         const response = await postRecordSnapshots(recordId as number);
         snapShot(response.data.id);
-     
+
         break;
       case POST_UPDATE:
         router.push(`/records/recordId`);
@@ -68,7 +68,6 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
         router.push(`/records/${recordId}`);
         break;
       case SNAPSHOT_DELETE:
-        console.log(readSnapShot)
         await deleteRecordSnapshots(readSnapShot as number);
         break;
       case POST_DELETE:
