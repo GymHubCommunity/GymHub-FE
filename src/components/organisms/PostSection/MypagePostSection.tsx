@@ -31,7 +31,7 @@ function MypagePostSection({ postData, userData }: PostSectionProp) {
         exerciseDays={postData?.length ?? 0}
         memberId={userData.data.id}
       />
-      {postData.length === 0 && <div className={styles.blankWrapper}></div>}
+      {postData.length === 0 && <div className={styles.blankWrapper} />}
       <div className={styles.inWrapper}>
         {postData.map((item: GetPostDetailProps, index: number) => (
           <div className={styles.postWrapper} key={index}>
