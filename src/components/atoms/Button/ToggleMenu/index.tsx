@@ -1,6 +1,6 @@
 import ToggleMenuSvg from '@/assets/icons/ToggleMenuSvg';
 
-interface ToggleProps {
+export interface ToggleProps {
   close: () => void;
   toggle: () => void;
 }

@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 
 const cn = classNames.bind(styles);
 
-function ToggleItems({ type, recordId, snapShotId }: ToggleMenuProp) {
+function ToggleItems({ type, recordId }: ToggleMenuProp) {
   const { pathName, menuItems, handleOnClick } = useToggleItems({ type });
   return (
     <ul className={styles.menus}>
@@ -31,7 +31,7 @@ function ToggleItems({ type, recordId, snapShotId }: ToggleMenuProp) {
               role="presentation"
               key={val.id}
               className={styles.itemWrapper}
-              onMouseDown={() => handleOnClick(val.item, recordId, snapShotId)}
+              onMouseDown={() => handleOnClick(val.item, recordId)}
             >
               <div
                 className={cn('item', {

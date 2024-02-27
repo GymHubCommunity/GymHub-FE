@@ -30,7 +30,7 @@ function FloatingButton({ type }: FloatingButtonProp) {
         </button>
       )}
       {isOpen && (
-        <Modal type={'records'} isShow={isOpen} closeModal={closeModal} />
+        <Modal type="records" isShow={isOpen} closeModal={closeModal} />
       )}
     </>
   );

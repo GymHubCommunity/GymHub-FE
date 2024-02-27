@@ -5,14 +5,14 @@ import {
 import { NextRequest, NextResponse } from 'next/server';
 
 async function middleware(request: NextRequest) {
-  const refresh = request.cookies.get('refresh')?.value;
+  // const refresh = request.cookies.get('refresh')?.value;
 
-  if (!refresh) {
-    const response = NextResponse.redirect(request.url);
-    response.cookies.set('refresh', refresh as string);
-    applySetCookie(request, response);
-    return response;
-  }
+  // if (!refresh) {
+  //   const response = NextResponse.redirect(request.url);
+  //   response.cookies.set('refresh', refresh as string);
+  //   applySetCookie(request, response);
+  //   return response;
+  // }
 }
 
 export default middleware;
