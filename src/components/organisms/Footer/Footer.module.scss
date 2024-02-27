@@ -4,10 +4,11 @@
 .wrapper {
   @include flexCenter;
   gap: 56px;
-  position: sticky;
-  left: 0;
+  position: fixed;
+  left: 50%;
   bottom: 0;
-  width: 100%;
+  transform: translate(-50%);
+  width: 392px;
   height: 75px;
   padding: 0 auto;
   border-top: 1px solid $border;

@@ -4,16 +4,16 @@ import {
   postRecordSnapshots,
 } from '@/apis/recordController';
 import {
+  POST_DELETE,
   POST_UPDATE,
   RECORD_DELETE,
   RECORD_SAVE,
   RECORD_UPDATE,
-  POST_DELETE,
+  SNAPSHOT_DELETE,
   postItems,
   profileItems,
   recordsItems,
   snapShotItem,
-  SNAPSHOT_DELETE,
 } from '@/constants/ToggleMenu';
 import useModalInfo from '@/hooks/useModalInfo';
 import { ToggleMenuProp } from '@/types/toggle';

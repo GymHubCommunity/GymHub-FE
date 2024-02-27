@@ -7,27 +7,28 @@ import { exerciseAtom } from '@/components/molecules/EditRecord/EditRecordsHeade
 import { useSetAtom } from 'jotai';
 
 interface EditRecordNameProp {
+  id: number;
   name: string;
 }
 
-function EditRecordName({ name }: EditRecordNameProp) {
+function EditRecordName({ id, name }: EditRecordNameProp) {
   const setExercise = useSetAtom(exerciseAtom);
 
-  const deleteExercise = (index: number) => {
+  const deleteExercise = (id: number) => {
     setExercise((prevExercise) => {
-      const newExercise = [...prevExercise];
-      newExercise.splice(index, 1); // 인덱스에 해당하는 요소 제거
+      const exercise = [...prevExercise];
+      const newExercise = exercise.filter((val) => val[0].props.id !== id);
       return newExercise;
     });
   };
+
   return (
     <div className={styles.wrapper}>
       <BabelSvg />
       <div className={styles.nameText}>
         <Text records="trackName">{name}</Text>
       </div>
-      {/* TODO: deleteExercise(index): index 값 한번 알아봐야함 이게 맞는지 잘 모름*/}
-      <button type="button" onClick={() => deleteExercise(0)}>
+      <button type="button" onClick={() => deleteExercise(id)}>
         <SetNameDeleteSvg />
       </button>
     </div>

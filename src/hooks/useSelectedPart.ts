@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 const selectedIdAtom = atom(0);
 const selectedNumAtom = atom(0);
 const isActiveAtom = atom(false);
-const selectedMachinesAtom = atom<string[]>([]);
+const selectedMachinesAtom = atom<any[]>([]);
 
 function useSelectedPart() {
   const [selectedId, setSelectedId] = useAtom(selectedIdAtom);
@@ -16,7 +16,7 @@ function useSelectedPart() {
     setSelectedId(val.id);
   };
 
-  const handleChecklist = (name: string) => {
+  const handleChecklist = (id: number, name: string) => {
     if (selectedMachines.includes(name)) {
       if (selectedNum === 1) setIsActive(false);
       setSelectedNum(selectedNum - 1);
@@ -27,13 +27,17 @@ function useSelectedPart() {
     } else {
       setIsActive(true);
       setSelectedNum(selectedNum + 1);
-      setSelectedMachines([...selectedMachines, name]);
+      setSelectedMachines([...selectedMachines, { id, name }]);
       return true;
     }
   };
 
   useEffect(() => {
     setSelectedId(0);
+
+    return () => {
+      setSelectedMachines([]);
+    };
   }, []);
 
   return {
@@ -43,6 +47,7 @@ function useSelectedPart() {
     isActive,
     selectedMachines,
     handleChecklist,
+    setSelectedMachines,
   };
 }
 

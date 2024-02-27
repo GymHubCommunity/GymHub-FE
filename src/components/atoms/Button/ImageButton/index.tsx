@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
 interface ImageButtonProps {
+  href: string;
   imgSrc: StaticImageData;
   alt: string;
   path?: string;

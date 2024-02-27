@@ -8,7 +8,7 @@ function useGetInfo() {
     queryKey: ['userInfoe'],
     queryFn: async () => {
       const response = await instance.get(`/members/me`);
-      
+
       return response;
     },
   });

@@ -1,20 +1,26 @@
 import { instance } from '@/apis';
 import { atom, useAtom } from 'jotai';
 
-const selectedAtom = atom(false);
+const getInitialSelectedValue = () => {
+  if (typeof window !== 'undefined') {
+    return Boolean(localStorage.getItem('private')) ?? false;
+  }
+  return false;
+};
+
+const selectedAtom = atom(getInitialSelectedValue());
 
 function useToggleButton() {
   const [isSelected, setIsSelected] = useAtom(selectedAtom);
 
+  console.log(isSelected);
   const handlePrivate = async () => {
-    setIsSelected((prev) => !prev);
+    setIsSelected((prev: boolean) => !prev);
 
-    let disclosure = '';
+    const disclosure = isSelected ? 'PRIVATE' : 'PUBLIC';
 
-    if (isSelected) {
-      disclosure = 'PRIVATE';
-    } else {
-      disclosure = 'PUBLIC';
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('private', String(isSelected));
     }
 
     await instance.post(`/members/account/privacy`, null, {

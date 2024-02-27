@@ -1,6 +1,6 @@
+import { searchPost } from '@/apis/post';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { searchPost } from '@/apis/post';
 
 function useSearchPost(keyword: string) {
   const { data, isError, fetchNextPage, hasNextPage } = useInfiniteQuery({
