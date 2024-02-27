@@ -1,5 +1,5 @@
-import useSubmitPost from '@/apis/Query/useSubmitPost';
-import useUpdatePost from '@/apis/Query/useUpdatePost';
+import useSubmitPost from '@/apis/Query/Post/useSubmitPost';
+import useUpdatePost from '@/apis/Query/Post/useUpdatePost';
 import { postProps, submitPostProps } from '@/apis/post';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';

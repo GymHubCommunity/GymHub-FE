@@ -1,5 +1,4 @@
 import styles from '@/components/atoms/Button/FollowToggleButton/FollowToggleButton.module.scss';
-
 import classNames from 'classnames/bind';
 import { ReactNode } from 'react';
 

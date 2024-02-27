@@ -5,13 +5,20 @@ interface ImageButtonProps {
   href: string;
   imgSrc: StaticImageData;
   alt: string;
+  path?: string;
 }
 
-function ImageButton({ href, imgSrc, alt }: ImageButtonProps) {
+function ImageButton({ imgSrc, alt, path }: ImageButtonProps) {
   return (
-    <Link href={href}>
-      <Image width={168} height={223} src={imgSrc} alt={alt} />
-    </Link>
+    <>
+      {path ? (
+        <Link href={path}>
+          <Image width={168} height={223} src={imgSrc} alt={alt} />
+        </Link>
+      ) : (
+        <Image width={168} height={223} src={imgSrc} alt={alt} />
+      )}
+    </>
   );
 }
 

@@ -7,17 +7,17 @@ import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const memberId = 1;
+interface Prop {
+  memberId: number;
+}
 
-function FollowSection() {
+function FollowSection({ memberId }: Prop) {
   const followButton = useAtomValue(followButtonAtom);
 
-  const { followers, fetchNextFollowers, nextFollowers } = useGetFollowers({
-    memberId,
-  });
-  const { followings, fetchNextFollowing, nextFollowings } = useGetFollowings({
-    memberId,
-  });
+  const { followers, fetchNextFollowers, nextFollowers } =
+    useGetFollowers(memberId);
+  const { followings, fetchNextFollowing, nextFollowings } =
+    useGetFollowings(memberId);
 
   const { ref, inView } = useInView();
 
@@ -34,22 +34,20 @@ function FollowSection() {
   }, [inView]);
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        {(followButton === 'follower' ? followers : followings)?.pages.map(
-          (val) => (
-            <div key={val.id} className={styles.followWrapper}>
-              <FollowList
-                id={val.id}
-                profileUrl={val.profileUrl}
-                name={val.nickname}
-              />
-            </div>
-          ),
-        )}
-        <div ref={ref} />
-      </div>
-    </>
+    <div className={styles.wrapper}>
+      {(followButton === 'follower' ? followers : followings)?.pages.map(
+        (val) => (
+          <div key={val.id} className={styles.followWrapper}>
+            <FollowList
+              id={val.id}
+              profileUrl={val.profileUrl}
+              name={val.nickname}
+            />
+          </div>
+        ),
+      )}
+      <div ref={ref} />
+    </div>
   );
 }
 

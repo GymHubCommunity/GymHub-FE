@@ -1,15 +1,21 @@
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
+import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import PostArticle from '@/components/molecules/PostArticle';
 import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import { stories } from '@/constants/MockData';
 import useMainSection from '@/hooks/useMainSection';
+import useToggleMenu from '@/hooks/useToggleMenu';
 import MainBackgroundImg from '@/public/images/MainBackground.webp';
 import Image from 'next/image';
+import Modal from '../Modal';
+import useModalInfo from '@/hooks/useModalInfo';
 
 function MainSection() {
   const { data, ref } = useMainSection();
+  const { isShow, closeModal } = useModalInfo();
+  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
 
   return (
     <>
@@ -35,6 +41,8 @@ function MainSection() {
                 imageUrl={val.imageUrl as string}
                 registeredAt={val.registeredAt}
                 commentCount={val.commentCount}
+                close={closeMenu}
+                toggle={toggleMenu}
               />
             </div>
           ))}
@@ -45,6 +53,14 @@ function MainSection() {
         </div>
         <div ref={ref} />
       </main>
+
+      <div className={styles.modalWrapper}>
+        {isOpen && <ToggleItems type="postReport" />}
+      </div>
+      {isShow && (
+        <Modal type="postReport" isShow={isShow} closeModal={closeModal} />
+      )}
+
       <div className={styles.floatingButton}>
         <FloatingButton type={'post'} />
       </div>

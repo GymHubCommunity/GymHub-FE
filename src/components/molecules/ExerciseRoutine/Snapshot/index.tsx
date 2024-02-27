@@ -1,40 +1,31 @@
-import { instance } from '@/apis';
-import Loading from '@/components/atoms/Loading';
-import styles from '@/components/molecules/ExerciseRoutine/ExerciseRoutine.module.scss';
+import styles from '@/components/molecules/ExerciseRoutine/Snapshot/Snapshot.module.scss';
 import UserRoutineArticle from '@/components/molecules/UserRoutineArticle';
 import { postProfile } from '@/constants/MockData';
-import {
-  RecordCategory,
-  RecordExerciseProps,
-  RecordTracksProps,
-  RecordsProps,
-} from '@/types/records';
+import { RecordCategory, RecordExerciseProps } from '@/types/records';
 
 interface ToggleProps {
   close: () => void;
   toggle: () => void;
   targetDate: Date;
   data: any;
-  day: string;
 }
 
-function ExerciseRoutine({
+function ExerciseSnapshotRoutine({
   close,
   toggle,
   targetDate,
   data,
-  day,
 }: ToggleProps) {
   return (
-    <div className={styles.wrapper}>
-      <UserRoutineArticle
-        name={postProfile.name}
-        date={targetDate}
-        close={close}
-        toggle={toggle}
-      />
-      {data.results[data.results?.length - Number(day)].exerciseRecords?.map(
-        (item: RecordExerciseProps, index: number) => (
+    <div className={styles.allWrapper}>
+      <div className={styles.wrapper}>
+        <UserRoutineArticle
+          name={postProfile.name}
+          date={targetDate}
+          close={close}
+          toggle={toggle}
+        />
+        {data.snapshots?.map((item: RecordExerciseProps, index: number) => (
           <div key={index} className={styles.inWrapper}>
             {item.tracksCategorizedBodyPart?.map(
               (tracks: RecordCategory, index) => (
@@ -61,10 +52,10 @@ function ExerciseRoutine({
               ),
             )}
           </div>
-        ),
-      )}
+        ))}
+      </div>
     </div>
   );
 }
 
-export default ExerciseRoutine;
+export default ExerciseSnapshotRoutine;

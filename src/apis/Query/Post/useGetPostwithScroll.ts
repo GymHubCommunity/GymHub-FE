@@ -1,16 +1,24 @@
-import { searchPost } from '@/apis/post';
+import { instance } from '@/apis/index';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
-function useSearchPost(keyword: string) {
+interface getPostProp {
+  pageParam?: number;
+}
+
+function useGetPostwithScroll() {
+  const getPost = async ({ pageParam }: getPostProp) => {
+    const response = await instance.get(`/posts?page=${pageParam}&size=5`);
+    return response.data;
+  };
+
   const { data, isError, fetchNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ['postsSearch', keyword],
-    queryFn: ({ pageParam }) => searchPost({ pageParam, keyword }),
+    queryKey: ['posts'],
+    queryFn: ({ pageParam }) => getPost({ pageParam }),
     initialPageParam: 0,
     select: (data) => ({
       pages: data?.pages.flatMap((page) => page.posts) || [],
       pageParams: data.pageParams,
-      totalPostCount: data?.pages[0]?.totalPostCount || 0,
     }),
     getNextPageParam: (lastPage, pages) => {
       if (!lastPage.hasNext) {
@@ -20,9 +28,9 @@ function useSearchPost(keyword: string) {
     },
   });
 
-  if (isError) toast.error('게시글 검색을 실패했어요.');
+  if (isError) toast.error('글 목록 불러오기가 실패했어요.');
 
   return { data, fetchNextPage, hasNextPage };
 }
 
-export default useSearchPost;
+export default useGetPostwithScroll;

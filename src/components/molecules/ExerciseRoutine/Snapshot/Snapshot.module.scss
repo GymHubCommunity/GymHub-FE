@@ -1,6 +1,14 @@
 @import '/src/styles/colors.scss';
 @import '/src/styles/fontWeights.scss';
 
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
 .wrapper {
   width: 100%;
   height: fit-content;

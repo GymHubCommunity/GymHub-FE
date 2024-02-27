@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 
 function useToggleMenu() {
@@ -8,6 +9,7 @@ function useToggleMenu() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
   return { isOpen, toggleMenu, closeMenu };
 }
 

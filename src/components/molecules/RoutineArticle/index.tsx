@@ -6,7 +6,7 @@ function RoutineArticle() {
     <>
       {/* <PostProfile type="exercised" /> */}
       {/* <Post post={postRoutine} /> */}
-      <ExerciseRoutine />
+      {/* <ExerciseRoutine /> */}
       {/* <Reaction registeredAt={'undefined'} /> */}
     </>
   );

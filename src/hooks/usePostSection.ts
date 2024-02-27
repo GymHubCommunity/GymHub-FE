@@ -1,7 +1,6 @@
 import useGetComment from '@/apis/Query/Comment/useGetComment';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { useQueryClient } from '@tanstack/react-query';
-
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -18,11 +17,13 @@ function usePostSection({ postId }: usePostSectionProp) {
     'postDetail',
     String(postId),
   ]);
+
   useEffect(() => {
     if (inView && hasNextPage) {
       fetchNextPage();
     }
   }, [inView]);
+
   return { ref, comment, commentData };
 }
 
