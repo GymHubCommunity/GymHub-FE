@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 interface ProfileProps {
   profileImg?: string;
-  postCount?: string;
-  exerciseDays?: string;
+  postCount?: number;
+  exerciseDays?: number;
   memberId: number;
 }
 

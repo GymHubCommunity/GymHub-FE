@@ -1,37 +1,20 @@
-import { instance } from '@/apis';
-import Loading from '@/components/atoms/Loading';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import Modal from '@/components/organisms/Modal';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
-import {
-  GetPostItemsProps,
-  GetPostDetailProps,
-  GetPost,
-} from '@/types/GetPost';
-import { useQuery } from '@tanstack/react-query';
+import { GetPostDetailProps } from '@/types/GetPost';
+import { UserInfoProps } from '@/types/user';
+import { AxiosResponse } from 'axios';
 
 interface PostSectionProp {
-  // postData?: GetPostDetailProps[] | GetPost;
-  postData?: any;
+  postData: GetPostDetailProps[];
+  userData: AxiosResponse<UserInfoProps, any>;
 }
 
-function MypagePostSection({ postData }: PostSectionProp) {
+function MypagePostSection({ postData, userData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['userInfo'],
-    queryFn: async () => {
-      const response = await instance.get(`/members/me`);
-      return response;
-    },
-  });
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -39,16 +22,16 @@ function MypagePostSection({ postData }: PostSectionProp) {
         <Modal type={'commentDel'} isShow={isShow} closeModal={closeModal} />
       )}
 
-      <BackButtonHeader pageName={data?.data.nickname} />
+      <BackButtonHeader pageName={userData.data.nickname} />
       <Profile
-        profileImg={data?.data.profileUrl}
-        postCount={postData.posts.length}
-        exerciseDays={postData.posts.length}
-        memberId={data?.data.id}
+        profileImg={userData.data.profileUrl}
+        postCount={postData.length ?? 0}
+        exerciseDays={postData?.length ?? 0}
+        memberId={userData.data.id}
       />
-
+      {postData.length === 0 && <div className={styles.blankWrapper}></div>}
       <div className={styles.inWrapper}>
-        {postData.posts.map((item: GetPostDetailProps, index: number) => (
+        {postData.map((item: GetPostDetailProps, index: number) => (
           <div className={styles.postWrapper} key={index}>
             <PostArticle
               postId={item.postId}
