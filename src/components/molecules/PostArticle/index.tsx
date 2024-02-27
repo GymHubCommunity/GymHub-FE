@@ -24,7 +24,7 @@ function PostArticle({
 }: PostArticleProps) {
   return (
     <>
-      <PostProfile type={'default'} postProfile={userInfo} postId={postId} />
+      <PostProfile type={'default'} postProfile={userInfo} />
       <Post postId={postId} content={content} imageUrl={imageUrl} />
       <Reaction
         postId={postId}

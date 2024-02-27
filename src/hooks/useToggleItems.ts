@@ -50,7 +50,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
         router.push(`/records/${recordId}`);
         break;
       case RECORD_DELETE:
-        await deleteRecordSnapshots(snapshotId);
+        await deleteRecordSnapshots(snapshotId as number);
         break;
       case POST_DELETE:
         handleDeletePost.mutateAsync({ id: id as number });

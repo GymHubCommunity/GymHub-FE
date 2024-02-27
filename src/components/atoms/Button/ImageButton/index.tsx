@@ -9,9 +9,15 @@ interface ImageButtonProps {
 
 function ImageButton({ imgSrc, alt, path }: ImageButtonProps) {
   return (
-    <Link href={path}>
-      <Image width={168} height={223} src={imgSrc} alt={alt} />
-    </Link>
+    <>
+      {path ? (
+        <Link href={path}>
+          <Image width={168} height={223} src={imgSrc} alt={alt} />
+        </Link>
+      ) : (
+        <Image width={168} height={223} src={imgSrc} alt={alt} />
+      )}
+    </>
   );
 }
 
