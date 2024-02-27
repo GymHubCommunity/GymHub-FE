@@ -55,11 +55,11 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
 
   const handleOnClick = async (item: string, recordId?: number) => {
     // *: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
+    //TODO: 스냅샷 저장 성공시 저장된 항목 페이지로 이동해야 됌
     switch (item) {
       case RECORD_SAVE:
         const response = await postRecordSnapshots(recordId as number);
         snapShot(response.data.id);
-
         break;
       case POST_UPDATE:
         router.push(`/records/recordId`);
