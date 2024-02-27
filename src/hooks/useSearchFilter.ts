@@ -1,5 +1,5 @@
 import { post } from '@/constants/MockData';
-import { atom, useSetAtom } from 'jotai';
+import { atom, useAtom } from 'jotai';
 import { ChangeEvent, MutableRefObject, useEffect } from 'react';
 
 export const filterValueAtom = atom<string[]>([]);
@@ -11,7 +11,7 @@ interface Props {
 }
 
 function useSearchFilter({ timer, searchValue, setSearchValue }: Props) {
-  const setFilterValue = useSetAtom(filterValueAtom);
+  const [filterValue, setFilterValue] = useAtom(filterValueAtom);
 
   const searchHashTag = (e: ChangeEvent<HTMLInputElement>) => {
     if (timer.current) {
