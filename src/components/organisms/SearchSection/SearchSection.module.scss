@@ -1,0 +1,36 @@
+@import '/src/styles/mixin.scss';
+@import '/src/styles/colors.scss';
+@import '/src/styles/zIndex.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+}
+.inWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.feedWrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+  border-radius: 20px 20px 0 0;
+  background: $story;
+  z-index: $aboveDefault;
+}
+.npPostWrapper {
+  padding: 20px;
+  gap: 16px;
+  height: 100vh;
+}
+
+.noPost {
+  @include flexCenter;
+  margin-top: 50%;
+}

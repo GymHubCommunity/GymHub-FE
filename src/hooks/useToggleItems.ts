@@ -1,4 +1,4 @@
-import useDeletePost from '@/apis/Query/useDeletePost';
+import useDeletePost from '@/apis/Query/Post/useDeletePost';
 import {
   POST_UPDATE,
   POST_DELETE,

@@ -1,17 +1,32 @@
-import { post } from '@/constants/MockData';
+import { WriterInfoProps } from '@/types/GetPost';
 import { atom, useSetAtom } from 'jotai';
-import { ChangeEvent, MutableRefObject, useEffect } from 'react';
+import { ChangeEvent, MutableRefObject } from 'react';
 
-export const filterValueAtom = atom<string[]>([]);
+interface filterValueProps {
+  postId: number;
+  writerInfo: WriterInfoProps;
+  content: string;
+  imageUrl: string | Array<string> | null;
+  commentCount: number;
+  registeredAt: string;
+}
 
-interface Props {
+export const filterValueAtom = atom<filterValueProps[]>([]);
+export const keywordValueAtom = atom('');
+
+interface useSearchFilterProps {
   timer: MutableRefObject<NodeJS.Timeout | null>;
   searchValue: string;
   setSearchValue: any; // TODO: 타입 추정 안됨
 }
 
-function useSearchFilter({ timer, searchValue, setSearchValue }: Props) {
-  const setFilterValue = useSetAtom(filterValueAtom);
+function useSearchFilter({
+  timer,
+  searchValue,
+  setSearchValue,
+}: useSearchFilterProps) {
+  // const setFilterValue = useSetAtom(filterValueAtom);
+  const setKeyword = useSetAtom(keywordValueAtom);
 
   const searchHashTag = (e: ChangeEvent<HTMLInputElement>) => {
     if (timer.current) {
@@ -23,26 +38,9 @@ function useSearchFilter({ timer, searchValue, setSearchValue }: Props) {
       const blank_pattern = /[\s]/g; // 띄어쓰기 찾는 정규표현식
       if (blank_pattern.test(value)) value = value.replace(/ /g, '');
       setSearchValue(value);
+      setKeyword(value);
     }, 800);
   };
-
-  // TODO: post부분에 api데이터 넣어주기
-  const hashtags = post.postContent
-    .match(/#[^\s#]*/g)
-    ?.map((val) => val) as RegExpMatchArray;
-
-  useEffect(() => {
-    if (searchValue) {
-      setFilterValue(
-        hashtags
-          .map((val) => val.slice(1))
-          .filter((val) => val === searchValue.toLocaleLowerCase()),
-      );
-    }
-    if (searchValue.length === 0) {
-      setFilterValue([]);
-    }
-  }, [searchValue]);
 
   return { searchHashTag };
 }
