@@ -6,7 +6,7 @@ import Image from 'next/image';
 import useImageUpload from '@/hooks/useImageUpload';
 import { ImgUploadButtonProps } from '@/types/image';
 
-function ProfileImgSetting({ prop, onImageChange }: ImgUploadButtonProps) {
+function ProfileImgSetting({ prop }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
   const [image, setImage] = useState('');
 
@@ -18,7 +18,6 @@ function ProfileImgSetting({ prop, onImageChange }: ImgUploadButtonProps) {
     reader.onload = (e: ProgressEvent<FileReader>) => {
       if (reader.readyState === 2) {
         setImage(e.target?.result as string);
-        onImageChange(e.target?.result as string);
       }
     };
     e.target.value = '';
@@ -26,7 +25,10 @@ function ProfileImgSetting({ prop, onImageChange }: ImgUploadButtonProps) {
   };
 
   useEffect(() => {
+    if (!file) return;
+    if (!file.name) return;
     handlePresignedUrl();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
