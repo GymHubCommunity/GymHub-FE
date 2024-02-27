@@ -27,52 +27,61 @@ const stories = [
   {
     id: 0,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '김춘식',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/0ad140fa-6b1c-4cd3-977d-a3e5c4b4909f',
+    name: '슬그머니',
+    count: 3,
   },
   {
     id: 1,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '이춘식',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/6f487207-3a8a-43c3-9bcc-5d16de371b50',
+    name: '박정우',
+    count: 5,
   },
   {
     id: 2,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '박춘식',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/22478b7b-d763-437b-95ee-191d4b254819',
+    name: '헬린이',
+    count: 2,
   },
   {
     id: 3,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '장춘식',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/026ddce6-018a-4397-b8af-71abf25c358c',
+    name: '다이어트다냥',
+    count: 1,
   },
   {
     id: 4,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '왕족발',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/aeefa190-d3ff-4aaf-abae-1be64faed501',
+    name: '임주영',
+    count: 0,
   },
   {
     id: 5,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '보쌈',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/afe4ce5d-0d93-46c3-b308-cf9d9557bab6',
+    name: '1일1운동',
+    count: 4,
   },
   {
     id: 6,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '치킨',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/9810fc73-ffaf-4a4d-be7b-660ad4cb34bf',
+    name: '미래의짐종국',
+    count: 10,
   },
   {
     id: 7,
     imgUrl:
-      'https://github.com/GymHubCommunity/GymHub-FE/assets/49686619/92f27327-255c-4f3c-8446-dc2b26b6a021',
-    name: '탕수육',
+      'https://github.com/GymHubCommunity/GymHub-FE/assets/63100352/a9722639-e8c4-4537-8d56-20eaea8e7f0d',
+    name: '오영주',
+    count: 3,
   },
 ];
+
 const profile = {
   name: '부리부리몬',
   imgUrl:

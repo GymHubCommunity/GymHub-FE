@@ -2,8 +2,6 @@ import Post from '@/components/molecules/Post';
 import PostProfile from '@/components/molecules/PostProfile';
 import Reaction from '@/components/molecules/Reaction';
 import { WriterInfoProps } from '@/types/GetPost';
-import { useAtom, useAtomValue } from 'jotai';
-import { usePathname } from 'next/navigation';
 
 interface PostArticleProps {
   postId: number;

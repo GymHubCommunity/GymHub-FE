@@ -12,7 +12,7 @@ function useResignButton() {
 
   const handleDeleteClick = async (memberId: number) => {
     await deleteUser(memberId);
-    router.push('/');
+    router.push('/signin');
   };
 
   return { handleCancelClick, handleDeleteClick, isCheckName };

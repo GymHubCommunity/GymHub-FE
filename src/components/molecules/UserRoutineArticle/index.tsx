@@ -19,7 +19,7 @@ function UserRoutineArticle({ name, date, close, toggle }: Props) {
   return (
     <div className={styles.wrapper}>
       <UserRoutine name={name} date={date} />
-      {pathName === '/records' || '/snapshot' ? (
+      {pathName === ('/records' || '/snapshot') ? (
         <ToggleMenu close={close} toggle={toggle} />
       ) : (
         <button onClick={() => console.log(`${name} 루틴 보러가기`)}>

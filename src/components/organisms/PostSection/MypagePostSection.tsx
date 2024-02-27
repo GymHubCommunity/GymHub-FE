@@ -1,6 +1,3 @@
-import { instance } from '@/apis';
-import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
-import Loading from '@/components/atoms/Loading';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
@@ -8,46 +5,39 @@ import Modal from '@/components/organisms/Modal';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
-import {
-  GetPostItemsProps,
-  GetPostDetailProps,
-  GetPost,
-} from '@/types/GetPost';
-import { useQuery } from '@tanstack/react-query';
+import { GetPostDetailProps } from '@/types/GetPost';
+import { UserInfoProps } from '@/types/user';
+import { AxiosResponse } from 'axios';
 
 interface PostSectionProp {
-  // postData?: GetPostDetailProps[] | GetPost;
-  postData?: any;
+  postData: GetPostDetailProps[];
+  userData: AxiosResponse<UserInfoProps, any>;
 }
 
-function MypagePostSection({ postData }: PostSectionProp) {
+function MypagePostSection({ postData, userData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
-  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
+  const { toggleMenu, closeMenu } = useToggleMenu();
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['userInfo'],
-    queryFn: async () => {
-      const response = await instance.get(`/members/me`);
-      return response;
-    },
-  });
-
-  if (isLoading) {
-    return <Loading />;
-  }
+  const exerciseDays = postData?.filter((val) =>
+    val.content.includes('#오운완'),
+  );
 
   return (
     <div className={styles.wrapper}>
-      <BackButtonHeader pageName={data?.data.nickname} />
-      <Profile
-        profileImg={data?.data.profileUrl}
-        postCount={postData.posts?.length}
-        exerciseDays={postData.posts?.length}
-        memberId={data?.data.id}
-      />
+      {isShow && (
+        <Modal type={'commentDel'} isShow={isShow} closeModal={closeModal} />
+      )}
 
+      <BackButtonHeader pageName={userData.data.nickname} />
+      <Profile
+        profileImg={userData.data.profileUrl}
+        postCount={postData.length ?? 0}
+        exerciseDays={exerciseDays.length ?? 0}
+        memberId={userData.data.id}
+      />
+      {postData.length === 0 && <div className={styles.blankWrapper} />}
       <div className={styles.inWrapper}>
-        {postData?.posts?.map((item: GetPostDetailProps, index: number) => (
+        {postData.map((item: GetPostDetailProps, index: number) => (
           <div className={styles.postWrapper} key={index}>
             <PostArticle
               postId={item.postId}
@@ -62,13 +52,6 @@ function MypagePostSection({ postData }: PostSectionProp) {
           </div>
         ))}
       </div>
-
-      <div className={styles.modalWrapper}>
-        {isOpen && <ToggleItems type="postReport" />}
-      </div>
-      {isShow && (
-        <Modal type="commentDel" isShow={isShow} closeModal={closeModal} />
-      )}
     </div>
   );
 }
