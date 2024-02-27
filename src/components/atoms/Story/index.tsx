@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // TODO: 타입 수정 필요
 export interface StoryProps {
-  stories: { id: number; imgUrl: string; name: string }[];
+  stories: { id: number; imgUrl: string; name: string; count: number }[];
 }
 
 function Story({ stories }: StoryProps) {
@@ -24,7 +24,7 @@ function Story({ stories }: StoryProps) {
         {stories.map((val) => (
           <SwiperSlide key={val.id}>
             <StoryButton imgUrl={val.imgUrl} name={val.name} />
-            <ExerciseCount count={5} />
+            <ExerciseCount count={val.count} />
           </SwiperSlide>
         ))}
       </Swiper>
