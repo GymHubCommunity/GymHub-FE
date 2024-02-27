@@ -1,15 +1,23 @@
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 interface ImageButtonProps {
   imgSrc: StaticImageData;
   alt: string;
+  path?: string;
 }
 
-function ImageButton({ imgSrc, alt }: ImageButtonProps) {
+function ImageButton({ imgSrc, alt, path }: ImageButtonProps) {
   return (
-    <button>
-      <Image width={168} height={223} src={imgSrc} alt={alt} />
-    </button>
+    <>
+      {path ? (
+        <Link href={path}>
+          <Image width={168} height={223} src={imgSrc} alt={alt} />
+        </Link>
+      ) : (
+        <Image width={168} height={223} src={imgSrc} alt={alt} />
+      )}
+    </>
   );
 }
 

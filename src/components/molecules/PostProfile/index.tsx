@@ -1,18 +1,21 @@
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
+import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 
 import ProfileImg from '@/components/atoms/ProfileImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
+import useToggleMenu from '@/hooks/useToggleMenu';
 import { WriterInfoProps } from '@/types/GetPost';
 
 interface PostProfileProps {
   type: 'default' | 'exercised';
   postProfile: WriterInfoProps;
-  postId: number;
 }
 
-function PostProfile({ type, postProfile, postId }: PostProfileProps) {
+function PostProfile({ type, postProfile }: PostProfileProps) {
+  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
   if (!postProfile) return;
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.inWrapper}>
@@ -24,7 +27,12 @@ function PostProfile({ type, postProfile, postId }: PostProfileProps) {
           )}
         </div>
       </div>
-      <ToggleMenu type="post" id={postId} />
+      {/* <ToggleMenu type="post" /> */}
+      <ToggleMenu close={closeMenu} toggle={toggleMenu} />
+
+      <div className={styles.modalWrapper}>
+        {isOpen && <ToggleItems type="post" />}
+      </div>
     </div>
   );
 }

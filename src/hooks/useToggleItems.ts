@@ -1,8 +1,14 @@
 import useDeletePost from '@/apis/Query/Post/useDeletePost';
 import {
+  deleteRecordSnapshots,
+  postRecordSnapshots,
+} from '@/apis/recordController';
+import {
   POST_UPDATE,
-  POST_DELETE,
   RECORD_DELETE,
+  RECORD_SAVE,
+  RECORD_UPDATE,
+  POST_DELETE,
   postItems,
   profileItems,
   recordsItems,
@@ -26,12 +32,25 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
   } else {
     menuItems = recordsItems;
   }
-
-  const handleOnClick = async (item: string) => {
-    // TODO: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
+  if (type === 'records') {
+    menuItems = recordsItems;
+  }
+  
+  const handleOnClick = async (
+    item: string,
+    recordId?: number,
+    snapshotId?: number,
+  ) => {
+    // *: 여기에 토글 메뉴에 관련한 기능 추가해주시면 됩니다.
     switch (item) {
       case POST_UPDATE:
-        router.push(`post/${id}/edit`);
+        router.push(`/records/recordId`);
+        break;
+      case RECORD_UPDATE:
+        router.push(`/records/${recordId}`);
+        break;
+      case RECORD_DELETE:
+        await deleteRecordSnapshots(snapshotId as number);
         break;
       case POST_DELETE:
         handleDeletePost.mutateAsync({ id: id as number });

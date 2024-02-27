@@ -37,3 +37,7 @@
   @include flexBetween;
   width: 309px;
 }
+
+.modalWrapper {
+  @include flexCenter;
+}

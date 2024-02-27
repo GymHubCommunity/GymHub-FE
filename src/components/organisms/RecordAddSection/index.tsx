@@ -24,9 +24,9 @@ function RecordAddSection({ type }: RecordAddSectionProp) {
           <>
             <Input type="workOut" />
             <div className={styles.button}>
-              <ImageButton imgSrc={UpperImg} alt={'상체'} />
-              <ImageButton imgSrc={LowerImg} alt={'하체'} />
-              <ImageButton imgSrc={WholeImg} alt={'전신'} />
+              <ImageButton imgSrc={UpperImg} alt={'상체'} path="/records/select/upper" />
+              <ImageButton imgSrc={LowerImg} alt={'하체'} path="/records/select/lower"/>
+              <ImageButton imgSrc={WholeImg} alt={'전신'} path="/records/select/whole"/>
               <NoExercise />
             </div>
             <PostConfirmButton title={'선택 완료'} onClick={() => {}} />

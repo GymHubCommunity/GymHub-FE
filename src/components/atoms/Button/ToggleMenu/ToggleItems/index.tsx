@@ -5,8 +5,8 @@ import classNames from 'classnames/bind';
 
 const cn = classNames.bind(styles);
 
-function ToggleItems({ type, id }: ToggleMenuProp) {
-  const { pathName, menuItems, handleOnClick } = useToggleItems({ type, id });
+function ToggleItems({ type, recordId, snapShotId }: ToggleMenuProp) {
+  const { pathName, menuItems, handleOnClick } = useToggleItems({ type });
   return (
     <ul className={styles.menus}>
       {/* pathName 부분을 나중에 본인 아이디인지 아닌지에 따라서 나누면 됩니다. */}
@@ -31,7 +31,7 @@ function ToggleItems({ type, id }: ToggleMenuProp) {
               role="presentation"
               key={val.id}
               className={styles.itemWrapper}
-              onMouseDown={() => handleOnClick(val.item)}
+              onMouseDown={() => handleOnClick(val.item, recordId, snapShotId)}
             >
               <div
                 className={cn('item', {

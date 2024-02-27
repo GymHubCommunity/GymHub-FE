@@ -8,6 +8,7 @@ function useToggleMenu() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
   return { isOpen, toggleMenu, closeMenu };
 }
 
