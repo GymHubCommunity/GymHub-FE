@@ -30,6 +30,10 @@
   background: $story;
   z-index: $aboveDefault;
 }
+.blankWrapper {
+  padding: 20%;
+  height: 100vh;
+}
 
 .inWrapper {
   display: flex;
