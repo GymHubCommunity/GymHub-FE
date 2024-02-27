@@ -18,6 +18,10 @@ function MypagePostSection({ postData, userData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
   const { toggleMenu, closeMenu } = useToggleMenu();
 
+  const exerciseDays = postData?.filter((val) =>
+    val.content.includes('#오운완'),
+  );
+
   return (
     <div className={styles.wrapper}>
       {isShow && (
@@ -28,7 +32,7 @@ function MypagePostSection({ postData, userData }: PostSectionProp) {
       <Profile
         profileImg={userData.data.profileUrl}
         postCount={postData.length ?? 0}
-        exerciseDays={postData?.length ?? 0}
+        exerciseDays={exerciseDays.length ?? 0}
         memberId={userData.data.id}
       />
       {postData.length === 0 && <div className={styles.blankWrapper} />}
