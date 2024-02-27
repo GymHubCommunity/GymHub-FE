@@ -1,4 +1,4 @@
-import PostConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageButton from '@/components/atoms/Button/ImageButton';
 import Input from '@/components/atoms/Input';
 import NoExercise from '@/components/molecules/NoExercise';
@@ -32,12 +32,11 @@ function RecordAddArticle({ type }: RecordAddTypeProp) {
             />
             <NoExercise />
           </div>
-          <PostConfirmButton title={'선택 완료'} onClick={() => {}} />
         </>
       ) : (
         <>
           <Input type="addExercise" />
-          <PostConfirmButton title={'입력 완료'} onClick={() => {}} />
+          <ConfirmButton title={'입력 완료'} onClick={() => {}} />
         </>
       )}
     </div>

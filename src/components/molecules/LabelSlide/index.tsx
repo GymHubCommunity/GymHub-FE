@@ -1,16 +1,17 @@
+import PartLabel from '@/components/atoms/PartLabel';
+import styles from '@/components/molecules/LabelSlide/LabelSilde.module.scss';
+import { lowerPart, upperPart, wholePart } from '@/constants/ExerciseItems';
+import useSelectedPart from '@/hooks/useSelectedPart';
+
 import 'swiper/css';
 import { FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { upperPart, lowerPart, wholePart } from '@/constants/ExerciseItems';
-import PartLabel from '@/components/atoms/PartLabel';
-import styles from '@/components/molecules/LabelSlide/LabelSilde.module.scss';
-import useSelectedPart from '@/hooks/useSelectedPart';
 
-interface LabelSildeProp {
+interface LabelSlideProp {
   part: 'UPPER' | 'LOWER' | 'WHOLE';
 }
 
-function LabelSlide({ part }: LabelSildeProp) {
+function LabelSlide({ part }: LabelSlideProp) {
   const { selectedId, handleLabel } = useSelectedPart();
 
   const labels =

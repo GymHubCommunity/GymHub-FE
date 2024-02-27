@@ -58,7 +58,7 @@ function ChecklistSlide({ part }: ChecklistSlideProp) {
         {currentLists?.map((val) =>
           val.machines.map((val2) => (
             <SwiperSlide key={val2.id} className={styles.swiperSlide}>
-              <CheckList>{val2.name}</CheckList>
+              <CheckList id={val2.id}>{val2.name}</CheckList>
             </SwiperSlide>
           )),
         )}
