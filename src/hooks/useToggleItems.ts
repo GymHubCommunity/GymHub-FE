@@ -66,7 +66,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
         if (recordId) handleRecordPost(recordId);
         break;
       case POST_UPDATE:
-        router.push(`/records/recordId`);
+        router.push(`/post/${id}/edit`);
         break;
       case RECORD_UPDATE:
         router.push(`/records/${recordId}`);
