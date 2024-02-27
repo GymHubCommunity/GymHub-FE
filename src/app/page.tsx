@@ -3,12 +3,18 @@
 import Footer from '@/components/organisms/Footer';
 import MainSection from '@/components/organisms/MainSection';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 function Home() {
   const router = useRouter();
-  if (!localStorage.getItem('accessToken')) {
-    return router.push('/signin');
-  }
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      router.push('/signin');
+    }
+  }, []);
+
   return (
     <>
       <MainSection />
