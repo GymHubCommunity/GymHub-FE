@@ -3,6 +3,10 @@
 .wrapper {
   @include flexCenter;
   flex-direction: column;
-  gap: 19px;
+  gap: 13px;
   text-align: center;
+}
+
+.imgWrapper {
+  padding-top: 17px;
 }

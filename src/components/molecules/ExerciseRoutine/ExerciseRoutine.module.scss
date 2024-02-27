@@ -16,8 +16,13 @@
 .inWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 8px;
   color: $white;
+}
+
+.itemWrapper {
+  margin-top: 4px;
 }
 
 .exerciseArea {
@@ -38,10 +43,16 @@
   font-weight: $medium;
 }
 
-.exerciseInWrapper,
-.setWrapper {
+.exerciseInWrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
+  font-size: 1.2rem;
+}
+
+.setWrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
 }

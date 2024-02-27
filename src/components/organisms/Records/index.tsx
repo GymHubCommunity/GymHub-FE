@@ -1,3 +1,4 @@
+import DumbbellSvg from '@/assets/icons/DumbbellSvg';
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
@@ -16,9 +17,15 @@ function Records() {
 
   return (
     <div className={styles.wrapper}>
-      {isOpen && <div className={styles.blur}></div>}
+      {isOpen && <div className={styles.blur} />}
       <div className={styles.header}>
-        <Text>운동 기록</Text>
+        <Text className={styles.headerText}>운동 기록</Text>
+        <button
+          type="button"
+          onClick={() => console.log('저장된 운동 가져오기')}
+        >
+          <DumbbellSvg type={'menu'} size={24} />
+        </button>
       </div>
       <DateInput />
       <ExerciseRoutine />
@@ -28,7 +35,9 @@ function Records() {
       </div>
 
       <FloatingButton type={'addExercise'} />
-      {isShow && <Modal isShow={isShow} closeModal={closeModal} />}
+      {isShow && (
+        <Modal type="recordsDel" isShow={isShow} closeModal={closeModal} />
+      )}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 @import '/src/styles/fontWeights.scss';
 @import '/src/styles/colors.scss';
+@import '/src/styles/modalText.scss';
 
 .wrapper {
   color: $white;
@@ -56,7 +57,7 @@
   }
   &.postingTime {
     font-size: 1.4rem;
-    color: $gray400;
+    color: $darkGray100;
   }
   &.exerciseCompletedTime {
     font-size: 1.2rem;
@@ -85,8 +86,8 @@
   }
   &.searched {
     font-size: 1.4rem;
-    color: $white;
     font-weight: $medium;
+    color: $darkGray100;
   }
   &.noPost {
     font-size: 2rem;
@@ -144,5 +145,26 @@
     font-weight: $regular;
     color: $greenNeon;
     text-decoration: underline;
+  }
+
+  // modal
+  &.modalText {
+    @include modalText;
+  }
+
+  &.modalCancel {
+    width: 100%;
+    color: $gray600;
+    font-family:
+      'SF Pro',
+      Apple SD Gothic Neo,
+      serif,
+      sans-serif;
+    font-size: 1.7rem;
+    font-weight: $light;
+    line-height: 22px;
+    letter-spacing: -0.4px;
+    padding: 11px 0;
+    text-align: center;
   }
 }

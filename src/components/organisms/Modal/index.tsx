@@ -1,17 +1,39 @@
+import useDeleteComment from '@/apis/Query/Comment/useDeleteComment';
+import ModalArticle from '@/components/molecules/ModalArticle';
+import ModalToggle from '@/components/molecules/ModalToggle';
 import styles from '@/components/organisms/Modal/Modal.module.scss';
-import { useEffect } from 'react';
-import Text from '@/components/atoms/Text';
-import { deleteRecordSnapshots } from '@/apis/recordController';
+import { CommentDel, RecordsDel } from '@/constants/ModalToggle';
+import { commentIdAtom } from '@/hooks/atoms';
+import useGetPostId from '@/hooks/useGetPostId';
+import { useAtomValue } from 'jotai';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 interface ModalProps {
+  type: 'imgUpdate' | 'records' | 'recordsDel' | 'commentDel';
   isShow: boolean;
   closeModal: () => void;
 }
 
-function Modal({ isShow, closeModal }: ModalProps) {
+function Modal({ type, isShow, closeModal }: ModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  // 댓글 삭제 로직
+  const { postId } = useGetPostId();
+  const commentId = useAtomValue(commentIdAtom);
+  const { deleteComment } = useDeleteComment({ postId, commentId });
+
+  const handleDeleteComment = () => {
+    deleteComment();
+    closeModal();
+  };
+
   useEffect(() => {
     const handleCloseModal = (e: MouseEvent) => {
-      closeModal();
+      if (isShow && modalRef.current?.contains(e.target as Node)) {
+        closeModal();
+      }
     };
     document.addEventListener('mousedown', handleCloseModal);
 
@@ -20,31 +42,47 @@ function Modal({ isShow, closeModal }: ModalProps) {
     };
   }, [isShow]);
 
-  const handleDeleteSnapshots = async (snapshotId: number) => {
-    await deleteRecordSnapshots(19);
-    console.log("스리")
-  };
-
   return (
     <>
-      {isShow && <div className={styles.blur}></div>}
-      <div className={styles.container}>
-        <div className={styles.infoWrapper}>
-          <Text records="modalTitle">운동 기록 삭제</Text>
-          <Text records="modalInfo">
-            운동 기록 삭제 시에는 복구할 수 없습니다.{'\n'}운동 기록을
-            삭제할까요?
-          </Text>
-        </div>
-        <div className={styles.buttonWrapper}>
-          <button className={styles.deleteButton} onClick={() => handleDeleteSnapshots}>
-            삭제
-          </button>
-          <button className={styles.closeButton} onClick={() => closeModal()}>
-            취소
-          </button>
-        </div>
-      </div>
+      {isShow && <div ref={modalRef} className={styles.blur} />}
+      {type === 'imgUpdate' && (
+        <ModalArticle
+          first={'사진 변경하기'}
+          second={'기본 이미지로 변경하기'}
+          firstEvent={() => {}}
+          secondEvent={() => {}}
+          closeModal={closeModal}
+        />
+      )}
+      {type === 'records' && (
+        <ModalArticle
+          first={'운동 추가하기'}
+          second={'저장된 운동 가져오기'}
+          firstEvent={() => router.push('/records/add')}
+          secondEvent={() => {}}
+          closeModal={closeModal}
+        />
+      )}
+      {type === 'recordsDel' && (
+        <ModalToggle
+          title={RecordsDel.title}
+          info={RecordsDel.info}
+          buttonTextL={RecordsDel.buttonTextL}
+          buttonTextR={RecordsDel.buttonTextR}
+          actionButton={() => {}}
+          closeModal={closeModal}
+        />
+      )}
+      {type === 'commentDel' && (
+        <ModalToggle
+          title={CommentDel.title}
+          info={CommentDel.info}
+          buttonTextL={CommentDel.buttonTextL}
+          buttonTextR={CommentDel.buttonTextR}
+          actionButton={handleDeleteComment}
+          closeModal={closeModal}
+        />
+      )}
     </>
   );
 }

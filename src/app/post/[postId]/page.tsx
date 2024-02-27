@@ -1,13 +1,19 @@
 'use client';
 
-import useGetPostDetail from '@/apis/Query/useGetPostDetail';
+import useGetPostDetail from '@/apis/Query/Post/useGetPostDetail';
+import Loading from '@/components/atoms/Loading';
 import PostSection from '@/components/organisms/PostSection';
-import { GetPostDetailProps } from '@/types/GetPost';
 
 function PostDetailPage() {
-  const { data } = useGetPostDetail();
+  const { data, isLoading } = useGetPostDetail({});
+  
+  if (!data) return;
 
-  return <PostSection type={'postDetail'} data={data as GetPostDetailProps} />;
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return <PostSection data={data} />;
 }
 
 export default PostDetailPage;

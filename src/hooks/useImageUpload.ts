@@ -1,9 +1,10 @@
-import { atom, useAtom } from 'jotai';
 import { getPresignedURL, uploadImageToS3 } from '@/apis/image';
+import { AWS_S3_URL, S3_BUCKET_NAME } from '@/constants/common';
 import PresignedUrls from '@/utils/PresignedUrls';
-import { S3_BUCKET_NAME, AWS_S3_URL } from '@/constants/common';
+import { atom, useAtom } from 'jotai';
+import toast from 'react-hot-toast';
 
-const fileAtom = atom<File | null>(null as File);
+const fileAtom = atom<File | null>({} as File);
 const presignedUrlAtom = atom('');
 
 const useImageUpload = () => {
@@ -24,6 +25,7 @@ const useImageUpload = () => {
         return true;
       }
     } catch (error) {
+      toast.error('이미지 파일 저장 중 오류 발생 하였습니다.');
       return false;
     }
   };
@@ -46,7 +48,7 @@ const useImageUpload = () => {
 
       return imageUrl;
     } catch (error) {
-      console.error(error);
+      toast.error('이미지 파일 저장에 실패하였습니다.');
     }
   };
 

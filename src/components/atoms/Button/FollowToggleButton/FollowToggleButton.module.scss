@@ -1,0 +1,15 @@
+@import '/src/styles/colors.scss';
+
+.button {
+  width: 36px;
+  padding: 6px 27px;
+  border-radius: 5px;
+  background: $darkGray650;
+  font-size: 1.2rem;
+  text-align: center;
+
+  &.팔로우 {
+    color: $black;
+    background: $greenNeon100;
+  }
+}

@@ -1,25 +1,24 @@
 import CommentSvg from '@/assets/icons/CommentSvg';
 import LikeButton from '@/components/atoms/Button/LikeButton';
 import styles from '@/components/atoms/Button/ReactionButton/ReactionButton.module.scss';
-import { commentCountAtom } from '@/hooks/atoms';
 
 import useLiked from '@/hooks/useLiked';
-import { useAtomValue } from 'jotai';
 import Link from 'next/link';
 
 /* TODO: 게시글 상세보기 API 완료시 수정 필요
  *  LikeButton count 수정 필요
  *  commentCount 수정 필요
  */
-const id = 32;
 
-interface ReactionButtonProp {
+interface ReactionButtonProps {
   type: 'like' | 'comment';
+  postId?: number;
+  commentCount?: number;
 }
 
-function ReactionButton({ type }: ReactionButtonProp) {
+function ReactionButton({ type, postId, commentCount }: ReactionButtonProps) {
   const { isLike, countLike, handleLike } = useLiked();
-  const commentCount = useAtomValue(commentCountAtom);
+
   return (
     <div className={styles.wrapper}>
       {type === 'like' ? (
@@ -30,7 +29,7 @@ function ReactionButton({ type }: ReactionButtonProp) {
           count={countLike}
         />
       ) : (
-        <Link href={'/post/${id}'} className={styles.inWrapper}>
+        <Link href={`/post/${postId}`} className={styles.inWrapper}>
           <CommentSvg />
           <p className={styles.count}>{commentCount}</p>
         </Link>

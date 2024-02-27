@@ -4,6 +4,7 @@ import useMenuColor from '@/hooks/useMenuColor';
 
 interface DumbbellSvgProp {
   type: 'default' | 'menu';
+  size?: number;
 }
 
 function DumbbellSvg({ type }: DumbbellSvgProp) {

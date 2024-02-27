@@ -9,7 +9,7 @@ async function middleware(request: NextRequest) {
 
   if (!refresh) {
     const response = NextResponse.redirect(request.url);
-    response.cookies.set('refresh', refresh);
+    response.cookies.set('refresh', refresh as string);
     applySetCookie(request, response);
     return response;
   }
@@ -17,10 +17,10 @@ async function middleware(request: NextRequest) {
 
 export default middleware;
 
-//* 사용자 정보가 없을 시 막을 페이지
-export const config = {
-  matcher: ['/mypage/:path*', '/post/:path*'],
-};
+// //* 사용자 정보가 없을 시 막을 페이지
+// export const config = {
+//   matcher: ['/mypage/:path*', '/post/:path*'],
+// };
 
 //* 쿠키
 function applySetCookie(req: NextRequest, res: NextResponse): void {

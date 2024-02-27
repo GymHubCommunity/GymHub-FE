@@ -2,11 +2,12 @@
 const PAGE_NAMES = {
   POST: {
     ADD_POST: '게시글 작성',
+    UPDATE_POST: '게시글 수정',
   },
   EXERCISE_RECORD: {
     EXERCISE_RECORD: '운동 기록',
     CALL_EXERCISE_RECORD: '운동 기록 불러오기',
-    MODIFY_EXERCISE_RECORD: '운동 기록 수정',
+    UPDATE_EXERCISE_RECORD: '운동 기록 수정',
     ADD_EXERCISE_RECORD: '운동 기록하기',
   },
   EXERCISE: {

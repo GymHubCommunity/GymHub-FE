@@ -11,6 +11,8 @@ const nextConfig = {
       'github.com',
       'avatars.githubusercontent.com',
       `${process.env.SAMPLE_IMAGE_URL}`,
+      '3.37.123.52',
+      '3.37.123.52:4566',
     ],
   },
   sassOptions: {

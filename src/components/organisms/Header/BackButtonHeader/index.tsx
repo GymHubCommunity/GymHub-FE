@@ -3,7 +3,7 @@ import commonStyles from '@/components/organisms/Header/Header.module.scss';
 import styles from '@/components/organisms/Header/BackButtonHeader/BackButtonHeader.module.scss';
 
 interface HeaderProp {
-  pageName: string;
+  pageName?: string;
 }
 
 function BackButtonHeader({ pageName }: HeaderProp) {
@@ -12,7 +12,7 @@ function BackButtonHeader({ pageName }: HeaderProp) {
       <div className={commonStyles.button}>
         <BackButton />
       </div>
-      <span className={styles.title}>{pageName}</span>
+      {pageName && <span className={styles.title}>{pageName}</span>}
     </header>
   );
 }

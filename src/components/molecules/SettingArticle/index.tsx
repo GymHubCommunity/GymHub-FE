@@ -1,3 +1,4 @@
+import { postLogout } from '@/apis/oAuth';
 import ToggleButton from '@/components/atoms/Button/ToggleButton';
 import styles from '@/components/molecules/SettingArticle/SettingArticle.module.scss';
 import Link from 'next/link';
@@ -20,18 +21,20 @@ function SettingArticle({ type, children }: SettingArticleProps) {
     case 'logout':
       return (
         <div className={styles.wrapper}>
-          <Link href="/signin" className={styles.settingName}>
+          <Link
+            href="/signin"
+            className={styles.settingName}
+            onClick={() => postLogout()}
+          >
             로그아웃
           </Link>
         </div>
       );
     case 'withDraw':
       return (
-        <div className={styles.wrapper}>
-          <Link href={'/setting/resign'} className={styles.withDraw}>
-            회원 탈퇴
-          </Link>
-        </div>
+        <Link href={'/setting/resign'} className={styles.withDraw}>
+          <div className={styles.wrapper}>회원 탈퇴</div>
+        </Link>
       );
     default:
       return (

@@ -11,6 +11,8 @@
 .settingName {
   font-size: 1.7rem;
   font-weight: $light;
+  color: $count;
+
   &:visited {
     all: unset;
   }

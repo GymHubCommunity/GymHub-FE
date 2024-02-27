@@ -17,7 +17,7 @@ interface PostProps {
 }
 
 interface GetPostItemsProps {
-  pages: PostProps[];
+  pages: PostProps[] | GetPostDetailProps[];
   pageParams: number[];
 }
 
@@ -31,11 +31,19 @@ interface GetPostDetailProps {
   };
   content: string;
   imageUrls?: [string | null];
+  imageUrl?: [string | null | undefined];
   hashtags?: [string | null];
+  commentCount: number;
   registeredAt: string;
 }
 
+interface GetPost {
+  posts: GetPostDetailProps[];
+  hasNext: boolean;
+}
+
 export type {
+  GetPost,
   GetPostDetailProps,
   GetPostItemsProps,
   PostProps,

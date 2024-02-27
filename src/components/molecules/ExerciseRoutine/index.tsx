@@ -1,65 +1,73 @@
-'use client';
-
-import { getRecordSnapshots } from '@/apis/recordController';
+import { instance } from '@/apis';
+import Loading from '@/components/atoms/Loading';
 import styles from '@/components/molecules/ExerciseRoutine/ExerciseRoutine.module.scss';
 import UserRoutineArticle from '@/components/molecules/UserRoutineArticle';
+import { postProfile } from '@/constants/MockData';
 import useSelectedDate from '@/hooks/useSelectedDate';
-import { RecordItemProps } from '@/types/record';
-import { useAtom } from 'jotai';
-import { useEffect, useState } from 'react';
-import { exerciseAtom } from '../EditRecord/EditRecordsHeader';
+import {
+  RecordCategory,
+  RecordExerciseProps,
+  RecordTracksProps,
+  RecordsProps,
+} from '@/types/records';
+import DateFormat from '@/utils/DateFormat';
+import { useQuery } from '@tanstack/react-query';
 
-//TODO: user 이름 넣기 (UserRoutineArticle에)
 function ExerciseRoutine() {
   const { selectedDate } = useSelectedDate();
   const targetDate = selectedDate !== null ? selectedDate : new Date();
-  const [snapShots, setSnapShots] = useState<RecordItemProps[]>([]);
-  const [exercise, setExercise] = useAtom(exerciseAtom);
 
-  const getSnapshots = async () => {
-    try {
-      const response = await getRecordSnapshots(20);
-      setExercise(response.data.snapshots);
-      setSnapShots(response.data.snapshots);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { year, month, day, fullDate } = DateFormat(selectedDate as Date);
 
-  useEffect(() => {
-    getSnapshots();
-  }, []);
+  console.log(fullDate);
+  const { data, isLoading } = useQuery({
+    queryKey: ['getRecordsByDay'],
+    queryFn: async () => {
+      const response = await instance.get(
+        `/records?year=${year}&month=${month}`,
+      );
+
+      return response.data;
+    },
+  });
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.wrapper}>
-      <UserRoutineArticle name="스리" date={targetDate} />
+      <UserRoutineArticle name={postProfile.name} date={targetDate} />
+      {data.results[data.results.length - Number(day)]?.exerciseRecords?.map(
+        (item: RecordExerciseProps, index: number) => (
+          <div key={index} className={styles.inWrapper}>
+            {item.tracksCategorizedBodyPart?.map(
+              (tracks: RecordCategory, index) => (
+                <div key={index}>
+                  <span className={styles.exerciseArea}>{tracks.bodyPart}</span>
+                  {tracks.tracks?.map((track, index) => (
+                    <div key={index} className={styles.itemWrapper}>
+                      <div className={styles.exerciseWrapper}>
+                        <ul className={styles.exerciseInWrapper}>
+                          <li className={styles.exercise}>
+                            {track.machineName}
+                          </li>
+                        </ul>
 
-      {snapShots.map((item, index) => (
-        <div key={index}>
-          {item.tracksCategorizedBodyPart.map((bodyPartItem) => (
-            <div key={index} className={styles.inWrapper}>
-              <p className={styles.exerciseArea}>
-                {bodyPartItem.bodyPart} 운동
-              </p>
-              <div className={styles.exerciseWrapper}>
-                {bodyPartItem.tracks.map((trackItem) => (
-                  <>
-                    <ul className={styles.exerciseInWrapper}>
-                      <li key={index} className={styles.exercise}>
-                        {trackItem.machineName}
-                      </li>
-                    </ul>
-                    <div className={styles.setWrapper}>
-                      {trackItem.weight}kg x {trackItem.repeat}회 x{' '}
-                      {trackItem.set}세트
+                        <div className={styles.setWrapper}>
+                          <span>{track.weight}kg</span> x
+                          <span> {track.repeat}회</span> x
+                          <span> {track.set}세트</span>
+                        </div>
+                      </div>
                     </div>
-                  </>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      ))}
+                  ))}
+                </div>
+              ),
+            )}
+          </div>
+        ),
+      )}
     </div>
   );
 }

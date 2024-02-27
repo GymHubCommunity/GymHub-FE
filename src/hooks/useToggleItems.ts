@@ -1,3 +1,4 @@
+import useDeletePost from '@/apis/Query/Post/useDeletePost';
 import {
   deleteRecordSnapshots,
   postRecordSnapshots,
@@ -7,6 +8,7 @@ import {
   RECORD_DELETE,
   RECORD_SAVE,
   RECORD_UPDATE,
+  POST_DELETE,
   postItems,
   profileItems,
   recordsItems,
@@ -16,10 +18,11 @@ import { ToggleMenuProp } from '@/types/toggle';
 
 import { usePathname, useRouter } from 'next/navigation';
 
-function useToggleItems({ type }: ToggleMenuProp) {
+function useToggleItems({ type, id }: ToggleMenuProp) {
   const router = useRouter();
   const pathName = usePathname();
   const { showModal } = useModalInfo();
+  const handleDeletePost = useDeletePost();
 
   let menuItems = [];
 
@@ -32,7 +35,7 @@ function useToggleItems({ type }: ToggleMenuProp) {
   if (type === 'records') {
     menuItems = recordsItems;
   }
-
+  
   const handleOnClick = async (
     item: string,
     recordId?: number,
@@ -49,8 +52,13 @@ function useToggleItems({ type }: ToggleMenuProp) {
       case RECORD_DELETE:
         await deleteRecordSnapshots(snapshotId);
         break;
-      default:
+      case POST_DELETE:
+        handleDeletePost.mutateAsync({ id: id as number });
+        break;
+      case RECORD_DELETE:
         showModal();
+        break;
+      default:
         break;
     }
   };

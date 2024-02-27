@@ -1,12 +1,17 @@
 'use client';
 
+import useGetPost from '@/apis/Query/Post/useGetPost';
 import Footer from '@/components/organisms/Footer';
-import PostSection from '@/components/organisms/PostSection';
+import MypagePostSection from '@/components/organisms/PostSection/MypagePostSection';
 
 function MyPage() {
+  const { data } = useGetPost();
+
+  if (!data) return;
+
   return (
     <>
-      <PostSection type={'myPage'} data={undefined} />
+      <MypagePostSection postData={data} />
       <Footer />
     </>
   );

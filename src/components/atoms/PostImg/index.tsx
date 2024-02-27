@@ -11,6 +11,8 @@ function PostImgSection({ imgUrl }: ImgProps) {
       className={styles.postImg}
       width={385}
       height={287}
+      sizes="auto"
+      priority
       src={typeof imgUrl === 'string' ? imgUrl : imgUrl[0]}
       alt="포스트 이미지"
     />
