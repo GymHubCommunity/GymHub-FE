@@ -7,8 +7,6 @@ import DateFormat from '@/utils/DateFormat';
 import { exerciseRecords } from '@/constants/MockData';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import useToggleMenu from '@/hooks/useToggleMenu';
-import { getRecordSnapshots } from '@/apis/recordController';
-import { useEffect } from 'react';
 
 function DailyRecord() {
   const { selectedDate } = useSelectedDate();

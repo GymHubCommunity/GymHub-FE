@@ -1,3 +1,4 @@
+import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import Input from '@/components/atoms/Input';
 import Text from '@/components/atoms/Text';
 import Comment from '@/components/molecules/Comment';
@@ -7,6 +8,7 @@ import Modal from '@/components/organisms/Modal';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
 import usePostSection from '@/hooks/usePostSection';
+import useToggleMenu from '@/hooks/useToggleMenu';
 import { GetPostDetailProps } from '@/types/GetPost';
 
 interface PostSectionProp {
@@ -15,6 +17,7 @@ interface PostSectionProp {
 
 function PostSection({ data }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
+  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
 
   const postId = data.postId;
   const { comment, commentData, ref } = usePostSection({ postId });
@@ -34,6 +37,8 @@ function PostSection({ data }: PostSectionProp) {
             imageUrl={data.imageUrls as Array<string>}
             registeredAt={data.registeredAt}
             commentCount={data.commentCount}
+            close={closeMenu}
+            toggle={toggleMenu}
           />
           <Text post="commentCount">댓글 {commentData?.commentCount}개</Text>
           <div className={styles.commentWrapper}>
@@ -55,6 +60,9 @@ function PostSection({ data }: PostSectionProp) {
         {/* <div className={styles.routineWrapper}>
           <RoutineArticle />
         </div> */}
+      </div>
+      <div className={styles.modalWrapper}>
+        {isOpen && <ToggleItems type="post" />}
       </div>
     </div>
   );

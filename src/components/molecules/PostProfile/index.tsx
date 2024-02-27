@@ -10,12 +10,13 @@ import { WriterInfoProps } from '@/types/GetPost';
 interface PostProfileProps {
   type: 'default' | 'exercised';
   postProfile: WriterInfoProps;
+  close: () => void;
+  toggle: () => void;
 }
 
-function PostProfile({ type, postProfile }: PostProfileProps) {
-  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
+function PostProfile({ type, postProfile, close, toggle }: PostProfileProps) {
   if (!postProfile) return;
-  
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.inWrapper}>
@@ -28,11 +29,7 @@ function PostProfile({ type, postProfile }: PostProfileProps) {
         </div>
       </div>
       {/* <ToggleMenu type="post" /> */}
-      <ToggleMenu close={closeMenu} toggle={toggleMenu} />
-
-      <div className={styles.modalWrapper}>
-        {isOpen && <ToggleItems type="post" />}
-      </div>
+      <ToggleMenu toggle={toggle} close={close} />
     </div>
   );
 }

@@ -1,0 +1,66 @@
+@import '/src/styles/colors.scss';
+@import '/src/styles/fontWeights.scss';
+
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: $darkGray600;
+  color: $black;
+}
+
+.inWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  color: $white;
+}
+
+.itemWrapper {
+  margin-top: 4px;
+}
+
+.exerciseArea {
+  font-size: 1.2rem;
+  font-weight: $light;
+  color: $gray400;
+}
+
+.exerciseWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exercise {
+  list-style: square;
+  list-style-position: inside;
+  font-size: 1.2rem;
+  font-weight: $medium;
+}
+
+.exerciseInWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 1.2rem;
+}
+
+.setWrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+}
