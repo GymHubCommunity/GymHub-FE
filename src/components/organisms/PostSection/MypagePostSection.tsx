@@ -4,6 +4,7 @@ import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import Modal from '@/components/organisms/Modal';
 import styles from '@/components/organisms/PostSection/PostSection.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
+import useToggleMenu from '@/hooks/useToggleMenu';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { UserInfoProps } from '@/types/user';
 import { AxiosResponse } from 'axios';
@@ -15,6 +16,7 @@ interface PostSectionProp {
 
 function MypagePostSection({ postData, userData }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
+  const { toggleMenu, closeMenu } = useToggleMenu();
 
   return (
     <div className={styles.wrapper}>
@@ -40,6 +42,8 @@ function MypagePostSection({ postData, userData }: PostSectionProp) {
               imageUrl={item.imageUrl as string | string[] | null}
               registeredAt={item.registeredAt}
               commentCount={item.commentCount}
+              close={closeMenu}
+              toggle={toggleMenu}
             />
           </div>
         ))}

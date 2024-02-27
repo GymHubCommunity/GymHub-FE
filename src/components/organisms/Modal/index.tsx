@@ -1,16 +1,21 @@
+'use client';
+
 import useDeleteComment from '@/apis/Query/Comment/useDeleteComment';
+import { deleteRecordSnapshots } from '@/apis/recordController';
 import ModalArticle from '@/components/molecules/ModalArticle';
 import ModalToggle from '@/components/molecules/ModalToggle';
 import styles from '@/components/organisms/Modal/Modal.module.scss';
 import { CommentDel, RecordsDel } from '@/constants/ModalToggle';
 import { commentIdAtom } from '@/hooks/atoms';
 import useGetPostId from '@/hooks/useGetPostId';
+import useToggleItems from '@/hooks/useToggleItems';
+import { ToggleMenuProp } from '@/types/toggle';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 interface ModalProps {
-  type: 'imgUpdate' | 'records' | 'recordsDel' | 'commentDel';
+  type: any;
   isShow: boolean;
   closeModal: () => void;
 }
@@ -18,6 +23,7 @@ interface ModalProps {
 function Modal({ type, isShow, closeModal }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const { handleOnClick } = useToggleItems(type);
 
   // 댓글 삭제 로직
   const { postId } = useGetPostId();
@@ -45,6 +51,24 @@ function Modal({ type, isShow, closeModal }: ModalProps) {
   return (
     <>
       {isShow && <div ref={modalRef} className={styles.blur} />}
+      {type === 'postReport' && (
+        <ModalArticle
+          first={'게시글 신고하기'}
+          second={''}
+          firstEvent={() => {}}
+          secondEvent={() => {}}
+          closeModal={closeModal}
+        />
+      )}
+      {type === 'snapShotBpx' && (
+        <ModalArticle
+          first={'저장된 운동함에서 삭제하기'}
+          second={''}
+          firstEvent={() => handleOnClick('snapShotBpx')}
+          secondEvent={() => {}}
+          closeModal={closeModal}
+        />
+      )}
       {type === 'imgUpdate' && (
         <ModalArticle
           first={'사진 변경하기'}

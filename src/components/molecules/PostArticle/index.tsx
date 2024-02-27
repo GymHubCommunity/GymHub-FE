@@ -12,6 +12,8 @@ interface PostArticleProps {
   imageUrl: string | Array<string> | null;
   commentCount: number;
   registeredAt: string;
+  close: () => void;
+  toggle: () => void;
 }
 
 function PostArticle({
@@ -21,10 +23,17 @@ function PostArticle({
   imageUrl,
   commentCount,
   registeredAt,
+  close,
+  toggle,
 }: PostArticleProps) {
   return (
     <>
-      <PostProfile type={'default'} postProfile={userInfo} postId={postId} />
+      <PostProfile
+        type={'default'}
+        postProfile={userInfo}
+        close={close}
+        toggle={toggle}
+      />
       <Post postId={postId} content={content} imageUrl={imageUrl} />
       <Reaction
         postId={postId}

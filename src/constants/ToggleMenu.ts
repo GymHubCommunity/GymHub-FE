@@ -9,6 +9,8 @@ const RECORD_UPDATE = '운동 기록 수정하기';
 const RECORD_SAVE = '운동 기록 저장하기';
 const RECORD_DELETE = '운동 기록 삭제하기';
 
+const SNAPSHOT_DELETE = '저장된 운동함에서 삭제하기';
+
 const profileItems = [
   { id: 0, item: ID_BAN },
   { id: 1, item: REPORT },
@@ -26,6 +28,8 @@ const recordsItems = [
   { id: 2, item: RECORD_DELETE },
 ];
 
+const snapShotItem = [{ id: 0, item: SNAPSHOT_DELETE }];
+
 export {
   ID_BAN,
   POST_DELETE,
@@ -35,7 +39,9 @@ export {
   RECORD_SAVE,
   RECORD_UPDATE,
   REPORT,
+  SNAPSHOT_DELETE,
   postItems,
   profileItems,
   recordsItems,
+  snapShotItem,
 };

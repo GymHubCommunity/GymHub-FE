@@ -3,3 +3,7 @@
 .wrapper {
   @include flexBetween;
 }
+
+.modalWrapper {
+  @include flexCenter;
+}

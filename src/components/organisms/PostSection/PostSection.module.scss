@@ -1,3 +1,5 @@
+@import '/src/styles/mixin.scss';
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -40,4 +42,8 @@
 .commentWrapper::-webkit-scrollbar {
   width: 5px;
   background-color: black;
+}
+
+.modalWrapper {
+  @include flexCenter;
 }
