@@ -6,9 +6,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 async function middleware(request: NextRequest) {
   const refresh = request.cookies.get('refresh')?.value;
-
-  if (!refresh) {
+  console.log('refresh : ', refresh);
+  if (refresh === 'asd') {
     const response = NextResponse.redirect(request.url);
+    // console.log('response : ', response);
     response.cookies.set('refresh', refresh as string);
     applySetCookie(request, response);
     return response;
@@ -17,10 +18,10 @@ async function middleware(request: NextRequest) {
 
 export default middleware;
 
-// //* 사용자 정보가 없을 시 막을 페이지
-// export const config = {
-//   matcher: ['/mypage/:path*', '/post/:path*'],
-// };
+// //* 사용자 정보가 없을 시 막을 페이지(미들웨어가 실행될 경로)
+export const config = {
+  matcher: ['/mypage/:path*', '/post/:path*'],
+};
 
 //* 쿠키
 function applySetCookie(req: NextRequest, res: NextResponse): void {
