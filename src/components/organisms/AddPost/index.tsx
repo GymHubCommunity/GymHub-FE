@@ -1,4 +1,6 @@
-import { submitPostProps, postProps } from '@/apis/post';
+import useSubmitPost from '@/apis/Query/useSubmitPost';
+import useUpdatePost from '@/apis/Query/useUpdatePost';
+import { postProps, submitPostProps } from '@/apis/post';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ImageDeleteButton from '@/components/atoms/Button/ImageDeleteButton';
 import PostEditor, { hashTagsAtom } from '@/components/atoms/Editor/PostEditor';
@@ -8,13 +10,11 @@ import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import { PAGE_NAMES } from '@/constants/PageNames';
 import useImageUpload from '@/hooks/useImageUpload';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import { useAtom } from 'jotai';
-import useUpdatePost from '@/apis/Query/useUpdatePost';
-import useSubmitPost from '@/apis/Query/useSubmitPost';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 function AddPost({
   postId,
@@ -81,7 +81,7 @@ function AddPost({
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setDisabled(e.target.value === '');
   };
 
