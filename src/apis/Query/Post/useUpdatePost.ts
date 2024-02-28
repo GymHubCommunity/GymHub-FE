@@ -1,6 +1,6 @@
+import { submitPostProps, updatePost } from '@/apis/post';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { submitPostProps, updatePost } from '@/apis/post';
 
 interface UpdatePostProp {
   id: string;
@@ -14,6 +14,7 @@ function useUpdatePost() {
     mutationFn: ({ id, param }: UpdatePostProp) => updatePost(id, param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['postDetail'] });
+      toast.success('게시글 수정 완료');
     },
     onError(error) {
       console.error('error : ', error);

@@ -17,6 +17,7 @@ function useDeleteComment({ postId, commentId }: useDeleteCommentProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments'] });
       queryClient.invalidateQueries({ queryKey: ['postDetail', postId] });
+      toast('댓글 삭제 완료', { icon: '❌' });
     },
     onError: () => {
       return toast.error('댓글 삭제를 실패했습니다.');
