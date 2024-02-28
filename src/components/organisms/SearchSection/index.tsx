@@ -8,6 +8,7 @@ import Tabs from '@/components/molecules/Tabs';
 import styles from '@/components/organisms/SearchSection/SearchSection.module.scss';
 import { keywordValueAtom } from '@/hooks/useSearchFilter';
 import useToggleMenu from '@/hooks/useToggleMenu';
+
 import { useAtomValue, useSetAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
