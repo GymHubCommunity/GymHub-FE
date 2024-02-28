@@ -1,17 +1,23 @@
 @import '/src/styles/colors';
 @import '/src/styles/fontWeights';
 
+.wrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 4.4rem;
+}
+
 .menus {
   position: fixed;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 12px 0px 40px 0px;
   border-radius: 15px 15px 0px 0px;
   background: #1c1e1e;
   bottom: 0;
   width: 393px;
-  z-index: 4;
 }
 
 .itemWrapper {
