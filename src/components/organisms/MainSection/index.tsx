@@ -19,7 +19,7 @@ function MainSection() {
   const { data, isLoading, ref } = useMainSection();
   const { isShow, closeModal } = useModalInfo();
   const { isOpen } = useToggleMenu();
-  
+
   if (isLoading) return <Loading />;
 
   return (
@@ -61,8 +61,8 @@ function MainSection() {
           {/* <div className={styles.inWrapper}>
           <RoutineArticle />
         </div> */}
+          <div ref={ref} />
         </div>
-        <div ref={ref} />
       </main>
 
       <div className={styles.modalWrapper}>
