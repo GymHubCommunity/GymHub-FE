@@ -1,7 +1,7 @@
 import { getUserInfo } from '@/apis/user/register';
 import { isCheckNameAtom } from '@/components/molecules/ResignNickName';
 import { atom, useAtomValue, useSetAtom } from 'jotai';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 const nicknameAtom = atom<string>('');
 
@@ -12,19 +12,26 @@ function useCheckNickName() {
   const setNicknameAtom = useSetAtom(nicknameAtom);
   const dataNickname = useAtomValue(nicknameAtom);
 
-  async function handleCheckNickName(e: ChangeEvent<HTMLInputElement>) {
-    setNickName(e.target.value);
-    try {
-      const response = await getUserInfo();
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-      if (e.target.value === response.data.nickname) {
-        setIsCheckName(false);
+  async function handleCheckNickName(e: ChangeEvent<HTMLInputElement>) {
+    if (timer.current) clearTimeout(timer.current);
+    setNickName(e.target.value);
+
+    timer.current = setTimeout(async () => {
+      try {
+        const response = await getUserInfo();
+
+        if (e.target.value === response.data.nickname) {
+          setIsCheckName(false);
+        }
+
+        setMemberId(response.data.id);
+        setNicknameAtom(response.data.nickname);
+      } catch (e) {
+        console.log(e);
       }
-      setMemberId(response.data.id);
-      setNicknameAtom(response.data.nickname);
-    } catch (e) {
-      console.log(e);
-    }
+    }, 500);
   }
 
   useEffect(() => {
