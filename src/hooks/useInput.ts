@@ -27,7 +27,6 @@ function useInput() {
 
   const { searchHashTag } = useSearchFilter({
     timer,
-    searchValue,
     setSearchValue,
   });
 
