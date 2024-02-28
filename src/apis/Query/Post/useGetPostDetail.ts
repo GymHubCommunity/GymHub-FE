@@ -3,6 +3,7 @@ import useGetPostId from '@/hooks/useGetPostId';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
+
 interface useGetPostDetailProp {
   id?: string;
 }

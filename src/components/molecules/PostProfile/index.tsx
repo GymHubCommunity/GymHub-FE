@@ -12,13 +12,11 @@ export const userIdAtom = atom(0);
 interface PostProfileProps {
   type: 'default' | 'exercised';
   postProfile: WriterInfoProps;
-  close: () => void;
-  toggle: () => void;
+  postId: number;
 }
 
-function PostProfile({ type, postProfile, close, toggle }: PostProfileProps) {
+function PostProfile({ type, postProfile, postId }: PostProfileProps) {
   const setUserId = useSetAtom(userIdAtom);
-
   if (!postProfile) return;
 
   const userId = postProfile.writerId;
@@ -42,8 +40,7 @@ function PostProfile({ type, postProfile, close, toggle }: PostProfileProps) {
           )}
         </div>
       </Link>
-      {/* <ToggleMenu type="post" /> */}
-      <ToggleMenu toggle={toggle} close={close} />
+      <ToggleMenu type="post" id={postId} />
     </div>
   );
 }

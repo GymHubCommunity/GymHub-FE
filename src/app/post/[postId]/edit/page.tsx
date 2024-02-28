@@ -2,8 +2,9 @@
 import useGetPostDetail from '@/apis/Query/Post/useGetPostDetail';
 import AddPost from '@/components/organisms/AddPost';
 
-function EditPostPage({ params }: { params: { postId: string } }) {
+function EditPost({ params }: { params: { postId: string } }) {
   const { data } = useGetPostDetail({ id: params.postId });
+
   return (
     <>
       {data && (
@@ -19,4 +20,4 @@ function EditPostPage({ params }: { params: { postId: string } }) {
   );
 }
 
-export default EditPostPage;
+export default EditPost;

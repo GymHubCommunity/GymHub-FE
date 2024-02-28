@@ -7,8 +7,6 @@ import SearchArticle, {
 import Tabs from '@/components/molecules/Tabs';
 import styles from '@/components/organisms/SearchSection/SearchSection.module.scss';
 import { keywordValueAtom } from '@/hooks/useSearchFilter';
-import useToggleMenu from '@/hooks/useToggleMenu';
-
 import { useAtomValue, useSetAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
@@ -17,7 +15,6 @@ import { useInView } from 'react-intersection-observer';
 function SearchSection() {
   const keyword = useAtomValue(keywordValueAtom);
   const { data, fetchNextPage, hasNextPage } = useSearchPost(keyword);
-  const { closeMenu, toggleMenu } = useToggleMenu();
   const { ref, inView } = useInView();
   const setTotalCount = useSetAtom(totalCountAtom);
   const pathName = usePathname();
@@ -50,8 +47,6 @@ function SearchSection() {
                 imageUrl={val.imageUrl as string}
                 registeredAt={val.registeredAt}
                 commentCount={val.commentCount}
-                close={closeMenu}
-                toggle={toggleMenu}
               />
             </div>
           ))}

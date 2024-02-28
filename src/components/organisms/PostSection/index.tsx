@@ -17,7 +17,7 @@ interface PostSectionProp {
 
 function PostSection({ data }: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
-  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
+  const { isOpen } = useToggleMenu();
 
   const postId = data.postId;
   const { comment, commentData, ref } = usePostSection({ postId });
@@ -37,8 +37,6 @@ function PostSection({ data }: PostSectionProp) {
             imageUrl={data.imageUrls as Array<string>}
             registeredAt={data.registeredAt}
             commentCount={data.commentCount}
-            close={closeMenu}
-            toggle={toggleMenu}
           />
           <Text post="commentCount">댓글 {commentData?.commentCount}개</Text>
           <div className={styles.commentWrapper}>

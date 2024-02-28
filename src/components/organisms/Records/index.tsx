@@ -61,20 +61,12 @@ function Records() {
         day={day}
       />
 
-      <div className={styles.modalWrapper}>
-        {isOpen &&
-          data.results[
-            data.results?.length - Number(day)
-          ]?.exerciseRecords?.map(
-            (item: RecordExerciseProps, index: number) => (
-              <ToggleItems
-                type="records"
-                recordId={item.recordId}
-                key={index}
-              />
-            ),
-          )}
-      </div>
+      {isOpen &&
+        data.results[data.results?.length - Number(day)]?.exerciseRecords?.map(
+          (item: RecordExerciseProps, index: number) => (
+            <ToggleItems type="records" recordId={item.recordId} key={index} />
+          ),
+        )}
 
       <FloatingButton type={'addExercise'} />
       {isShow && (

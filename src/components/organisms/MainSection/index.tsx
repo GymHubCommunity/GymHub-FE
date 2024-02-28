@@ -18,7 +18,7 @@ import Image from 'next/image';
 function MainSection() {
   const { data, isLoading, ref } = useMainSection();
   const { isShow, closeModal } = useModalInfo();
-  const { isOpen, toggleMenu, closeMenu } = useToggleMenu();
+  const { isOpen } = useToggleMenu();
 
   if (isLoading) return <Loading />;
 
@@ -53,8 +53,6 @@ function MainSection() {
                 imageUrl={val.imageUrl as string}
                 registeredAt={val.registeredAt}
                 commentCount={val.commentCount}
-                close={closeMenu}
-                toggle={toggleMenu}
               />
             </div>
           ))}
