@@ -5,12 +5,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 20px;
-  width: 100%;
-}
-
-.modalWrapper {
-  @include flexCenter;
 }
 
 .header {
@@ -18,7 +12,7 @@
   justify-content: right;
   align-items: center;
   width: 100%;
-  padding: 14px 0;
+  padding: 14px 10px;
   gap: 33%;
 }
 
