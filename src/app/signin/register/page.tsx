@@ -1,16 +1,16 @@
 'use client';
 
-import { userFormSchema } from '@/constants/userSchema';
-import useIsMounted from '@/hooks/useIsMounted';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { FormProvider, useForm } from 'react-hook-form';
-import RegisterForm from '@/components/organisms/RegisterForm';
-import { DevTool } from '@hookform/devtools';
-import { useRouter } from 'next/navigation';
 import { postRegister } from '@/apis/user/register';
-import { UserInputRegisterProps } from '@/types/user';
-import { useState } from 'react';
+import RegisterForm from '@/components/organisms/RegisterForm';
+import { userFormSchema } from '@/constants/userSchema';
 import useImageUpload from '@/hooks/useImageUpload';
+import useIsMounted from '@/hooks/useIsMounted';
+import { UserInputRegisterProps } from '@/types/user';
+import { DevTool } from '@hookform/devtools';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 function Register() {
   const methods = useForm({
@@ -25,11 +25,9 @@ function Register() {
   const { handleUploadImageToS3 } = useImageUpload();
 
   const onSubmit = async (data: UserInputRegisterProps) => {
-    if (image) {
-      const imageUrl = await handleUploadImageToS3();
-      if (imageUrl) {
-        data.profileUrl = imageUrl;
-      }
+    const imageUrl = await handleUploadImageToS3();
+    if (imageUrl) {
+      data.profileUrl = imageUrl;
     }
 
     try {
