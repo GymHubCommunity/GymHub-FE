@@ -19,7 +19,7 @@ function MainSection() {
   const { data, isLoading, ref } = useMainSection();
   const { isShow, closeModal } = useModalInfo();
   const { isOpen } = useToggleMenu();
-
+  
   if (isLoading) return <Loading />;
 
   return (
