@@ -39,7 +39,7 @@ function FollowSection({ memberId }: Prop) {
         (val) => (
           <div key={val.id} className={styles.followWrapper}>
             <FollowList
-              id={val.id}
+              id={val.memberId}
               profileUrl={val.profileUrl}
               name={val.nickname}
             />
