@@ -4,17 +4,15 @@ import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import ProfileImg from '@/components/atoms/ProfileImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
-import useToggleMenu from '@/hooks/useToggleMenu';
 import { WriterInfoProps } from '@/types/GetPost';
 
 interface PostProfileProps {
   type: 'default' | 'exercised';
   postProfile: WriterInfoProps;
-  close: () => void;
-  toggle: () => void;
+  postId: number;
 }
 
-function PostProfile({ type, postProfile, close, toggle }: PostProfileProps) {
+function PostProfile({ type, postProfile, postId }: PostProfileProps) {
   if (!postProfile) return;
 
   return (
@@ -28,8 +26,8 @@ function PostProfile({ type, postProfile, close, toggle }: PostProfileProps) {
           )}
         </div>
       </div>
-      {/* <ToggleMenu type="post" /> */}
-      <ToggleMenu toggle={toggle} close={close} />
+
+      <ToggleMenu type="post" id={postId} />
     </div>
   );
 }
