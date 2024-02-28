@@ -9,7 +9,7 @@ function ProfileButton({ type }: ProfileButton) {
   const router = useRouter();
 
   const profileUpdate = () => {
-    router.push('/signin/register/edit');
+    router.push('/editprofile');
   };
 
   return (
