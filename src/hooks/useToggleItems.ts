@@ -17,8 +17,8 @@ import {
 } from '@/constants/ToggleMenu';
 import useModalInfo from '@/hooks/useModalInfo';
 import { ToggleMenuProp } from '@/types/toggle';
-import { atom, useAtomValue, useSetAtom } from 'jotai';
 
+import { atom, useAtomValue, useSetAtom } from 'jotai';
 import { usePathname, useRouter } from 'next/navigation';
 
 export const snapshotId = atom<number>(0);
@@ -76,6 +76,7 @@ function useToggleItems({ type, id }: ToggleMenuProp) {
         break;
       case POST_DELETE:
         handleDeletePost.mutateAsync({ id: id as number });
+        if (pathName.startsWith('/post')) router.push('/');
         break;
       case RECORD_DELETE:
         showModal();

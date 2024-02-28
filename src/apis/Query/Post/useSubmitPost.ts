@@ -1,6 +1,6 @@
+import { submitPost, submitPostProps } from '@/apis/post';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { submitPostProps, submitPost } from '@/apis/post';
 
 interface SubmitPostProp {
   param: submitPostProps;
@@ -13,6 +13,7 @@ function useSubmitPost() {
     mutationFn: ({ param }: SubmitPostProp) => submitPost(param),
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
+      toast.success('게시글 등록 완료');
     },
     onError(error) {
       console.log('error : ', error);

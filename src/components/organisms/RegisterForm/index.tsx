@@ -1,13 +1,13 @@
-import styles from '@/components/organisms/RegisterForm/RegisterForm.module.scss';
-import ProfileImgSetting from '@/components/molecules/Profile/ProfileImgSetting';
-import Text from '@/components/atoms/Text';
-import { useFormContext } from 'react-hook-form';
-import { UserInputRegisterProps } from '@/types/user';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import Text from '@/components/atoms/Text';
+import ProfileImgSetting from '@/components/molecules/Profile/ProfileImgSetting';
+import styles from '@/components/organisms/RegisterForm/RegisterForm.module.scss';
+import { UserInputRegisterProps } from '@/types/user';
+import { useFormContext } from 'react-hook-form';
 
 function RegisterForm(
   { onSubmit }: any,
-  handleImageChange: (image: string) => void,
+  onImageChange: (image: string) => void,
 ) {
   const {
     register,
@@ -18,17 +18,19 @@ function RegisterForm(
     <div className={styles.wrapper}>
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
       <ProfileImgSetting
-        onImageChange={handleImageChange}
+        onImageChange={onImageChange}
         {...register('profileUrl')}
       />
-
       <div className={styles.nicknameWrapper}>
         <input placeholder="닉네임" {...register('nickname')} />
       </div>
-
       <span className={styles.errorMessage}>{errors.nickname?.message}</span>
-
-      <ConfirmButton title="완료" type="submit" onClick={onSubmit} />
+      <ConfirmButton
+        title="완료"
+        disabled={false}
+        type="submit"
+        onClick={onSubmit}
+      />
     </div>
   );
 }

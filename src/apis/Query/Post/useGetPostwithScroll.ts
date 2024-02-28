@@ -12,25 +12,26 @@ function useGetPostwithScroll() {
     return response.data;
   };
 
-  const { data, isError, fetchNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ['posts'],
-    queryFn: ({ pageParam }) => getPost({ pageParam }),
-    initialPageParam: 0,
-    select: (data) => ({
-      pages: data?.pages.flatMap((page) => page.posts) || [],
-      pageParams: data.pageParams,
-    }),
-    getNextPageParam: (lastPage, pages) => {
-      if (!lastPage.hasNext) {
-        return undefined;
-      }
-      return pages.length;
-    },
-  });
+  const { data, isError, isLoading, fetchNextPage, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: ['posts'],
+      queryFn: ({ pageParam }) => getPost({ pageParam }),
+      initialPageParam: 0,
+      select: (data) => ({
+        pages: data?.pages.flatMap((page) => page.posts) || [],
+        pageParams: data.pageParams,
+      }),
+      getNextPageParam: (lastPage, pages) => {
+        if (!lastPage.hasNext) {
+          return undefined;
+        }
+        return pages.length;
+      },
+    });
 
   if (isError) toast.error('글 목록 불러오기가 실패했어요.');
 
-  return { data, fetchNextPage, hasNextPage };
+  return { data, isLoading, fetchNextPage, hasNextPage };
 }
 
 export default useGetPostwithScroll;

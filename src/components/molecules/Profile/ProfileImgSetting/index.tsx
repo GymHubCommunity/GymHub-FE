@@ -1,10 +1,10 @@
-import styles from '@/components/molecules/Profile/ProfileImgSetting/ProfileImgSetting.module.scss';
 import CameraSvg from '@/assets/icons/CameraSvg';
 import ProfileImgSvg from '@/assets/icons/ProfileImgSvg';
-import { ChangeEvent, useEffect, useState } from 'react';
-import Image from 'next/image';
+import styles from '@/components/molecules/Profile/ProfileImgSetting/ProfileImgSetting.module.scss';
 import useImageUpload from '@/hooks/useImageUpload';
 import { ImgUploadButtonProps } from '@/types/image';
+import Image from 'next/image';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 function ProfileImgSetting({ prop }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();

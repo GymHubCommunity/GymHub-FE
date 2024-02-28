@@ -18,4 +18,4 @@ interface UserInfoProps extends UserInputRegisterProps {
   email: string;
 }
 
-export type { UserInfoProps, UserRegisterProps, UserInputRegisterProps };
+export type { UserInfoProps, UserInputRegisterProps, UserRegisterProps };

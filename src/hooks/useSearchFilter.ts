@@ -16,16 +16,10 @@ export const keywordValueAtom = atom('');
 
 interface useSearchFilterProps {
   timer: MutableRefObject<NodeJS.Timeout | null>;
-  searchValue: string;
   setSearchValue: any; //*: 타입 추정 안됨
 }
 
-function useSearchFilter({
-  timer,
-  searchValue,
-  setSearchValue,
-}: useSearchFilterProps) {
-  // const setFilterValue = useSetAtom(filterValueAtom);
+function useSearchFilter({ timer, setSearchValue }: useSearchFilterProps) {
   const setKeyword = useSetAtom(keywordValueAtom);
 
   const searchHashTag = (e: ChangeEvent<HTMLInputElement>) => {

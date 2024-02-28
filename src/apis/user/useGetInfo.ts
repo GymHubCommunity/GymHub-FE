@@ -5,12 +5,8 @@ import { toast } from 'react-hot-toast';
 
 function useGetInfo() {
   const { data, isError, isLoading } = useQuery({
-    queryKey: ['userInfoe'],
-    queryFn: async () => {
-      const response = await instance.get(`/members/me`);
-
-      return response;
-    },
+    queryKey: ['userInfo'],
+    queryFn: async () => await instance.get<UserInfoProps>(`/members/me`),
   });
 
   if (isError) toast.error('회원정보를 가져오지 못했습니다.');

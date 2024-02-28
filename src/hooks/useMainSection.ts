@@ -10,7 +10,8 @@ function useMainSection() {
   const setCommentCount = useSetAtom(commentCountAtom);
   const { ref, inView } = useInView();
 
-  const { data, fetchNextPage, hasNextPage } = useGetPostwithScroll();
+  const { data, isLoading, fetchNextPage, hasNextPage } =
+    useGetPostwithScroll();
 
   useEffect(() => {
     setCommentCount(comment.length);
@@ -22,7 +23,7 @@ function useMainSection() {
     }
   }, [inView]);
 
-  return { data, ref };
+  return { data, isLoading, ref };
 }
 
 export default useMainSection;

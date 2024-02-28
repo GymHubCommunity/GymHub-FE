@@ -19,6 +19,7 @@ function usePostComment() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments'] });
       queryClient.invalidateQueries({ queryKey: ['postDetail', postId] });
+      toast.success('댓글 등록 완료');
     },
     onError: () => {
       return toast.error('댓글 등록에 실패했습니다.');

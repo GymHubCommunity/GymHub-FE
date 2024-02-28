@@ -21,6 +21,7 @@ function useUpdateComment() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments'] });
       queryClient.invalidateQueries({ queryKey: ['postDetail', postId] });
+      toast.success('댓글 수정 완료');
     },
     onError: () => {
       return toast.error('댓글 수정을 실패했습니다.');

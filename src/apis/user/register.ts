@@ -1,6 +1,6 @@
-import { deleteCookie, getCookie } from 'cookies-next';
 import { instance } from '@/apis';
 import { UserInputRegisterProps } from '@/types/user';
+import { deleteCookie, getCookie } from 'cookies-next';
 
 async function postRegister(data: UserInputRegisterProps) {
   const response = await instance.post(`/members/register`, data);
@@ -30,8 +30,8 @@ async function deleteUser(memberId: number) {
 }
 
 // 회원 정보 수정
-async function putUserInfo() {
-  const response = await instance.put(`/members/me`);
+async function putUserInfo(data: UserInputRegisterProps) {
+  const response = await instance.put(`/members/me`, data);
   return response;
 }
 
@@ -64,10 +64,10 @@ export const authToken = {
 };
 
 export {
-  postRegister,
-  postRefreshToken,
+  deleteUser,
   getUserInfo,
   getUserInfoMemberId,
-  deleteUser,
+  postRefreshToken,
+  postRegister,
   putUserInfo,
 };

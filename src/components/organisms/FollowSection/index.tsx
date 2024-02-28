@@ -1,17 +1,21 @@
 import { useGetFollowers, useGetFollowings } from '@/apis/Query/Follow';
 import { followButtonAtom } from '@/components/atoms/Button/FollowButton';
 import FollowList from '@/components/molecules/FollowList';
+import FollowTwinButton from '@/components/molecules/FollowTwinButton';
+import commonStyles from '@/components/organisms/Common.module.scss';
 import styles from '@/components/organisms/FollowSection/FollowSection.module.scss';
 
 import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import BackButtonHeader from '../Header/BackButtonHeader';
 
-interface Prop {
+interface Props {
+  nickName: string;
   memberId: number;
 }
 
-function FollowSection({ memberId }: Prop) {
+function FollowSection({ nickName, memberId }: Props) {
   const followButton = useAtomValue(followButtonAtom);
 
   const { followers, fetchNextFollowers, nextFollowers } =
@@ -34,7 +38,9 @@ function FollowSection({ memberId }: Prop) {
   }, [inView]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={commonStyles.wrapper}>
+      <BackButtonHeader pageName={nickName} />
+      <FollowTwinButton />
       {(followButton === 'follower' ? followers : followings)?.pages.map(
         (val) => (
           <div key={val.id} className={styles.followWrapper}>

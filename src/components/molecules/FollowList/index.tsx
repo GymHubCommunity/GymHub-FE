@@ -38,9 +38,7 @@ function FollowList({ id, profileUrl, name }: FollowListProps) {
       <img src={profileUrl} alt="프로필 이미지" className={styles.img} />
       <p className={styles.name}>{name}</p>
       {followButton === 'follower' ? (
-        <FollowToggleButton onClick={() => deleteFollow()}>
-          삭제
-        </FollowToggleButton>
+        <FollowToggleButton onClick={deleteFollow}>삭제</FollowToggleButton>
       ) : (
         <FollowToggleButton onClick={handleFollow}>
           {followingContent}

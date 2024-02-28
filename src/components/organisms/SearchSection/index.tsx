@@ -12,6 +12,7 @@ import { useAtomValue, useSetAtom } from 'jotai';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Footer from '../Footer';
 
 function SearchSection() {
   const keyword = useAtomValue(keywordValueAtom);
@@ -34,33 +35,36 @@ function SearchSection() {
   }, [inView, hasNextPage, fetchNextPage]);
 
   return (
-    <div className={styles.wrapper}>
-      <SearchArticle />
-      {pathName === '/alltabs' && <Tabs />}
-      {data?.pages.length ? (
-        <div className={styles.feedWrapper}>
-          {data?.pages.map((val) => (
-            <div key={val.postId} className={styles.inWrapper}>
-              <PostArticle
-                postId={val.postId}
-                userInfo={val.writerInfo}
-                content={val.content}
-                imageUrl={val.imageUrl as string}
-                registeredAt={val.registeredAt}
-                commentCount={val.commentCount}
-              />
-            </div>
-          ))}
-          <div ref={ref} />
-        </div>
-      ) : (
-        <div className={styles.npPostWrapper}>
-          <div className={styles.noPost}>
-            <Text post="noPost">게시글이 없습니다.</Text>
+    <>
+      <div className={styles.wrapper}>
+        <SearchArticle />
+        {pathName === '/alltabs' && <Tabs />}
+        {data?.pages.length ? (
+          <div className={styles.feedWrapper}>
+            {data?.pages.map((val) => (
+              <div key={val.postId} className={styles.inWrapper}>
+                <PostArticle
+                  postId={val.postId}
+                  userInfo={val.writerInfo}
+                  content={val.content}
+                  imageUrl={val.imageUrl as string}
+                  registeredAt={val.registeredAt}
+                  commentCount={val.commentCount}
+                />
+              </div>
+            ))}
+            <div ref={ref} />
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div className={styles.npPostWrapper}>
+            <div className={styles.noPost}>
+              <Text post="noPost">게시글이 없습니다.</Text>
+            </div>
+          </div>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
 

@@ -16,17 +16,17 @@ function RecordAddArticle({ type }: RecordAddTypeProp) {
           <Input type="workOut" />
           <div className={styles.button}>
             <ImageButton
-              href={'/records/select/upper'}
+              path={'/records/select/upper'}
               imgSrc={UpperImg}
               alt={'상체'}
             />
             <ImageButton
-              href={'/records/select/lower'}
+              path={'/records/select/lower'}
               imgSrc={LowerImg}
               alt={'하체'}
             />
             <ImageButton
-              href={'/records/select/whole'}
+              path={'/records/select/whole'}
               imgSrc={WholeImg}
               alt={'전신'}
             />

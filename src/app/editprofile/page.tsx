@@ -1,10 +1,9 @@
 'use client';
 
-import { postRegister } from '@/apis/user/register';
+import { putUserInfo } from '@/apis/user/register';
 import RegisterForm from '@/components/organisms/RegisterForm';
 import { userFormSchema } from '@/constants/userSchema';
 import useImageUpload from '@/hooks/useImageUpload';
-import useIsMounted from '@/hooks/useIsMounted';
 import { UserInputRegisterProps } from '@/types/user';
 import { DevTool } from '@hookform/devtools';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,16 +11,17 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-function Register() {
+function EditProfile() {
   const methods = useForm({
     mode: 'onChange',
     resolver: yupResolver(userFormSchema),
   });
 
   const { handleSubmit } = methods;
-  const isMounted = useIsMounted();
+
   const router = useRouter();
   const [image, setImage] = useState('');
+
   const { handleUploadImageToS3 } = useImageUpload();
 
   const onSubmit = async (data: UserInputRegisterProps) => {
@@ -31,30 +31,28 @@ function Register() {
     }
 
     try {
-      await postRegister(data);
+      await putUserInfo(data);
       router.push('/');
     } catch (e) {
-      throw Error('회원가입에 실패하였습니다');
+      throw Error('프로필 수정 실패');
     }
   };
 
-  const handleImageChange = (image: string) => {
-    setImage(image);
+  const handleImageChange = (changeImg: string) => {
+    setImage(changeImg);
   };
 
   return (
     <>
-      {isMounted && (
-        <FormProvider {...methods}>
-          <RegisterForm
-            onSubmit={handleSubmit(onSubmit)}
-            onImageChange={handleImageChange}
-          />
-          <DevTool control={methods.control} />
-        </FormProvider>
-      )}
+      <FormProvider {...methods}>
+        <RegisterForm
+          onSubmit={handleSubmit(onSubmit)}
+          onImageChange={handleImageChange}
+        />
+        <DevTool control={methods.control} />
+      </FormProvider>
     </>
   );
 }
 
-export default Register;
+export default EditProfile;

@@ -8,6 +8,7 @@
   padding: 20px;
   gap: 16px;
 }
+
 .inWrapper {
   display: flex;
   flex-direction: column;
@@ -24,10 +25,10 @@
   background: $story;
   z-index: $aboveDefault;
 }
+
 .npPostWrapper {
   padding: 20px;
   gap: 16px;
-  height: 100vh;
 }
 
 .noPost {
