@@ -24,7 +24,6 @@ function Profile({
   return (
     <div className={styles.wrapper}>
       {profileImg && <ProfileImg imgUrl={profileImg} size={74} />}
-
       <div className={styles.inWrapper}>
         <div className={styles.infoWrapper}>
           <Info type="default" content="게시글" count={postCount} />
