@@ -44,7 +44,9 @@ function FollowList({ id, followId, profileUrl, name }: FollowListProps) {
     <div className={styles.wrapper}>
       <img src={profileUrl} alt="프로필 이미지" className={styles.img} />
       <div className={styles.followWrapper}>
-        <p className={styles.follow}>팔로우 요청</p>
+        {pathName === 'notification' && (
+          <p className={styles.follow}>팔로우 요청</p>
+        )}
         <p className={styles.name}>{name}</p>
       </div>
       {pathName.startsWith('/follow') ? (
