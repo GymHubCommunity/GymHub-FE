@@ -28,8 +28,6 @@ function FollowList({ id, followId, profileUrl, name }: FollowListProps) {
   const { approveFollow } = useApproveFollow({ followId: followId });
   const { deleteFollow } = useDeleteFollow({ followId: followId });
 
-  console.log(followId);
-
   const pathName = usePathname();
 
   const handleFollow = () => {
