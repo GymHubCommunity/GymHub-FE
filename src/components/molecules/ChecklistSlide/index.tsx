@@ -5,12 +5,9 @@ import {
   getMachinesProps,
 } from '@/apis/machineController';
 import CheckList from '@/components/atoms/CheckList';
-import styles from '@/components/molecules/ChecklistSlide/ChecklistSlide.module.scss';
 import useSelectedPart from '@/hooks/useSelectedPart';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
-import { FreeMode } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface ChecklistSlideProp {
   part: 'UPPER' | 'LOWER' | 'WHOLE';
@@ -49,20 +46,13 @@ function ChecklistSlide({ part }: ChecklistSlideProp) {
 
   return (
     <>
-      <Swiper
-        direction="vertical"
-        slidesPerView="auto"
-        modules={[FreeMode]}
-        className={styles.mySwiper}
-      >
-        {currentLists?.map((val) =>
-          val.machines.map((val2) => (
-            <SwiperSlide key={val2.id} className={styles.swiperSlide}>
-              <CheckList id={val2.id}>{val2.name}</CheckList>
-            </SwiperSlide>
-          )),
-        )}
-      </Swiper>
+      {currentLists?.map((val) =>
+        val.machines.map((val2) => (
+          <CheckList key={val2.id} id={val2.id}>
+            {val2.name}
+          </CheckList>
+        )),
+      )}
     </>
   );
 }

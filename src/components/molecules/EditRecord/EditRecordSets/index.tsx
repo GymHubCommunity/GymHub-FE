@@ -1,37 +1,30 @@
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/EditRecord/EditRecordSets/EditRecordSets.module.scss';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface EditRecordSetsProp {
-  id: number;
-  name: string;
   countSets?: number;
   deleteSets?: () => void;
   isDisabled?: boolean;
-  onChangeKg: (newValue: string) => void; // kg 변경 시 호출할 콜백 함수
-  onChangeSets: (newValue: string) => void; // sets 변경 시 호출할 콜백 함수
+  setKg: Dispatch<SetStateAction<number>>;
+  setCount: Dispatch<SetStateAction<number>>;
 }
 
 function EditRecordSets({
   countSets,
   deleteSets,
   isDisabled,
-  onChangeKg,
-  onChangeSets,
+  setKg,
+  setCount,
 }: EditRecordSetsProp) {
-  const [kg, setKg] = useState('0');
-  const [sets, setSets] = useState('0');
-
   const handleKgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
+    const newValue = Number(e.target.value);
     setKg(newValue);
-    onChangeKg(newValue);
   };
 
   const handleSetsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    setSets(newValue);
-    onChangeSets(newValue);
+    const newValue = Number(e.target.value);
+    setCount(newValue);
   };
 
   return (
@@ -41,11 +34,11 @@ function EditRecordSets({
       </div>
       <div className={styles.inputWrapper}>
         <div className={styles.input}>
-          <input value={kg} onChange={handleKgChange} />
+          <input onChange={handleKgChange} />
           <p className={styles.inputText}>kg</p>
         </div>
         <div className={styles.input}>
-          <input value={sets} onChange={handleSetsChange} />
+          <input onChange={handleSetsChange} />
           <p className={styles.inputText}>회</p>
         </div>
         <button
