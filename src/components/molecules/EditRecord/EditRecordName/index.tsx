@@ -2,9 +2,9 @@ import BabelSvg from '@/assets/icons/BabelSvg';
 import SetNameDeleteSvg from '@/assets/icons/SetNameDeleteSvg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/EditRecord/EditRecordName/EditRecordName.module.scss';
-import { exerciseAtom } from '@/components/molecules/EditRecord/EditRecordsHeader';
 
 import { useSetAtom } from 'jotai';
+import { exerciseAtom } from '../EditRecordsSection';
 
 interface EditRecordNameProp {
   id: number;
