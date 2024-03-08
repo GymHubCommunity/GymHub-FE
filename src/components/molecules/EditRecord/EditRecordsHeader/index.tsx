@@ -1,6 +1,5 @@
 import BackIconSvg from '@/assets/icons/BackIconSvg';
 import PlusSvg from '@/assets/icons/PlusSvg';
-import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import Text from '@/components/atoms/Text';
 import EditRecordsForm from '@/components/molecules/EditRecord/EditRecordsForm';
 import styles from '@/components/molecules/EditRecord/EditRecordsHeader/EditRecordsHeader.module.scss';
@@ -32,10 +31,6 @@ function EditRecordsHeader() {
     };
   }, []);
 
-  const handleSubmit = () => {
-    console.log('recordSet : ', exercise);
-  };
-
   return (
     <div className={styles.wrapper}>
       <BackIconSvg />
@@ -43,12 +38,6 @@ function EditRecordsHeader() {
       <button onClick={addExercise} className={styles.button}>
         <PlusSvg color="#70767E" />
       </button>
-      <ConfirmButton
-        type={'submit'}
-        title={'운동 기록하기'}
-        disabled={false}
-        onClick={() => handleSubmit()}
-      />
     </div>
   );
 }
