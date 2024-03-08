@@ -34,7 +34,7 @@ function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
           {isPending ? <OnNotificationSvg /> : <NotificationSvg />}
         </Link>
       ) : (
-        <div className={styles.blank} />
+        pathName.startsWith('/records') ?? <div className={styles.blank} />
       )}
     </header>
   );
