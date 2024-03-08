@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 function EditProfile() {
   const methods = useForm({
@@ -31,10 +32,10 @@ function EditProfile() {
     }
 
     try {
-      await putUserInfo(data);
+      await putUserInfo(data).then(() => toast.success('프로필 수정 완료'));
       router.push('/');
     } catch (e) {
-      throw Error('프로필 수정 실패');
+      toast.error('프로필 수정을 실패 했습니다.');
     }
   };
 

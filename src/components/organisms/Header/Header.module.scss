@@ -3,16 +3,11 @@
 @import '/src/styles/colors.scss';
 
 .wrapper {
-  @include flexCenter;
+  @include flexBetween;
   height: 54px;
   z-index: $aboveDefault;
 
-  padding: 14px;
+  padding: 14px 0;
   text-align: center;
   position: relative;
-}
-
-.button {
-  position: absolute;
-  left: 14px;
 }

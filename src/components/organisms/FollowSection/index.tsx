@@ -41,17 +41,20 @@ function FollowSection({ nickName, memberId }: Props) {
     <div className={commonStyles.wrapper}>
       <BackButtonHeader pageName={nickName} />
       <FollowTwinButton />
-      {(followButton === 'follower' ? followers : followings)?.pages.map(
-        (val) => (
-          <div key={val.id} className={styles.followWrapper}>
-            <FollowList
-              id={val.memberId}
-              profileUrl={val.profileUrl}
-              name={val.nickname}
-            />
-          </div>
-        ),
-      )}
+      <div className={styles.followWrapper}>
+        {(followButton === 'follower' ? followers : followings)?.pages.map(
+          (val) => (
+            <div key={val.id} className={styles.followWrapper}>
+              <FollowList
+                id={val.memberId}
+                followId={val.id}
+                profileUrl={val.profileUrl}
+                name={val.nickname}
+              />
+            </div>
+          ),
+        )}
+      </div>
       <div ref={ref} />
     </div>
   );

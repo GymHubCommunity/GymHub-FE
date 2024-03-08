@@ -7,26 +7,44 @@ import useModalInfo from '@/hooks/useModalInfo';
 import { GetPostDetailProps } from '@/types/GetPost';
 import { UserInfoProps } from '@/types/user';
 import { AxiosResponse } from 'axios';
+import { useEffect, useState } from 'react';
 
 interface PostSectionProp {
   postData: GetPostDetailProps[];
   userData: AxiosResponse<UserInfoProps, any>;
+  pendingData: any;
 }
 
-function MypagePostSection({ postData, userData }: PostSectionProp) {
+function MypagePostSection({
+  postData,
+  userData,
+  pendingData,
+}: PostSectionProp) {
   const { isShow, closeModal } = useModalInfo();
+  const [isPending, setIsPending] = useState(false);
 
   const exerciseDays = postData?.filter((val) =>
     val.content.includes('#오운완'),
   );
+
+  useEffect(() => {
+    if (pendingData.pages?.length > 0) {
+      setIsPending(true);
+    }
+    if (pendingData.pages?.length <= 0) {
+      setIsPending(false);
+    }
+  }, [pendingData.pages?.length]);
 
   return (
     <div className={styles.wrapper}>
       {isShow && (
         <Modal type={'commentDel'} isShow={isShow} closeModal={closeModal} />
       )}
-
-      <BackButtonHeader pageName={userData.data.nickname} />
+      <BackButtonHeader
+        pageName={userData.data.nickname}
+        isPending={isPending}
+      />
       <Profile
         profileImg={userData.data.profileUrl}
         postCount={postData.length ?? 0}
