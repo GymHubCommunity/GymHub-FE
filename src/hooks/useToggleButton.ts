@@ -13,7 +13,6 @@ const selectedAtom = atom(getInitialSelectedValue());
 function useToggleButton() {
   const [isSelected, setIsSelected] = useAtom(selectedAtom);
 
-  console.log(isSelected);
   const handlePrivate = async () => {
     setIsSelected((prev: boolean) => !prev);
 
