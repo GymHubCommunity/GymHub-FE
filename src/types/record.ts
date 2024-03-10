@@ -1,3 +1,18 @@
+// 운동기록 추가하기 POST
+interface PostRecordProp {
+  tracks: PostRecordsProps[];
+}
+
+interface PostRecordsProps {
+  machineName: string;
+  sets: PostRecordsSetsProps[];
+}
+
+interface PostRecordsSetsProps {
+  weight: number;
+  repeatCnt: number;
+}
+
 interface RecordProps {
   snapshots: RecordItemProps[];
   hasNext: boolean;
@@ -22,8 +37,10 @@ interface RecordTracksProps {
 }
 
 export type {
-  RecordProps,
+  PostRecordProp,
+  PostRecordsProps,
   RecordItemProps,
+  RecordProps,
   RecordTracksCategorizedBodyPartProps,
   RecordTracksProps,
 };
