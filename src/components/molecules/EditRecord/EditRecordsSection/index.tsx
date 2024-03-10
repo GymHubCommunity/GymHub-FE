@@ -6,6 +6,7 @@ import { atom, useAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import EditRecordsForm from '../EditRecordsForm';
+import styles from '@/components/molecules/EditRecord/EditRecordsSection/EditRecordsSection.module.scss';
 
 export const exerciseAtom = atom<any[]>([]);
 
@@ -70,7 +71,7 @@ function EditRecordsSection() {
   return (
     <>
       <BackButtonHeader pageName="운동 기록하기" onClick={addExercise} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.wrapper}>
         {exercise}
         <ConfirmButton
           type="submit"
