@@ -6,7 +6,7 @@ import useSelectedPart from '@/hooks/useSelectedPart';
 import { atom, useAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import EditRecordsForm from '../EditRecordsForm';
+import EditRecordsForm from '@/components/molecules/EditRecord/EditRecordsForm';
 import styles from '@/components/molecules/EditRecord/EditRecordsSection/EditRecordsSection.module.scss';
 
 export const exerciseAtom = atom<any[]>([]);
