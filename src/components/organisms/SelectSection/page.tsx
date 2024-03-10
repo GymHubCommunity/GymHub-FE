@@ -1,6 +1,7 @@
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
 import ChecklistSlide from '@/components/molecules/ChecklistSlide';
 import LabelSlide from '@/components/molecules/LabelSlide';
+import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/SelectSection/SelectSection.module.scss';
 import useSelectedPart from '@/hooks/useSelectedPart';
@@ -16,7 +17,7 @@ function SelectSection({ part }: SelectSectionProp) {
 
   return (
     <>
-      <div>
+      <div className={commonStyles.wrapper}>
         <BackButtonHeader
           pageName={
             part === 'UPPER' ? '상체' : part === 'LOWER' ? '하체' : '전신'

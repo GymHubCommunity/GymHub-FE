@@ -1,5 +1,6 @@
 import { postRecords } from '@/apis/recordController';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import useSelectedPart from '@/hooks/useSelectedPart';
 import { atom, useAtom } from 'jotai';
@@ -70,7 +71,9 @@ function EditRecordsSection() {
 
   return (
     <>
-      <BackButtonHeader pageName="운동 기록하기" onClick={addExercise} />
+      <div className={commonStyles.wrapper}>
+        <BackButtonHeader pageName="운동 기록하기" onClick={addExercise} />
+      </div>
       <form onSubmit={handleSubmit} className={styles.wrapper}>
         {exercise}
         <ConfirmButton
