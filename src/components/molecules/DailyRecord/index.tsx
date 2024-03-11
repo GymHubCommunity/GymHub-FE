@@ -1,10 +1,10 @@
 'use client';
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
-import styles from '@/components/molecules/DailyRecord/DailyRecord.module.scss';
 import Text from '@/components/atoms/Text';
+import styles from '@/components/molecules/DailyRecord/DailyRecord.module.scss';
+import { exerciseRecords } from '@/constants/MockData';
 import useSelectedDate from '@/hooks/useSelectedDate';
 import DateFormat from '@/utils/DateFormat';
-import { exerciseRecords } from '@/constants/MockData';
 
 function DailyRecord() {
   const { selectedDate } = useSelectedDate();

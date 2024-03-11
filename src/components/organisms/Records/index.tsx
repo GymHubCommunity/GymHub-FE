@@ -11,12 +11,7 @@ import styles from '@/components/organisms/Records/Records.module.scss';
 import useModalInfo from '@/hooks/useModalInfo';
 import useSelectedDate from '@/hooks/useSelectedDate';
 import useToggleMenu from '@/hooks/useToggleMenu';
-import {
-  RecordCategory,
-  RecordExerciseProps,
-  RecordTracksProps,
-  RecordsProps,
-} from '@/types/records';
+import { RecordExerciseProps } from '@/types/records';
 import DateFormat from '@/utils/DateFormat';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
@@ -28,20 +23,18 @@ function Records() {
   const targetDate = selectedDate !== null ? selectedDate : new Date();
 
   const { year, month, day } = DateFormat(selectedDate as Date);
+
   const { data, isLoading } = useQuery({
-    queryKey: ['getRecordsByDay'],
+    queryKey: ['getRecordsByDay', year + month + day],
     queryFn: async () => {
       const response = await instance.get(
         `/records?year=${year}&month=${month}`,
       );
-
       return response.data;
     },
   });
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <div className={styles.wrapper}>
