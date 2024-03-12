@@ -1,7 +1,6 @@
 'use client';
 
 import useDeleteComment from '@/apis/Query/Comment/useDeleteComment';
-import { deleteRecordSnapshots } from '@/apis/recordController';
 import ModalArticle from '@/components/molecules/ModalArticle';
 import ModalToggle from '@/components/molecules/ModalToggle';
 import styles from '@/components/organisms/Modal/Modal.module.scss';
@@ -9,7 +8,6 @@ import { CommentDel, RecordsDel } from '@/constants/ModalToggle';
 import { commentIdAtom } from '@/hooks/atoms';
 import useGetPostId from '@/hooks/useGetPostId';
 import useToggleItems from '@/hooks/useToggleItems';
-import { ToggleMenuProp } from '@/types/toggle';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';

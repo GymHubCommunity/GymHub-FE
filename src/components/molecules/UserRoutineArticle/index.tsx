@@ -1,6 +1,6 @@
 import ArrowBackSvg from '@/assets/icons/ArrowBackSvg';
 import ToggleMenu from '@/components/atoms/Button/ToggleMenu';
-import UserRoutine, { UserRoutineProps } from '@/components/atoms/UserRoutine';
+import UserRoutine from '@/components/atoms/UserRoutine';
 import styles from '@/components/molecules/UserRoutineArticle/UserRoutineArticle.module.scss';
 import { usePathname } from 'next/navigation';
 

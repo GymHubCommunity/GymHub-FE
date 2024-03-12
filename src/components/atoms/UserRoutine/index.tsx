@@ -1,9 +1,9 @@
 import DumbbellSvg from '@/assets/icons/DumbbellSvg';
 import styles from '@/components/atoms/UserRoutine/UserRoutine.module.scss';
-import DateFormat from '@/utils/DateFormat';
-import { usePathname } from 'next/navigation';
 import { defaultFadeInLeftVariants } from '@/constants/motion';
+import DateFormat from '@/utils/DateFormat';
 import { m } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export interface UserRoutineProps {
   name: string;
@@ -13,6 +13,7 @@ export interface UserRoutineProps {
 function UserRoutine({ name, date }: UserRoutineProps) {
   const pathName = usePathname();
   const { year, month, day } = DateFormat(date);
+
   return (
     <m.div
       variants={defaultFadeInLeftVariants}
