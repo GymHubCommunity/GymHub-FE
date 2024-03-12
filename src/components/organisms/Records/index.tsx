@@ -35,7 +35,9 @@ function Records() {
         data={data}
         day={day}
       />
-      <FloatingButton type={'addExercise'} />
+      <div className={styles.floatingButton}>
+        <FloatingButton type={'addExercise'} />
+      </div>
       {isOpen &&
         data.results[data.results?.length - Number(day)]?.exerciseRecords?.map(
           (item: RecordExerciseProps, index: number) => (
