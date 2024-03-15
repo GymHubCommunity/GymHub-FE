@@ -18,7 +18,14 @@ interface HeaderProp {
 function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
   const pathName = usePathname();
 
-  const blankPaths = ['/follow', '/setting', '/map', '/post', '/notification'];
+  const blankPaths = [
+    '/follow',
+    '/setting',
+    '/map',
+    '/post',
+    '/notification',
+    '/members',
+  ];
   const isBlankPaths = blankPaths.some((path) => pathName.startsWith(path));
 
   return (
