@@ -1,14 +1,7 @@
-import { instance } from '@/apis';
-import Loading from '@/components/atoms/Loading';
 import styles from '@/components/molecules/ExerciseRoutine/ExerciseRoutine.module.scss';
 import UserRoutineArticle from '@/components/molecules/UserRoutineArticle';
 import { postProfile } from '@/constants/MockData';
-import {
-  RecordCategory,
-  RecordExerciseProps,
-  RecordTracksProps,
-  RecordsProps,
-} from '@/types/records';
+import { RecordCategory, RecordExerciseProps } from '@/types/records';
 
 interface ToggleProps {
   close: () => void;
@@ -48,7 +41,6 @@ function ExerciseRoutine({
                             {track.machineName}
                           </li>
                         </ul>
-
                         <div className={styles.setWrapper}>
                           <span>{track.weight}kg</span> x
                           <span> {track.repeat}회</span> x

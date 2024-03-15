@@ -2,5 +2,28 @@
   height: calc(var(--vh, 1vh) * 100);
   padding: 0 20px;
   padding-top: 14px;
-  overflow-y: scroll;
+
+  &.UPPER {
+    overflow-y: scroll;
+  }
+
+  &.LOWER {
+    overflow-y: scroll;
+  }
+
+  &.WHOLE {
+    overflow-y: scroll;
+  }
+
+  &.UPPER::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.LOWER::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.WHOLE::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -18,6 +18,9 @@ interface HeaderProp {
 function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
   const pathName = usePathname();
 
+  const blankPaths = ['/follow', '/setting', '/map', '/post', '/notification'];
+  const isBlankPaths = blankPaths.some((path) => pathName.startsWith(path));
+
   return (
     <header className={commonStyles.wrapper}>
       <div className={commonStyles.button}>
@@ -29,13 +32,12 @@ function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
           <PlusSvg color="#70767E" />
         </button>
       )}
-      {pathName === '/mypage' ? (
+      {pathName === '/mypage' && (
         <Link href={'/notification'}>
           {isPending ? <OnNotificationSvg /> : <NotificationSvg />}
         </Link>
-      ) : (
-        pathName.startsWith('/records') ?? <div className={styles.blank} />
       )}
+      {isBlankPaths && <div className={styles.blank} />}
     </header>
   );
 }

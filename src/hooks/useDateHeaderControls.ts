@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import DateFormat from '@/utils/DateFormat';
+import { useEffect, useState } from 'react';
 
 function useDateHeaderControls(selectedDate: Date | null) {
   const [year, setYear] = useState('');
@@ -20,7 +20,7 @@ function useDateHeaderControls(selectedDate: Date | null) {
       setYear(String(parseInt(year) - 1));
       setMonth('12');
     } else {
-      setMonth(String(parseInt(month) - 1));
+      setMonth(String(parseInt(month) - 1).padStart(2, '0'));
     }
   };
 
@@ -29,7 +29,7 @@ function useDateHeaderControls(selectedDate: Date | null) {
       setYear(String(parseInt(year) + 1));
       setMonth('1');
     } else {
-      setMonth(String(parseInt(month) + 1));
+      setMonth(String(parseInt(month) + 1).padStart(2, '0'));
     }
   };
 

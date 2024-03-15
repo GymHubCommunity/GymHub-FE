@@ -1,13 +1,13 @@
 import { postRecords } from '@/apis/recordController';
 import ConfirmButton from '@/components/atoms/Button/ConfirmButton';
+import EditRecordsForm from '@/components/molecules/EditRecord/EditRecordsForm';
+import styles from '@/components/molecules/EditRecord/EditRecordsSection/EditRecordsSection.module.scss';
 import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import useSelectedPart from '@/hooks/useSelectedPart';
 import { atom, useAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import EditRecordsForm from '@/components/molecules/EditRecord/EditRecordsForm';
-import styles from '@/components/molecules/EditRecord/EditRecordsSection/EditRecordsSection.module.scss';
 
 export const exerciseAtom = atom<any[]>([]);
 
@@ -73,16 +73,16 @@ function EditRecordsSection() {
     <>
       <div className={commonStyles.wrapper}>
         <BackButtonHeader pageName="운동 기록하기" onClick={addExercise} />
+        <form onSubmit={handleSubmit} className={styles.wrapper}>
+          {exercise}
+          <ConfirmButton
+            type="submit"
+            title="운동기록하기"
+            disabled={false}
+            onClick={goToRecordsPage}
+          />
+        </form>
       </div>
-      <form onSubmit={handleSubmit} className={styles.wrapper}>
-        {exercise}
-        <ConfirmButton
-          type="submit"
-          title="운동기록하기"
-          disabled={false}
-          onClick={goToRecordsPage}
-        />
-      </form>
     </>
   );
 }

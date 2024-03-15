@@ -5,7 +5,10 @@ import commonStyles from '@/components/organisms/Common.module.scss';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
 import styles from '@/components/organisms/SelectSection/SelectSection.module.scss';
 import useSelectedPart from '@/hooks/useSelectedPart';
+import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
+
+const cn = classNames.bind(commonStyles);
 
 interface SelectSectionProp {
   part: 'UPPER' | 'LOWER' | 'WHOLE';
@@ -17,7 +20,7 @@ function SelectSection({ part }: SelectSectionProp) {
 
   return (
     <>
-      <div className={commonStyles.wrapper}>
+      <div className={cn('wrapper', part)}>
         <BackButtonHeader
           pageName={
             part === 'UPPER' ? '상체' : part === 'LOWER' ? '하체' : '전신'
