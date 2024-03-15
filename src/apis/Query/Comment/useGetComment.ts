@@ -26,7 +26,7 @@ function useGetComment({ postId }: useGetCommentProp) {
   } = useInfiniteQuery({
     queryKey: ['comments'],
     queryFn: ({ pageParam }) => getComment({ pageParam }),
-    initialPageParam: 0,
+    initialPageParam: -1,
     select: (data) => ({
       pages: data?.pages.flatMap((page) => page.comments) || [],
       pageParams: data.pageParams,
