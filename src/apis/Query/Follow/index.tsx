@@ -8,7 +8,7 @@ import {
 import toast from 'react-hot-toast';
 
 export interface memberIdProp {
-  memberId: string | string[];
+  memberId: number;
 }
 
 interface followIdProp {

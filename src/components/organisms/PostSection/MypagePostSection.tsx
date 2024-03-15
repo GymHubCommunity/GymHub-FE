@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface PostSectionProp {
-  memberId: string;
+  memberId: number;
   postData: GetPostDetailProps[];
   userData: AxiosResponse<UserInfoProps, any>;
   pendingData: any;

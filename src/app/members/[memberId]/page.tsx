@@ -7,7 +7,7 @@ import Footer from '@/components/organisms/Footer';
 import MypagePostSection from '@/components/organisms/PostSection/MypagePostSection';
 
 interface MemberInfoPageProp {
-  params: { memberId: string };
+  params: { memberId: number };
 }
 
 function MemberInfoPage({ params }: MemberInfoPageProp) {
