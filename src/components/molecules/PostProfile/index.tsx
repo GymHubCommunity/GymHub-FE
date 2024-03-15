@@ -4,10 +4,7 @@ import ProfileImg from '@/components/atoms/ProfileImg';
 import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
 import { WriterInfoProps } from '@/types/GetPost';
-import { atom, useSetAtom } from 'jotai';
 import Link from 'next/link';
-
-export const userIdAtom = atom(0);
 
 interface PostProfileProps {
   type: 'default' | 'exercised';
@@ -16,22 +13,12 @@ interface PostProfileProps {
 }
 
 function PostProfile({ type, postProfile, postId }: PostProfileProps) {
-  const setUserId = useSetAtom(userIdAtom);
   if (!postProfile) return;
-
-  const userId = postProfile.writerId;
-
-  const handleUserId = (userId: number) => {
-    setUserId(userId);
-  };
+  const memberId = postProfile.writerId;
 
   return (
     <div className={styles.wrapper}>
-      <Link
-        href={'/mypage'}
-        className={styles.inWrapper}
-        onClick={() => handleUserId(userId)}
-      >
+      <Link href={`/members/${memberId}`} className={styles.inWrapper}>
         <ProfileImg imgUrl={postProfile.profileUrl} size={46} />
         <div className={styles.profile}>
           <Text post="userName">{postProfile.nickname}</Text>
