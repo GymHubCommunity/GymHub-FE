@@ -1,3 +1,4 @@
+import useGetInfo from '@/apis/user/useGetInfo';
 import FloatingButton from '@/components/atoms/Button/FloatingButton';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import Loading from '@/components/atoms/Loading';
@@ -17,15 +18,18 @@ import Image from 'next/image';
 
 function MainSection() {
   const { data, isLoading, ref } = useMainSection();
+  const { data: userInfo } = useGetInfo();
   const { isShow, closeModal } = useModalInfo();
   const { isOpen } = useToggleMenu();
 
   if (isLoading) return <Loading />;
 
+  const memberId = userInfo?.data.id;
+
   return (
     <>
       <main className={styles.wrapper}>
-        <MainHeader />
+        <MainHeader memberId={memberId as number} />
         <Image
           className={styles.storyBackground}
           width={402}

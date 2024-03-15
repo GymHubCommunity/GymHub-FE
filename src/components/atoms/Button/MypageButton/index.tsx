@@ -1,9 +1,10 @@
 import HeaderMyPageSvg from '@/assets/icons/HeaderMyPageSvg';
+import { MainHeaderProp } from '@/components/organisms/Header/MainHeader';
 import Link from 'next/link';
 
-function MypageButton() {
+function MypageButton({ memberId }: MainHeaderProp) {
   return (
-    <Link href={'/mypage'}>
+    <Link href={`/members/${memberId}`}>
       <HeaderMyPageSvg />
     </Link>
   );
