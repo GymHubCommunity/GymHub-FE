@@ -1,8 +1,9 @@
+import { memberIdProp } from '@/apis/Query/Follow';
 import { instance } from '@/apis/index';
 import { GetPost } from '@/types/GetPost';
+
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
-import { memberIdProp } from '../Follow';
 
 interface getPostProp {
   pageParam: number;

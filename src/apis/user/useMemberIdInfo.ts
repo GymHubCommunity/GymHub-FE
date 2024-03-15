@@ -1,8 +1,9 @@
+import { memberIdProp } from '@/apis/Query/Follow';
+import { instance } from '@/apis/index';
 import { UserInfoProps } from '@/types/user';
+
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { instance } from '..';
-import { memberIdProp } from '../Query/Follow';
 
 function useMemberIdGetInfo({ memberId }: memberIdProp) {
   const { data, isError, isLoading } = useQuery({
