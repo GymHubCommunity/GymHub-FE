@@ -1,3 +1,4 @@
+import useGetPost from '@/apis/Query/Post/useGetPost';
 import PostArticle from '@/components/molecules/PostArticle';
 import Profile from '@/components/molecules/Profile';
 import BackButtonHeader from '@/components/organisms/Header/BackButtonHeader';
@@ -8,24 +9,35 @@ import { GetPostDetailProps } from '@/types/GetPost';
 import { UserInfoProps } from '@/types/user';
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface PostSectionProp {
+  memberId: string;
   postData: GetPostDetailProps[];
   userData: AxiosResponse<UserInfoProps, any>;
   pendingData: any;
 }
 
 function MypagePostSection({
+  memberId,
   postData,
   userData,
   pendingData,
 }: PostSectionProp) {
+  const [ref, inView] = useInView();
+  const { fetchNextPage, hasNextPage } = useGetPost({ memberId });
   const { isShow, closeModal } = useModalInfo();
   const [isPending, setIsPending] = useState(false);
 
   const exerciseDays = postData?.filter((val) =>
     val.content.includes('#오운완'),
   );
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   useEffect(() => {
     if (pendingData.pages?.length > 0) {
@@ -65,6 +77,7 @@ function MypagePostSection({
             />
           </div>
         ))}
+        <div ref={ref} />
       </div>
     </div>
   );
