@@ -6,9 +6,32 @@ interface getPostProp {
   pageParam?: number;
 }
 
+export interface WriterInfoProps {
+  writerId: number;
+  nickname: string;
+  email: string;
+  profileUrl: string;
+}
+
+export interface getPostItems {
+  postId: number;
+  writerInfo: WriterInfoProps;
+  content: string;
+  imageUrl: string;
+  commentCount: number;
+  registeredAt: string;
+}
+
+export interface getPostProps {
+  posts: getPostItems[];
+  hasNext?: boolean;
+}
+
 function useGetPostwithScroll() {
   const getPost = async ({ pageParam }: getPostProp) => {
-    const response = await instance.get(`/posts?page=${pageParam}&size=5`);
+    const response = await instance.get<getPostProps>(
+      `/posts?page=${pageParam}&size=5`,
+    );
     return response.data;
   };
 
