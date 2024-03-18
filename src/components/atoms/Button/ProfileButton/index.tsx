@@ -1,23 +1,18 @@
 import styles from '@/components/atoms/Button/ProfileButton/ProfileButton.module.scss';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface ProfileButton {
   type: 'profileUpdate' | 'follow';
+  memberId: number;
 }
 
-function ProfileButton({ type }: ProfileButton) {
-  const router = useRouter();
-
-  const profileUpdate = () => {
-    router.push('/editprofile');
-  };
-
+function ProfileButton({ type, memberId }: ProfileButton) {
   return (
     <>
       {type === 'profileUpdate' ? (
-        <button className={styles.button} onClick={profileUpdate}>
+        <Link href={`/editprofile/${memberId}`} className={styles.button}>
           프로필 수정하기
-        </button>
+        </Link>
       ) : (
         <button>팔로우</button>
       )}

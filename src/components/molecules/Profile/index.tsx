@@ -43,7 +43,7 @@ function Profile({
             />
           </Link>
         </div>
-        <ProfileButton type="profileUpdate" />
+        <ProfileButton type="profileUpdate" memberId={memberId} />
       </div>
     </div>
   );
