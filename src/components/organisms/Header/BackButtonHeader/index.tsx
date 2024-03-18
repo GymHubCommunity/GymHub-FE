@@ -44,7 +44,9 @@ function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
           {isPending ? <OnNotificationSvg /> : <NotificationSvg />}
         </Link>
       )}
-      {isBlankPaths && <div className={styles.blank} />}
+      {(isBlankPaths || pageName === '오류 발생') && (
+        <div className={styles.blank} />
+      )}
     </header>
   );
 }
