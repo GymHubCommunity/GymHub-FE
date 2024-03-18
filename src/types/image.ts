@@ -5,6 +5,7 @@ interface ImgProps {
 }
 interface ImgUploadButtonProps {
   onImageChange: (image: string) => void;
+  userImg?: string;
   prop?: any;
 }
 

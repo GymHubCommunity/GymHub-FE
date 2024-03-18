@@ -5,10 +5,19 @@ import styles from '@/components/organisms/RegisterForm/RegisterForm.module.scss
 import { UserInputRegisterProps } from '@/types/user';
 import { useFormContext } from 'react-hook-form';
 
-function RegisterForm(
-  { onSubmit }: any,
-  onImageChange: (image: string) => void,
-) {
+interface RegisterFormProps {
+  onSubmit: any;
+  onImageChange: (image: string) => void;
+  nickname?: string;
+  profileUrl?: string;
+}
+
+function RegisterForm({
+  onSubmit,
+  onImageChange,
+  nickname,
+  profileUrl,
+}: RegisterFormProps) {
   const {
     register,
     formState: { errors },
@@ -18,11 +27,17 @@ function RegisterForm(
     <div className={styles.wrapper}>
       <Text onBoarding="registerExplain">프로필을 설정해주세요.</Text>
       <ProfileImgSetting
+        userImg={profileUrl}
         onImageChange={onImageChange}
-        {...register('profileUrl')}
+        {...register('profileUrl', { value: profileUrl ?? '' })}
       />
       <div className={styles.nicknameWrapper}>
-        <input placeholder="닉네임" {...register('nickname')} />
+        <input
+          placeholder="닉네임"
+          {...register('nickname', {
+            value: nickname ?? '',
+          })}
+        />
       </div>
       <span className={styles.errorMessage}>{errors.nickname?.message}</span>
       <ConfirmButton

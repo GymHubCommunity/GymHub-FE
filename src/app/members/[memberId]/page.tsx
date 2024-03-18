@@ -5,10 +5,7 @@ import useGetPost from '@/apis/Query/Post/useGetPost';
 import useMemberIdGetInfo from '@/apis/user/useMemberIdInfo';
 import Footer from '@/components/organisms/Footer';
 import MypagePostSection from '@/components/organisms/PostSection/MypagePostSection';
-
-interface MemberInfoPageProp {
-  params: { memberId: number };
-}
+import { MemberInfoPageProp } from '@/types/user';
 
 function MemberInfoPage({ params }: MemberInfoPageProp) {
   const { memberId } = params;
