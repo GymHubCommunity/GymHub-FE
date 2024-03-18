@@ -6,7 +6,7 @@ import { ImgUploadButtonProps } from '@/types/image';
 import Image from 'next/image';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-function ProfileImgSetting({ prop }: ImgUploadButtonProps) {
+function ProfileImgSetting({ userImg, prop }: ImgUploadButtonProps) {
   const { file, setFile, handleSetPresignedURL } = useImageUpload();
   const [image, setImage] = useState('');
 
@@ -23,6 +23,10 @@ function ProfileImgSetting({ prop }: ImgUploadButtonProps) {
     e.target.value = '';
     setFile(file);
   };
+
+  useEffect(() => {
+    setImage(userImg as string);
+  }, []);
 
   useEffect(() => {
     if (!file) return;
