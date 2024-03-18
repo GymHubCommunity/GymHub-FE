@@ -3,12 +3,12 @@ import FloatingButton from '@/components/atoms/Button/FloatingButton';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import Loading from '@/components/atoms/Loading';
 import BlankArticle from '@/components/molecules/BlankArticle';
+import BlankStory from '@/components/molecules/BlankStory';
 import PostArticle from '@/components/molecules/PostArticle';
 import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
 import styles from '@/components/organisms/MainSection/MainSection.module.scss';
 import Modal from '@/components/organisms/Modal';
-import { stories } from '@/constants/MockData';
 import useMainSection from '@/hooks/useMainSection';
 import useModalInfo from '@/hooks/useModalInfo';
 import useToggleMenu from '@/hooks/useToggleMenu';
@@ -25,6 +25,7 @@ function MainSection() {
   if (isLoading) return <Loading />;
 
   const memberId = userInfo?.data.id;
+  const posts = data?.pages.filter((val) => val.content.includes('#오운완'));
 
   return (
     <>
@@ -39,7 +40,7 @@ function MainSection() {
           src={MainBackgroundImg}
           alt="배경 이미지"
         />
-        <StoryArticle stories={stories} />
+        {posts?.length ? <StoryArticle posts={posts} /> : <BlankStory />}
         <div className={styles.feedWrapper}>
           {(data?.pages?.length as number) === 0 ? (
             <div className={styles.blankWrapper}>
