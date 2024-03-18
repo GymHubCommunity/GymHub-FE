@@ -3,6 +3,7 @@ import FloatingButton from '@/components/atoms/Button/FloatingButton';
 import ToggleItems from '@/components/atoms/Button/ToggleMenu/ToggleItems';
 import Loading from '@/components/atoms/Loading';
 import BlankArticle from '@/components/molecules/BlankArticle';
+import BlankStory from '@/components/molecules/BlankStory';
 import PostArticle from '@/components/molecules/PostArticle';
 import StoryArticle from '@/components/molecules/StoryArticle';
 import MainHeader from '@/components/organisms/Header/MainHeader';
@@ -39,7 +40,7 @@ function MainSection() {
           src={MainBackgroundImg}
           alt="배경 이미지"
         />
-        <StoryArticle posts={posts ?? []} />
+        {posts?.length ? <StoryArticle posts={posts} /> : <BlankStory />}
         <div className={styles.feedWrapper}>
           {(data?.pages?.length as number) === 0 ? (
             <div className={styles.blankWrapper}>
