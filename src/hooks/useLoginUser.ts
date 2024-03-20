@@ -23,7 +23,8 @@ function useLoginUser(): [
   const [loginUser, setLoginUser] = useAtom(loginUserAtom);
 
   const initUser = () => {
-    setLoginUser({ email: '', id: 0, nickname: '', profileUrl: '' });
+    if (!loginUser) return;
+    setLoginUser(null);
   };
 
   const setUser = (userInfo: LoginUserProps | null) => {
