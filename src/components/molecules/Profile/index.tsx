@@ -10,6 +10,8 @@ interface ProfileProps {
   postCount?: number;
   exerciseDays?: number;
   memberId: number;
+  userId: number;
+  isUser: boolean;
 }
 
 function Profile({
@@ -17,9 +19,16 @@ function Profile({
   postCount,
   exerciseDays,
   memberId,
+  userId,
+  isUser,
 }: ProfileProps) {
-  const { followers } = useGetFollowers(memberId);
-  const { followings } = useGetFollowings(memberId);
+  console.log(isUser);
+  const { followers } = useGetFollowers(isUser ? userId : memberId);
+  const { followings } = useGetFollowings(isUser ? userId : memberId);
+
+  const { followings: following } = useGetFollowings(userId);
+
+  const isFollow = following?.pages.map((val) => val.memberId === memberId)[0];
 
   return (
     <div className={styles.wrapper}>
@@ -28,14 +37,14 @@ function Profile({
         <div className={styles.infoWrapper}>
           <Info type="default" content="게시글" count={postCount} />
           <Info type="day" content="운동 일수" count={exerciseDays} />
-          <Link href={`/follow/${memberId}`}>
+          <Link href={`/follow/${isUser ? userId : memberId}`}>
             <Info
               type="follow"
               content="팔로우"
               count={followers?.pages.length}
             />
           </Link>
-          <Link href={`/follow/${memberId}`}>
+          <Link href={`/follow/${isUser ? userId : memberId}`}>
             <Info
               type="follow"
               content="팔로잉"
@@ -43,7 +52,11 @@ function Profile({
             />
           </Link>
         </div>
-        <ProfileButton type="profileUpdate" memberId={memberId} />
+        <ProfileButton
+          type={isUser ? 'profileUpdate' : 'follow'}
+          memberId={memberId}
+          isFollow={!isFollow}
+        />
       </div>
     </div>
   );

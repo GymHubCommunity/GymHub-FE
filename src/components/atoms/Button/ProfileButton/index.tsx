@@ -1,12 +1,36 @@
+import { usePostFollow, usePostUnfollow } from '@/apis/Query/Follow';
 import styles from '@/components/atoms/Button/ProfileButton/ProfileButton.module.scss';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface ProfileButton {
   type: 'profileUpdate' | 'follow';
   memberId: number;
+  isFollow: boolean;
 }
 
-function ProfileButton({ type, memberId }: ProfileButton) {
+function ProfileButton({ type, memberId, isFollow }: ProfileButton) {
+  const [followingContent, setFollowingContent] = useState('');
+  const { postFollow } = usePostFollow({ memberId });
+  const { postUnfollow } = usePostUnfollow({ memberId });
+
+  const handleFollow = () => {
+    if (followingContent === '팔로우') {
+      setFollowingContent('팔로우 취소');
+      postFollow();
+    }
+    if (followingContent === '팔로우 취소') {
+      setFollowingContent('팔로우');
+      postUnfollow();
+    }
+  };
+
+  useEffect(() => {
+    isFollow
+      ? setFollowingContent('팔로우')
+      : setFollowingContent('팔로우 취소');
+  }, [isFollow]);
+
   return (
     <>
       {type === 'profileUpdate' ? (
@@ -14,7 +38,14 @@ function ProfileButton({ type, memberId }: ProfileButton) {
           프로필 수정하기
         </Link>
       ) : (
-        <button>팔로우</button>
+        <button
+          className={
+            followingContent === '팔로우' ? styles.follow : styles.followCancel
+          }
+          onClick={handleFollow}
+        >
+          {followingContent}
+        </button>
       )}
     </>
   );
