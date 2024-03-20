@@ -61,6 +61,7 @@ function MypagePostSection({
       )}
       <BackButtonHeader
         pageName={userData.data.nickname}
+        isUser={isUser}
         isPending={isPending}
       />
       <Profile
