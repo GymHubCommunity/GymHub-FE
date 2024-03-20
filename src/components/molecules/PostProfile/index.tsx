@@ -5,6 +5,7 @@ import Text from '@/components/atoms/Text';
 import styles from '@/components/molecules/PostProfile/PostProfile.module.scss';
 import { WriterInfoProps } from '@/types/GetPost';
 import Link from 'next/link';
+import useLoginUser from '@/hooks/useLoginUser';
 
 interface PostProfileProps {
   type: 'default' | 'exercised';
@@ -13,6 +14,7 @@ interface PostProfileProps {
 }
 
 function PostProfile({ type, postProfile, postId }: PostProfileProps) {
+  const [loginUser] = useLoginUser();
   if (!postProfile) return;
   const memberId = postProfile.writerId;
 
@@ -27,7 +29,7 @@ function PostProfile({ type, postProfile, postId }: PostProfileProps) {
           )}
         </div>
       </Link>
-      <ToggleMenu type="post" id={postId} />
+      {loginUser?.id === memberId ? <ToggleMenu type="post" id={postId} /> : ''}
     </div>
   );
 }
