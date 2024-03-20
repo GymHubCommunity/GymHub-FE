@@ -1,6 +1,7 @@
 import { postLogout } from '@/apis/oAuth';
 import ToggleButton from '@/components/atoms/Button/ToggleButton';
 import styles from '@/components/molecules/SettingArticle/SettingArticle.module.scss';
+import useLoginUser from '@/hooks/useLoginUser';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -10,6 +11,7 @@ interface SettingArticleProps {
 }
 
 function SettingArticle({ type, children }: SettingArticleProps) {
+  const [, initUser] = useLoginUser();
   switch (type) {
     case 'profileToggle':
       return (
@@ -24,7 +26,10 @@ function SettingArticle({ type, children }: SettingArticleProps) {
           <Link
             href="/signin"
             className={styles.settingName}
-            onClick={() => postLogout()}
+            onClick={() => {
+              initUser(null);
+              postLogout();
+            }}
           >
             로그아웃
           </Link>
