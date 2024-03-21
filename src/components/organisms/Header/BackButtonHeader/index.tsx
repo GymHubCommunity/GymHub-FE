@@ -12,21 +12,17 @@ import { usePathname } from 'next/navigation';
 interface HeaderProp {
   pageName?: string;
   isPending?: boolean;
+  isUser?: boolean;
   onClick?: () => void;
 }
 
-function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
+function BackButtonHeader({
+  pageName,
+  isPending,
+  isUser,
+  onClick,
+}: HeaderProp) {
   const pathName = usePathname();
-
-  const blankPaths = [
-    '/follow',
-    '/setting',
-    '/map',
-    '/post',
-    '/notification',
-    '/members',
-  ];
-  const isBlankPaths = blankPaths.some((path) => pathName.startsWith(path));
 
   return (
     <header className={commonStyles.wrapper}>
@@ -39,13 +35,14 @@ function BackButtonHeader({ pageName, isPending, onClick }: HeaderProp) {
           <PlusSvg color="#70767E" />
         </button>
       )}
-      {pathName === '/mypage' && (
-        <Link href={'/notification'}>
-          {isPending ? <OnNotificationSvg /> : <NotificationSvg />}
-        </Link>
-      )}
-      {(isBlankPaths || pageName === '오류 발생') && (
-        <div className={styles.blank} />
+      {isUser ? (
+        pathName.startsWith('/members') && (
+          <Link href={`/notification`}>
+            {isPending ? <OnNotificationSvg /> : <NotificationSvg />}
+          </Link>
+        )
+      ) : (
+        <div />
       )}
     </header>
   );

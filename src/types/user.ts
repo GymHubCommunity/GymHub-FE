@@ -22,13 +22,18 @@ interface QueryUserInfoProps {
   data: UserInfoProps;
 }
 
-interface MemberInfoPageProp {
+interface MemberIdParams {
   params: { memberId: number };
 }
 
+interface UserIdParams {
+  params: { userId: number };
+}
+
 export type {
-  MemberInfoPageProp,
+  MemberIdParams,
   QueryUserInfoProps,
+  UserIdParams,
   UserInfoProps,
   UserInputRegisterProps,
   UserRegisterProps,

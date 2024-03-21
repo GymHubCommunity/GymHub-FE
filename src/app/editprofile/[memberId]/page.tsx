@@ -5,7 +5,7 @@ import RegisterForm from '@/components/organisms/RegisterForm';
 import { userFormSchema } from '@/constants/userSchema';
 import useImageUpload from '@/hooks/useImageUpload';
 import {
-  MemberInfoPageProp,
+  MemberIdParams,
   QueryUserInfoProps,
   UserInputRegisterProps,
 } from '@/types/user';
@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
-function EditProfile({ params }: MemberInfoPageProp) {
+function EditProfile({ params }: MemberIdParams) {
   const { memberId } = params;
   const methods = useForm({
     mode: 'onChange',

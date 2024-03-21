@@ -47,6 +47,7 @@ function FollowSection({ nickName, memberId }: Props) {
             <div key={val.id} className={styles.followWrapper}>
               <FollowList
                 id={val.memberId}
+                memberId={memberId}
                 followId={val.id}
                 profileUrl={val.profileUrl}
                 name={val.nickname}

@@ -15,6 +15,7 @@ interface PostSectionProp {
   memberId: number;
   postData: GetPostDetailProps[];
   userData: AxiosResponse<UserInfoProps, any>;
+  memberData: AxiosResponse<UserInfoProps, any>;
   pendingData: any;
 }
 
@@ -22,12 +23,17 @@ function MypagePostSection({
   memberId,
   postData,
   userData,
+  memberData,
   pendingData,
 }: PostSectionProp) {
   const [ref, inView] = useInView();
   const { fetchNextPage, hasNextPage } = useGetPost({ memberId });
   const { isShow, closeModal } = useModalInfo();
   const [isPending, setIsPending] = useState(false);
+
+  // [멤버 아이디]로 해당 멤버인지 다른 사람인지 구분
+  const userId = memberData.data.id;
+  const isUser = userId === memberId;
 
   const exerciseDays = postData?.filter((val) =>
     val.content.includes('#오운완'),
@@ -55,18 +61,21 @@ function MypagePostSection({
       )}
       <BackButtonHeader
         pageName={userData.data.nickname}
+        isUser={isUser}
         isPending={isPending}
       />
       <Profile
         profileImg={userData.data.profileUrl}
         postCount={postData.length ?? 0}
         exerciseDays={exerciseDays.length ?? 0}
-        memberId={userData.data.id}
+        memberId={memberId}
+        userId={userId}
+        isUser={isUser}
       />
       {postData.length === 0 && <div className={styles.blankWrapper} />}
       <div className={styles.inWrapper}>
-        {postData.map((item: GetPostDetailProps, index: number) => (
-          <div className={styles.postWrapper} key={index}>
+        {postData.map((item: GetPostDetailProps) => (
+          <div key={item.postId} className={styles.postWrapper}>
             <PostArticle
               postId={item.postId}
               userInfo={item.writerInfo}

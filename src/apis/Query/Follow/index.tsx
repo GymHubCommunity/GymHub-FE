@@ -15,11 +15,11 @@ interface followIdProp {
   followId: number;
 }
 
-interface lastIdProp {
+export interface lastIdProp {
   lastId: number;
 }
 
-interface getFollowingsProps {
+export interface getFollowingsProps {
   hasNext: boolean;
   follows: {
     id: number;
@@ -89,7 +89,7 @@ function useGetFollowings(memberId: number) {
     hasNextPage: nextFollowings,
     fetchNextPage: fetchNextFollowing,
   } = useInfiniteQuery({
-    queryKey: ['followings'],
+    queryKey: ['followings', memberId],
     queryFn: ({ pageParam: lastId }) => getFollowings({ lastId }),
     initialPageParam: -1,
     select: (data) => ({
@@ -146,11 +146,13 @@ function useGetPending() {
  * 팔로우 요청 보내기 POST
  */
 function usePostFollow({ memberId }: memberIdProp) {
+  const queryClient = useQueryClient();
   const { mutate: postFollow } = useMutation({
     mutationFn: () => {
       return instance.post(`/members/${memberId}/follow`);
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['followers'] });
       return toast.success('팔로우 요청');
     },
     onError: () => {
@@ -171,6 +173,7 @@ function usePostUnfollow({ memberId }: memberIdProp) {
       return instance.post(`/members/${memberId}/unfollow`);
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['followers'] });
       queryClient.invalidateQueries({ queryKey: ['pending'] });
       return toast.success('팔로우 취소');
     },

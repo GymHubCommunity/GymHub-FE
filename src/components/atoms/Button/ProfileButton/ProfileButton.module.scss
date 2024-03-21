@@ -4,10 +4,35 @@
 .button {
   width: 90%;
   padding: 8px 10px;
-  background: $darkGray500;
+
   border-radius: 6px;
   font-size: 1.3rem;
   font-weight: $medium;
-  color: $gray300;
   text-align: center;
+  color: $gray300;
+  background: $darkGray500;
+}
+
+.follow {
+  width: 90%;
+  padding: 8px 10px;
+
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: $medium;
+  text-align: center;
+  color: $story;
+  background: $greenNeon100;
+}
+
+.followCancel {
+  width: 90%;
+  padding: 8px 10px;
+
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: $medium;
+  text-align: center;
+  color: $gray600;
+  background: $darkGray650;
 }
