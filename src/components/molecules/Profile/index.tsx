@@ -22,10 +22,11 @@ function Profile({
   userId,
   isUser,
 }: ProfileProps) {
-  console.log(isUser);
+  // 로그인 유저면 해당 로그인 유저의 API, 그렇지 않으면 다른 유저의 API
   const { followers } = useGetFollowers(isUser ? userId : memberId);
   const { followings } = useGetFollowings(isUser ? userId : memberId);
 
+  // 로그인한 유저의 API
   const { followings: following } = useGetFollowings(userId);
 
   const isFollow = following?.pages.map((val) => val.memberId === memberId)[0];
