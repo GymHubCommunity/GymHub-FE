@@ -6,7 +6,9 @@ import { useEffect } from 'react';
 
 function Home() {
   const router = useRouter();
-  const accessToken = localStorage.getItem('accessToken');
+
+  const accessToken =
+    typeof window !== 'undefined' ? localStorage.getItem('accesstoken') : null;
 
   useEffect(() => {
     if (!accessToken) {
