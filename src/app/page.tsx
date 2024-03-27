@@ -1,19 +1,20 @@
 'use client';
 
-import Footer from '@/components/organisms/Footer';
 import MainSection from '@/components/organisms/MainSection';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 function Home() {
   const router = useRouter();
+  const accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
       router.push('/signin');
     }
   }, []);
+
+  if (!accessToken) return;
 
   return (
     <>
