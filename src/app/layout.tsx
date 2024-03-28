@@ -1,9 +1,9 @@
 import METADATA from '@/constants/metaData';
+import Providers from '@/providers';
 import '@/styles/globalStyle.scss';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
-import Providers from '@/providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL(METADATA.URL),
@@ -45,6 +45,10 @@ function RootLayout({ children }: { children: Readonly<ReactNode> }) {
   return (
     <html lang="ko">
       <head>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <meta
           name="naver-site-verification"
           content="a891c3b0994e59e64ba7393a7644c2979b797bb5"
