@@ -37,3 +37,14 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/auth/callback',
+        destination: '/app/api/auth/callback',
+      },
+    ];
+  },
+};
