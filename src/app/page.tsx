@@ -7,16 +7,12 @@ import { useEffect } from 'react';
 function Home() {
   const router = useRouter();
 
-  const accessToken =
-    typeof window !== 'undefined' ? localStorage.getItem('accesstoken') : null;
-
   useEffect(() => {
+    const accessToken = localStorage.getItem('accesstoken');
     if (!accessToken) {
       router.push('/signin');
     }
   }, []);
-
-  if (!accessToken) return;
 
   return (
     <>
